@@ -1,0 +1,38 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar-custom {
+  background-color: #000000/*#E03A3E;*/
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  /*color: rgba(255,255,255,.8);*/
+  color: rgba(255,213,32,.8);
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link,
+.navbar-custom .nav-item.active .nav-link {
+  /*color: rgba(255,255,255,1);*/
+  color: rgba(255,213,32,1);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item:hover .nav-link {
+  /*color: #ffffff;*/
+  color: rgba(255,213,32,.8);
+}
+
+.container {
+  margin-top: 30px;
+  padding-bottom: 30px;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  color: #E03A3E;
+  border-bottom: 1px solid black;
+}
+
+a, a:hover {
+  color: #E03A3E;
+}
