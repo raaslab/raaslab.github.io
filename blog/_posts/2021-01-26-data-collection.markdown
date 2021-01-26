@@ -5,6 +5,8 @@ date:   2021-01-26 15:20:00 -0500
 categories: UAVs
 ---
 
+Back to blog posts: [Blogs](http://raaslab.org/blog/)
+
 The reason that you are here as the reader is to understand something about gathering data using drones. Well starting off many of you might be wondering am I even qualified to talk on the subject or am I just talking out of my... mouth.
 
 Well some of my technical background is that I am a PhD student in computer engineering at Virginia Polytechnic State Institute, Virginia Tech for short. All of my research has been on autonomous robots, specifically UGVs and UAVs. Those are Unmanned Ground Vehicle and Unmanned Aerial Vehicle, respectively of course. I've worked on so many different projects that I'm sure I won't be able to list them all, but a few are point coverage using a team of UGV and UAV with the UAV having a limited battery life, a bat sonar project, coverage using a team of UGV and UAV, plume detection, agricultural monitoring, safety constrained UAVs, SLAM projects, bridge inspection, and probably more. Now for each of these projects I've done some sort of data collection using UAVs. I've flow UAVs indoors, outdoors, without GPS, without line of sight, the list goes on. Now with all of that I've also crashed UAVs... that comes with fixing them. Hopefully that convinced you to continue to read, but it also might have made you so board that you left the page.
