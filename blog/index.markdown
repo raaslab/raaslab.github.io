@@ -5,6 +5,10 @@
 layout: home
 ---
 
+# Welcome
+
+**Hello world**, this is my first Jekyll blog post.
+
 <ul>
   {% for post in site.posts %}
     <li>
