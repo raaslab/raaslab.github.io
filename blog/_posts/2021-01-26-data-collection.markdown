@@ -3,9 +3,12 @@ layout: post
 title:  "How to Collect Data!"
 date:   2021-01-26 15:20:00 -0500
 categories: UAVs
+author: "Kevin Yu"
 ---
 
 Back to blog posts: [Blogs](http://raaslab.org/blog/)
+
+Check out my personal website at [Google site](https://sites.google.com/view/kevinlyu/home)
 
 The reason that you are here as the reader is to understand something about gathering data using drones. Well starting off many of you might be wondering am I even qualified to talk on the subject or am I just talking out of my... mouth.
 
