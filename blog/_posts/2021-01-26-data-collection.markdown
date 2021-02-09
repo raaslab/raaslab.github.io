@@ -58,7 +58,7 @@ When doing experiments record every run, even the ones that weren't meant to get
 For me one of the biggest things I regret not doing is not taking enough video and pictures. Now it is true that you can show people the data to show how well something went, but being able to give someone a video is by far the most impactful.
 
 <video width="400" controls="controls"> <source src="/vids/video1.mp4"> </video>
-<video width="525" controls="controls"> <source src="/vids/video6.mp4"> </video>
+<video width="530" controls="controls"> <source src="/vids/video6.mp4"> </video>
 
 <h2>After the trip</h2>
 After you come back from your outdoor experiments you need to process the data. You should have processed part of it in the field and by this I mean look to see that the data is there, make sure that the data is readable, and some common sense things like the time stamps are going forward in time.
