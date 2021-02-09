@@ -65,6 +65,17 @@ After you come back from your outdoor experiments you need to process the data. 
 
 Go ahead and process the data and see what was missed. If your data turned out great and you don't need to go out again then congratulations you're done and you can go home happy. If your data isn't what you wanted then start to plan your next trip. Make sure you add these problems to your plane of action and checklist so that you don't forget next time! With that everything should be done for field experiments. Feel free to change your data collection trips to your needs and use this as a guide line, but in all don't be afraid to fail and know that you might have to do your experiments multiple times so planning for that might be helpful as well.
 
+<h2>Key Takeaways</h2?>
+Here are some key takeaways for how to collect data with UAVs!
+1. Focus on having a UAV that is modular and can be easily fixed. Plan in your budget for parts breaking, have spare parts around, or make sure that you can pay to have someone else fix it.
+2. Have sensor suites that benefit the end goal. Make sure your sensors collect all the data you need and more if possible. You never know when you might want to expand on your project.
+3. Have a check list and plan of action before going out. Most importantly have a plan for if everything goes wrong. Most people can plan for if everything goes right, but I would argue that it is more important to plan for the worst case scenario.
+4. Collect all data from all sensors and more. If you can't get someone else out there with you to help record videos and take pictures, buy a tripod and set that up to record your work. Having at least one extra video of your work can help you recall what you did that day and is cool to show off.
+5. It's best to process data as soon as possible. Expect your experiments to be done when you have finished processing the data not just collecting it.
+6. Update all of your records, lists, and plans if needed and repeat.
+
+Remember that data collection and experiments are a lot of work and may need to be done multiple times. At first it maybe hard to get off your chair, but learn to embrace it. Like publicity, any data is good data, "bad" or "good".
+
 <h2>About the Author</h2>
 ![Kevin Yu](/img/kevin.jpg "Kevin Yu")
 My name is Kevin Yu and I am a PhD student currently looking for a job at the time of writing this blog. I like to climb, play tennis and ski. I've done many sports in my lifetime like soccer, equestrian, cross country running, swimming and more. I am trying to learn how to snowboard this year. Turns out it's harder than it looks.
