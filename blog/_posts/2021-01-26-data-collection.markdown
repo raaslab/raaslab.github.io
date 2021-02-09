@@ -58,14 +58,14 @@ When doing experiments record every run, even the ones that weren't meant to get
 For me one of the biggest things I regret not doing is not taking enough video and pictures. Now it is true that you can show people the data to show how well something went, but being able to give someone a video is by far the most impactful.
 
 <video width="400" controls="controls"> <source src="/vids/video1.mp4"> </video>
-<video width="400" controls="controls"> <source src="/vids/video6.mp4"> </video>
+<video width="500" controls="controls"> <source src="/vids/video6.mp4"> </video>
 
 <h2>After the trip</h2>
 After you come back from your outdoor experiments you need to process the data. You should have processed part of it in the field and by this I mean look to see that the data is there, make sure that the data is readable, and some common sense things like the time stamps are going forward in time.
 
 Go ahead and process the data and see what was missed. If your data turned out great and you don't need to go out again then congratulations you're done and you can go home happy. If your data isn't what you wanted then start to plan your next trip. Make sure you add these problems to your plane of action and checklist so that you don't forget next time! With that everything should be done for field experiments. Feel free to change your data collection trips to your needs and use this as a guide line, but in all don't be afraid to fail and know that you might have to do your experiments multiple times so planning for that might be helpful as well.
 
-<h2>Key Takeaways</h2?>
+<h2>Key Takeaways</h2>
 Here are some key takeaways for how to collect data with UAVs!
 1. Focus on having a UAV that is modular and can be easily fixed. Plan in your budget for parts breaking, have spare parts around, or make sure that you can pay to have someone else fix it.
 2. Have sensor suites that benefit the end goal. Make sure your sensors collect all the data you need and more if possible. You never know when you might want to expand on your project.
