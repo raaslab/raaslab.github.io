@@ -11,7 +11,6 @@ Back to blog posts: [Blogs](http://raaslab.org/blog/)
 Check out my personal website at [Google site](https://sites.google.com/view/kevinlyu/home)
 
 ![kentland](/img/kentland.jpg "kentland")
-<!-- ![out-door-work](/img/out-door-work.jpg "out-door-work") -->
 
 
 The reason that you are here as the reader is to understand something about gathering data using drones. Well starting off many of you might be wondering am I even qualified to talk on the subject or am I just talking out of my... mouth.
@@ -52,11 +51,14 @@ Lastly have a plan of action. Understand what you want to get and how to get the
 <h2>Data Collection</h2>
 Getting out to the field get everyone together and go over the game plan. Then remember your checklist and plan of action and everything should go pretty smoothly. Great we have our UAV and our sensors needed to collect the data, now we have to get the data. I think the biggest take away that I have learned from my PhD is that all data is good data. Come up with a good naming scheme for all of your data first. I think a really great way of doing this is having one external hard drive for each of your projects. This way you can transport data to any system. However this does come with the drawback that you might loose the data because you loose the hard drive. So with that you can always back up your data on a server, but I think it's best that you don't do things locally on your computer. This leads to different sets of data, duplicates, and if you work with software different versions that may or may not work when merged. Overall the idea is to have a system in place that allows you to keep all your data in one place, easily accessible from multiple locations and machines, and doesn't get messy overtime. Spending extra time on this early will really save you in headache down the line.
 
+![bridge](/img/bridge.jpg "bridge")
+
 When doing experiments record every run, even the ones that weren't meant to get any data. Record all data! This way you always have extra data when you might need it and it will help prevent you from having to go out more. Execute the experiments that you wanted to do and then check the data. When checking the data it's best to see if the data is able to be reproduced multiple times and if you can see it after the fact. Data isn't helpful if you can't use it later. Also it is helpful to take into account the conditions of the day. For instance if it's cold, if it's windy, if it's sunny, how many people were there, was there radio interference, and more. You should gather enough data to recreate that day later on in the future.
 
 For me one of the biggest things I regret not doing is not taking enough video and pictures. Now it is true that you can show people the data to show how well something went, but being able to give someone a video is by far the most impactful.
 
-![bridge](/img/bridge.jpg "bridge")
+<video width="400" controls="controls"> <source src="/vids/video1.mp4"> </video>
+<video width="400" controls="controls"> <source src="/vids/video6.mp4"> </video>
 
 <h2>After the trip</h2>
 After you come back from your outdoor experiments you need to process the data. You should have processed part of it in the field and by this I mean look to see that the data is there, make sure that the data is readable, and some common sense things like the time stamps are going forward in time.
