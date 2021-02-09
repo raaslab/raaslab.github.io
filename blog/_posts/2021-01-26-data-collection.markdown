@@ -11,7 +11,7 @@ Back to blog posts: [Blogs](http://raaslab.org/blog/)
 Check out my personal website at [Google site](https://sites.google.com/view/kevinlyu/home)
 
 ![kentland](/img/kentland.jpg "kentland")
-![out-door-work](/img/out-door-work.jpg "out-door-work")
+<!-- ![out-door-work](/img/out-door-work.jpg "out-door-work") -->
 
 
 The reason that you are here as the reader is to understand something about gathering data using drones. Well starting off many of you might be wondering am I even qualified to talk on the subject or am I just talking out of my... mouth.
@@ -20,6 +20,8 @@ Well some of my technical background is that I am a PhD student in computer engi
 
 <h2>Life of a UAV</h2>
 For data collection we need something to collect it with. We could use the standard 5 senses and have a human do all the work or we could use UAVs! So in the interest of this blog post we'll use UAVs.
+
+<video width="600" controls="controls"> <source src="{{ site.my-media-path }}/myvideo.mp4"> </video>
 
 To start off we need to build a UAV. When building your UAV there are a few approaches that can be taken: buying a prebuilt UAV, fabricating the UAV from scratch and a mixture of the two. When buying a prebuilt system I start by investigating the company. This can take many forms such as looking at the website, contacting customer service, going into a store, and asking others who have used their product. I have always believed that anything you buy has a chance to have a problem. I never really cared if I got a product that was faulty or that had some defects, but I did care how a company handled the situation. If the company helps to fix the problem or rectify the mistake then I think all is good. This is mainly because I believe that everything has a chance of failure and it's not how the company acts when everything is perfect, but when everything goes wrong. So first and foremost it's how the company handles it's customers that I care about.
 
