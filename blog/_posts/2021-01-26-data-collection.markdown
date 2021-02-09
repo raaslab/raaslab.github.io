@@ -9,15 +9,14 @@ author: "Kevin Yu"
 Back to blog posts: [Blogs](http://raaslab.org/blog/)
 
 Check out my personal website at [Google site](https://sites.google.com/view/kevinlyu/home)
-![ Yu](/img/kevin.jpg "Kevin Yu")
+
+![kentland](/img/kentland.jpg "kentland")
+![out-door-work](/img/out-door-work.jpg "out-door-work")
+
 
 The reason that you are here as the reader is to understand something about gathering data using drones. Well starting off many of you might be wondering am I even qualified to talk on the subject or am I just talking out of my... mouth.
 
 Well some of my technical background is that I am a PhD student in computer engineering at Virginia Polytechnic State Institute, Virginia Tech for short. All of my research has been on autonomous robots, specifically UGVs and UAVs. Those are Unmanned Ground Vehicle and Unmanned Aerial Vehicle, respectively of course. I've worked on so many different projects that I'm sure I won't be able to list them all, but a few are point coverage using a team of UGV and UAV with the UAV having a limited battery life, a bat sonar project, coverage using a team of UGV and UAV, plume detection, agricultural monitoring, safety constrained UAVs, SLAM projects, bridge inspection, and probably more. Now for each of these projects I've done some sort of data collection using UAVs. I've flow UAVs indoors, outdoors, without GPS, without line of sight, the list goes on. Now with all of that I've also crashed UAVs... that comes with fixing them. Hopefully that convinced you to continue to read, but it also might have made you so board that you left the page.
-
-
-
-
 
 <h2>Life of a UAV</h2>
 For data collection we need something to collect it with. We could use the standard 5 senses and have a human do all the work or we could use UAVs! So in the interest of this blog post we'll use UAVs.
@@ -34,7 +33,9 @@ For me most of my projects took the third approach, which is buying the parts an
 
 
 <h2>Sensors for days</h2>
-Now that you have your UAV it should be equipped with some sensors. Those sensors are your eyes, ears, finger, mouth, nose, and even more. Since I'm not an expert in whatever you're doing I can't comment on it, but for some of my projects I can give you examples of the sensors I use. For bridge inspection I use a 3D LiDAR and RGB stereo camera. For mining inspection LiDAR and RGB stereo camera. For most of my work it's just LiDAR and RGB camera, but for your work it might be different. For instance I worked with someone who was doing plume detection and there was a problem withe LiDAR being used for altitude estimation. Since the water surface absorbed the LiDAR there was not an accurate representation of the height so the UAV would actually crash into the water if we didn't intervene. So as the subject matter expert you as the reader are responsible for knowing what sensors will and will not work for your case.
+Now that you have your UAV it should be equipped with some sensors. Those sensors are your eyes, ears, finger, mouth, nose, and even more. Since I'm not an expert in whatever you're doing I can't comment on it, but for some of my projects I can give you examples of the sensors I use. For bridge inspection I use a 3D LiDAR and RGB stereo camera. For mining inspection LiDAR and RGB stereo camera. For most of my work it's just LiDAR and RGB camera, but for your work it might be different. For instance I worked with someone who was doing plume detection and there was a problem with LiDAR being used for altitude estimation. Since the water surface absorbed the LiDAR there was not an accurate representation of the height so the UAV would actually crash into the water if we didn't intervene. So as the subject matter expert you as the reader are responsible for knowing what sensors will and will not work for your case.
+
+![drone](/img/drone.jpg "drone")
 
 When picking out your sensors keep in mind the data you want to collect and the purpose of the project. If you want to create a cheap alternative it better be cheap. If you want to create a system that could last for years it better have state of the art equipment or easily upgradable. Think of the current situation you are in, but also think of being able to upgrade your system. In research it is guaranteed that a new sensor will come out next year. It is guaranteed that someone else who is doing something similar to you could be using another sensor suite. At the end of the day you need to stick to your guns and be confident in the choices you make. Now some of this needs to be thought of while making the UAV because the sensors directly impact the flight time of the UAV and stability. Once again don't be afraid to fail because that will also happen and if you never failed then you never tried hard enough. When building your UAV make sure that your sensors are placed in specific locations that actually collect data.
 
@@ -53,10 +54,13 @@ When doing experiments record every run, even the ones that weren't meant to get
 
 For me one of the biggest things I regret not doing is not taking enough video and pictures. Now it is true that you can show people the data to show how well something went, but being able to give someone a video is by far the most impactful.
 
+![bridge](/img/bridge.jpg "bridge")
+
 <h2>After the trip</h2>
 After you come back from your outdoor experiments you need to process the data. You should have processed part of it in the field and by this I mean look to see that the data is there, make sure that the data is readable, and some common sense things like the time stamps are going forward in time.
 
 Go ahead and process the data and see what was missed. If your data turned out great and you don't need to go out again then congratulations you're done and you can go home happy. If your data isn't what you wanted then start to plan your next trip. Make sure you add these problems to your plane of action and checklist so that you don't forget next time! With that everything should be done for field experiments. Feel free to change your data collection trips to your needs and use this as a guide line, but in all don't be afraid to fail and know that you might have to do your experiments multiple times so planning for that might be helpful as well.
 
 <h2>About the Author</h2>
+![Kevin Yu](/img/kevin.jpg "Kevin Yu")
 My name is Kevin Yu and I am a PhD student currently looking for a job at the time of writing this blog. I like to climb, play tennis and ski. I've done many sports in my lifetime like soccer, equestrian, cross country running, swimming and more. I am trying to learn how to snowboard this year. Turns out it's harder than it looks.
