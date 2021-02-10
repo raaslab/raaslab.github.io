@@ -34,7 +34,7 @@ plugins:
 
 baseurl: "/blog"
 
-excerpt_separator: <!--excerpt-->
+excerpt_separator: <!--more-->
 
 # Exclude from processing.
 # The following items will not be processed, by default.
