@@ -17,6 +17,8 @@ The reason that you are here as the reader is to understand something about gath
 
 Well some of my technical background is that I am a PhD student in computer engineering at Virginia Polytechnic State Institute, Virginia Tech for short. All of my research has been on autonomous robots, specifically UGVs and UAVs. Those are Unmanned Ground Vehicle and Unmanned Aerial Vehicle, respectively of course. I've worked on so many different projects that I'm sure I won't be able to list them all, but a few are point coverage using a team of UGV and UAV with the UAV having a limited battery life, a bat sonar project, coverage using a team of UGV and UAV, plume detection, agricultural monitoring, safety constrained UAVs, SLAM projects, bridge inspection, and probably more. Now for each of these projects I've done some sort of data collection using UAVs. I've flow UAVs indoors, outdoors, without GPS, without line of sight, the list goes on. Now with all of that I've also crashed UAVs... that comes with fixing them. Hopefully that convinced you to continue to read, but it also might have made you so board that you left the page.
 
+<!--excerpt-->
+
 <h2>Life of a UAV</h2>
 For data collection we need something to collect it with. We could use the standard 5 senses and have a human do all the work or we could use UAVs! So in the interest of this blog post we'll use UAVs.
 
