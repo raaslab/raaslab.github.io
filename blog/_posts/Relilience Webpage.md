@@ -57,8 +57,7 @@ summarized as follows:
     losing one node, recover to the 2-connected state with minimum maximum
     travel distance (time). An algorithm based on Block-Cut-Tree was proposed.
 
-    ![Shape, polygon Description automatically
-    generated](media/78da7c9ccbe7d80d4544b3a2ed32dfe0.PNG)
+    ![rw_fbr](/img/rw_fbr.PNG "rw_fbr")
 
     **Fast Biconnectivity Restoration in Multi-Robot Systems for Robust
     Communication Maintenance.** G. Shi, I. E Rabban, P. Tokekar**.**
