@@ -1,4 +1,4 @@
-Our recent contributions cover different aspects of resilience and can be
+Our edit recent contributions cover different aspects of resilience and can be
 summarized as follows:
 
 -   **Withstanding attacks** - We consider multi-robot optimization tasks
