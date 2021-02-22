@@ -42,7 +42,9 @@ summarized as follows:
         worst-case attacks is proposed and is shown to have constant
         approximation bound.
         
-        ![Robust MultiPath Orienteering](/img/rw_gp.PNG){ width=50% }
+        ![Robust MultiPath Orienteering](/img/rw_gp.PNG)
+        <img src="/img/rw_gp.PNG" width="200" height="200" />
+
 
         **Robust Multiple-Path Orienteering Problem: Securing Against
         Adversarial Attacks**. G. Shi, L. Zhou, P. Tokekar. *Robotics: Science
