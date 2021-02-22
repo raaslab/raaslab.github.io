@@ -21,7 +21,7 @@ summarized as follows:
             ![Resilient Persistent Monitoring with OrG-U-I
             Algorithm](media/9edaaf12c26e367967b374c1360ec8b9.jpg)
             
-            [![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/StTqXEQ2l-Y?t=35s "Everything Is AWESOME")
+            [![Persistent Monitoring](/img/rw_pm.png)](https://youtu.be/XdQ5h5aOMAA?t=0s "Persistent Monitoring")
 
             **Failure-Resilient Coverage Maximization with Multiple Robots.** I.
             E Rabban, P. Tokekar. *International Conference on Robotics and
@@ -45,7 +45,7 @@ summarized as follows:
         worst-case attacks is proposed and is shown to have constant
         approximation bound.
         
-        ![rw_gp](/img/rw_gp.PNG "rw_gp")
+        ![Robust MultiPath Orienteering](/img/rw_gp.PNG "rw_gp")
 
         **Robust Multiple-Path Orienteering Problem: Securing Against
         Adversarial Attacks**. G. Shi, L. Zhou, P. Tokekar. *Robotics: Science
@@ -57,7 +57,7 @@ summarized as follows:
     losing one node, recover to the 2-connected state with minimum maximum
     travel distance (time). An algorithm based on Block-Cut-Tree was proposed.
 
-    ![rw_fbr](/img/rw_fbr.PNG "rw_fbr")
+    ![Fast Biconnectivity Restoration](/img/rw_fbr.PNG "rw_fbr")
 
     **Fast Biconnectivity Restoration in Multi-Robot Systems for Robust
     Communication Maintenance.** G. Shi, I. E Rabban, P. Tokekar**.**
