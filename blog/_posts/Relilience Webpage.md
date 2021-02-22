@@ -44,9 +44,8 @@ summarized as follows:
         the *N* robots may fail. An offline approximation algorithm against the
         worst-case attacks is proposed and is shown to have constant
         approximation bound.
-
-        ![Diagram Description automatically
-        generated](media/d2355a7a20992f878cef74dd94c03776.PNG)
+        
+        ![rw_gp](/img/rw_gp.PNG "rw_gp")
 
         **Robust Multiple-Path Orienteering Problem: Securing Against
         Adversarial Attacks**. G. Shi, L. Zhou, P. Tokekar. *Robotics: Science
