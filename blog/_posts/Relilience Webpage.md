@@ -20,9 +20,11 @@ summarized as follows:
             
             
             
-            <iframe src="https://www.youtube.com/watch?v=XdQ5h5aOMAA&t=0s"
-               width="560" height="315" frameborder="0" allowfullscreen>
-               </iframe>
+  
+               
+               <div align="center">
+  <a href="https://www.youtube.com/watch?v=XdQ5h5aOMAA"><img src="https://img.youtube.com/vi/XdQ5h5aOMAA/0.jpg" alt="IMAGE ALT TEXT"></a>
+</div>
           
             
 
