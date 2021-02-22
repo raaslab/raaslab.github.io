@@ -42,7 +42,7 @@ summarized as follows:
         worst-case attacks is proposed and is shown to have constant
         approximation bound.
         
-        ![Robust MultiPath Orienteering](/img/rw_gp.PNG)
+        ![Robust MultiPath Orienteering](/img/rw_gp.PNG =100x)
 
         **Robust Multiple-Path Orienteering Problem: Securing Against
         Adversarial Attacks**. G. Shi, L. Zhou, P. Tokekar. *Robotics: Science
@@ -54,7 +54,7 @@ summarized as follows:
     losing one node, recover to the 2-connected state with minimum maximum
     travel distance (time). An algorithm based on Block-Cut-Tree was proposed.
 
-    ![Fast Biconnectivity Restoration](/img/rw_fbr.PNG "rw_fbr")
+    ![Fast Biconnectivity Restoration](/img/rw_fbr.PNG)
 
     **Fast Biconnectivity Restoration in Multi-Robot Systems for Robust
     Communication Maintenance.** G. Shi, I. E Rabban, P. Tokekar**.**
