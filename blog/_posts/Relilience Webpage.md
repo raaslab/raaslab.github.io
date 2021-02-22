@@ -25,6 +25,8 @@ summarized as follows:
              </body>
             </html>
             
+            img src="/img/rw_fbr.PNG" width="400" height="400" /
+            [![Persistent Monitoring](img src="/img/rw_fbr.PNG" width="400" height="400" /)](https://youtu.be/XdQ5h5aOMAA?t=0s "Persistent Monitoring")
             
             [![Persistent Monitoring](/img/rw_pm.png)](https://youtu.be/XdQ5h5aOMAA?t=0s "Persistent Monitoring")
 
