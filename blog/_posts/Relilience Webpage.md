@@ -20,6 +20,8 @@ summarized as follows:
 
             ![Resilient Persistent Monitoring with OrG-U-I
             Algorithm](media/9edaaf12c26e367967b374c1360ec8b9.jpg)
+            
+            [![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/StTqXEQ2l-Y?t=35s "Everything Is AWESOME")
 
             **Failure-Resilient Coverage Maximization with Multiple Robots.** I.
             E Rabban, P. Tokekar. *International Conference on Robotics and
