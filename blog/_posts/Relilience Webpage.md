@@ -18,7 +18,7 @@ summarized as follows:
             evaluate the performance of our proposed algorithms on the
             persistent monitoring task as shown in the following video.
             
-            [![Persistent Monitoring](/img/rw_pm.png =300x200)](https://youtu.be/XdQ5h5aOMAA?t=0s "Persistent Monitoring")
+            [![Persistent Monitoring](/img/rw_pm.png)](https://youtu.be/XdQ5h5aOMAA?t=0s "Persistent Monitoring")
 
             **Failure-Resilient Coverage Maximization with Multiple Robots.** I.
             E Rabban, P. Tokekar. *International Conference on Robotics and
