@@ -45,8 +45,9 @@ summarized as follows:
         worst-case attacks is proposed and is shown to have constant
         approximation bound.
         
-        
-        <img src="/img/rw_gp.PNG" width="600" height="250" />
+        <div align="center">
+            <img src="/img/rw_gp.PNG" width="600" height="250" />
+        </div>
 
 
         **Robust Multiple-Path Orienteering Problem: Securing Against
@@ -59,7 +60,9 @@ summarized as follows:
     losing one node, recover to the 2-connected state with minimum maximum
     travel distance (time). An algorithm based on Block-Cut-Tree was proposed.
 
-    <img src="/img/rw_fbr.PNG" width="400" height="400" />
+    <div align="center">
+        <img src="/img/rw_fbr.PNG" width="400" height="400" />
+    </div>
 
 
     **Fast Biconnectivity Restoration in Multi-Robot Systems for Robust
