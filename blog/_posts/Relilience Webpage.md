@@ -22,7 +22,7 @@ summarized as follows:
             
   
                
-               <div>
+               <div align="center">
   <a href="https://www.youtube.com/watch?v=XdQ5h5aOMAA"><img src="https://img.youtube.com/vi/XdQ5h5aOMAA/0.jpg" alt="IMAGE ALT TEXT"></a>
 </div>
           
