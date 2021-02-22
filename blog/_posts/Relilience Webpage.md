@@ -17,11 +17,8 @@ summarized as follows:
             strategy, which outperform the existing algorithms. We empirically
             evaluate the performance of our proposed algorithms on the
             persistent monitoring task as shown in the following video.
-
-            ![Resilient Persistent Monitoring with OrG-U-I
-            Algorithm](media/9edaaf12c26e367967b374c1360ec8b9.jpg)
             
-            [![Persistent Monitoring](/img/rw_pm.png)](https://youtu.be/XdQ5h5aOMAA?t=0s "Persistent Monitoring")
+            [![Persistent Monitoring](/img/rw_pm.png =300x200)](https://youtu.be/XdQ5h5aOMAA?t=0s "Persistent Monitoring")
 
             **Failure-Resilient Coverage Maximization with Multiple Robots.** I.
             E Rabban, P. Tokekar. *International Conference on Robotics and
