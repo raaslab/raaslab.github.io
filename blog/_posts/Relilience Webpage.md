@@ -18,16 +18,10 @@ summarized as follows:
             evaluate the performance of our proposed algorithms on the
             persistent monitoring task as shown in the following video.
             
-            
-            
-  
-               
-               <div align="center">
-  <a href="https://www.youtube.com/watch?v=XdQ5h5aOMAA"><img src="https://img.youtube.com/vi/XdQ5h5aOMAA/0.jpg" alt="IMAGE ALT TEXT"></a>
-</div>
-          
-            
-
+            <div align="center">
+                <a href="https://www.youtube.com/watch?v=XdQ5h5aOMAA"><img src="https://img.youtube.com/vi/XdQ5h5aOMAA/0.jpg" alt="IMAGE ALT TEXT"></a>
+            </div>
+        
 
             **Failure-Resilient Coverage Maximization with Multiple Robots.** I.
             E Rabban, P. Tokekar. *International Conference on Robotics and
