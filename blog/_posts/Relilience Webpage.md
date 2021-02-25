@@ -1,3 +1,13 @@
+---
+layout: post
+title:  "Resilient Multi-Robot Coordination"
+date:   2021-02-25 15:20:00 -0500
+categories: multi-robot
+author: "Ishat Rabban"
+---
+
+Back to blog posts: [Blogs](http://raaslab.org/blog/)
+
 Our recent contributions cover different aspects of resilience and can be
 summarized as follows:
 
