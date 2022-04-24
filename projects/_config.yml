@@ -33,7 +33,7 @@ theme: jekyll-theme-slate
 plugins:
   - jekyll-feed
 
-baseurl: "/blog"
+baseurl: "/projects"
 
 excerpt_separator: "<!--more-->"
 
