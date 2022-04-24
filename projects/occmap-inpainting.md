@@ -4,10 +4,18 @@ title:  "Occupancy Map Prediction for Improved Indoor Robot Navigation"
 # date:   2022-04-24 01:00:00 -0500
 # author: "Vishnu Sharma"
 ---
+<p align="center" style="font-size:28pt"><strong>Occupancy Map Prediction for Improved Indoor Robot Navigation</strong></p>
+
 <div align="center" markdown="1" style="justify-content:space-between;">
 [Vishnu Dutt Sharma](https://vishnuduttsharma.github.io/), [Jingxi Chen](https://codingrex.github.io/), [Abhinav Shrivastava](http://www.cs.umd.edu/~abhinav/), [Pratap Tokekar](https://tokekar.com/) \\
 [University of Maryland - College Park](https://umd.edu/)
 </div>
+
+<video width="99%" height="540" autoplay loop muted>
+	<source src="../vids/projects/occmap_normal_video.mp4">
+	<source src="../vids/projects/occmap_gt_video.mp4">
+	<source src="../vids/projects/occmap_gan_video.mp4">
+</video>
 
 <center>
 <p style="font-size:24pt">Abstract</p>
@@ -21,19 +29,27 @@ In the typical path planning pipeline for a ground robot, we build a map (e.g., 
 
 We use UNet<sup>[1]</sup> and pix2pix<sup>[2]</sup> as inpainting networks, trained on an effeicent data collection strategy that emulated presence of additional cameras on the robot.
 
-![Robot Setup](../img/projects/occmap_robot_config.png "Top view of the robot setup")
-![Overview](/img/projects/occmap_overview.png "Overview of the proposed approach. We take the input view from the left and right sides of the robot looking towards the region of interest. The inpainting network is trained by using the occupancy from the center camera only, and the combined map from the three cameras acts as the ground truth")
+<div align="center" markdown="1" style="justify-content:space-between;">
+<img src="../img/projects/occmap_robot_config.png" alt="Top view of the robot setup" width="250"/>  <img src="../img/projects/occmap_overview.png" alt="Overview of the proposed approach. We take the input view from the left and right sides of the robot looking towards the region of interest. The inpainting network is trained by using the occupancy from the center camera only, and the combined map from the three cameras acts as the ground truth" width="650"/>
 
+*Overview of the proposed approach. We take the input view from the left and right sides of the robot looking towards the region of interest. The inpainting network is trained by using the occupancy from the center camera only, and the combined map from the three cameras acts as the ground truth.*
+
+</div>
 
 <center>
 <p style="font-size:24pt">Results</p>
 </center>
 
 Pix2pix achieves a better performance than simple UNet, both qualitatively and quantitatively. Using the inpainting for occupancy map inpainting, the robot is able to naviagte more efficently using a single depth camera only.
-![Results](../img/projects/result_examples.png "A few example results from the models used in our experiemnts")
+
+<div align="center" markdown="1" style="justify-content:space-between;">
+<img src="../img/projects/result_examples.png" alt="A few example results from the models used in our experiemnts"/> 
+
+*A few example predictions from the models used in our experiemnts
+</div>
 
 <center>
-<p style="font-size:24pt">Refrences</p>
+<p style="font-size:24pt">References</p>
 </center>
 [1] Ronneberger, Olaf, Philipp Fischer, and Thomas Brox. "U-net: Convolutional networks for biomedical image segmentation." International Conference on Medical image computing and computer-assisted intervention. Springer, Cham, 2015.
 
