@@ -11,17 +11,13 @@ title:  "Occupancy Map Prediction for Improved Indoor Robot Navigation"
 [University of Maryland - College Park](https://umd.edu/)
 </div>
 
-<video width="99%" height="540" autoplay loop muted>
-	<source src="../vids/projects/occmap_normal_video.mp4">
-	<source src="../vids/projects/occmap_gt_video.mp4">
-	<source src="../vids/projects/occmap_gan_video.mp4">
-</video>
-
 <center>
 <p style="font-size:24pt">Abstract</p>
 </center>
 
 In the typical path planning pipeline for a ground robot, we build a map (e.g., an occupancy grid) of the environment as the robot moves around. While navigating indoors, a ground robot's knowledge about the environment may be limited by the occlusions in its surroundings. Therefore, the map will have many as-yet-unknown regions that may need to be avoided by a conservative planner. Instead, if a robot is able to correctly infer what its surroundings and occluded regions look like, the navigation can be further optimized. In this work, we propose an approach using pix2pix and UNet to infer the occupancy grid in unseen areas near the robot as an image-to-image translation task. Our approach simplifies the task of occupancy map prediction for the deep learning network and reduces the amount of data required compared to similar existing methods. We show that the predicted map improves the navigation time in simulations over the existing approaches.
+
+---
 
 <center>
 <p style="font-size:24pt">Method</p>
@@ -36,6 +32,8 @@ We use UNet<sup>[1]</sup> and pix2pix<sup>[2]</sup> as inpainting networks, trai
 
 </div>
 
+---
+
 <center>
 <p style="font-size:24pt">Results</p>
 </center>
@@ -45,8 +43,18 @@ Pix2pix achieves a better performance than simple UNet, both qualitatively and q
 <div align="center" markdown="1" style="justify-content:space-between;">
 <img src="../img/projects/result_examples.png" alt="A few example results from the models used in our experiemnts"/> 
 
-*A few example predictions from the models used in our experiemnts
+*A few example predictions from the models used in our experiemnts*
 </div>
+
+<video width="33%" autoplay loop muted> <source src="../vids/projects/occmap_normal_video.mp4"> </video>  
+<video width="33%" autoplay loop muted> <source src="../vids/projects/occmap_gt_video.mp4"> </video> 
+<video width="33%" autoplay loop muted> <source src="../vids/projects/occmap_ganl_video.mp4"> </video> 
+
+<div align="center" markdown="1" style="justify-content:space-between;"> 
+*The navigation results with (a) a single camera setup, (b) multi-camera camera setup, and (c) predicting/inpainting the occupancy map from the single camera feed. The inpainting augments the robot's infromation about the environment and helps it move faster.*
+</div>
+
+--- 
 
 <center>
 <p style="font-size:24pt">References</p>
@@ -55,6 +63,7 @@ Pix2pix achieves a better performance than simple UNet, both qualitatively and q
 
 [2] Isola, Phillip, et al. "Image-to-image translation with conditional adversarial networks." Proceedings of the IEEE conference on computer vision and pattern recognition. 2017.
 
+---
 
 <center>
 <p style="font-size:24pt">Citation</p>
