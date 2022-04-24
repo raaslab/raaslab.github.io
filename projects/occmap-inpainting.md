@@ -46,9 +46,9 @@ Pix2pix achieves a better performance than simple UNet, both qualitatively and q
 *A few example predictions from the models used in our experiemnts*
 </div>
 
-<video width="33%" autoplay loop muted> <source src="../vids/projects/occmap_normal_video.mp4"> </video>  
-<video width="33%" autoplay loop muted> <source src="../vids/projects/occmap_gt_video.mp4"> </video> 
-<video width="33%" autoplay loop muted> <source src="../vids/projects/occmap_ganl_video.mp4"> </video> 
+<video width="50%" autoplay loop muted> <source src="../vids/projects/occmap_normal_video.mp4"> </video>  
+<video width="50%" autoplay loop muted> <source src="../vids/projects/occmap_gt_video.mp4"> </video> 
+<video width="50%" autoplay loop muted> <source src="../vids/projects/occmap_gan_video.mp4"> </video> 
 
 <div align="center" markdown="1" style="justify-content:space-between;"> 
 *The navigation results with (a) a single camera setup, (b) multi-camera camera setup, and (c) predicting/inpainting the occupancy map from the single camera feed. The inpainting augments the robot's infromation about the environment and helps it move faster.*
