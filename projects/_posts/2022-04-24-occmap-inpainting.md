@@ -1,8 +1,7 @@
 ---
-layout: project
+layout: projects
 title:  "Occupancy Map Prediction for Improved Indoor Robot Navigation"
 date:   2022-04-24 01:00:00 -0500
-categories: perception, inpainting, aerial robot
 author: "Vishnu Sharma"
 ---
 

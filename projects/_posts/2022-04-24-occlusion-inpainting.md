@@ -1,8 +1,7 @@
 ---
-layout: project
+layout: projects
 title:  "Risk-Aware Path Planning for Ground Vehicles using Occluded Aerial Images"
 date:   2022-04-24 01:00:00 -0500
-categories: perception, inpainting, ground robot
 author: "Vishnu Sharma"
 ---
 
