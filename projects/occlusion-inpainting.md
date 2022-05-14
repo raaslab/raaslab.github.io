@@ -11,6 +11,17 @@ author: "Vishnu Sharma"
 [University of Maryland - College Park](https://umd.edu/)
 </div>
 
+
+<div align="center" style="justify-content:space-between;">
+<a href="https://arxiv.org/pdf/2104.11709.pdf">
+<img src="../img/projects/occlusion_icon.png" style="width: 75px;" alt="PDF"/>
+</a>
+	
+<a href="https://arxiv.org/pdf/2104.11709.pdf">Download PDF</a>
+</div>
+
+---
+
 <center>
 <p style="font-size:24pt">Abstract</p>
 </center>
@@ -53,7 +64,7 @@ Various parts in our fraemwork provide better results than teh traditional appro
 
 ![PathPlannig](/img/projects/occlusion_inpaint_path.png "Comparison of paths predicted for various λs i.e. level of risk-aversion, for the image with occlusions and the inpainted image")
 
-*Comparison of paths predicted for various λs i.e. level of risk-aversion, for the image with occlusions and the inpainted image.*
+*Comparison of paths predicted for various λs i.e. level of risk-aversion, for the image with occlusions and the inpainted image. Cost of navigable and non-navigable regions is 1 and 10, respectively, for all examples.*
 
 ![Surprise](/img/projects/occlusion_surprise_plot.png "Surprise for various λs over original and inpainted images")
 
@@ -66,11 +77,11 @@ Various parts in our fraemwork provide better results than teh traditional appro
 <center>
 <p style="font-size:24pt">Citation</p>
 </center>
-	@article{sharma2022occupancy,
-	  title={Occupancy Map Prediction for Improved Indoor Robot Navigation},
-	  author={Sharma, Vishnu Dutt and Chen, Jingxi and Shrivastava, Abhinav and Tokekar, Pratap},
-	  journal={arXiv preprint arXiv:2203.04177},
-	  year={2022}
+	@article{sharma2021risk,
+	  title={Risk-Aware Path Planning for Ground Vehicles using Occluded Aerial Images},
+	  author={Sharma, Vishnu Dutt and Tokekar, Pratap},
+	  journal={arXiv preprint arXiv:2104.11709},
+	  year={2021}
 	}
 
 
