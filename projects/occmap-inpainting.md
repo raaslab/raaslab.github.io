@@ -11,7 +11,7 @@ title:  "Occupancy Map Prediction for Improved Indoor Robot Navigation"
 [University of Maryland - College Park](https://umd.edu/)
 </div>
 
-<div align="center" style="justify-content:space-between;" class="row>
+<div align="center" style="justify-content:space-between;" class="row">
 <div class="column">  
 <a href="https://arxiv.org/pdf/2104.11709.pdf">
 <img src="../img/projects/occmap_icon.png" style="width: 75px;" alt="PDF"/>
