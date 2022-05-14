@@ -11,6 +11,26 @@ title:  "Occupancy Map Prediction for Improved Indoor Robot Navigation"
 [University of Maryland - College Park](https://umd.edu/)
 </div>
 
+<div align="center" style="justify-content:space-between;" class="row>
+<div class="column">  
+<a href="https://arxiv.org/pdf/2104.11709.pdf">
+<img src="../img/projects/occmap_icon.png" style="width: 75px;" alt="PDF"/>
+</a>
+
+<a href="https://arxiv.org/pdf/2104.11709.pdf">PDF</a>
+</div>
+
+<div class="column">  
+<a href="https://github.com/VishnuDuttSharma/occupancy_prediction">
+<img src="../img/projects/github_icon.png" style="width: 75px;" alt="PDF"/>
+</a>
+
+<a href="https://github.com/VishnuDuttSharma/occupancy_prediction">Code</a>
+</div>									  
+</div>
+
+---
+
 <center>
 <p style="font-size:24pt">Abstract</p>
 </center>
