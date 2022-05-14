@@ -11,23 +11,24 @@ title:  "Occupancy Map Prediction for Improved Indoor Robot Navigation"
 [University of Maryland - College Park](https://umd.edu/)
 </div>
 
-<div align="center" style="justify-content:space-between;" class="row">
-<div class="column">  
-<a href="https://arxiv.org/pdf/2104.11709.pdf">
-<img src="../img/projects/occmap_icon.png" style="width: 75px;" alt="PDF"/>
+<div align="center" style="justify-content:space-between;display:flex">
+<div style="float:left;width:50%">  
+<a href="https://arxiv.org/pdf/2203.04177.pdf">
+<img src="../img/projects/occmap_icon.png" style="width: 70px;" alt="PDF"/>
 </a>
-
-<a href="https://arxiv.org/pdf/2104.11709.pdf">PDF</a>
+<br>
+<a href="https://arxiv.org/pdf/2203.04177.pdf">PDF</a>
 </div>
 
-<div class="column">  
+<div style="float:right;width:50%">  
 <a href="https://github.com/VishnuDuttSharma/occupancy_prediction">
-<img src="../img/projects/github_icon.png" style="width: 75px;" alt="PDF"/>
+<img src="../img/projects/github_icon.png" style="width: 95px;" alt="Code"/>
 </a>
-
+<br>
 <a href="https://github.com/VishnuDuttSharma/occupancy_prediction">Code</a>
 </div>									  
 </div>
+<br>
 
 ---
 
@@ -66,9 +67,25 @@ Pix2pix achieves a better performance than simple UNet, both qualitatively and q
 *A few example predictions from the models used in our experiments*
 </div>
 
-<video width="40%" autoplay loop muted> <source src="../vids/projects/occmap_normal_video.mp4"> </video>  
-<video width="40%" autoplay loop muted> <source src="../vids/projects/occmap_gt_video.mp4"> </video> 
-<video width="40%" autoplay loop muted> <source src="../vids/projects/occmap_gan_video.mp4"> </video> 
+<div style="justify-content:space-between;display:flex">
+<div align="center" width="33%">
+<video autoplay loop muted> <source src="../vids/projects/occmap_normal_video.mp4"></video>
+<br>
+(a)
+</div>
+<div align="center" width="33%">
+<video autoplay loop muted> <source src="../vids/projects/occmap_gt_video.mp4"></video>
+<br>
+(b)
+</div>
+<div align="center" width="33%">
+<video autoplay loop muted> <source src="../vids/projects/occmap_gan_video.mp4"></video>
+<br>
+(c)
+</div>
+</div>
+
+
 
 <div align="center" markdown="1" style="justify-content:space-between;"> 
 *The navigation results with (a) a single camera setup, (b) multi-camera camera setup, and (c) predicting/inpainting the occupancy map from the single camera feed. The inpainting augments the robot's infromation about the environment and helps it move faster.*
