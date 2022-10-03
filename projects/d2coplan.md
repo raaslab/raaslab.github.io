@@ -11,8 +11,7 @@ title:  "D2CoPlan: A Differentiable Decentralized Planner for Multi-Robot Covera
 [University of Maryland - College Park](https://umd.edu/)
 </div>
 
-<div align="center" style="justify-content:space-between;display:flex">
-<div style="float:left;width:50%">  
+<div align="center" style="justify-content:space-between;display:flex"> 
 <a href="https://arxiv.org/pdf/2209.09292.pdf">
 <img src="../img/projects/d2coplan_icon.png" style="width: 70px;" alt="PDF"/>
 </a>
