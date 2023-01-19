@@ -111,10 +111,10 @@ An ablation study for DMP and D2CoPlan. The plot shows results for the scenarios
 <center>
 <p style="font-size:24pt">Citation</p>
 </center>
-	@InProceedings{sharma2023sharma,<br/>
-	  author    = {Vishnu {Dutt Sharma} and Lifeng Zhou and Pratap Tokekar},<br/>
-	  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},<br/>
-	  title     = {D2CoPlan: A Differentiable Decentralized Planner for Multi-Robot Coverage},<br/>
+	@InProceedings{sharma2023d2coplan,
+	  author    = {Vishnu {Dutt Sharma} and Lifeng Zhou and Pratap Tokekar},
+	  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+	  title     = {D2CoPlan: A Differentiable Decentralized Planner for Multi-Robot Coverage},
 	  year      = {2023}
 }
   
