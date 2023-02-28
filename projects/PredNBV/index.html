@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Efficient Bridge Inspection with Prediction">
+  <meta name="keywords" content="NBV Planning, real-world Planing, 3D Prediction">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pred-NBV: Prediction-guided Next-Best-View for 3D Object Reconstruction</title>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://unpkg.com/htmlincludejs"></script>
+
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <!-- <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div> -->
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Pred-NBV: Prediction-guided Next-Best-View for 3D Object Reconstruction</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://keunhong.com">Harnaik Dhami</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="https://utkarshsinha.com">Vishnu D. Sharma</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="https://jonbarron.info">Pratap Tokekar</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Maryland, College Park</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal contribution (listed alphabatically)</span>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/Inspection_IROS23.png"
+           class="interpolation-image"
+           alt="Interpolation end reference image."/>
+
+      
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified ">
+          <p>
+            We present the first method capable of photorealistically reconstructing a non-rigidly
+            deforming scene using photos/videos captured casually from mobile phones.
+          </p>
+          <p>
+            Our approach augments neural radiance fields
+            (NeRF) by optimizing an
+            additional continuous volumetric deformation field that warps each observed point into a
+            canonical 5D NeRF.
+            We observe that these NeRF-like deformation fields are prone to local minima, and
+            propose a coarse-to-fine optimization method for coordinate-based models that allows for
+            more robust optimization.
+            By adapting principles from geometry processing and physical simulation to NeRF-like
+            models, we propose an elastic regularization of the deformation field that further
+            improves robustness.
+          </p>
+          <p>
+            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
+            photos/videos into deformable NeRF
+            models that allow for photorealistic renderings of the subject from arbitrary
+            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
+            using a
+            rig with two mobile phones that take time-synchronized photos, yielding train/validation
+            images of the same pose at different viewpoints. We show that our method faithfully
+            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
+            fidelity.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/plane_o3d.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Our method predicts the point cloud based on partial observations and helps the robot find an efficient path to observed the object.
+      </h2>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="hero is-light" >
+  <div class="hero-body">
+    <div class="container has-text-justified">
+     <h2 class="title is-3 has-text-centered"></br>Prediction on Real-World Data Results</h2>
+      <div class="row">
+            <div class="column">
+              <p align='center'><b>Input</b></p>
+              <iframe width="100%" height="840" title="Input"  src="./static/tables/real_inp.html"></iframe>
+            </div>
+            <div class="column">
+              <p align='center'><b>Baseline Prediction</b></p>
+              <iframe width="100%" height="840" title="Baseline" allow="true" allowfullscreen="true" src="./static/tables/real_base.html"></iframe>
+            </div>
+            <div class="column">
+              <p align='center'><b>Our Prediction</b></p>
+              <iframe width="100%" height="840" title="Ours"  allow="true" allowfullscreen="true" src="./static/tables/real_ours.html"></iframe>
+            </div>
+          </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="hero  is-small">
+  <div class="container is-max-desktop">
+    <!-- Qual Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br>Qualitative Results</h2>
+        
+          <div class="row">
+            <div class="column">
+              <p align='center'><b>Input</b></p>
+              <img width="97%" src="./static/images/pc_figs/plane1_Inp.png">
+              <img width="97%" src="./static/images/pc_figs/plane2_Inp.png">
+              <img width="97%" src="./static/images/pc_figs/chair1_Inp.png">
+              <img width="97%" src="./static/images/pc_figs/rocket1_Inp.png">
+              <img width="97%" src="./static/images/pc_figs/tower1_Inp.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>Ground Truth</b></p>
+              <img width="97%" src="./static/images/pc_figs/plane1_GT.png">
+              <img width="97%" src="./static/images/pc_figs/plane2_GT.png">
+              <img width="97%" src="./static/images/pc_figs/chair1_GT.png">
+              <img width="97%" src="./static/images/pc_figs/rocket1_GT.png">
+              <img width="97%" src="./static/images/pc_figs/tower1_GT.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>Baseline Prediction</b></p>
+              <img width="97%" src="./static/images/pc_figs/plane1_Base.png">
+              <img width="97%" src="./static/images/pc_figs/plane2_Base.png">
+              <img width="97%" src="./static/images/pc_figs/chair1_Base.png">
+              <img width="97%" src="./static/images/pc_figs/rocket1_Base.png">
+              <img width="97%" src="./static/images/pc_figs/tower1_Base.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>Our Prediction</b></p>
+              <img width="97%" src="./static/images/pc_figs/plane1_Ours.png">
+              <img width="97%" src="./static/images/pc_figs/plane2_Ours.png">
+              <img width="97%" src="./static/images/pc_figs/chair1_Ours.png">
+              <img width="97%" src="./static/images/pc_figs/rocket1_Ours.png">
+              <img width="97%" src="./static/images/pc_figs/tower1_Ours.png">
+            </div>
+          </div>
+        </br>
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            <a href="https://arxiv.org/abs/2108.08839">PoinTr: Diverse Point Cloud Completion with Geometry-Aware Transformers</a>. Xumin Yu*, Yongming Rao*, Ziyi Wang, Zuyan Liu, Jiwen Lu, Jie Zhou. ICCV 2021.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
