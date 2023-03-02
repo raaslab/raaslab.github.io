@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Efficient Bridge Inspection with Prediction">
+  <meta name="keywords" content="NBV Planning, real-world Planing, 3D Prediction">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProxMaP-Net: A Proximal Occupancy Map Prediction Network for Efficient Indoor Robot Navigation</title>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://unpkg.com/htmlincludejs"></script>
+
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="http://raaslab.org/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ProxMaP-Net: A Proximal Occupancy Map Prediction Network for Efficient Indoor Robot Navigation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="http://vishnuduttsharma.github.io/">Vishnu D. Sharma</a>,</span>
+            <span class="author-block">
+              <a href="http://https://codingrex.github.io/">Jingxi Chen</a>,</span>
+            <span class="author-block">
+              <a href="http://tokekar.com/">Pratap Tokekar</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Maryland, College Park</span>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/proxmapnet_overview.png"
+           class="interpolation-image"
+           alt="Interpolation end reference image."/>
+
+      
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified ">
+          <p>
+            In a typical path planning pipeline for a ground robot, we build a map (e.g., an occupancy grid) of the environment as the robot moves around. While navigating indoors, a ground robot's knowledge about the environment may be limited due to occlusions. Therefore, the map will have many as-yet-unknown regions that may need to be avoided by a conservative planner. Instead, if a robot is able to correctly predict what its surroundings and occluded regions look like, the robot may be more efficient in navigation. In this work, we focus on predicting occupancy within the reachable distance of the robot to enable faster navigation and present a self-supervised proximity occupancy map prediction network (named, ProxMaP-Net). We show that ProxMap-Net generalizes well across photo-realistic inputs and improves the robot navigation efficiency in simulation by $12.40\%$ against the traditional navigation method.
+          </p>
+        </div>
+      </div>
+    </div>
+  </br>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+<!--     <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/plane_o3d.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Our method predicts the point cloud based on partial observations and helps the robot find an efficient path to observed the object.
+      </h2>
+        </div>
+      </div>
+    </div>
+    </div> -->
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="container is-max-desktop is-centered">
+      <h2 class="title is-3 is-centered" align="center">Qualitative Results</h2>
+        <div class="content has-text-justified ">
+          <p>
+            Here we show results from ProxMaP-Net and its variations on living room data obtained from AI2THOR simulator. Abbreviations <i>Reg</i> and <i>Class</i> refer to Regression and Classification tasks, respectively. ProxMaP-Net is a classification model.
+          </p>
+        <img src="./static/images/a2t_models.png"
+             class="interpolation-image"
+             alt="Interpolation end reference image."/>
+             <!-- <embed src="./static/images/a2t_models.pdf" width="800px" height="2100px" /> -->
+      </div>
+
+    </br>
+      <hr width="100%;" 
+        color="black" 
+        size="30" 
+        align="center"> 
+
+      <div class="content has-text-justified ">
+          <p>
+            Below we show results from ProxMaP-Net and its variations on living room data obtained from Habitat-Matterport3D (HM3D) simulator. Abbreviations <i>Reg</i> and <i>Class</i> refer to Regression and Classification tasks, respectively. ProxMaP-Net is a classification model.
+          </p>
+        <img src="./static/images/habitat_models.png"
+             class="interpolation-image"
+             alt="Interpolation end reference image."/>
+             <!-- <embed src="./static/images/a2t_models.pdf" width="800px" height="2100px" /> -->
+      </div>
+
+  </div>
+</div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
