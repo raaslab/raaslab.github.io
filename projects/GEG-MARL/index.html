@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Personalized Expert Guided Heterogeneous Multi-Agent Reinforcement Learning">
+  <meta name="keywords" content="Multi-agent Reinforcement Learning, Learn from Demonstration">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personalized Expert Guided Heterogeneous Multi-Agent Reinforcement Learning</title>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://unpkg.com/htmlincludejs"></script>
+
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="http://raaslab.org/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Personalized Expert Guided Heterogeneous Multi-Agent Reinforcement Learning</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://peihongyu.com/">Peihong Yu</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/amritsinghbedi/home">Amrit Singh Bedi</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://koppel.netlify.app/">Alec Koppel</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=s9eCQn4AAAAJ&hl=en">Brian Sadler</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="http://tokekar.com/">Pratap Tokekar</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"> <sup>1</sup> University of Maryland, College Park</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"> <sup>2</sup> Artificial Intelligence Research at JP Morgan Chase & Co.</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"> <sup>3</sup> DEVCOM Army Research Laboratory (ARL)</span>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/iros.drawio.png"
+           class="interpolation-image"
+           alt="Interpolation end reference image."/>
+
+      
+    </div>
+  </div>
+</section> -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified ">
+          <p>
+            Multi-Agent Reinforcement Learning (MARL) algorithms suffer from the curse of dimensionality in terms of the exponential increase in the cardinality of joint state-action space. This makes existing RL algorithms, like policy gradient, converge slower in MARL settings due to increasing exploration requirements. However, we know that in a single-agent setting, augmenting the standard reward-based RL with guidance from demonstration helps to improve learning but is not directly applicable to MARL settings. A key challenge lies in obtaining joint expert demonstrations which are difficult to collect in practice. In this work, we tackle the challenge of extending the benefits of demonstration guidance from single agents to heterogeneous MARL settings, using <i>personalized expert demonstrations</i> that are easier to obtain than joint expert demonstrations. A personalized expert demonstration is for an individual robot or more generally, for an individual <i>type</i> of robot in a heterogeneous team. Such demonstrations may not be optimal in the cooperative setting. To bootstrap the learning from the personalized expert demonstrations, we reformulate the MARL problem in occupancy measure space and propose two novel algorithms named expert-guided MARL (EG-MARL) and Generalized EG-MARL (GEG-MARL), which learn to collaborate via reward signals at the same time. We evaluate the performance of the proposed algorithms on both discrete and continuous environments. The results demonstrate that the proposed algorithms could learn near-optimal policies even with suboptimal demonstrations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </br>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
