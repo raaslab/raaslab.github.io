@@ -60,12 +60,41 @@
           <i class="fas fa-home"></i>
       </span>
       </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Table of Contents
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="#abstract">
+            Abstract
+          </a>
+          <a class="navbar-item" href="#video">
+            Video
+          </a>
+          <a class="navbar-item" href="#realWorld">
+            Prediction on Real-World Data
+          </a>
+          <a class="navbar-item" href="#qualResults">
+            Qualitative Results
+          </a>
+          <a class="navbar-item" href="#nbvPlanning">
+            NBV Planning in Simulation
+          </a>
+          <a class="navbar-item" href="#relatedWorks">
+            Related Works
+          </a>
+        </div>
+      </div>
+
     </div>
 
   </div>
 </nav>
 
 
+
+<!-- https://github.com/raaslab/Pred-NBV -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -88,6 +117,33 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>*</sup>Equal contribution (listed alphabatically)</span>
           </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/raaslab/Pred-NBV"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://obj.umiacs.umd.edu/publicdata/PoinTr_C_final.pth"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Model</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+
 
           </div>
         </div>
@@ -113,7 +169,7 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3"><a id=abstract>Abstract</a></h2>
         <div class="content has-text-justified ">
           <p>
             Prediction-based active perception has shown the potential to improve the navigation efficiency and safety of the robot by anticipating the uncertainty in the unknown environment. The existing works for 3D shape prediction make an implicit assumption about the partial observations and therefore cannot be used for real-world planning and do not consider the control effort for next-best-view planning. We present <i>Pred-NBV</i>, a realistic object shape reconstruction method consisting of an enhanced 3D prediction model, and an information and control effort-based next-best-view method to fill this gap. <i>Pred-NBV</i> shows an improvement of <b>25.46%</b> in object reconstruction over the traditional methods, contributing to the direction of realistic prediction-augmented active perception.
@@ -127,10 +183,10 @@
     <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
+        <h2 class="title is-3"><a id="video">Video</a></h2>
         <div class="publication-video">
           <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./videos/plane_o3d.mp4"
+        <source src="./static/videos/plane_o3d.mp4"
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
@@ -147,8 +203,8 @@
 <section class="hero is-light" >
   <div class="hero-body">
     <div class="container has-text-justified">
-     <h2 class="title is-3 has-text-centered"></br>Prediction on Real-World Data</h2>
-     <p> Here we compare <a src="https://arxiv.org/abs/2108.08839">PoinTr</a>, a 3D shape completion, against PoinTr-C, a improved version of PoinTr which we train with curriculum learning to make robust against perturbations in the canonical point cloud representations. The results below show shape completion results when these pertubations in injected in the point clouds.</p>
+     <h2 class="title is-3 has-text-centered"></br><a id="realWorld">Prediction on Real-World Data</a></h2>
+     <p> Here we compare <a src="https://arxiv.org/abs/2108.08839">PoinTr</a>, a 3D shape completion, against PoinTr-C, a improved version of PoinTr which we train with curriculum learning to make robust against perturbations in the canonical point cloud representations. The results below show shape completion results when these pertubations are injected in the point clouds (the origin is not at the center of the full object). </p>
        </br>
       <div class="row">
             <div class="column">
@@ -175,8 +231,8 @@
     <!-- Qual Results -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3"></br>Qualitative Results</h2>
-         <p> We compare <a src="https://arxiv.org/abs/2108.08839">PoinTr</a>, a 3D shape completion, against PoinTr-C, a improved version of PoinTr which we train with curriculum learning to make robust against perturbations in the canonical point cloud representations. The results below show shape completion results on data from ShapeNet dataset, when these pertubations in injected in the point clouds.</p>
+        <h2 class="title is-3"></br><a id="qualResults">Qualitative Results</a></h2>
+         <p> We compare <a src="https://arxiv.org/abs/2108.08839">PoinTr</a>, a 3D shape completion, against PoinTr-C, a improved version of PoinTr which we train with curriculum learning to make robust against perturbations in the canonical point cloud representations. The results below show shape completion results on data from ShapeNet dataset, when these pertubations are injected in the point clouds.</p>
        </br>
           <div class="row">
             <div class="column">
@@ -222,7 +278,7 @@
   <div class="hero-body">
     <div class="container has-text-justified">
       </br>
-     <h2 class="title is-3 has-text-centered">NBV Planning in Simulation</h2>
+     <h2 class="title is-3 has-text-centered"><a id="nbvPlanning">NBV Planning in Simulation</a></h2>
      <p>Comparison of Pred-NBV against the baseline, non-predictive methods for NBV object reconstruction. The image of the object can be seen by clicking on the model name.</p>
       <table class="is-max-desktop" align="center" CELLPADDING="10" CELLSPACING="10">
         <thead class="is-8">
@@ -389,7 +445,7 @@
             <td>29.34%</td>
           </tr>
           <tr>
-            <th>Watercraft</th>
+            <th>Watercraft &nbsp; &nbsp;</th>
             <td><a href="./static/images/models/Patrol.png">Patrol</a></td>
             <!-- <td><img width="25%" src="./static/images/models/Patrol.png"></td> -->
             <td>3957</td>
@@ -468,7 +524,7 @@
     <!-- Concurrent Work. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
+        <h2 class="title is-3"><a id="relatedWorks">Related Works</a></h2>
 
         <div class="content has-text-justified">
           <p>
