@@ -60,6 +60,33 @@
           <i class="fas fa-home"></i>
       </span>
       </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Table of Contents
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="#abstract">
+            Abstract
+          </a>
+          <a class="navbar-item" href="#qualResults">
+            Qualitative Results for Prediction
+          </a>
+          <a class="navbar-item" href="#generalizability">
+            Generalizability
+          </a>
+          <a class="navbar-item" href="#navResults">
+            Navigation aided by ProxMaP
+          </a>
+          <a class="navbar-item" href="#realResults">
+            Prediction on Real Data
+          </a>
+          <a class="navbar-item" href="#relatedWorks">
+            Related Works
+          </a>
+        </div>
+      </div>
+
     </div>
 
   </div>
@@ -101,7 +128,7 @@
            alt="Interpolation end reference image."/>
 
       <p class="has-text-centered">
-        Overview of the proposed approach. The <font color="red">training</font> and <font color="black">inference flows</font>
+        Overview of the proposed approach. The <font color="red">training</font> and <font color="black">inference</font> flows
         are indicated with red and black arrows, respectively. We take the input view by moving the robot to left and right sides
         (Cam<sub>Left</sub> and Cam<sub>Right</sub>), looking towards the region of interest. ProxMaP makes predictions using the Cam<sub>Center</sub> only,
         and the map obtained by combining the information from the three positions act as the ground truth.
@@ -110,12 +137,15 @@
   </div>
 </section>
 
-<section class="section">
+
+<section class="hero is-light">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        </br>
+        </br>
+        <h2 class="title is-3" id="abstract">Abstract</h2>
         <div class="content has-text-justified ">
           <p>
             In a typical path planning pipeline for a ground
@@ -207,7 +237,7 @@ by 12.40% against the traditional navigation method.
 <section class="section">
   <div class="container is-max-desktop">
     <div class="container is-max-desktop is-centered">
-      <h2 class="title is-3 is-centered" align="center">Qualitative Results for Predcition</h2>
+      <h2 class="title is-3 is-centered" align="center" id="qualResults">Qualitative Results for Prediction</h2>
         <div class="content has-text-justified ">
           <p>
             Here we show results from ProxMaP and its variations on living room data obtained from AI2THOR simulator. Abbreviations <i>Reg</i> and <i>Class</i> refer to Regression and Classification tasks, respectively. ProxMaP is a classification model.
@@ -218,12 +248,29 @@ by 12.40% against the traditional navigation method.
              <!-- <embed src="./static/images/a2t_models.pdf" width="800px" height="2100px" /> -->
       </div>
 
-    </br>
+<!--     </br>
       <hr width="100%;" 
         color="black" 
         size="30" 
         align="center"> 
 
+      <div class="content has-text-justified ">
+          <p>
+            Below we show results from ProxMaP and its variations on living room data obtained from Habitat-Matterport3D (HM3D) simulator. Abbreviations <i>Reg</i> and <i>Class</i> refer to Regression and Classification tasks, respectively. ProxMaP is a classification model.
+          </p>
+        <img src="./static/images/habitat_models.png"
+             class="interpolation-image"
+             alt="Interpolation end reference image."/>
+      </div> -->
+
+  </div>
+</div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="container is-max-desktop is-centered">
+      <h2 class="title is-3 is-centered" align="center" id="generalizability">Generalizability</h2>
       <div class="content has-text-justified ">
           <p>
             Below we show results from ProxMaP and its variations on living room data obtained from Habitat-Matterport3D (HM3D) simulator. Abbreviations <i>Reg</i> and <i>Class</i> refer to Regression and Classification tasks, respectively. ProxMaP is a classification model.
@@ -238,11 +285,12 @@ by 12.40% against the traditional navigation method.
 </div>
 </section>
 
+
 <section class="hero is-light">
   <div class="hero-body">
     <div class="container has-text-justified">
       </br>
-     <h2 class="title is-3 has-text-centered">Navigation aided by ProxMaP</h2>
+     <h2 class="title is-3 has-text-centered" id="navResults">Navigation aided by ProxMaP</h2>
      <p>Comparison of ProxMaP-Net and its variants against non-predictive navigation, an equivalent robot setup with 3 cameras, and another self-supervised occpancy map prediction method by Wei et al. in AI2THOR living rooms. We use <i>Success weighted by (bornalized inverse) Completion Time (SCT)</i> as the metric.</p>
    </br>
       <table class="is-max-desktop" align="center" CELLPADDING="20" CELLSPACING="20" witdh="100px">
@@ -330,6 +378,44 @@ by 12.40% against the traditional navigation method.
     </div>
   </div>
 </section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="container is-max-desktop is-centered">
+      <h2 class="title is-3 is-centered" align="center" id="realResults">Prediction on Real Data</h2>
+        <div class="content has-text-justified">
+          <p>
+            Here we show prediction from ProxMaP over real data. We use a TurtleBot2 robot with Hokuyo laser scanner mounted on it. The field of view of the scanner is ;imited to 45 degrees and the data from it used to create the occupancy map. These examples show that even when only a part of the obstacles, boxese here, is visible, ProxMaP can extended in accurately and also predict the free area correctly.
+          </p>
+          <div class="container image">
+          <img src="./static/images/occmap_real.png"
+               class="image"
+               alt="Interpolation end reference image."/>
+               <!-- <embed src="./static/images/a2t_models.pdf" width="800px" height="2100px" /> -->
+           </div>
+      </div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"><a id="relatedWorks">Related Works</a></h2>
+
+        <div class="content has-text-justified">
+          <p>
+            <a href="https://ieeexplore.ieee.org/document/9561790">Occupancy Map Inpainting for Online Robot Navigation</a>. Minghan Wei, Daewon Lee, Volkan Isler, Daniel Lee. ICRA 2021.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 
 <footer class="footer">
