@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Efficient Bridge Inspection with Prediction">
+  <meta name="keywords" content="NBV Planning, real-world Planing, 3D Prediction">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProxMaP: Proximal Occupancy Map Prediction for Efficient Indoor Robot Navigation</title>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://unpkg.com/htmlincludejs"></script>
+
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="http://raaslab.org/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ProxMaP: Proximal Occupancy Map Prediction for Efficient Indoor Robot Navigation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="http://vishnuduttsharma.github.io/">Vishnu D. Sharma</a>,</span>
+            <span class="author-block">
+              <a href="http://https://codingrex.github.io/">Jingxi Chen</a>,</span>
+            <span class="author-block">
+              <a href="http://tokekar.com/">Pratap Tokekar</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Maryland, College Park</span>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/overview_ooccmap.png"
+           class="interpolation-image"
+           alt="Interpolation end reference image."/>
+
+      <p class="has-text-centered">
+        Overview of the proposed approach. The <font color="red">training</font> and <font color="black">inference flows</font>
+        are indicated with red and black arrows, respectively. We take the input view by moving the robot to left and right sides
+        (Cam<sub>Left</sub> and Cam<sub>Right</sub>), looking towards the region of interest. ProxMaP makes predictions using the Cam<sub>Center</sub> only,
+        and the map obtained by combining the information from the three positions act as the ground truth.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified ">
+          <p>
+            In a typical path planning pipeline for a ground
+robot, we build a map (e.g., an occupancy grid) of the envi-
+ronment as the robot moves around. While navigating indoors,
+a ground robot’s knowledge about the environment may be
+limited due to occlusions. Therefore, the map will have many
+as-yet-unknown regions that may need to be avoided by a con-
+servative planner. Instead, if a robot is able to correctly predict
+what its surroundings and occluded regions look like, the robot
+may be more efficient in navigation. In this work, we focus
+on predicting occupancy within the reachable distance of the
+robot to enable faster navigation and present a self-supervised
+proximity occupancy map prediction method, named ProxMaP.
+We show that ProxMaP generalizes well across realistic and real
+domains, improves the robot navigation efficiency in simulation
+by 12.40% against the traditional navigation method.
+          </p>
+        </div>
+      </div>
+    </div>
+  </br>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+<!--     <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/plane_o3d.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Our method predicts the point cloud based on partial observations and helps the robot find an efficient path to observed the object.
+      </h2>
+        </div>
+      </div>
+    </div>
+    </div> -->
+    <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="row">
+            <div class="column">
+              <center>
+              <p align='center' style="width: 210px; word-wrap: break-word;"><b>Non-Predictive Navigation with Single Sensor</b></p>
+              
+              <video id="teaser" autoplay muted loop playsinline height="120%">
+                <source src="./static/videos/occmap_normal_video.mp4"
+                        type="video/mp4">
+              </video>
+              </center>
+            </div>
+
+            <div class="column">
+              <center>
+              <p align='center' style="width: 210px; word-wrap: break-word;"><b>Non-Predictive Navigation with Multi-Sensor Setup</b></p>
+              
+              <video id="teaser" autoplay muted loop playsinline height="120%">
+              <source src="./static/videos/occmap_gt_video.mp4"
+                      type="video/mp4">
+              </video>
+              </center>
+            </div>
+            <div class="column">
+              <center>
+              <p align='center' style="width: 210px; word-wrap: break-word;"><b>Prediction-based Navigation with Single Sensor</b></p>
+              
+              <video id="teaser" autoplay muted loop playsinline height="120%" align="center">
+              <source src="./static/videos/occmap_pred_video.mp4"
+                      type="video/mp4">
+            </video>
+            </center>
+            </div>
+      </div>
+      <p class="has-text-centered">
+        The robot can navigate faster based on the occupancy information on the path. Single sensor setups (e.g. camera) have limited field of view and obstacles can limit the perceived information.
+        A Multi-camera setup can add more infromation about the surroundings, but increases cost of deployment.
+        <b>ProxMaP</b> predics the information about the surroundings to help the robot navigate faster using observation from a single sensor. The videos show costmaps with the observed <font color="black">occupied</font> and <font color="LimeGreen">free</font> areas in black and green, respectively. The predicted <font color="fuchsia">occupied</font> and <font color="DodgerBlue">free</font> areas are shown in pink and blue, respectively.
+      </p>
+    </div>
+  </div>
+</section>
+
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="container is-max-desktop is-centered">
+      <h2 class="title is-3 is-centered" align="center">Qualitative Results for Predcition</h2>
+        <div class="content has-text-justified ">
+          <p>
+            Here we show results from ProxMaP and its variations on living room data obtained from AI2THOR simulator. Abbreviations <i>Reg</i> and <i>Class</i> refer to Regression and Classification tasks, respectively. ProxMaP is a classification model.
+          </p>
+        <img src="./static/images/a2t_models.png"
+             class="interpolation-image"
+             alt="Interpolation end reference image."/>
+             <!-- <embed src="./static/images/a2t_models.pdf" width="800px" height="2100px" /> -->
+      </div>
+
+    </br>
+      <hr width="100%;" 
+        color="black" 
+        size="30" 
+        align="center"> 
+
+      <div class="content has-text-justified ">
+          <p>
+            Below we show results from ProxMaP and its variations on living room data obtained from Habitat-Matterport3D (HM3D) simulator. Abbreviations <i>Reg</i> and <i>Class</i> refer to Regression and Classification tasks, respectively. ProxMaP is a classification model.
+          </p>
+        <img src="./static/images/habitat_models.png"
+             class="interpolation-image"
+             alt="Interpolation end reference image."/>
+             <!-- <embed src="./static/images/a2t_models.pdf" width="800px" height="2100px" /> -->
+      </div>
+
+  </div>
+</div>
+</section>
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container has-text-justified">
+      </br>
+     <h2 class="title is-3 has-text-centered">Navigation aided by ProxMaP</h2>
+     <p>Comparison of ProxMaP-Net and its variants against non-predictive navigation, an equivalent robot setup with 3 cameras, and another self-supervised occpancy map prediction method by Wei et al. in AI2THOR living rooms. We use <i>Success weighted by (bornalized inverse) Completion Time (SCT)</i> as the metric.</p>
+   </br>
+      <table class="is-max-desktop" align="center" CELLPADDING="20" CELLSPACING="20" witdh="100px">
+        <thead class="is-8">
+          <tr style="text-align: center; border-top: 1px solid black">
+            <th>Method</th>
+            <th>SCT</th>
+          </tr>
+        </thead>
+        <tbody class="is-8" style="border-bottom: 1px solid black; border-top: 1px solid black">
+          <tr>
+            <td>Baseline <i>(non-predictive)</i></td>
+            <td>0.589</td>
+          </tr>
+          <tr>
+            <td>Wei et al.</td>
+            <td>0.568</td>
+          </tr>
+          <tr>
+            <td>Reg-UNet (MSE)</td>
+            <td>0.629</td>
+          </tr>
+          <tr>
+            <td>Reg-GAN</td>
+            <td>0.592</td>
+          </tr>
+          <tr>
+            <td>Class-GAN</td>
+            <td>0.632</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <td><b>ProxMaP</b></td>
+            <td><b>0.662</b></td>
+          </tr>
+          <tr>
+            <td>3-Cameras <i>(non-predictive)</i> &nbsp; &nbsp;</td>
+            <td>0.648</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </br>
+    </br>
+    <p>Below we comapre these methods in a more challenging situation by modifying <i>FloorPlan227</i> to add more possible paths and thus emphasize decision-making. We find that ProxMap performs well compared to other predictive approaches and performs close to the from the 3-Camera setup.</p>
+
+      <table class="is-max-desktop" align="center" CELLPADDING="20" CELLSPACING="20" witdh="100px">
+        <thead class="is-8">
+          <tr style="text-align: center; border-top: 1px solid black">
+            <th>Method</th>
+            <th>SCT</th>
+          </tr>
+        </thead>
+        <tbody class="is-8" style="border-bottom: 1px solid black; border-top: 1px solid black">
+          <tr>
+            <td>Baseline <i>(non-predictive)</i></td>
+            <td>0.615</td>
+          </tr>
+          <tr>
+            <td>Wei et al.</td>
+            <td>0.623</td>
+          </tr>
+          <tr>
+            <td>Reg-UNet (MSE)</td>
+            <td>0.571</td>
+          </tr>
+          <tr>
+            <td>Reg-GAN</td>
+            <td>0.573</td>
+          </tr>
+          <tr>
+            <td>Class-GAN</td>
+            <td>0.600</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <td><b>ProxMaP</b></td>
+            <td><b>0.668</b></td>
+          </tr>
+          <tr>
+            <td>3-Cameras <i>(non-predictive)</i> &nbsp; &nbsp;</td>
+            <td>0.690</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
