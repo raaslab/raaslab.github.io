@@ -172,7 +172,22 @@
         <h2 class="title is-3"><a id=abstract>Abstract</a></h2>
         <div class="content has-text-justified ">
           <p>
-            Prediction-based active perception has shown the potential to improve the navigation efficiency and safety of the robot by anticipating the uncertainty in the unknown environment. The existing works for 3D shape prediction make an implicit assumption about the partial observations and therefore cannot be used for real-world planning and do not consider the control effort for next-best-view planning. We present <i>Pred-NBV</i>, a realistic object shape reconstruction method consisting of an enhanced 3D prediction model, and an information and control effort-based next-best-view method to fill this gap. <i>Pred-NBV</i> shows an improvement of <b>25.46%</b> in object reconstruction over the traditional methods, contributing to the direction of realistic prediction-augmented active perception.
+            Prediction-based active perception has shown the
+          potential to improve the navigation efficiency and safety of
+          the robot by anticipating the uncertainty in the unknown
+          environment. The existing works for 3D shape prediction
+          make an implicit assumption about the partial observations
+          and therefore cannot be used for real-world planning and do
+          not consider the control effort for next-best-view planning.
+          We present <i>Pred-NBV</i>, a realistic object shape reconstruction
+          method consisting of PoinTr-C, an enhanced 3D prediction
+          model trained on the ShapeNet dataset, and an information
+          and control effort-based next-best-view method to address these
+          issues. <i>Pred-NBV</i> shows an improvement of <b>25.46%</b> in object
+          coverage over the traditional method in the AirSim simulator,
+          and performs better shape completion than PoinTr, the state-
+          of-the-art shape completion model, even on real data obtained
+          from a Velodyne 3D LiDAR mounted on DJI M600 Pro.
           </p>
         </div>
       </div>
