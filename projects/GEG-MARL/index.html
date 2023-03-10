@@ -96,6 +96,23 @@
             <span class="author-block"> <sup>3</sup> DEVCOM Army Research Laboratory (ARL)</span>
           </div>
 
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/PeihongYu/personalized-expert-guided-MARL"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+
           </div>
         </div>
       </div>
@@ -123,7 +140,11 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified ">
           <p>
-            Multi-Agent Reinforcement Learning (MARL) algorithms suffer from the curse of dimensionality in terms of the exponential increase in the cardinality of joint state-action space. This makes existing RL algorithms, like policy gradient, converge slower in MARL settings due to increasing exploration requirements. However, we know that in a single-agent setting, augmenting the standard reward-based RL with guidance from demonstration helps to improve learning but is not directly applicable to MARL settings. A key challenge lies in obtaining joint expert demonstrations which are difficult to collect in practice. In this work, we tackle the challenge of extending the benefits of demonstration guidance from single agents to heterogeneous MARL settings, using <i>personalized expert demonstrations</i> that are easier to obtain than joint expert demonstrations. A personalized expert demonstration is for an individual robot or more generally, for an individual <i>type</i> of robot in a heterogeneous team. Such demonstrations may not be optimal in the cooperative setting. To bootstrap the learning from the personalized expert demonstrations, we reformulate the MARL problem in occupancy measure space and propose two novel algorithms named expert-guided MARL (EG-MARL) and Generalized EG-MARL (GEG-MARL), which learn to collaborate via reward signals at the same time. We evaluate the performance of the proposed algorithms on both discrete and continuous environments. The results demonstrate that the proposed algorithms could learn near-optimal policies even with suboptimal demonstrations.
+            Multi-Agent Reinforcement Learning (MARL) algorithms suffer from the curse of dimensionality in terms of the exponential increase in the cardinality of joint state-action space. This makes existing RL algorithms, like policy gradient, converge slower in MARL settings due to increasing exploration requirements. 
+            However, we know that in a single-agent setting, augmenting the standard reward-based RL with guidance from demonstration helps to improve learning but is not directly applicable to MARL settings. A key challenge lies in obtaining joint expert demonstrations which are difficult to collect in practice. 
+          </p>
+          <p>
+            In this work, we tackle the challenge of extending the benefits of demonstration guidance from single agents to heterogeneous MARL settings, using <i>personalized expert demonstrations</i> that are easier to obtain than joint expert demonstrations. A personalized expert demonstration is for an individual robot or more generally, for an individual <i>type</i> of robot in a heterogeneous team. Such demonstrations may not be optimal in the cooperative setting. To bootstrap the learning from the personalized expert demonstrations, we reformulate the MARL problem in occupancy measure space and propose two novel algorithms named expert-guided MARL (EG-MARL) and Generalized EG-MARL (GEG-MARL), which learn to collaborate via reward signals at the same time. We evaluate the performance of the proposed algorithms on both discrete and continuous environments. The results demonstrate that the proposed algorithms could learn near-optimal policies even with suboptimal demonstrations.
           </p>
         </div>
       </div>
