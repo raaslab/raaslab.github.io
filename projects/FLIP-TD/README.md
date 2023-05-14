@@ -1,15 +1,14 @@
-# ConceptFusion
+# FLIP-TD
 
-This is the repository that contains source code for the [ConceptFusion website](https://concept-fusion.github.io).
+This is the repository that contains source code for the [FLIP-TD website](https://raaslab.org/projects/FLIP-TD/).
 
 Should you find our work useful, please cite
 ```
-@article{conceptfusion,
-  author    = {Jatavallabhula, {Krishna Murthy} and Kuwajerwala, Alihusein and Gu, Qiao and Omama, Mohd and Chen, Tao and Li, Shuang and Iyer, Ganesh and Saryazdi, Soroush and Keetha, Nikhil and Tewari, Ayush and Tenenbaum, {Joshua B.} and {de Melo}, {Celso Miguel} and Krishna, Madhava and Paull, Liam and Shkurti, Florian and Torralba, Antonio},
-  title     = {ConceptFusion: Open-set Multimodal 3D Mapping},
+@article{fliptd,
+  author    = {Singh, Anukriti and Sharma, {Vishnu Dutt} and Tokekar, Pratap},
+  title     = {FLIP-TD: Free Lunch Inpainting on Top-Down Images for Robotic Tasks},
   journal   = {arXiv},
   year      = {2023},
-}
 ```
 
 # Website License
