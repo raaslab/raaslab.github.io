@@ -3,15 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Efficient Bridge Inspection with Prediction">
-  <meta name="keywords" content="NBV Planning, real-world Planing, 3D Prediction">
+        content="FLIP-TD: Free Lunch Inpainting on Top-Down Images for Robotic Tasks ">
+  <meta name="keywords" content="FLIP-TD, Top-Down Images, Aerial Images, Inpainting, MAE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pred-NBV: Prediction-guided Next-Best-View for 3D Object Reconstruction</title>
+  <title>FLIP-TD: Free Lunch Inpainting on Top-Down Images for Robotic Tasks </title>
 
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
-  <!-- <script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JX0F75QDW"></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
 
     function gtag() {
@@ -21,7 +20,7 @@
     gtag('js', new Date());
 
     gtag('config', 'G-PYVRSFMDRL');
-  </script> -->
+  </script>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -40,8 +39,6 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
-  <script src="https://unpkg.com/htmlincludejs"></script>
-
 </head>
 <body>
 
@@ -55,95 +52,136 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="http://raaslab.org/">
+      <a class="navbar-item" href="https://raaslab.org/projects/FLIP-TD/">
       <span class="icon">
           <i class="fas fa-home"></i>
       </span>
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Table of Contents
+        <a class="navbar-item" href="#Abstract">
+          Abstract
         </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="#abstract">
-            Abstract
-          </a>
-          <a class="navbar-item" href="#video">
-            Video
-          </a>
-          <a class="navbar-item" href="#realWorld">
-            Prediction on Real-World Data
-          </a>
-          <a class="navbar-item" href="#qualResults">
-            Qualitative Results
-          </a>
-          <a class="navbar-item" href="#nbvPlanning">
-            NBV Planning in Simulation
-          </a>
-          <a class="navbar-item" href="#relatedWorks">
-            Related Works
-          </a>
-        </div>
-      </div>
+        <a class="navbar-item" href="#Approach">
+          Approach
+        </a>
 
+        
+          <a class="navbar-link" href="#FOVQual">
+            Increasing FOV (Qualitative Results)
+          </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="#OutdoorsRGB1">
+                RGB: Outdoors Border-1
+              </a>
+              <a class="navbar-item" href="#OutdoorsRGB2">
+                RGB: Outdoors Border-2
+              </a>
+              <a class="navbar-item" href="#OutdoorsRGB3">
+                RGB: Outdoors Border-3
+              </a>
+              <a class="navbar-item" href="#IndoorsRGB">
+                RGB: Indoors Border-1,2,3
+              </a>
+            
+              <a class="navbar-item" href="#OutdoorsSem1">
+                SemSeg: Outdoors Border-1
+              </a>
+              <a class="navbar-item" href="#OutdoorsSem2">
+                SemSeg: Outdoors Border-2
+              </a>
+              <a class="navbar-item" href="#OutdoorsSem3">
+                SemSeg: Outdoors Border-3
+              </a>
+              <a class="navbar-item" href="#IndoorsSem">
+                SemSeg: Indoors Border-1,2,3
+              </a>
+
+              <a class="navbar-item" href="#OutdoorsBin1">
+                Binary: Outdoors Border-1
+              </a>
+              <a class="navbar-item" href="#OutdoorsBin2">
+                Binary: Outdoors Border-2
+              </a>
+              <a class="navbar-item" href="#OutdoorsBin3">
+                Binary: Outdoors Border-3
+              </a>
+            </div>
+        
+        
+        <a class="navbar-item" href="#FOVQuant">
+          Increasing FOV (Quantitative Results)
+        </a>
+        <a class="navbar-item" href="#Inpainting">
+          Semantics-Guided Inpainting
+        </a>
+        <a class="navbar-item" href="#Uncertainty">
+          Uncertainty Estimation
+        </a>
+        <a class="navbar-item" href="#Turtlebot">
+          Real-World Results
+        </a>
+        <a class="navbar-item" href="#Related">
+          Related Works
+        </a>
+        <a class="navbar-item" href="#bibtex">
+          Citing
+        </a>
+        
+      </div>
     </div>
 
   </div>
 </nav>
 
 
-
-<!-- https://github.com/raaslab/Pred-NBV -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Pred-NBV: Prediction-guided Next-Best-View for 3D Object Reconstruction</h1>
-          <div class="is-size-5 publication-authors">
+          <h1 class="title is-2 publication-title">FLIP-TD: Free Lunch Inpainting on Top-Down Images for Robotic Tasks</h1>
+          <div class="is-size-6 publication-authors">
             <span class="author-block">
-              <a href="http://raaslab.org/index.html#people">Harnaik Dhami</a><sup>*</sup>,</span>
+              <a href="https://anukritisinghh.github.io/">Anukriti Singh</a><sup>*</sup>,</span>
             <span class="author-block">
-              <a href="http://vishnuduttsharma.github.io/">Vishnu D. Sharma</a><sup>*</sup>,</span>
+              <a href="http://vishnuduttsharma.github.io/">Vishnu Dutt Sharma</a><sup>*</sup>,</span>
             <span class="author-block">
-              <a href="http://tokekar.com/">Pratap Tokekar</a>
+              <a href="https://www.cs.umd.edu/people/tokekar">Pratap Tokekar</a>,
             </span>
           </div>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">University of Maryland, College Park</span>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Maryland, College Park</span>
           </div>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>*</sup>Equal contribution (listed alphabatically)</span>
+
+          <div class="is-size-7 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal Contribution</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://openreview.net/pdf?id=7c0WHyETaHC"
+                   class="external-link button is-normal ">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/raaslab/Pred-NBV"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="https://raaslab.org/projects/FLIP-TD/""
+                   class="external-link button is-normal " disabled="true">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
                   </a>
               </span>
-
-              <span class="link-block">
-                <a href="https://obj.umiacs.umd.edu/publicdata/PoinTr_C_final.pth"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Model</span>
-                  </a>
-              </span>
             </div>
-          </div>
-
 
           </div>
         </div>
@@ -152,432 +190,602 @@
   </div>
 </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/iros.drawio.png"
-           class="interpolation-image"
-           alt="Interpolation end reference image."/>
 
-      
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
+<section class="section" id="Abstract">
+  <div class="container is-max-desktop has-text-centered">
     <!-- Abstract. -->
+    
     <div class="columns is-centered has-text-centered">
+      
       <div class="column is-four-fifths">
-        <h2 class="title is-3"><a id=abstract>Abstract</a></h2>
-        <div class="content has-text-justified ">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="interpolation-image-wrapper-zero-shot">
+          <img style="width:50%" src="./static/images/fig_1.png" />
+        </div>
+      </br>
+        <div class="content has-text-justified">
           <p>
-            Prediction-based active perception has shown the
-          potential to improve the navigation efficiency and safety of
-          the robot by anticipating the uncertainty in the unknown
-          environment. The existing works for 3D shape prediction
-          make an implicit assumption about the partial observations
-          and therefore cannot be used for real-world planning and do
-          not consider the control effort for next-best-view planning.
-          We present <i>Pred-NBV</i>, a realistic object shape reconstruction
-          method consisting of PoinTr-C, an enhanced 3D prediction
-          model trained on the ShapeNet dataset, and an information
-          and control effort-based next-best-view method to address these
-          issues. <i>Pred-NBV</i> shows an improvement of <b>25.46%</b> in object
-          coverage over the traditional method in the AirSim simulator,
-          and performs better shape completion than PoinTr, the state-
-          of-the-art shape completion model, even on real data obtained
-          from a Velodyne 3D LiDAR mounted on DJI M600 Pro.
+            Robotic systems are often limited by their sensor Field of View (FOV), which makes collision-free navigation and exploration in an unknown environment challenging. In contrast, humans are better at it because they can use their prior knowledge and consider the information beyond the FOV. What if robots could do it too? In our proposed approach, we aim to enhance the intelligence of robots by utilizing pre-trained masked autoencoders to make predictions of expanded FOV and synthesis a novel view. This allows the robot to reason and make informed decisions for safe and efficient navigation in unknown environments. We demonstrate the effectiveness of computer vision algorithms, specifically masked autoencoders, in solving practical robotics problems without the need for fine-tuning by using only top-down images. Our approach is evaluated in both indoor and outdoor environments, showcasing its performance in various settings of RGB, semantic segmentation, and binary images.
           </p>
+          
         </div>
       </div>
     </div>
-  </br>
     <!--/ Abstract. -->
 
-    <!-- Paper video. -->
+  </div>
+</section>
+
+<hr style="border-top: 1px dashed grey;">
+
+<section class="section" id="Approach">
+  <div class="container is-max-desktop">
+
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3"><a id="video">Video</a></h2>
-        <div class="publication-video">
-          <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./videos/plane_o3d.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Our method predicts the point cloud based on partial observations and helps the robot find an efficient path to observed the object.
-      </h2>
+      <div class="column is-full-width">
+        <h2 class="title is-3">Approach</h2>
+        <div class="content has-text-justified">
+          <p>
+            We use a pre-trained Masked Autoencoder (MAE), trained on ImageNet dataset, to increase the FOV of the top-down images in various settings.
+            The additional field is used as a masked region in the input to MAE and the output of the MAE is added to the original masked input.
+            We vary the extent of masking to study the efficacy of MAE prediction. 
+          </p>
+          <p>
+            We evaluate prediction quality on both indoor and outdoor scenes.
+            Robotic tasks often rely on a variety of modalities for tasks. Keeping this in mind, we study 3 types of input modalities: 
+            (1) RGB images,
+            (2) Semantic segmentation maps, and 
+            (3) Binary maps (as proxy for occupancy map).
+          </p>
+          <p>
+            We use <a href="https://sites.google.com/view/valid-dataset">VALID dataset</a> for outdoors and <a href="https://ai2thor.allenai.org/">AI2-THOR</a> for indoor images in our evaluation.
+          </p>
+        </div>
+        <br/>
+      </div>
+    </div>
+   </div>
+</section>
+<hr style="border-top: 1px dashed grey;">
+
+<section class="section" id="FOVQual">
+    <div class="columns is-centered has-text-centered"></div>
+
+    <div class="column is-full-width is-centered has-text-centered" >
+        <h2 class="title is-3">Increasing FOV (Qualitative Results)</h2>
+    </div>
+
+    <div class="column is-full-width is-centered has-text-centered" id="rgb">
+      <h2 class="title is-5">RGB Images</h2>
+      <p>MAE is pre-trained on RGB images with the dataset consisting mainly of street-view/first-person view images.
+        The results here answer if they can be used effectovely on top-down images.
+      </p>
+    </div>
+
+    <div class="columns is-centered" id="OutdoorsRGB1">
+      <!-- Border-1-->
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-5 has-text-centered">Outdoors Border-1</h3>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="./static/images/rgb_border_1.png" />
+          </div>
         </div>
       </div>
     </div>
-    <!--/ Paper video. -->
-  </div>
-</section>
+    
+    <hr>
 
-
-<section class="hero is-light" >
-  <div class="hero-body">
-    <div class="container has-text-justified">
-     <h2 class="title is-3 has-text-centered"></br><a id="realWorld">Prediction on Real-World Data</a></h2>
-     <p> Here we compare <a src="https://arxiv.org/abs/2108.08839">PoinTr</a>, a 3D shape completion, against PoinTr-C, a improved version of PoinTr which we train with curriculum learning to make robust against perturbations in the canonical point cloud representations. The results below show shape completion results when these pertubations are injected in the point clouds (the origin is not at the center of the full object). </p>
-       </br>
-      <div class="row">
-            <div class="column">
-              <p align='center'><b>Input</b></p>
-              <iframe width="100%" height="840" title="Input"  src="./static/tables/real_inp.html"></iframe>
-            </div>
-            <div class="column">
-              <p align='center'><b>PoinTr</b></p>
-              <iframe width="100%" height="840" title="Baseline" allow="true" allowfullscreen="true" src="./static/tables/real_base.html"></iframe>
-            </div>
-            <div class="column">
-              <p align='center'><b>PoinTr-C (Ours)</b></p>
-              <iframe width="100%" height="840" title="Ours"  allow="true" allowfullscreen="true" src="./static/tables/real_ours.html"></iframe>
-            </div>
+    <div class="columns is-centered" id="OutdoorsRGB2">
+      <!-- Border-2-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors Border-2</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="./static/images/rgb_border_2.png" />
           </div>
-
+        </div>
+      </div>
     </div>
-  </div>
-</section>
 
+    <hr>
 
-<section class="hero  is-small">
-  <div class="container is-max-desktop">
-    <!-- Qual Results -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3"></br><a id="qualResults">Qualitative Results</a></h2>
-         <p> We compare <a src="https://arxiv.org/abs/2108.08839">PoinTr</a>, a 3D shape completion, against PoinTr-C, a improved version of PoinTr which we train with curriculum learning to make robust against perturbations in the canonical point cloud representations. The results below show shape completion results on data from ShapeNet dataset, when these pertubations are injected in the point clouds.</p>
-       </br>
-          <div class="row">
-            <div class="column">
-              <p align='center'><b>Input</b></p>
-              <img width="97%" src="./static/images/pc_figs/plane1_Inp.png">
-              <img width="97%" src="./static/images/pc_figs/plane2_Inp.png">
-              <img width="97%" src="./static/images/pc_figs/chair1_Inp.png">
-              <img width="97%" src="./static/images/pc_figs/rocket1_Inp.png">
-              <img width="97%" src="./static/images/pc_figs/tower1_Inp.png">
-            </div>
-            <div class="column">
-              <p align='center'><b>Ground Truth</b></p>
-              <img width="97%" src="./static/images/pc_figs/plane1_GT.png">
-              <img width="97%" src="./static/images/pc_figs/plane2_GT.png">
-              <img width="97%" src="./static/images/pc_figs/chair1_GT.png">
-              <img width="97%" src="./static/images/pc_figs/rocket1_GT.png">
-              <img width="97%" src="./static/images/pc_figs/tower1_GT.png">
-            </div>
-            <div class="column">
-              <p align='center'><b>PoinTr</b></p>
-              <img width="97%" src="./static/images/pc_figs/plane1_Base.png">
-              <img width="97%" src="./static/images/pc_figs/plane2_Base.png">
-              <img width="97%" src="./static/images/pc_figs/chair1_Base.png">
-              <img width="97%" src="./static/images/pc_figs/rocket1_Base.png">
-              <img width="97%" src="./static/images/pc_figs/tower1_Base.png">
-            </div>
-            <div class="column">
-              <p align='center'><b>PoinTr-C (Ours)</b></p>
-              <img width="97%" src="./static/images/pc_figs/plane1_Ours.png">
-              <img width="97%" src="./static/images/pc_figs/plane2_Ours.png">
-              <img width="97%" src="./static/images/pc_figs/chair1_Ours.png">
-              <img width="97%" src="./static/images/pc_figs/rocket1_Ours.png">
-              <img width="97%" src="./static/images/pc_figs/tower1_Ours.png">
-            </div>
+    <div class="columns is-centered" id="OutdoorsRGB3">
+      <!-- Border-2-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors Border-3</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="./static/images/rgb_border_3.png" />
           </div>
-        </br>
+        </div>
+      </div>
     </div>
+
+    <hr>
+
+    <div class="columns is-centered" id="IndoorsRGB">
+      <!-- Border-3-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Indoors (Border 1,2, and 3)</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="./static/images/fig_3.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <hr>
+    
+  
+    <div class="column is-full-width is-centered has-text-centered" id="sem">
+      <h2 class="title is-4">Semantic Segmentation Maps</h2>
+      <p>MAE is pre-trained on RGB images and can work well on top-down RGB images as well. 
+      We further examine if this performance can be repeated on semantic segmentation maps 
+      by treating them as RGB images.
+      </p>
+    </div>
+
+    <div class="columns is-centered" id="OutdoorsSem1">
+      <!-- Border-1-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors Border-1</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="./static/images/seg_border_1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="columns is-centered" id="OutdoorsSem2">
+      <!-- Border-2-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors Border-2</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="./static/images/seg_border_2.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="columns is-centered" id="OutdoorsSem3">
+      <!-- Border-3-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors Border-3</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="./static/images/seg_border_3.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="columns is-centered" id="IndoorsSem">
+      <!-- Border-3-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Indoors (Border 1,2, and 3)</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="./static/images/apend_seg_indoor.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="column is-full-width is-centered has-text-centered" id="bin">
+      <h2 class="title is-4">Binary Maps</h2>
+      <p>Binary maps are skin to occupancy maps and represent a low-fidelity representation of navigation maps.
+        We use them as RGB images as well and find out MAE performs on them. In the binary maps shown below 
+        we use bright regions to represent navigable regions.
+      </p>
+    </div>
+
+    <div class="columns is-centered" id="OutdoorsBin1">
+      <!-- Border-1-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors Border-1</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="./static/images/bin_border_1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="columns is-centered" id="OutdoorsBin2">
+      <!-- Border-2-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors Border-2</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="./static/images/bin_border_2.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="columns is-centered" id="OutdoorsBin3">
+      <!-- Border-3-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors Border-3</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="./static/images/bin_border_3.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    
+      
+    <!-- <hr style="border-top: 1px dashed grey;"> -->
+</section>
+<hr style="border-top: 1px dashed grey;">
+
+<section class="section" id="FOVQuant">
+  <div class="container is-max-desktop"></div>
+
+  <div class="column is-full-width is-centered has-text-centered">
+      <h2 class="title is-3">Quantitative Results</h2>
   </div>
+
+  <div class="column is-full-width is-centered has-text-centered">
+    <p>
+      Table 1: Increasing the FOV in RGB images
+    </p>
+    </br>
+   <table class="is-max-desktop" align="center" CELLPADDING="10" CELLSPACING="10">
+    <thead class="is-8">
+      <tr style="text-align: right;">
+        <th>Environment &nbsp;</th>
+        <th>&nbsp; Masking &nbsp;</th>
+        <th>&nbsp; FID &nbsp;</th>
+        <th>&nbsp; SSIM &nbsp;</th>
+        <th>&nbsp; PSNR &nbsp; </th>
+        <th>&nbsp; MSE &nbsp;</th>
+      </tr> 
+    </thead>
+
+    <tbody class="is-8" style="border-bottom: 1px solid black">
+      <tr style="border-top: 1px solid black;">
+        <td></td>
+        <th>Border-1</th>
+        <td>17.83</td>
+        <td>0.94</td>
+        <td>27.76</td>
+        <td>13.76</td>
+      </tr>
+
+      <tr>
+        <th>Indoor</th>
+        <th>Border-2</th>
+        <td>41.79</td>
+        <td>0.86</td>
+        <td>22.23</td>
+        <td>32.42</td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <th>Border-3</th>
+        <td>76.59</td>
+        <td>0.78</td>
+        <td>19.18</td>
+        <td>52.98</td>
+      </tr>
+
+      <tr style="border-top: 1px solid black;">
+        <td></td>
+        <th>Border-1</th>
+        <td>53.66</td>
+        <td>0.84</td>
+        <td>26.38</td>
+        <td>33.59</td>
+      </tr>
+
+      <tr>
+        <th>Outdoor</th>
+        <th>Border-2</th>
+        <td>77.91</td>
+        <td>0.69</td>
+        <td>22.79</td>
+        <td>49.91</td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <th>Border-3</th>
+        <td>116.09</td>
+        <td>0.55</td>
+        <td>19.98</td>
+        <td>67.80</td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</br> 
+ <hr>
+</br>
+
+  <p>
+    Table 2: Increasing the FOV in Semantic segmentation maps
+  </p>
+  </br>
+ <table class="is-max-desktop" align="center" CELLPADDING="10" CELLSPACING="10">
+  <thead class="is-8">
+    <tr style="text-align: right;">
+      <th>Environment &nbsp;</th>
+      <th>Masking &nbsp;</th>
+      <th>&nbsp; mIoU &nbsp;</th>
+      <th>&nbsp; FID &nbsp;</th>
+      <th>&nbsp; SSIM &nbsp;</th>
+      <th>&nbsp; PSNR &nbsp; </th>
+    </tr> 
+  </thead>
+
+  <tbody class="is-8" style="border-bottom: 1px solid black">
+    <tr style="border-top: 1px solid black;">
+      <td></td>
+      <th>Border-1</th>
+      <td>0.86</td>
+      <td>43.48</td>
+      <td>0.94</td>
+      <td>23.06</td>
+    </tr>
+
+    <tr>
+      <th>Indoor</th>
+      <th>Border-2</th>
+      <td>0.55</td>
+      <td>75.42</td>
+      <td>0.84</td>
+      <td>17.33</td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <th>Border-3</th>
+      <td>0.34</td>
+      <td>110.01</td>
+      <td>0.78</td>
+      <td>14.90</td>
+    </tr>
+
+    <tr style="border-top: 1px solid black;">
+      <td></td>
+      <th>Border-1</th>
+      <td>0.90</td>
+      <td>42.63</td>
+      <td>0.94</td>
+      <td>25.96</td>
+    </tr>
+
+    <tr>
+      <th>Outdoor</th>
+      <th>Border-2</th>
+      <td>0.73</td>
+      <td>73.03</td>
+      <td>0.86</td>
+      <td>21.39</td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <th>Border-3</th>
+      <td>0.57</td>
+      <td>118.56</td>
+      <td>0.79</td>
+      <td>18.80</td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+</br> 
+<hr>
+</br>
+
+ <p>
+   Table 3: Increasing the FOV in Outdoors Binary maps
+ </p>
+</br>
+<table class="is-max-desktop" align="center" CELLPADDING="10" CELLSPACING="10">
+ <thead class="is-8">
+   <tr style="text-align: right;">
+     <th>Masking &nbsp;</th>
+     <th>&nbsp; mIoU &nbsp;</th>
+     <th>&nbsp; FID &nbsp;</th>
+     <th>&nbsp; SSIM &nbsp;</th>
+     <th>&nbsp; PSNR &nbsp; </th>
+   </tr> 
+ </thead>
+
+ <tbody class="is-8" style="border-bottom: 1px solid black">
+   <tr style="border-top: 1px solid black;">
+     <th>Border-1</th>
+     <td>0.90</td>
+     <td>51.87</td>
+     <td>0.95</td>
+     <td>30.36</td>
+   </tr>
+
+   <tr>
+     <th>Border-2</th>
+     <td>0.78</td>
+     <td>88.44</td>
+     <td>0.76</td>
+     <td>22.05</td>
+   </tr>
+
+   <tr>
+     <th>Border-3</th>
+     <td>0.64</td>
+     <td>120.94</td>
+     <td>0.56</td>
+     <td>17.81</td>
+   </tr>
+ </tbody>
+
+</table>
+  
 </div>
+
 </section>
+<hr style="border-top: 1px dashed grey;">
 
-<section class="hero is-light">
-  <div class="hero-body">
-    <div class="container has-text-justified">
-      </br>
-     <h2 class="title is-3 has-text-centered"><a id="nbvPlanning">NBV Planning in Simulation</a></h2>
-     <p>Comparison of Pred-NBV against the baseline, non-predictive methods for NBV object reconstruction. The image of the object can be seen by clicking on the model name.</p>
-      <table class="is-max-desktop" align="center" CELLPADDING="10" CELLSPACING="10">
-        <thead class="is-8">
-          <tr style="text-align: right">
-            <th></th>
-            <th></th>
-            <!-- <th></th> -->
-            <th>Points Seen &nbsp;</th>
-            <th>&nbsp; Points Seen</th>
-            <th></th>
-          </tr>
-          <tr style="border-bottom: 1px solid black">
-            <th>Class</th>
-            <th>Model</th>
-            <!-- <th>Demo</th> -->
-            <th>Pred-NBV</th>
-            <th>Baseline</th>
-            <th>Relative Improvement</th>
-          </tr>
-        </thead>
-        <tbody class="is-8" style="border-bottom: 1px solid black">
-          <tr>
-            <th></th>
-            <td><a href="./static/images/models/747.png">747</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/747.png"></td> -->
-            <td>11922</td>
-            <td>9657</td>
-            <td>20.99%</td>
-          </tr>
-          <tr>
-            <th></th>
-            <td><a href="./static/images/models/A340.png">A340</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
-            <td>8603</td>
-            <td>5238</td>
-            <td>48.62%</td>
-          </tr>
-          <tr>
-            <th>Airplane</th>
-            <td><a href="./static/images/models/C17.png">C-17</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/C17.png"></td> -->
-            <td>12916</td>
-            <td>7277</td>
-            <td>55.85%</td>
-          </tr>
-          <tr>
-            <th></th>
-            <td><a href="./static/images/models/C130.png">C-130</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
-            <td>9900</td>
-            <td>7929</td>
-            <td>22.11%</td>
-          </tr>
-          <tr>
-            <th></th>
-            <td><a href="./static/images/models/Fokker100.png">Fokker 100 &nbsp;</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/Fokker100.png"></td> -->
-            <td>10192</td>
-            <td>9100</td>
-            <td>11.32%</td>
-          </tr>
-          <tr style="border-top: 1px solid black">
-            <th></th>
-            <td><a href="./static/images/models/Atlas.png">Atlas</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/Atlas.png"></td> -->
-            <td>1822</td>
-            <td>1722</td>
-            <td>5.64%</td>
-          </tr>
-          <tr>
-            <th></th>
-            <td><a href="./static/images/models/Maverick.png">Maverick</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/Maverick.png"></td> -->
-            <td>2873</td>
-            <td>2643</td>
-            <td>8.34%</td>
-          </tr>
-          <tr>
-            <th>Rocket</th>
-            <td><a href="./static/images/models/SaturnV.png">Saturn V</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/SaturnV.png"></td> -->
-            <td>1111</td>
-            <td>807</td>
-            <td>31.70%</td>
-          </tr>
-          <tr>
-            <th></th>
-            <td><a href="./static/images/models/Sparrow.png">Sparrow</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/Sparrow.png"></td> -->
-            <td>1785</td>
-            <td>1639</td>
-            <td>8.53%</td>
-          </tr>
-          <tr>
-            <th></th>
-            <td><a href="./static/images/models/v2.png">V2</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/v2.png"></td> -->
-            <td>1264</td>
-            <td>1086</td>
-            <td>15.15%</td>
-          </tr>
-          <tr style="border-top: 1px solid black">
-            <th></th>
-            <td><a href="./static/images/models/BigBen.png">Big Ben</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/BigBen.png"></td> -->
-            <td>4119</td>
-            <td>3340</td>
-            <td>20.89%</td>
-          </tr>
-          <tr>
-            <th></th>
-            <td><a href="./static/images/models/ChurchTower.png">Church</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/ChurchTower.png"></td> -->
-            <td>2965</td>
-            <td>2588</td>
-            <td>13.58%</td>
-          </tr>
-          <tr>
-            <th>Tower</th>
-            <td><a href="./static/images/models/ClockTower.png">Clock</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/ClockTower.png"></td> -->
-            <td>2660</td>
-            <td>1947</td>
-            <td>30.95%</td>
-          </tr>
-          <tr>
-            <th></th>
-            <td><a href="./static/images/models/Pylon.png">Pylon</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/Pylon.png"></td> -->
-            <td>3181</td>
-            <td>2479</td>
-            <td>24.80%</td>
-          </tr>
-          <tr>
-            <th></th>
-            <td><a href="./static/images/models/Silo.png">Silo</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/Silo.png"></td> -->
-            <td>5674</td>
-            <td>3459</td>
-            <td>48.51%</td>
-          </tr>
-          <tr style="border-top: 1px solid black">
-            <th></th>
-            <td><a href="./static/images/models/Diesel.png">Diesel</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/Diesel.png"></td> -->
-            <td>3421</td>
-            <td>3161</td>
-            <td>7.90%</td>
-          </tr>
-          <tr>
-            <th>Train</th>
-            <td><a href="./static/images/models/MountainTrain.png">Mountain</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/MountainTrain.png"></td> -->
-            <td>4545</td>
-            <td>4222</td>
-            <td>7.37%</td>  
-          </tr>
-          <tr style="border-top: 1px solid black">
-            <th></th>
-            <td><a href="./static/images/models/Cruise.png">Cruise</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/Cruise.png"></td> -->
-            <td>4733</td>
-            <td>3522</td>
-            <td>29.34%</td>
-          </tr>
-          <tr>
-            <th>Watercraft &nbsp; &nbsp;</th>
-            <td><a href="./static/images/models/Patrol.png">Patrol</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/Patrol.png"></td> -->
-            <td>3957</td>
-            <td>2306</td>
-            <td>52.72%</td>
-          </tr>
-          <tr style="border-bottom 1px solid black">
-            <th></th>
-            <td><a href="./static/images/models/Yacht.png">Yacht</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/Yacht.png"></td> -->
-            <td>9499</td>
-            <td>6016</td>
-            <td>44.90%</td>
-          </tr>
-        </tbody>
-      </table>
+<section class="section" id="Inpainting">
+  <div class="container is-max-desktop"></div>
 
-    </div>
+  <div class="column is-full-width is-centered has-text-centered">
+      <h2 class="title is-3">Semantics-Guided Inpainting</h2>
+      <p>MAE are trained similar inpainting networks, and thus have the potential for inpainting. 
+        We use this capability to present a use-case where it could be used to remove unwanted objects from 
+        top-down images (RGB, segmentation, or binary maps). This could be useful for a team of heterogeneous robots (UAV-UGB), or for offline data curation.
+      </p>
+      <div class="interpolation-image-wrapper-zero-shot">
+        <img src="./static/images/inpainting.png" />
+      </div>
   </div>
 </section>
 
-<!-- <section class="hero" is-small">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3"></br>Qualitative Results</h2>
-         <p> We compare <a src="https://arxiv.org/abs/2108.08839">PoinTr</a>, a 3D shape completion, against PoinTr-C, a improved version of PoinTr which we train with curriculum learning to make robust against perturbations in the canonical point cloud representations. The results below show shape completion results on data from ShapeNet dataset, when these pertubations in injected in the point clouds.</p>
-       </br>
-          <div class="row">
-            <div class="column">
-              <p align='center'><b>Input</b></p>
-              <img width="97%" src="./static/images/models/747.png">
-              <img width="50%" src="./static/images/models/Atlas.png">
-              <img width="97%" src="./static/images/models/BigBen.png">
-              <img width="97%" src="./static/images/models/Diesel.png">
-            </div>
-            <div class="column">
-              <p align='center'><b>Ground Truth</b></p>
-              <img width="97%" src="./static/images/models/A340.png">
-              <img width="50%" src="./static/images/models/Maverick.png">
-              <img width="97%" src="./static/images/models/Church.png">
-              <img width="97%" src="./static/images/models/Mountain.png">
-            </div>
-            <div class="column">
-              <p align='center'><b>PoinTr</b></p>
-              <img width="97%" src="./static/images/models/C17.png">
-              <img width="50%" src="./static/images/models/SaturnV.png">
-              <img width="97%" src="./static/images/models/Clock.png">
-              <img width="97%" src="./static/images/models/Cruise.png">              
-              <img width="97%" src="./static/images/models/Silo.png">
-            </div>
-            <div class="column">
-              <p align='center'><b>PoinTr-C (Ours)</b></p>
-              <img width="97%" src="./static/images/models/C130.png">
-              <img width="50%" src="./static/images/models/Sparrow.png">
-              <img width="97%" src="./static/images/models/Pylon.png">
-              <img width="97%" src="./static/images/models/Patrol.png">
-            </div>
-            <div class="column">
-              <p align='center'><b>PoinTr-C (Ours)</b></p>
-              <img width="97%" src="./static/images/models/Fokker100.png">
-              <img width="50%" src="./static/images/models/v2.png">
-              <img width="97%" src="./static/images/models/Pylon.png">
-              <img width="97%" src="./static/images/models/Yacht.png">
-            </div>
-          </div>
-        </br>
-    </div>
+
+<hr style="border-top: 1px dashed grey;">
+
+<section class="section" id="Uncertainty">
+  <div class="container is-max-desktop"></div>
+
+  <div class="column is-full-width is-centered has-text-centered">
+      <h2 class="title is-3">Uncertainty Estimation</h2>
+      <p>Uncertainty estimation in predictions can be used for safe deployemnt and guided exploration and navigation of mobile robots.
+        MAEs are deterministic networks and are not trained with dropouts. 
+        We extract prediction uncertainty in MAEs by perturbing input images with random noise (similar to adverserial attack) 
+        and quntify the average variace across channels as the uncertainty.
+      </p>
+      <div class="interpolation-image-wrapper-zero-shot">
+        <img src="./static/images/uncertainity.png" />
+      </div>
   </div>
-</div>
-</section> -->
+</section>
+
+<hr style="border-top: 1px dashed grey;">
+
+<section class="section" id="Turtlebot">
+  <div class="container is-max-desktop"></div>
+
+  <div class="column is-full-width is-centered has-text-centered">
+      <h2 class="title is-3">Real-World Results</h2>
+      <p>We try increasing FOV over the costmap generated by a Hokuyo scanner (270-degrees FOV) mounted on a Turtlebot2 (thr robot is moving towards right in thr images below). 
+         The results are encouraging and will be explored further in future.
+      </p>
+      <div class="interpolation-image-wrapper-zero-shot">
+        <img src="./static/images/turtlebot2.png" />
+      </div>
+  </div>
+</section>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
+<hr style="border-top: 1px dashed grey;">
+<section class="section" id="Related">
+  <div class="container is-max-desktop content">
     <!-- Concurrent Work. -->
     <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3"><a id="relatedWorks">Related Works</a></h2>
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3">Related Works</h2>
 
         <div class="content has-text-justified">
           <p>
-            <a href="https://arxiv.org/abs/2108.08839">PoinTr: Diverse Point Cloud Completion with Geometry-Aware Transformers</a>. Xumin Yu*, Yongming Rao*, Ziyi Wang, Zuyan Liu, Jiwen Lu, Jie Zhou. ICCV 2021.
+            <a href="https://openaccess.thecvf.com/content/CVPR2022/html/He_Masked_Autoencoders_Are_Scalable_Vision_Learners_CVPR_2022_paper.html">Masked Autoencoders Are Scalable Vision Learners</a>. Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollár, Ross Girshick. CVPR 2022.
           </p>
           <p>
-            <a href="https://arxiv.org/abs/1406.5670">3D ShapeNets: A Deep Representation for Volumetric Shapes</a>. Zhirong Wu, Shuran Song, Aditya Khosla, Fisher Yu, Linguang Zhang, Xiaoou Tang, Jianxiong Xiao. CVPR 2015.
+            <a href="https://ieeexplore.ieee.org/document/9197186">VALID: A Comprehensive Virtual Aerial Image Dataset</a>. Lyujie Chen, Feng Liu, Yan Zhao, Wufan Wang, Xiaming Yuan, Jihong Zhu. ICRA 2022. (<a href="https://sites.google.com/view/valid-dataset">Dataset Link</a>)
           </p>
           <p>
-            <a href="https://arxiv.org/abs/1406.5670">Global registration of mid-range 3D observations and short range next best views</a>. Jacopo Aleotti; Dario Lodi Rizzini; Riccardo Monica; Stefano Caselli. IROS 2014.
+            <a href="https://arxiv.org/abs/1712.05474">AI2-THOR: An Interactive 3D Environment for Visual AI</a>. Eric Kolve, Roozbeh Mottaghi, Winson Han, Eli VanderBilt, Luca Weihs, Alvaro Herrasti, Matt Deitke, Kiana Ehsani, Daniel Gordon, Yuke Zhu, Aniruddha Kembhavi, Abhinav Gupta, Ali Farhadi. (<a href="https://ai2thor.allenai.org/"">Simulator Link</a>)
           </p>
         </div>
       </div>
     </div>
+    <!--/ Concurrent Work. -->
 
   </div>
 </section>
 
+<hr style="border-top: 1px dashed grey;">
 
 
+
+<script type="text/javascript">
+  $(function() {
+  var screenWidth = $(window).width();
+  if (screenWidth >= 800) {
+    $('#gpt-video-1').attr('autoplay', 'autoplay');
+  }
+  if (screenWidth >= 800) {
+    $('#gpt-video-2').attr('autoplay', 'autoplay');
+  }
+  if (screenWidth >= 800) {
+    $('#click-query-icl').attr('autoplay', 'autoplay');
+  }
+});
+</script>
+
+
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop content has-text-justified">
+    <h2 class="title">Citing</h2>
+    <pre><code>@article{fliptd,
+  author    = {Singh, Anukriti and Sharma, {Vishnu Dutt} and Tokekar, Pratap},
+  title     = {FLIP-TD: Free Lunch Inpainting on Top-Down Images for Robotic Tasks},
+  journal   = {arXiv},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section>
 
 
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://openreview.net/pdf?id=7c0WHyETaHC">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://raaslab.org/project/FLIP-TD" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+      </a>
     </div>
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
-            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+            This website adapted from <a href="https://concept-fusion.github.io/">ConceptFusion</a>, based on the  Nerfies templates, which is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
-        </div>
-      </div>
+          <p>
+            This means you are free to borrow the <a href="https://github.com/projects/FLIP-TD">source code</a> of this website,
+            we just ask that you link back to the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies source code</a> in the footer.
+            Please remember to remove the analytics code included in the header of the website which you do not want on your website.
           </p>
         </div>
       </div>
