@@ -65,85 +65,68 @@
         <a class="navbar-item" href="#Approach">
           Approach
         </a>
-        <a class="navbar-link" href="#FOVQual">
-          Increasing FOV (Qualitative Results)
-        </a>
-        <div class="navbar-link has-dropdown ">
-          <a class="navbar-item" href="#rgb">
-            RGB Images
-          </a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#OutdoorsRGB1">
-              Outdoors Border-1
-            </a>
-            <a class="navbar-item" href="#OutdoorsRGB2">
-              Outdoors Border-2
-            </a>
-            <a class="navbar-item" href="#OutdoorsRGB3">
-              Outdoors Border-3
-            </a>
-            <a class="navbar-item" href="#IndoorsRGB">
-              Indoors Border-1,2,3
-            </a>
-          </div>
-        </div>
-
-        <div class="navbar-link has-dropdown">
-          <a class="navbar-item" href="#sem">
-            Semantic Segmentation Maps
-          </a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#OutdoorsSem1">
-              Outdoors Border-1
-            </a>
-            <a class="navbar-item" href="#OutdoorsSem2">
-              Outdoors Border-2
-            </a>
-            <a class="navbar-item" href="#OutdoorsSem3">
-              Outdoors Border-3
-            </a>
-            <a class="navbar-item" href="#IndoorsSem">
-              Indoors Border-1,2,3
-            </a>
-          </div>
-        </div>
-
-        <div class="navbar-link has-dropdown ">
-          <a class="navbar-item" href="#bin">
-            Binary Maps
-          </a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#OutdoorsBin1">
-              Outdoors Border-1
-            </a>
-            <a class="navbar-item" href="#OutdoorsBin2">
-              Outdoors Border-2
-            </a>
-            <a class="navbar-item" href="#OutdoorsBin3">
-              Outdoors Border-3
-            </a>
-          </div>
-        </div>
 
         
-          <a class="navbar-item" href="#FOVQuant">
-            Increasing FOV (Quantitative Results)
+          <a class="navbar-link" href="#FOVQual">
+            Increasing FOV (Qualitative Results)
           </a>
-          <a class="navbar-item" href="#Inpainting">
-            Semantics-Guided Inpainting
-          </a>
-          <a class="navbar-item" href="#Uncertainty">
-            Uncertainty Estimation
-          </a>
-          <a class="navbar-item" href="#Turtlebot">
-            Real-World Results
-          </a>
-          <a class="navbar-item" href="#Related">
-            Related Works
-          </a>
-          <a class="navbar-item" href="#bibtex">
-            Citing
-          </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="#OutdoorsRGB1">
+                RGB: Outdoors Border-1
+              </a>
+              <a class="navbar-item" href="#OutdoorsRGB2">
+                RGB: Outdoors Border-2
+              </a>
+              <a class="navbar-item" href="#OutdoorsRGB3">
+                RGB: Outdoors Border-3
+              </a>
+              <a class="navbar-item" href="#IndoorsRGB">
+                RGB: Indoors Border-1,2,3
+              </a>
+            
+              <a class="navbar-item" href="#OutdoorsSem1">
+                SemSeg: Outdoors Border-1
+              </a>
+              <a class="navbar-item" href="#OutdoorsSem2">
+                SemSeg: Outdoors Border-2
+              </a>
+              <a class="navbar-item" href="#OutdoorsSem3">
+                SemSeg: Outdoors Border-3
+              </a>
+              <a class="navbar-item" href="#IndoorsSem">
+                SemSeg: Indoors Border-1,2,3
+              </a>
+
+              <a class="navbar-item" href="#OutdoorsBin1">
+                Binary: Outdoors Border-1
+              </a>
+              <a class="navbar-item" href="#OutdoorsBin2">
+                Binary: Outdoors Border-2
+              </a>
+              <a class="navbar-item" href="#OutdoorsBin3">
+                Binary: Outdoors Border-3
+              </a>
+            </div>
+        
+        
+        <a class="navbar-item" href="#FOVQuant">
+          Increasing FOV (Quantitative Results)
+        </a>
+        <a class="navbar-item" href="#Inpainting">
+          Semantics-Guided Inpainting
+        </a>
+        <a class="navbar-item" href="#Uncertainty">
+          Uncertainty Estimation
+        </a>
+        <a class="navbar-item" href="#Turtlebot">
+          Real-World Results
+        </a>
+        <a class="navbar-item" href="#Related">
+          Related Works
+        </a>
+        <a class="navbar-item" href="#bibtex">
+          Citing
+        </a>
         
       </div>
     </div>
@@ -211,14 +194,15 @@
 <section class="section" id="Abstract">
   <div class="container is-max-desktop has-text-centered">
     <!-- Abstract. -->
-    <div class="interpolation-image-wrapper-zero-shot">
-      <img style="width:50%" src="./static/images/fig_1.png" />
-    </div>
-  </br>
+    
     <div class="columns is-centered has-text-centered">
       
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
+        <div class="interpolation-image-wrapper-zero-shot">
+          <img style="width:50%" src="./static/images/fig_1.png" />
+        </div>
+      </br>
         <div class="content has-text-justified">
           <p>
             Robotic systems are often limited by their sensor Field of View (FOV), which makes collision-free navigation and exploration in an unknown environment challenging. In contrast, humans are better at it because they can use their prior knowledge and consider the information beyond the FOV. What if robots could do it too? In our proposed approach, we aim to enhance the intelligence of robots by utilizing pre-trained masked autoencoders to make predictions of expanded FOV and synthesis a novel view. This allows the robot to reason and make informed decisions for safe and efficient navigation in unknown environments. We demonstrate the effectiveness of computer vision algorithms, specifically masked autoencoders, in solving practical robotics problems without the need for fine-tuning by using only top-down images. Our approach is evaluated in both indoor and outdoor environments, showcasing its performance in various settings of RGB, semantic segmentation, and binary images.
@@ -283,7 +267,7 @@
       <div class="column">
         <div class="content">
           <h3 class="title is-5 has-text-centered">Outdoors Border-1</h3>
-          <div class="interpolation-image-wrapper-zero-shot">
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
             <img src="./static/images/rgb_border_1.png" />
           </div>
         </div>
@@ -297,7 +281,7 @@
       <div class="column">
         <div class="content">
           <h2 class="title is-5 has-text-centered">Outdoors Border-2</h2>
-          <div class="interpolation-image-wrapper-zero-shot">
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
             <img src="./static/images/rgb_border_2.png" />
           </div>
         </div>
@@ -311,7 +295,7 @@
       <div class="column">
         <div class="content">
           <h2 class="title is-5 has-text-centered">Outdoors Border-3</h2>
-          <div class="interpolation-image-wrapper-zero-shot">
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
             <img src="./static/images/rgb_border_3.png" />
           </div>
         </div>
@@ -325,7 +309,7 @@
       <div class="column">
         <div class="content">
           <h2 class="title is-5 has-text-centered">Indoors (Border 1,2, and 3)</h2>
-          <div class="interpolation-image-wrapper-zero-shot">
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
             <img src="./static/images/fig_3.png" />
           </div>
         </div>
@@ -348,7 +332,7 @@
       <div class="column">
         <div class="content">
           <h2 class="title is-5 has-text-centered">Outdoors Border-1</h2>
-          <div class="interpolation-image-wrapper-zero-shot">
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
             <img src="./static/images/seg_border_1.png" />
           </div>
         </div>
@@ -362,7 +346,7 @@
       <div class="column">
         <div class="content">
           <h2 class="title is-5 has-text-centered">Outdoors Border-2</h2>
-          <div class="interpolation-image-wrapper-zero-shot">
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
             <img src="./static/images/seg_border_2.png" />
           </div>
         </div>
@@ -376,7 +360,7 @@
       <div class="column">
         <div class="content">
           <h2 class="title is-5 has-text-centered">Outdoors Border-3</h2>
-          <div class="interpolation-image-wrapper-zero-shot">
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
             <img src="./static/images/seg_border_3.png" />
           </div>
         </div>
@@ -412,7 +396,7 @@
       <div class="column">
         <div class="content">
           <h2 class="title is-5 has-text-centered">Outdoors Border-1</h2>
-          <div class="interpolation-image-wrapper-zero-shot">
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
             <img src="./static/images/bin_border_1.png" />
           </div>
         </div>
@@ -426,7 +410,7 @@
       <div class="column">
         <div class="content">
           <h2 class="title is-5 has-text-centered">Outdoors Border-2</h2>
-          <div class="interpolation-image-wrapper-zero-shot">
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
             <img src="./static/images/bin_border_2.png" />
           </div>
         </div>
@@ -440,7 +424,7 @@
       <div class="column">
         <div class="content">
           <h2 class="title is-5 has-text-centered">Outdoors Border-3</h2>
-          <div class="interpolation-image-wrapper-zero-shot">
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
             <img src="./static/images/bin_border_3.png" />
           </div>
         </div>
