@@ -71,14 +71,23 @@
           <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#video">
             Video
           </a>
-          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#realWorld">
-            Prediction on Real-World Data
+          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#exResults">
+            Experiment Results
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#simPipeline">
+            Simulation Pipeline
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#airsimInspection">
+            GATSBI in Simulated Bridge Inspection
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#airSimFlight">
+            GATSBI Flight Path for Arch Bridge
           </a>
           <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#qualResults">
             Qualitative Results
           </a>
-          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#nbvPlanning">
-            NBV Planning in Simulation
+          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#crackdetection">
+            GATSBI in Simulated Crack Detection
           </a>
           <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#relatedWorks">
             Related Works
@@ -194,7 +203,7 @@
         <h2 class="title is-3"><a id="video">Video</a></h2>
         <div class="publication-video">
           <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
-        <source src="./videos/bridge_inspection_lidar.mp4" type="video/mp4">
+        <source src="./videos/f3.mp4" type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
         Our method predicts the point cloud based on partial observations and helps the robot find an efficient path to observed the object.
@@ -208,14 +217,66 @@
 
 
 
+<section class="hero  is-small">
+  <div class="container is-max-desktop">
+    <!-- Qual Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="exResults">Experiment Results</a></h2>
+         <p> We ran a simplified version of GATSBI in a real-world experiment setting. A mock bridge was constructed at University of Maryland's  <a src="https://aero.umd.edu/research/fearless-flight-facility-f3">Fearless Flight Facility</a>. In the experiment, the UAV was able to inspect all 15 of the bridge's inspecatble voxels.</p>
+         <img width="97%" src="./static/images/gatsbi_inspection_hardware.png">
+    </div>
+  </div>
+</div>
+</section>
 
 
+<section class="hero  is-small">
+  <div class="container is-max-desktop">
+    <!-- Qual Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="simPipeline">Simulation Pipeline</a></h2>
+         <p> We compare GATSBI against the baseline frontier exploration algorithm in percentage of bridge voxels inspected and total occupied voxels detected. While GATSBI isn't as quick to explore the environment as the baseline, it vastly outperforms the baseline in terms of inspection.</p>
+         <p align='center'><b>Simulation Flight</b></p>
+          <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
+            <source src="./videos/bridge_inspection.mp4" type="video/mp4">
+          </video>
+       </br>
+          <div class="row">
+            <div class="column">
+              <p align='center'><b>LiDAR Pointcloud</b></p>
+              <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
+                <source src="./videos/bridge_inspection_lidar.mp4" type="video/mp4">
+              </video>
+              <p align='center'><b>Occupancy Grid</b></p>
+              <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
+                <source src="./videos/bridge_inspection_octo.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column">
+              <p align='center'><b>Segmented PointCloud</b></p>
+              <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
+                <source src="./videos/bridge_inspection_lidar_segmented.mp4" type="video/mp4">
+              </video>
+              <p align='center'><b>Bridge Only Occupancy Grid</b></p>
+              <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
+                <source src="./videos/bridge_inspection_octo_segmented.mp4" type="video/mp4">
+              </video>
+
+            </div>
+          </div>
+        </br>
+    </div>
+  </div>
+</div>
+</section>
 
 <section class="hero is-light">
   <div class="hero-body">
     <div class="container has-text-justified">
       <br>
-     <h2 class="title is-3 has-text-centered"><a id="nbvPlanning">GATSBI in Simulated Bridge Inspection</a></h2>
+     <h2 class="title is-3 has-text-centered"><a id="airsimInspection">GATSBI in Simulated Bridge Inspection</a></h2>
      <p>Comparison of GATSBI against the baseline frontier exploration method for bridge inspection. The image of the object can be seen by clicking on the model name.</p>
       <table style="width:80%" class="is-max-desktop" align="center" cellpadding="10" cellspacing="10">
         <thead class="is-8">
@@ -306,11 +367,46 @@
   </div>
 </section>
 
+<section class="hero  is-small">
+  <div class="container is-max-desktop">
+    <!-- Qual Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="airSimFlight">GATSBI Flight Path for Arch Bridge</a></h2>
+         <p> UAV flight path flown by GATSBI during inspection of the Arch bridge.</p>
+         <img width="97%" src="./static/images/arch_path_2.png">
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="hero  is-small">
+  <div class="container is-max-desktop">
+    <!-- Qual Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="qualResults">Qualitative Results</a></h2>
+         <p> We compare GATSBI against the baseline frontier exploration algorithm in percentage of bridge voxels inspected and total occupied voxels detected. While GATSBI isn't as quick to explore the environment as the baseline, it vastly outperforms the baseline in terms of inspection.</p>
+       </br>
+          <div class="row">
+            <div class="column">
+              <img width="97%" src="./static/images/Boxgirder.png">
+            </div>
+            <div class="column">
+              <img width="97%" src="./static/images/Boxgirder_total.png">
+            </div>
+          </div>
+        </br>
+    </div>
+  </div>
+</div>
+</section>
+
 <section class="hero is-light">
   <div class="hero-body">
     <div class="container has-text-justified">
       <br>
-     <h2 class="title is-3 has-text-centered"><a id="nbvPlanning">GATSBI in Simulated Crack Detection</a></h2>
+     <h2 class="title is-3 has-text-centered"><a id="crackdetection">GATSBI in Simulated Crack Detection</a></h2>
      <p>Comparison of GATSBI against the baseline frontier exploration method for crack detection. The image of the object can be seen by clicking on the model name.</p>
       <table style="width:60%" class="is-max-desktop" align="center" cellpadding="10" cellspacing="10">
         <thead class="is-8">
