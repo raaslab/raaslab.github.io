@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GATSBI: An Online GTSP-Based Algorithm for Targeted Surface Bridge Inspection</title>
 
-  <script src="./gatsbi_files/plotly-latest.min.js"></script><style type="text/css">svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.3333333333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-both,:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor);opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fad.fa-inverse{color:#fff}</style><style id="plotly.js-style-global"></style>
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
   <!-- <script>
@@ -22,22 +22,24 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script> -->
 
-  <link href="./gatsbi_files/css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
 
-  <link rel="stylesheet" href="./gatsbi_files/bulma.min.css">
-  <link rel="stylesheet" href="./gatsbi_files/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./gatsbi_files/bulma-slider.min.css">
-  <link rel="stylesheet" href="./gatsbi_files/fontawesome.all.min.css">
-  <link rel="stylesheet" href="./gatsbi_files/academicons.min.css">
-  <link rel="stylesheet" href="./gatsbi_files/index.css">
-  <link rel="icon" href="http://raaslab.org/projects/GATSBI/static/images/favicon.svg">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
 
-  <script src="./gatsbi_files/jquery.min.js"></script>
-  <script defer="" src="./gatsbi_files/fontawesome.all.min.js"></script>
-  <script src="./gatsbi_files/bulma-carousel.min.js"></script>
-  <script src="./gatsbi_files/bulma-slider.min.js"></script>
-  <script src="./gatsbi_files/index.js"></script>
-  <script src="./gatsbi_files/htmlincludejs"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://unpkg.com/htmlincludejs"></script>
 
 </head>
 <body>
@@ -54,7 +56,7 @@
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
       <a class="navbar-item" href="http://raaslab.org/">
       <span class="icon">
-          <svg class="svg-inline--fa fa-home fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg><!-- <i class="fas fa-home"></i> Font Awesome fontawesome.com -->
+          <i class="fas fa-home"></i>
       </span>
       </a>
 
@@ -116,7 +118,24 @@
           </div> -->
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">Anonymous Submission</span>
+            <span class="author-block">
+              <a href="http://raaslab.org/">Harnaik Dhami</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/kevinlyu/home">Kevin Yu</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://troiwill.github.io/">Troi Williams</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/vineeth-vajipey-58907b173">Vineeth Vajipey</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://raaslab.org/">Pratap Tokekar</a><sup>2</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Maryland,</span>
+            <span class="author-block"><sup>2</sup>Virginia Tech</span>
           </div>
 
           <div class="column has-text-centered">
@@ -124,9 +143,9 @@
 
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://https://github.com/raaslab/GATSBI" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://github.com/raaslab/GATSBI" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+                      <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
                   </a>
@@ -191,6 +210,152 @@
 
 
 
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container has-text-justified">
+      <br>
+     <h2 class="title is-3 has-text-centered"><a id="nbvPlanning">GATSBI in Simulation</a></h2>
+     <p>Comparison of GATSBI against the baseline frontier exploration method for bridge inspection. The image of the object can be seen by clicking on the model name.</p>
+      <table style="width:80%" class="is-max-desktop" align="center" cellpadding="10" cellspacing="10">
+        <thead class="is-8">
+          <tr style="border-bottom: 1px solid black">
+            <th>Bridge</th>
+            <th>Algorithm</th>
+            <!-- <th>Demo</th> -->
+            <th>Bridge Vox.</th>
+            <th>Inspected</th>
+            <th>Runtime</th>
+          </tr>
+        </thead>
+        <tbody class="is-8" style="border-bottom: 1px solid black">
+          <tr>
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/arched_2.png">Arch</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td rowspan="2" style="vertical-align : middle;">124</td>
+            <td>10</td>
+            <td>15.2 min</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>124</td>
+            <td>44.8 min</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/girder2.png">Box Girder</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td rowspan="2" style="vertical-align : middle;">140</td>
+            <td>11</td>
+            <td>13.2 min</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>140</td>
+            <td>53.7 min</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/covered_2.png">Covered</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td rowspan="2" style="vertical-align : middle;">60</td>
+            <td>5</td>
+            <td>8.7 min</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>60</td>
+            <td>69.3 min</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/iron2.png">Iron</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td rowspan="2" style="vertical-align : middle;">167</td>
+            <td>6</td>
+            <td>8.4 min</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>167</td>
+            <td>66.9 min</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/Suspension_Bridge.png">Steel</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td rowspan="2" style="vertical-align : middle;">214</td>
+            <td>12</td>
+            <td>24.5 min</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>214</td>
+            <td>77.3 min</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero" is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br>Qualitative Results</h2>
+         <p> We compare <a src="https://arxiv.org/abs/2108.08839">PoinTr</a>, a 3D shape completion, against PoinTr-C, a improved version of PoinTr which we train with curriculum learning to make robust against perturbations in the canonical point cloud representations. The results below show shape completion results on data from ShapeNet dataset, when these pertubations in injected in the point clouds.</p>
+       </br>
+          <div class="row">
+            <div class="column">
+              <p align='center'><b>Input</b></p>
+              <img width="97%" src="./static/images/models/747.png">
+              <img width="50%" src="./static/images/models/Atlas.png">
+              <img width="97%" src="./static/images/models/BigBen.png">
+              <img width="97%" src="./static/images/models/Diesel.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>Ground Truth</b></p>
+              <img width="97%" src="./static/images/models/A340.png">
+              <img width="50%" src="./static/images/models/Maverick.png">
+              <img width="97%" src="./static/images/models/Church.png">
+              <img width="97%" src="./static/images/models/Mountain.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>PoinTr</b></p>
+              <img width="97%" src="./static/images/models/C17.png">
+              <img width="50%" src="./static/images/models/SaturnV.png">
+              <img width="97%" src="./static/images/models/Clock.png">
+              <img width="97%" src="./static/images/models/Cruise.png">
+              <img width="97%" src="./static/images/models/Silo.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>PoinTr-C (Ours)</b></p>
+              <img width="97%" src="./static/images/models/C130.png">
+              <img width="50%" src="./static/images/models/Sparrow.png">
+              <img width="97%" src="./static/images/models/Pylon.png">
+              <img width="97%" src="./static/images/models/Patrol.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>PoinTr-C (Ours)</b></p>
+              <img width="97%" src="./static/images/models/Fokker100.png">
+              <img width="50%" src="./static/images/models/v2.png">
+              <img width="97%" src="./static/images/models/Pylon.png">
+              <img width="97%" src="./static/images/models/Yacht.png">
+            </div>
+          </div>
+        </br>
+    </div>
+  </div>
+</div>
+</section> -->
 
 
 <section class="section">
