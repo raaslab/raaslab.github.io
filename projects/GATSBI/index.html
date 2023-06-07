@@ -165,7 +165,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="./gatsbi_files/block_diagram.png" class="interpolation-image" alt="Interpolation end reference image.">
+      <img src="./static/images/block_diagram.png" class="interpolation-image" alt="Interpolation end reference image.">
 
 
     </div>
@@ -194,7 +194,7 @@
         <h2 class="title is-3"><a id="video">Video</a></h2>
         <div class="publication-video">
           <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
-        <source src="./videos/bridge_inspection_lidar.mkv" type="video/mkv">
+        <source src="./videos/bridge_inspection_lidar.mp4" type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
         Our method predicts the point cloud based on partial observations and helps the robot find an efficient path to observed the object.
@@ -215,7 +215,7 @@
   <div class="hero-body">
     <div class="container has-text-justified">
       <br>
-     <h2 class="title is-3 has-text-centered"><a id="nbvPlanning">GATSBI in Simulation</a></h2>
+     <h2 class="title is-3 has-text-centered"><a id="nbvPlanning">GATSBI in Simulated Bridge Inspection</a></h2>
      <p>Comparison of GATSBI against the baseline frontier exploration method for bridge inspection. The image of the object can be seen by clicking on the model name.</p>
       <table style="width:80%" class="is-max-desktop" align="center" cellpadding="10" cellspacing="10">
         <thead class="is-8">
@@ -306,56 +306,94 @@
   </div>
 </section>
 
-<!-- <section class="hero" is-small">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3"></br>Qualitative Results</h2>
-         <p> We compare <a src="https://arxiv.org/abs/2108.08839">PoinTr</a>, a 3D shape completion, against PoinTr-C, a improved version of PoinTr which we train with curriculum learning to make robust against perturbations in the canonical point cloud representations. The results below show shape completion results on data from ShapeNet dataset, when these pertubations in injected in the point clouds.</p>
-       </br>
-          <div class="row">
-            <div class="column">
-              <p align='center'><b>Input</b></p>
-              <img width="97%" src="./static/images/models/747.png">
-              <img width="50%" src="./static/images/models/Atlas.png">
-              <img width="97%" src="./static/images/models/BigBen.png">
-              <img width="97%" src="./static/images/models/Diesel.png">
-            </div>
-            <div class="column">
-              <p align='center'><b>Ground Truth</b></p>
-              <img width="97%" src="./static/images/models/A340.png">
-              <img width="50%" src="./static/images/models/Maverick.png">
-              <img width="97%" src="./static/images/models/Church.png">
-              <img width="97%" src="./static/images/models/Mountain.png">
-            </div>
-            <div class="column">
-              <p align='center'><b>PoinTr</b></p>
-              <img width="97%" src="./static/images/models/C17.png">
-              <img width="50%" src="./static/images/models/SaturnV.png">
-              <img width="97%" src="./static/images/models/Clock.png">
-              <img width="97%" src="./static/images/models/Cruise.png">
-              <img width="97%" src="./static/images/models/Silo.png">
-            </div>
-            <div class="column">
-              <p align='center'><b>PoinTr-C (Ours)</b></p>
-              <img width="97%" src="./static/images/models/C130.png">
-              <img width="50%" src="./static/images/models/Sparrow.png">
-              <img width="97%" src="./static/images/models/Pylon.png">
-              <img width="97%" src="./static/images/models/Patrol.png">
-            </div>
-            <div class="column">
-              <p align='center'><b>PoinTr-C (Ours)</b></p>
-              <img width="97%" src="./static/images/models/Fokker100.png">
-              <img width="50%" src="./static/images/models/v2.png">
-              <img width="97%" src="./static/images/models/Pylon.png">
-              <img width="97%" src="./static/images/models/Yacht.png">
-            </div>
-          </div>
-        </br>
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container has-text-justified">
+      <br>
+     <h2 class="title is-3 has-text-centered"><a id="nbvPlanning">GATSBI in Simulated Crack Detection</a></h2>
+     <p>Comparison of GATSBI against the baseline frontier exploration method for crack detection. The image of the object can be seen by clicking on the model name.</p>
+      <table style="width:60%" class="is-max-desktop" align="center" cellpadding="10" cellspacing="10">
+        <thead class="is-8">
+          <tr style="border-bottom: 1px solid black">
+            <th>Bridge</th>
+            <th>Algorithm</th>
+            <!-- <th>Demo</th> -->
+            <th>% Found</th>
+            <th>Std. Dev.</th>
+          </tr>
+        </thead>
+        <tbody class="is-8" style="border-bottom: 1px solid black">
+          <tr>
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/arched_2.png">Arch</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td>2.6%</td>
+            <td>2.5%</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>32.5%</td>
+            <td>7.2%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/girder2.png">Box Girder</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td>3.2%</td>
+            <td>2.8%</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>49.4%</td>
+            <td>8.0%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/covered_2.png">Covered</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td>3.0%</td>
+            <td>3.9%</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>34.5%</td>
+            <td>10.9%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/iron2.png">Iron</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td>1.6%</td>
+            <td>1.9%</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>44.1%</td>
+            <td>7.6%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/Suspension_Bridge.png">Steel</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td>2.4%</td>
+            <td>2.1%</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>42.8%</td>
+            <td>6.7%</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
   </div>
-</div>
-</section> -->
+</section>
 
 
 <section class="section">
@@ -367,13 +405,13 @@
 
         <div class="content has-text-justified">
           <p>
-            <a href="https://arxiv.org/abs/2108.08839">PoinTr: Diverse Point Cloud Completion with Geometry-Aware Transformers</a>. Xumin Yu*, Yongming Rao*, Ziyi Wang, Zuyan Liu, Jiwen Lu, Jie Zhou. ICCV 2021.
+            <a href="https://link.springer.com/article/10.1007/s10514-016-9610-0">Receding horizon path planning for 3D exploration and surface inspection</a>. Andreas Bircher, Mina Kamel, Kostas Alexis, Helen Oleynikova & Roland Siegwart. <em>Autonomous Robots</em> 2018.
           </p>
           <p>
-            <a href="https://arxiv.org/abs/1406.5670">3D ShapeNets: A Deep Representation for Volumetric Shapes</a>. Zhirong Wu, Shuran Song, Aditya Khosla, Fisher Yu, Linguang Zhang, Xiaoou Tang, Jianxiong Xiao. CVPR 2015.
+            <a href="https://link.springer.com/article/10.1007/s10514-020-09936-7">Online coverage and inspection planning for 3D modeling</a>. Soohwan Song, Daekyum Kim & Sungho Jo. <em>Autonomous Robots</em> 2020.
           </p>
           <p>
-            <a href="https://arxiv.org/abs/1406.5670">Global registration of mid-range 3D observations and short range next best views</a>. Jacopo Aleotti; Dario Lodi Rizzini; Riccardo Monica; Stefano Caselli. IROS 2014.
+            <a href="https://link.springer.com/article/10.1007/s43154-020-00030-5">Exploration and Mapping with Groups of Robots: Recent Trends</a>. Alberto Quattrini Li. <em>Current Robotics Reports</em> 2020.
           </p>
         </div>
       </div>
