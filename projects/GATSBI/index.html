@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://raaslab.org/projects/GATSBI/ -->
+<html class="fontawesome-i2svg-active fontawesome-i2svg-complete"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="description" content="Efficient Bridge Inspection">
+  <meta name="keywords" content="GTSP, real-world planning, inspection">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GATSBI: An Online GTSP-Based Algorithm for Targeted Surface Bridge Inspection</title>
+
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://unpkg.com/htmlincludejs"></script>
+
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="http://raaslab.org/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Table of Contents
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#abstract">
+            Abstract
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#video">
+            Video
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#exResults">
+            Experiment Results
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#simPipeline">
+            Simulation Pipeline
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#airsimInspection">
+            GATSBI in Simulated Bridge Inspection
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#airSimFlight">
+            GATSBI Flight Path for Arch Bridge
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#qualResults">
+            Qualitative Results
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#crackdetection">
+            GATSBI in Simulated Crack Detection
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/GATSBI/#relatedWorks">
+            Related Works
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</nav>
+
+
+
+<!-- https://github.com/raaslab/Pred-NBV -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GATSBI: An Online GTSP-Based Algorithm for Targeted Surface Bridge Inspection</h1>
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="http://raaslab.org/index.html#people">Harnaik Dhami</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="http://vishnuduttsharma.github.io/">Vishnu D. Sharma</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="http://tokekar.com/">Pratap Tokekar</a>
+            </span>
+          </div> -->
+
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Maryland, College Park</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal contribution (listed alphabatically)</span>
+          </div> -->
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="http://raaslab.org/">Harnaik Dhami</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/kevinlyu/home">Kevin Yu</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://troiwill.github.io/">Troi Williams</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/vineeth-vajipey-58907b173">Vineeth Vajipey</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://raaslab.org/">Pratap Tokekar</a><sup>2</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Maryland,</span>
+            <span class="author-block"><sup>2</sup>Virginia Tech</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2012.04803.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2012.04803"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/raaslab/GATSBI" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+            </div>
+          </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/block_diagram.png" class="interpolation-image" alt="Interpolation end reference image.">
+
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><a id="abstract">Abstract</a></h2>
+        <div class="content has-text-justified ">
+          <p>
+          We study the problem of visual surface inspection of a bridge for defects using an Unmanned Aerial Vehicle (UAV). We do not assume that the geometric model of the bridge is known beforehand. Our planner, termed GATSBI, plans a path in a receding horizon fashion to inspect all points on the surface of the bridge. The input to GATSBI consists of a 3D occupancy map created online with LiDAR scans. Occupied voxels corresponding to the bridge in this map are semantically segmented and used to create a bridge-only occupancy map. Inspecting a bridge voxel requires the UAV to take images from a desired viewing angle and distance. We then create a Generalized Traveling Salesperson Problem (GTSP) instance to cluster candidate viewpoints for inspecting the bridge voxels and use an off-the-shelf GTSP solver to find the optimal path for the given instance. As the algorithm sees more parts of the environment over time, it replans the path to inspect novel parts of the bridge while avoiding obstacles. We evaluate the performance of our algorithm through high-fidelity simulations conducted in AirSim and real-world experiments. We compare the performance of GATSBI with a classical exploration algorithm. Our evaluation reveals that targeting the inspection to only the segmented bridge voxels and planning carefully using a GTSP solver leads to a more efficient and thorough inspection than the baseline algorithm.
+          </p>
+        </div>
+      </div>
+    </div>
+  <br>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><a id="video">Video</a></h2>
+        <div class="publication-video">
+          <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
+        <source src="./videos/f3.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Our method predicts the point cloud based on partial observations and helps the robot find an efficient path to observed the object.
+      </h2>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+
+<section class="hero  is-small">
+  <div class="container is-max-desktop">
+    <!-- Qual Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="exResults">Experiment Results</a></h2>
+         <p> We ran a simplified version of GATSBI in a real-world experiment setting. A mock bridge was constructed at University of Maryland's  <a src="https://aero.umd.edu/research/fearless-flight-facility-f3">Fearless Flight Facility</a>. In the experiment, the UAV was able to inspect all 15 of the bridge's inspecatble voxels.</p>
+         <img width="97%" src="./static/images/gatsbi_inspection_hardware.png">
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section class="hero  is-small">
+  <div class="container is-max-desktop">
+    <!-- Qual Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="simPipeline">Simulation Pipeline</a></h2>
+         <p> We compare GATSBI against the baseline frontier exploration algorithm in percentage of bridge voxels inspected and total occupied voxels detected. While GATSBI isn't as quick to explore the environment as the baseline, it vastly outperforms the baseline in terms of inspection.</p>
+         <p align='center'><b>Simulation Flight</b></p>
+          <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
+            <source src="./videos/bridge_inspection.mp4" type="video/mp4">
+          </video>
+       </br>
+          <div class="row">
+            <div class="column">
+              <p align='center'><b>LiDAR Pointcloud</b></p>
+              <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
+                <source src="./videos/bridge_inspection_lidar.mp4" type="video/mp4">
+              </video>
+              <p align='center'><b>Occupancy Grid</b></p>
+              <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
+                <source src="./videos/bridge_inspection_octo.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column">
+              <p align='center'><b>Segmented PointCloud</b></p>
+              <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
+                <source src="./videos/bridge_inspection_lidar_segmented.mp4" type="video/mp4">
+              </video>
+              <p align='center'><b>Bridge Only Occupancy Grid</b></p>
+              <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
+                <source src="./videos/bridge_inspection_octo_segmented.mp4" type="video/mp4">
+              </video>
+
+            </div>
+          </div>
+        </br>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container has-text-justified">
+      <br>
+     <h2 class="title is-3 has-text-centered"><a id="airsimInspection">GATSBI in Simulated Bridge Inspection</a></h2>
+     <p>Comparison of GATSBI against the baseline frontier exploration method for bridge inspection. The image of the object can be seen by clicking on the model name.</p>
+      <table style="width:80%" class="is-max-desktop" align="center" cellpadding="10" cellspacing="10">
+        <thead class="is-8">
+          <tr style="border-bottom: 1px solid black">
+            <th>Bridge</th>
+            <th>Algorithm</th>
+            <!-- <th>Demo</th> -->
+            <th>Bridge Vox.</th>
+            <th>Inspected</th>
+            <th>Runtime</th>
+          </tr>
+        </thead>
+        <tbody class="is-8" style="border-bottom: 1px solid black">
+          <tr>
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/arched_2.png">Arch</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td rowspan="2" style="vertical-align : middle;">124</td>
+            <td>10</td>
+            <td>15.2 min</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>124</td>
+            <td>44.8 min</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/girder2.png">Box Girder</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td rowspan="2" style="vertical-align : middle;">140</td>
+            <td>11</td>
+            <td>13.2 min</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>140</td>
+            <td>53.7 min</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/covered_2.png">Covered</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td rowspan="2" style="vertical-align : middle;">60</td>
+            <td>5</td>
+            <td>8.7 min</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>60</td>
+            <td>69.3 min</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/iron2.png">Iron</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td rowspan="2" style="vertical-align : middle;">167</td>
+            <td>6</td>
+            <td>8.4 min</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>167</td>
+            <td>66.9 min</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/Suspension_Bridge.png">Steel</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td rowspan="2" style="vertical-align : middle;">214</td>
+            <td>12</td>
+            <td>24.5 min</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>214</td>
+            <td>77.3 min</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</section>
+
+<section class="hero  is-small">
+  <div class="container is-max-desktop">
+    <!-- Qual Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="airSimFlight">GATSBI Flight Path for Arch Bridge</a></h2>
+         <p> UAV flight path flown by GATSBI during inspection of the Arch bridge.</p>
+         <img width="97%" src="./static/images/arch_path_2.png">
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="hero  is-small">
+  <div class="container is-max-desktop">
+    <!-- Qual Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="qualResults">Qualitative Results</a></h2>
+         <p> We compare GATSBI against the baseline frontier exploration algorithm in percentage of bridge voxels inspected and total occupied voxels detected. While GATSBI isn't as quick to explore the environment as the baseline, it vastly outperforms the baseline in terms of inspection.</p>
+       </br>
+          <div class="row">
+            <div class="column">
+              <img width="97%" src="./static/images/Boxgirder.png">
+            </div>
+            <div class="column">
+              <img width="97%" src="./static/images/Boxgirder_total.png">
+            </div>
+          </div>
+        </br>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container has-text-justified">
+      <br>
+     <h2 class="title is-3 has-text-centered"><a id="crackdetection">GATSBI in Simulated Crack Detection</a></h2>
+     <p>Comparison of GATSBI against the baseline frontier exploration method for crack detection. The image of the object can be seen by clicking on the model name.</p>
+      <table style="width:60%" class="is-max-desktop" align="center" cellpadding="10" cellspacing="10">
+        <thead class="is-8">
+          <tr style="border-bottom: 1px solid black">
+            <th>Bridge</th>
+            <th>Algorithm</th>
+            <!-- <th>Demo</th> -->
+            <th>% Found</th>
+            <th>Std. Dev.</th>
+          </tr>
+        </thead>
+        <tbody class="is-8" style="border-bottom: 1px solid black">
+          <tr>
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/arched_2.png">Arch</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td>2.6%</td>
+            <td>2.5%</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>32.5%</td>
+            <td>7.2%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/girder2.png">Box Girder</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td>3.2%</td>
+            <td>2.8%</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>49.4%</td>
+            <td>8.0%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/covered_2.png">Covered</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td>3.0%</td>
+            <td>3.9%</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>34.5%</td>
+            <td>10.9%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/iron2.png">Iron</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td>1.6%</td>
+            <td>1.9%</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>44.1%</td>
+            <td>7.6%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th rowspan="2" style="vertical-align : middle;"><a href="http://raaslab.org/projects/GATSBI/static/images/Suspension_Bridge.png">Steel</a></th>
+            <td>Frontier</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td>2.4%</td>
+            <td>2.1%</td>
+          </tr>
+          <tr>
+            <td>GATSBI</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>42.8%</td>
+            <td>6.7%</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"><a id="relatedWorks">Related Works</a></h2>
+
+        <div class="content has-text-justified">
+          <p>
+            <a href="https://link.springer.com/article/10.1007/s10514-016-9610-0">Receding horizon path planning for 3D exploration and surface inspection</a>. Andreas Bircher, Mina Kamel, Kostas Alexis, Helen Oleynikova & Roland Siegwart. <em>Autonomous Robots</em> 2018.
+          </p>
+          <p>
+            <a href="https://link.springer.com/article/10.1007/s10514-020-09936-7">Online coverage and inspection planning for 3D modeling</a>. Soohwan Song, Daekyum Kim & Sungho Jo. <em>Autonomous Robots</em> 2020.
+          </p>
+          <p>
+            <a href="https://link.springer.com/article/10.1007/s43154-020-00030-5">Exploration and Mapping with Groups of Robots: Recent Trends</a>. Alberto Quattrini Li. <em>Current Robotics Reports</em> 2020.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+          <p></p>
+        </div>
+      </div>
+    
+  
+</footer>
+
+
+
+</body></html>
