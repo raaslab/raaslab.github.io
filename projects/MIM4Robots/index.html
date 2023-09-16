@@ -1,1 +1,797 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Pre-Trained Masked Image Model for Mobile Robot Navigation">
+  <meta name="keywords" content="MIM4Robot, Top-Down Images, Aerial Images, Inpainting, MAE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pre-Trained Masked Image Model for Mobile Robot Navigation</title>
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JX0F75QDW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="../FLIP-TD/static/css/bulma.min.css">
+  <link rel="stylesheet" href="../FLIP-TD/static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="../FLIP-TD/static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="../FLIP-TD/static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="../FLIP-TD/static/css/index.css">
+  <link rel="icon" href="../FLIP-TD/static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="../FLIP-TD/static/js/fontawesome.all.min.js"></script>
+  <script src="../FLIP-TD/static/js/bulma-carousel.min.js"></script>
+  <script src="../FLIP-TD/static/js/bulma-slider.min.js"></script>
+  <script src="../FLIP-TD/static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://raaslab.org/projects/FLIP-TD/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-item" href="#Abstract">
+          Abstract
+        </a>
+        <a class="navbar-item" href="#Approach">
+          Approach
+        </a>
+
+        
+          <a class="navbar-link" href="#FOVQual">
+            Increasing FOV (Qualitative Results)
+          </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="#OutdoorsRGB1">
+                RGB: Outdoors 1.17x Expansion
+              </a>
+              <a class="navbar-item" href="#OutdoorsRGB2">
+                RGB: Outdoors 1.40x Expansion
+              </a>
+              <a class="navbar-item" href="#OutdoorsRGB3">
+                RGB: Outdoors 1.75x Expansion
+              </a>
+              <a class="navbar-item" href="#IndoorsRGB">
+                RGB: Indoors 1.17x Expansion,2,3
+              </a>
+            
+              <a class="navbar-item" href="#OutdoorsSem1">
+                SemSeg: Outdoors 1.17x Expansion
+              </a>
+              <a class="navbar-item" href="#OutdoorsSem2">
+                SemSeg: Outdoors 1.40x Expansion
+              </a>
+              <a class="navbar-item" href="#OutdoorsSem3">
+                SemSeg: Outdoors 1.75x Expansion
+              </a>
+              <a class="navbar-item" href="#IndoorsSem">
+                SemSeg: Indoors 1.17x Expansion,2,3
+              </a>
+
+              <a class="navbar-item" href="#OutdoorsBin1">
+                Binary: Outdoors 1.17x Expansion
+              </a>
+              <a class="navbar-item" href="#OutdoorsBin2">
+                Binary: Outdoors 1.40x Expansion
+              </a>
+              <a class="navbar-item" href="#OutdoorsBin3">
+                Binary: Outdoors 1.75x Expansion
+              </a>
+            </div>
+        
+        
+        <a class="navbar-item" href="#FOVQuant">
+          Increasing FOV (Quantitative Results)
+        </a>
+        <a class="navbar-item" href="#Inpainting">
+          Semantics-Guided Inpainting
+        </a>
+        <a class="navbar-item" href="#Uncertainty">
+          Uncertainty Estimation
+        </a>
+        <a class="navbar-item" href="#Turtlebot">
+          Real-World Results
+        </a>
+        <a class="navbar-item" href="#Related">
+          Related Works
+        </a>
+        <a class="navbar-item" href="#bibtex">
+          Citing
+        </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Pre-Trained Masked Image Model for Mobile Robot Navigation</h1>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">
+              <a href="https://anukritisinghh.github.io/">Vishnu Dutt Sharma</a>,</span>
+            <span class="author-block">
+              <a href="http://vishnuduttsharma.github.io/"></a>Anukriti Singh,</span>
+            <span class="author-block">
+              <a href="https://www.cs.umd.edu/people/tokekar">Pratap Tokekar</a>,
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Maryland, College Park</span>
+          </div>
+
+<!--           <div class="is-size-7 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal Contribution</span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://openreview.net/pdf?id=7c0WHyETaHC"
+                   class="external-link button is-normal ">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://raaslab.org/projects/FLIP-TD/""
+                   class="external-link button is-normal " disabled="true">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="Abstract">
+  <div class="container is-max-desktop has-text-centered">
+    <!-- Abstract. -->
+    
+    <div class="columns is-centered has-text-centered">
+      
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="interpolation-image-wrapper-zero-shot">
+          <img style="width:50%" src="../FLIP-TD/static/images/fig_1.png" />
+        </div>
+      </br>
+        <div class="content has-text-justified">
+          <p>
+            2D top-down maps are commonly used for the navigation and exploration of mobile robots through unknown areas. Typically, the robot builds the navigation maps incrementally from local observations using onboard sensors. Recent works have shown that predicting the structural patterns in the environment through learning-based approaches can greatly enhance task efficiency. While many such works build task-specific networks using limited datasets, we show that the existing foundational vision networks can accomplish the same without any fine-tuning. Specifically, we use Masked Autoencoders, pre-trained on street images, to present novel applications for field-of-view expansion, single-agent topological exploration, and multi-agent exploration for indoor mapping, across different input modalities. Our work motivates the use of foundational vision models for generalized structure prediction-driven applications, especially in the dearth of training data.
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+<hr style="border-top: 1px dashed grey;">
+
+<section class="section" id="Approach">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Approach</h2>
+        <div class="content has-text-justified">
+          <p>
+            We use a pre-trained Masked Autoencoder (MAE), trained on ImageNet dataset, to increase the FOV of the top-down images in various settings.
+            The additional field is used as a masked region in the input to MAE and the output of the MAE is added to the original masked input.
+            We vary the extent of masking to study the efficacy of MAE prediction. 
+          </p>
+          <p>
+            We evaluate prediction quality on both indoor and outdoor scenes.
+            Robotic tasks often rely on a variety of modalities for tasks. Keeping this in mind, we study 3 types of input modalities: 
+            (1) RGB images,
+            (2) Semantic segmentation maps, and 
+            (3) Binary maps (as proxy for occupancy map).
+          </p>
+          <p>
+            We use <a href="https://sites.google.com/view/valid-dataset">VALID dataset</a> for outdoors and <a href="https://ai2thor.allenai.org/">AI2-THOR</a> for indoor images in our evaluation.
+          </p>
+        </div>
+        <br/>
+      </div>
+    </div>
+   </div>
+</section>
+<hr style="border-top: 1px dashed grey;">
+
+<section class="section" id="FOVQual">
+    <div class="columns is-centered has-text-centered"></div>
+
+    <div class="column is-full-width is-centered has-text-centered" >
+        <h2 class="title is-3">Increasing FOV (Qualitative Results)</h2>
+    </div>
+
+    <div class="column is-full-width is-centered has-text-centered" id="rgb">
+      <h2 class="title is-5">RGB Images</h2>
+      <p>MAE is pre-trained on RGB images with the dataset consisting mainly of street-view/first-person view images.
+        The results here answer if they can be used effectively on top-down images.
+      </p>
+    </div>
+
+    <div class="columns is-centered" id="OutdoorsRGB1">
+      <!-- 1.17x Expansion-->
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-5 has-text-centered">Outdoors 1.17x Expansion</h3>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="../FLIP-TD/static/images/rgb_border_1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <hr>
+
+    <div class="columns is-centered" id="OutdoorsRGB2">
+      <!-- 1.40x Expansion-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors 1.40x Expansion</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="../FLIP-TD/static/images/rgb_border_2.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="columns is-centered" id="OutdoorsRGB3">
+      <!-- 1.40x Expansion-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors 1.75x Expansion</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="../FLIP-TD/static/images/rgb_border_3.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="columns is-centered" id="IndoorsRGB">
+      <!-- 1.75x Expansion-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Indoors (Border 1,2, and 3)</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="../FLIP-TD/static/images/fig_3.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <hr>
+    
+  
+    <div class="column is-full-width is-centered has-text-centered" id="sem">
+      <h2 class="title is-4">Semantic Segmentation Maps</h2>
+      <p>MAE is pre-trained on RGB images and can work well on top-down RGB images as well. 
+      We further examine if this performance can be repeated on semantic segmentation maps 
+      by treating them as RGB images.
+      </p>
+    </div>
+
+    <div class="columns is-centered" id="OutdoorsSem1">
+      <!-- 1.17x Expansion-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors 1.17x Expansion</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="../FLIP-TD/static/images/seg_border_1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="columns is-centered" id="OutdoorsSem2">
+      <!-- 1.40x Expansion-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors 1.40x Expansion</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="../FLIP-TD/static/images/seg_border_2.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="columns is-centered" id="OutdoorsSem3">
+      <!-- 1.75x Expansion-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors 1.75x Expansion</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="../FLIP-TD/static/images/seg_border_3.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="columns is-centered" id="IndoorsSem">
+      <!-- 1.75x Expansion-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Indoors (Border 1,2, and 3)</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="../FLIP-TD/static/images/apend_seg_indoor.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="column is-full-width is-centered has-text-centered" id="bin">
+      <h2 class="title is-4">Binary Maps</h2>
+      <p>Binary maps are skin to occupancy maps and represent a low-fidelity representation of navigation maps.
+        We use them as RGB images as well and find out MAE performs on them. In the binary maps shown below 
+        we use bright regions to represent navigable regions.
+      </p>
+    </div>
+
+    <div class="columns is-centered" id="OutdoorsBin1">
+      <!-- 1.17x Expansion-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors 1.17x Expansion</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="../FLIP-TD/static/images/bin_border_1.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="columns is-centered" id="OutdoorsBin2">
+      <!-- 1.40x Expansion-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors 1.40x Expansion</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="../FLIP-TD/static/images/bin_border_2.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="columns is-centered" id="OutdoorsBin3">
+      <!-- 1.75x Expansion-->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5 has-text-centered">Outdoors 1.75x Expansion</h2>
+          <div class="interpolation-image-wrapper-zero-shot has-text-centered">
+            <img src="../FLIP-TD/static/images/bin_border_3.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    
+      
+    <!-- <hr style="border-top: 1px dashed grey;"> -->
+</section>
+<hr style="border-top: 1px dashed grey;">
+
+<section class="section" id="FOVQuant">
+  <div class="container is-max-desktop"></div>
+
+  <div class="column is-full-width is-centered has-text-centered">
+      <h2 class="title is-3">Quantitative Results</h2>
+  </div>
+
+  <div class="column is-full-width is-centered has-text-centered">
+    <p>
+      Table 1: Increasing the FOV in RGB images
+    </p>
+    </br>
+   <table class="is-max-desktop" align="center" CELLPADDING="10" CELLSPACING="10">
+    <thead class="is-8">
+      <tr style="text-align: right;">
+        <th>Environment &nbsp;</th>
+        <th>&nbsp; Masking &nbsp;</th>
+        <th>&nbsp; FID &nbsp;</th>
+        <th>&nbsp; SSIM &nbsp;</th>
+        <th>&nbsp; PSNR &nbsp; </th>
+        <th>&nbsp; MSE &nbsp;</th>
+      </tr> 
+    </thead>
+
+    <tbody class="is-8" style="border-bottom: 1px solid black">
+      <tr style="border-top: 1px solid black;">
+        <td></td>
+        <th>1.17x Expansion</th>
+        <td>17.83</td>
+        <td>0.94</td>
+        <td>27.76</td>
+        <td>13.76</td>
+      </tr>
+
+      <tr>
+        <th>Indoor</th>
+        <th>1.40x Expansion</th>
+        <td>41.79</td>
+        <td>0.86</td>
+        <td>22.23</td>
+        <td>32.42</td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <th>1.75x Expansion</th>
+        <td>76.59</td>
+        <td>0.78</td>
+        <td>19.18</td>
+        <td>52.98</td>
+      </tr>
+
+      <tr style="border-top: 1px solid black;">
+        <td></td>
+        <th>1.17x Expansion</th>
+        <td>53.66</td>
+        <td>0.84</td>
+        <td>26.38</td>
+        <td>33.59</td>
+      </tr>
+
+      <tr>
+        <th>Outdoor</th>
+        <th>1.40x Expansion</th>
+        <td>77.91</td>
+        <td>0.69</td>
+        <td>22.79</td>
+        <td>49.91</td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <th>1.75x Expansion</th>
+        <td>116.09</td>
+        <td>0.55</td>
+        <td>19.98</td>
+        <td>67.80</td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</br> 
+ <hr>
+</br>
+
+  <p>
+    Table 2: Increasing the FOV in Semantic segmentation maps
+  </p>
+  </br>
+ <table class="is-max-desktop" align="center" CELLPADDING="10" CELLSPACING="10">
+  <thead class="is-8">
+    <tr style="text-align: right;">
+      <th>Environment &nbsp;</th>
+      <th>Masking &nbsp;</th>
+      <th>&nbsp; mIoU &nbsp;</th>
+      <th>&nbsp; FID &nbsp;</th>
+      <th>&nbsp; SSIM &nbsp;</th>
+      <th>&nbsp; PSNR &nbsp; </th>
+    </tr> 
+  </thead>
+
+  <tbody class="is-8" style="border-bottom: 1px solid black">
+    <tr style="border-top: 1px solid black;">
+      <td></td>
+      <th>1.17x Expansion</th>
+      <td>0.86</td>
+      <td>43.48</td>
+      <td>0.94</td>
+      <td>23.06</td>
+    </tr>
+
+    <tr>
+      <th>Indoor</th>
+      <th>1.40x Expansion</th>
+      <td>0.55</td>
+      <td>75.42</td>
+      <td>0.84</td>
+      <td>17.33</td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <th>1.75x Expansion</th>
+      <td>0.34</td>
+      <td>110.01</td>
+      <td>0.78</td>
+      <td>14.90</td>
+    </tr>
+
+    <tr style="border-top: 1px solid black;">
+      <td></td>
+      <th>1.17x Expansion</th>
+      <td>0.90</td>
+      <td>42.63</td>
+      <td>0.94</td>
+      <td>25.96</td>
+    </tr>
+
+    <tr>
+      <th>Outdoor</th>
+      <th>1.40x Expansion</th>
+      <td>0.73</td>
+      <td>73.03</td>
+      <td>0.86</td>
+      <td>21.39</td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <th>1.75x Expansion</th>
+      <td>0.57</td>
+      <td>118.56</td>
+      <td>0.79</td>
+      <td>18.80</td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+</br> 
+<hr>
+</br>
+
+ <p>
+   Table 3: Increasing the FOV in Outdoors Binary maps
+ </p>
+</br>
+<table class="is-max-desktop" align="center" CELLPADDING="10" CELLSPACING="10">
+ <thead class="is-8">
+   <tr style="text-align: right;">
+     <th>Masking &nbsp;</th>
+     <th>&nbsp; mIoU &nbsp;</th>
+     <th>&nbsp; FID &nbsp;</th>
+     <th>&nbsp; SSIM &nbsp;</th>
+     <th>&nbsp; PSNR &nbsp; </th>
+   </tr> 
+ </thead>
+
+ <tbody class="is-8" style="border-bottom: 1px solid black">
+   <tr style="border-top: 1px solid black;">
+     <th>1.17x Expansion</th>
+     <td>0.90</td>
+     <td>51.87</td>
+     <td>0.95</td>
+     <td>30.36</td>
+   </tr>
+
+   <tr>
+     <th>1.40x Expansion</th>
+     <td>0.78</td>
+     <td>88.44</td>
+     <td>0.76</td>
+     <td>22.05</td>
+   </tr>
+
+   <tr>
+     <th>1.75x Expansion</th>
+     <td>0.64</td>
+     <td>120.94</td>
+     <td>0.56</td>
+     <td>17.81</td>
+   </tr>
+ </tbody>
+
+</table>
+  
+</div>
+
+</section>
+<hr style="border-top: 1px dashed grey;">
+
+<section class="section" id="Inpainting">
+  <div class="container is-max-desktop"></div>
+
+  <div class="column is-full-width is-centered has-text-centered">
+      <h2 class="title is-3">Semantics-Guided Inpainting</h2>
+      <p>MAE are trained similar inpainting networks, and thus have the potential for inpainting. 
+        We use this capability to present a use-case where it could be used to remove unwanted objects from 
+        top-down images (RGB, segmentation, or binary maps). This could be useful for a team of heterogeneous robots (UAV-UGB), or for offline data curation.
+      </p>
+      <div class="interpolation-image-wrapper-zero-shot">
+        <img src="../FLIP-TD/static/images/inpainting.png" />
+      </div>
+  </div>
+</section>
+
+
+<hr style="border-top: 1px dashed grey;">
+
+<section class="section" id="Uncertainty">
+  <div class="container is-max-desktop"></div>
+
+  <div class="column is-full-width is-centered has-text-centered">
+      <h2 class="title is-3">Uncertainty Estimation</h2>
+      <p>Uncertainty estimation in predictions can be used for safe deployemnt and guided exploration and navigation of mobile robots.
+        MAEs are deterministic networks and are not trained with dropouts. 
+        We extract prediction uncertainty in MAEs by perturbing input images with random noise (similar to adverserial attack) 
+        and quntify the average variace across channels as the uncertainty.
+      </p>
+      <div class="interpolation-image-wrapper-zero-shot">
+        <img src="../FLIP-TD/static/images/uncertainity.png" />
+      </div>
+  </div>
+</section>
+
+<hr style="border-top: 1px dashed grey;">
+
+<section class="section" id="Turtlebot">
+  <div class="container is-max-desktop"></div>
+
+  <div class="column is-full-width is-centered has-text-centered">
+      <h2 class="title is-3">Real-World Results</h2>
+      <p>We try increasing FOV over the costmap generated by a Hokuyo scanner (270-degrees FOV) mounted on a Turtlebot2 (thr robot is moving towards right in thr images below). 
+         The results are encouraging and will be explored further in future.
+      </p>
+      <div class="interpolation-image-wrapper-zero-shot">
+        <img src="../FLIP-TD/static/images/turtlebot2.png" />
+      </div>
+  </div>
+</section>
+
+
+<hr style="border-top: 1px dashed grey;">
+<section class="section" id="Related">
+  <div class="container is-max-desktop content">
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3">Related Works</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            <a href="https://openaccess.thecvf.com/content/CVPR2022/html/He_Masked_Autoencoders_Are_Scalable_Vision_Learners_CVPR_2022_paper.html">Masked Autoencoders Are Scalable Vision Learners</a>. Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollár, Ross Girshick. CVPR 2022.
+          </p>
+          <p>
+            <a href="https://ieeexplore.ieee.org/document/9197186">VALID: A Comprehensive Virtual Aerial Image Dataset</a>. Lyujie Chen, Feng Liu, Yan Zhao, Wufan Wang, Xiaming Yuan, Jihong Zhu. ICRA 2022. (<a href="https://sites.google.com/view/valid-dataset">Dataset Link</a>)
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/1712.05474">AI2-THOR: An Interactive 3D Environment for Visual AI</a>. Eric Kolve, Roozbeh Mottaghi, Winson Han, Eli VanderBilt, Luca Weihs, Alvaro Herrasti, Matt Deitke, Kiana Ehsani, Daniel Gordon, Yuke Zhu, Aniruddha Kembhavi, Abhinav Gupta, Ali Farhadi. (<a href="https://ai2thor.allenai.org/"">Simulator Link</a>)
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+<hr style="border-top: 1px dashed grey;">
+
+
+
+<script type="text/javascript">
+  $(function() {
+  var screenWidth = $(window).width();
+  if (screenWidth >= 800) {
+    $('#gpt-video-1').attr('autoplay', 'autoplay');
+  }
+  if (screenWidth >= 800) {
+    $('#gpt-video-2').attr('autoplay', 'autoplay');
+  }
+  if (screenWidth >= 800) {
+    $('#click-query-icl').attr('autoplay', 'autoplay');
+  }
+});
+</script>
+
+
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop content has-text-justified">
+    <h2 class="title">Citing</h2>
+    <pre><code>@article{fliptd,
+  author    = {Singh, Anukriti and Sharma, {Vishnu Dutt} and Tokekar, Pratap},
+  title     = {FLIP-TD: Free Lunch Inpainting on Top-Down Images for Robotic Tasks},
+  journal   = {arXiv},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://openreview.net/pdf?id=7c0WHyETaHC">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://raaslab.org/project/FLIP-TD" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website adapted from <a href="https://concept-fusion.github.io/">ConceptFusion</a>, based on the  Nerfies templates, which is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a href="https://github.com/projects/FLIP-TD">source code</a> of this website,
+            we just ask that you link back to the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies source code</a> in the footer.
+            Please remember to remove the analytics code included in the header of the website which you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
