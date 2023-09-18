@@ -1,1 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Efficient Bridge Inspection with Prediction">
+  <meta name="keywords" content="NBV Planning, real-world Planing, 3D Prediction">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pred-NBV: Prediction-guided Next-Best-View for 3D Object Reconstruction</title>
 
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://unpkg.com/htmlincludejs"></script>
+
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="http://raaslab.org/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Table of Contents
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="#abstract">
+            Abstract
+          </a>
+          <a class="navbar-item" href="#video">
+            Video
+          </a>
+          <a class="navbar-item" href="#realWorld">
+            Prediction on Real-World Data
+          </a>
+          <a class="navbar-item" href="#qualResults">
+            Qualitative Results
+          </a>
+          <a class="navbar-item" href="#nbvPlanning">
+            NBV Planning in Simulation
+          </a>
+          <a class="navbar-item" href="#relatedWorks">
+            Related Works
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</nav>
+
+
+
+<!-- https://github.com/raaslab/Pred-NBV -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Pred-NBV: Prediction-guided Next-Best-View for 3D Object Reconstruction</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://hsd1121.github.io/">Harnaik Dhami</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="http://vishnuduttsharma.github.io/">Vishnu D. Sharma</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="http://tokekar.com/">Pratap Tokekar</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Maryland, College Park</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal contribution (listed alphabatically)</span>
+          </div>
+        
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block">Anonymous Submission</span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              
+              <!-- Arxiv Link -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2304.11465"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/raaslab/Pred-NBV"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://obj.umiacs.umd.edu/publicdata/PoinTr_C_final.pth"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Model</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/iros.drawio.png"
+           class="interpolation-image"
+           alt="Interpolation end reference image."/>
+
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><a id=abstract>Abstract</a></h2>
+        <div class="content has-text-justified ">
+          <p>
+            Prediction-based active perception has shown the
+          potential to improve the navigation efficiency and safety of
+          the robot by anticipating the uncertainty in the unknown
+          environment. The existing works for 3D shape prediction
+          make an implicit assumption about the partial observations
+          and therefore cannot be used for real-world planning and do
+          not consider the control effort for next-best-view planning.
+          We present <i>Pred-NBV</i>, a realistic object shape reconstruction
+          method consisting of PoinTr-C, an enhanced 3D prediction
+          model trained on the ShapeNet dataset, and an information
+          and control effort-based next-best-view method to address these
+          issues. <i>Pred-NBV</i> shows an improvement of <b>25.46%</b> in object
+          coverage over the traditional method in the AirSim simulator,
+          and performs better shape completion than PoinTr, the state-
+          of-the-art shape completion model, even on real data obtained
+          from a Velodyne 3D LiDAR mounted on DJI M600 Pro.
+          </p>
+        </div>
+      </div>
+    </div>
+  </br>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><a id="video">Video</a></h2>
+        <div class="publication-video">
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./videos/plane_o3d.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Our method predicts the point cloud based on partial observations and helps the robot find an efficient path to observed the object.
+      </h2>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="hero is-light" >
+  <div class="hero-body">
+    <div class="container has-text-justified">
+     <h2 class="title is-3 has-text-centered"></br><a id="realWorld">Prediction on Real-World Data</a></h2>
+     <p> Here we compare <a src="https://arxiv.org/abs/2108.08839">PoinTr</a>, a 3D shape completion, against PoinTr-C, a improved version of PoinTr which we train with curriculum learning to make robust against perturbations in the canonical point cloud representations. The results below show shape completion results when these pertubations are injected in the point clouds (the origin is not at the center of the full object). </p>
+       </br>
+      <div class="row">
+            <div class="column">
+              <p align='center'><b>Input</b></p>
+              <iframe width="100%" height="840" title="Input"  src="./static/tables/real_inp.html"></iframe>
+            </div>
+            <div class="column">
+              <p align='center'><b>PoinTr</b></p>
+              <iframe width="100%" height="840" title="Baseline" allow="true" allowfullscreen="true" src="./static/tables/real_base.html"></iframe>
+            </div>
+            <div class="column">
+              <p align='center'><b>PoinTr-C (Ours)</b></p>
+              <iframe width="100%" height="840" title="Ours"  allow="true" allowfullscreen="true" src="./static/tables/real_ours.html"></iframe>
+            </div>
+          </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="hero  is-small">
+  <div class="container is-max-desktop">
+    <!-- Qual Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="qualResults">Qualitative Results</a></h2>
+         <p> We compare <a src="https://arxiv.org/abs/2108.08839">PoinTr</a>, a 3D shape completion, against PoinTr-C, a improved version of PoinTr which we train with curriculum learning to make robust against perturbations in the canonical point cloud representations. The results below show shape completion results on data from ShapeNet dataset, when these pertubations are injected in the point clouds.</p>
+       </br>
+          <div class="row">
+            <div class="column">
+              <p align='center'><b>Input</b></p>
+              <img width="97%" src="./static/images/pc_figs/plane1_Inp.png">
+              <img width="97%" src="./static/images/pc_figs/plane2_Inp.png">
+              <img width="97%" src="./static/images/pc_figs/chair1_Inp.png">
+              <img width="97%" src="./static/images/pc_figs/rocket1_Inp.png">
+              <img width="97%" src="./static/images/pc_figs/tower1_Inp.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>Ground Truth</b></p>
+              <img width="97%" src="./static/images/pc_figs/plane1_GT.png">
+              <img width="97%" src="./static/images/pc_figs/plane2_GT.png">
+              <img width="97%" src="./static/images/pc_figs/chair1_GT.png">
+              <img width="97%" src="./static/images/pc_figs/rocket1_GT.png">
+              <img width="97%" src="./static/images/pc_figs/tower1_GT.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>PoinTr</b></p>
+              <img width="97%" src="./static/images/pc_figs/plane1_Base.png">
+              <img width="97%" src="./static/images/pc_figs/plane2_Base.png">
+              <img width="97%" src="./static/images/pc_figs/chair1_Base.png">
+              <img width="97%" src="./static/images/pc_figs/rocket1_Base.png">
+              <img width="97%" src="./static/images/pc_figs/tower1_Base.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>PoinTr-C (Ours)</b></p>
+              <img width="97%" src="./static/images/pc_figs/plane1_Ours.png">
+              <img width="97%" src="./static/images/pc_figs/plane2_Ours.png">
+              <img width="97%" src="./static/images/pc_figs/chair1_Ours.png">
+              <img width="97%" src="./static/images/pc_figs/rocket1_Ours.png">
+              <img width="97%" src="./static/images/pc_figs/tower1_Ours.png">
+            </div>
+          </div>
+        </br>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container has-text-justified">
+      </br>
+     <h2 class="title is-3 has-text-centered"><a id="nbvPlanning">NBV Planning in Simulation</a></h2>
+     <p>Comparison of Pred-NBV against the baseline, non-predictive methods for NBV object reconstruction. The image of the object can be seen by clicking on the model name.</p>
+      <table class="is-max-desktop" align="center" CELLPADDING="10" CELLSPACING="10">
+        <thead class="is-8">
+          <tr style="text-align: right">
+            <th></th>
+            <th></th>
+            <!-- <th></th> -->
+            <th>Points Seen &nbsp;</th>
+            <th>&nbsp; Points Seen</th>
+            <th></th>
+          </tr>
+          <tr style="border-bottom: 1px solid black">
+            <th>Class</th>
+            <th>Model</th>
+            <!-- <th>Demo</th> -->
+            <th>Pred-NBV</th>
+            <th>Baseline</th>
+            <th>Relative Improvement</th>
+          </tr>
+        </thead>
+        <tbody class="is-8" style="border-bottom: 1px solid black">
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/747.png">747</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/747.png"></td> -->
+            <td>11922</td>
+            <td>9657</td>
+            <td>20.99%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/A340.png">A340</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td>8603</td>
+            <td>5238</td>
+            <td>48.62%</td>
+          </tr>
+          <tr>
+            <th>Airplane</th>
+            <td><a href="./static/images/models/C17.png">C-17</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C17.png"></td> -->
+            <td>12916</td>
+            <td>7277</td>
+            <td>55.85%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/C130.png">C-130</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>9900</td>
+            <td>7929</td>
+            <td>22.11%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Fokker100.png">Fokker 100 &nbsp;</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Fokker100.png"></td> -->
+            <td>10192</td>
+            <td>9100</td>
+            <td>11.32%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/Atlas.png">Atlas</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Atlas.png"></td> -->
+            <td>1822</td>
+            <td>1722</td>
+            <td>5.64%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Maverick.png">Maverick</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Maverick.png"></td> -->
+            <td>2873</td>
+            <td>2643</td>
+            <td>8.34%</td>
+          </tr>
+          <tr>
+            <th>Rocket</th>
+            <td><a href="./static/images/models/SaturnV.png">Saturn V</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/SaturnV.png"></td> -->
+            <td>1111</td>
+            <td>807</td>
+            <td>31.70%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Sparrow.png">Sparrow</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Sparrow.png"></td> -->
+            <td>1785</td>
+            <td>1639</td>
+            <td>8.53%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/v2.png">V2</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/v2.png"></td> -->
+            <td>1264</td>
+            <td>1086</td>
+            <td>15.15%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/BigBen.png">Big Ben</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/BigBen.png"></td> -->
+            <td>4119</td>
+            <td>3340</td>
+            <td>20.89%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/ChurchTower.png">Church</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/ChurchTower.png"></td> -->
+            <td>2965</td>
+            <td>2588</td>
+            <td>13.58%</td>
+          </tr>
+          <tr>
+            <th>Tower</th>
+            <td><a href="./static/images/models/ClockTower.png">Clock</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/ClockTower.png"></td> -->
+            <td>2660</td>
+            <td>1947</td>
+            <td>30.95%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Pylon.png">Pylon</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Pylon.png"></td> -->
+            <td>3181</td>
+            <td>2479</td>
+            <td>24.80%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Silo.png">Silo</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Silo.png"></td> -->
+            <td>5674</td>
+            <td>3459</td>
+            <td>48.51%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/Diesel.png">Diesel</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Diesel.png"></td> -->
+            <td>3421</td>
+            <td>3161</td>
+            <td>7.90%</td>
+          </tr>
+          <tr>
+            <th>Train</th>
+            <td><a href="./static/images/models/MountainTrain.png">Mountain</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/MountainTrain.png"></td> -->
+            <td>4545</td>
+            <td>4222</td>
+            <td>7.37%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/Cruise.png">Cruise</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Cruise.png"></td> -->
+            <td>4733</td>
+            <td>3522</td>
+            <td>29.34%</td>
+          </tr>
+          <tr>
+            <th>Watercraft &nbsp; &nbsp;</th>
+            <td><a href="./static/images/models/Patrol.png">Patrol</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Patrol.png"></td> -->
+            <td>3957</td>
+            <td>2306</td>
+            <td>52.72%</td>
+          </tr>
+          <tr style="border-bottom 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/Yacht.png">Yacht</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Yacht.png"></td> -->
+            <td>9499</td>
+            <td>6016</td>
+            <td>44.90%</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero" is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br>Qualitative Results</h2>
+         <p> We compare <a src="https://arxiv.org/abs/2108.08839">PoinTr</a>, a 3D shape completion, against PoinTr-C, a improved version of PoinTr which we train with curriculum learning to make robust against perturbations in the canonical point cloud representations. The results below show shape completion results on data from ShapeNet dataset, when these pertubations in injected in the point clouds.</p>
+       </br>
+          <div class="row">
+            <div class="column">
+              <p align='center'><b>Input</b></p>
+              <img width="97%" src="./static/images/models/747.png">
+              <img width="50%" src="./static/images/models/Atlas.png">
+              <img width="97%" src="./static/images/models/BigBen.png">
+              <img width="97%" src="./static/images/models/Diesel.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>Ground Truth</b></p>
+              <img width="97%" src="./static/images/models/A340.png">
+              <img width="50%" src="./static/images/models/Maverick.png">
+              <img width="97%" src="./static/images/models/Church.png">
+              <img width="97%" src="./static/images/models/Mountain.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>PoinTr</b></p>
+              <img width="97%" src="./static/images/models/C17.png">
+              <img width="50%" src="./static/images/models/SaturnV.png">
+              <img width="97%" src="./static/images/models/Clock.png">
+              <img width="97%" src="./static/images/models/Cruise.png">
+              <img width="97%" src="./static/images/models/Silo.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>PoinTr-C (Ours)</b></p>
+              <img width="97%" src="./static/images/models/C130.png">
+              <img width="50%" src="./static/images/models/Sparrow.png">
+              <img width="97%" src="./static/images/models/Pylon.png">
+              <img width="97%" src="./static/images/models/Patrol.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>PoinTr-C (Ours)</b></p>
+              <img width="97%" src="./static/images/models/Fokker100.png">
+              <img width="50%" src="./static/images/models/v2.png">
+              <img width="97%" src="./static/images/models/Pylon.png">
+              <img width="97%" src="./static/images/models/Yacht.png">
+            </div>
+          </div>
+        </br>
+    </div>
+  </div>
+</div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"><a id="relatedWorks">Related Works</a></h2>
+
+        <div class="content has-text-justified">
+          <p>
+            <a href="https://arxiv.org/abs/2108.08839">PoinTr: Diverse Point Cloud Completion with Geometry-Aware Transformers</a>. Xumin Yu*, Yongming Rao*, Ziyi Wang, Zuyan Liu, Jiwen Lu, Jie Zhou. ICCV 2021.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/1406.5670">3D ShapeNets: A Deep Representation for Volumetric Shapes</a>. Zhirong Wu, Shuran Song, Aditya Khosla, Fisher Yu, Linguang Zhang, Xiaoou Tang, Jianxiong Xiao. CVPR 2015.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/1406.5670">Global registration of mid-range 3D observations and short range next best views</a>. Jacopo Aleotti; Dario Lodi Rizzini; Riccardo Monica; Stefano Caselli. IROS 2014.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
