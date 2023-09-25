@@ -209,9 +209,9 @@
         <h2 class="title is-3"><a id="video">Video</a></h2>
         <div class="publication-video">
           <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./videos/plane_o3d.mp4"
+        <source src="./videos/ICRA 2024.mp4"
                 type="video/mp4">
-      </video>
+          </video>
         </div>
       </div>
     </div>
@@ -252,46 +252,82 @@
 <section class="hero  is-small">
   <div class="container is-max-desktop">
     <!-- Qual Results -->
+
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="title is-3"></br><a id="simulation">Simulation</a></h2>
          <p> </p>
        </br>
+       <div class="column is-full-width">
+           <h3> Case 1: Low Friction </h3>
+       </div>
           <div class="row">
             <div class="column">
-              <p align='center'><b>Input</b></p>
-              <img width="97%" src="./static/images/pc_figs/plane1_Inp.png">
-              <img width="97%" src="./static/images/pc_figs/plane2_Inp.png">
-              <img width="97%" src="./static/images/pc_figs/chair1_Inp.png">
-              <img width="97%" src="./static/images/pc_figs/rocket1_Inp.png">
-              <img width="97%" src="./static/images/pc_figs/tower1_Inp.png">
+              <p align='center'><b>Baseline</b></p>
+              <div class="publication-video">
+                <video id="teaser" autoplay muted loop playsinline height="100%">
+              <source src="./videos/Case1_Basic.mp4"
+                      type="video/mp4">
+                </video>
+              </div>
             </div>
             <div class="column">
-              <p align='center'><b>Ground Truth</b></p>
-              <img width="97%" src="./static/images/pc_figs/plane1_GT.png">
-              <img width="97%" src="./static/images/pc_figs/plane2_GT.png">
-              <img width="97%" src="./static/images/pc_figs/chair1_GT.png">
-              <img width="97%" src="./static/images/pc_figs/rocket1_GT.png">
-              <img width="97%" src="./static/images/pc_figs/tower1_GT.png">
+              <p align='center'><b>Indexing</b></p>
+              <div class="publication-video">
+                <video id="teaser" autoplay muted loop playsinline height="100%">
+              <source src="./videos/Case1_indexing.mp4"
+                      type="video/mp4">
+                </video>
+              </div>
+
             </div>
             <div class="column">
-              <p align='center'><b>PoinTr</b></p>
-              <img width="97%" src="./static/images/pc_figs/plane1_Base.png">
-              <img width="97%" src="./static/images/pc_figs/plane2_Base.png">
-              <img width="97%" src="./static/images/pc_figs/chair1_Base.png">
-              <img width="97%" src="./static/images/pc_figs/rocket1_Base.png">
-              <img width="97%" src="./static/images/pc_figs/tower1_Base.png">
-            </div>
-            <div class="column">
-              <p align='center'><b>PoinTr-C (Ours)</b></p>
-              <img width="97%" src="./static/images/pc_figs/plane1_Ours.png">
-              <img width="97%" src="./static/images/pc_figs/plane2_Ours.png">
-              <img width="97%" src="./static/images/pc_figs/chair1_Ours.png">
-              <img width="97%" src="./static/images/pc_figs/rocket1_Ours.png">
-              <img width="97%" src="./static/images/pc_figs/tower1_Ours.png">
+              <p align='center'><b>LANCAR</b></p>
+              <div class="publication-video">
+                <video id="teaser" autoplay muted loop playsinline height="100%">
+              <source src="./videos/Case1_LANCAR.mp4"
+                      type="video/mp4">
+                </video>
+              </div>
+
             </div>
           </div>
         </br>
+        <div class="column is-full-width">
+            <h3> Case 2: Elastic Ground </h3>
+        </div>
+           <div class="row">
+             <div class="column">
+               <p align='center'><b>Baseline</b></p>
+               <div class="publication-video">
+                 <video id="teaser" autoplay muted loop playsinline height="100%">
+               <source src="./videos/Case2_Basic.mp4"
+                       type="video/mp4">
+                 </video>
+               </div>
+             </div>
+             <div class="column">
+               <p align='center'><b>Indexing</b></p>
+               <div class="publication-video">
+                 <video id="teaser" autoplay muted loop playsinline height="100%">
+               <source src="./videos/Case2_Indexing.mp4"
+                       type="video/mp4">
+                 </video>
+               </div>
+
+             </div>
+             <div class="column">
+               <p align='center'><b>LANCAR</b></p>
+               <div class="publication-video">
+                 <video id="teaser" autoplay muted loop playsinline height="100%">
+               <source src="./videos/Case2_LANCAR.mp4"
+                       type="video/mp4">
+                 </video>
+               </div>
+
+             </div>
+           </div>
+         </br>
     </div>
   </div>
 </div>
@@ -334,7 +370,7 @@
           </tr>
           <tr>
             <th>Low-Level</th>
-            <td>B</a></td>
+            <td>B</td>
             <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
             <td>10.612 ± 1.720</td>
             <td>10.551 ± 1.700</td>
@@ -359,10 +395,10 @@
           </tr>
           <tr>
             <th> High-Level</th>
-            <td>E</a></td>
+            <td>E</td>
             <!-- <td><img width="5%" src="./static/images/models/Maverick.png"></td> -->
             <td>25.726 ± 1.732</td>
-            <td>8.718 ± 1.988/td>
+            <td>8.718 ± 1.988</td>
             <td>30.332 ± 2.130</td>
           </tr>
           <tr>
@@ -392,6 +428,8 @@
         </tbody>
       </table>
 
+      
+      
     </div>
   </div>
 </section>
