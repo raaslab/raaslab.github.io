@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Your Paper Abstract Here">
+  <meta name="keywords" content="Keywords Here">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RoboSpoon: Robotic Spoon for Food Acquisition Towards Self-Sufficiency</title>
+
+  <!-- ... other head elements (like stylesheets and scripts) ... -->
+
+</head>
+
+<body>
+
+  <!-- ... existing navigation and other sections ... -->
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">RoboSpoon: Robotic Spoon for Food Acquisition Towards Self-Sufficiency</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Add author names and links here -->
+              <span class="author-block"><a href="#Author1Link">Amisha Bhaskar</a>,</span>
+              <span class="author-block"><a href="#Author2Link">Rui Liu</a></span>
+              <span class="author-block"><a href="#Author2Link">Guangyao Shi</a></span>
+              <span class="author-block"><a href="#Author2Link">Pratap Tokekar</a></span>
+              <!-- ... add more authors as necessary ... -->
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">University of Maryland, College Park</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+
+                <!-- Code and Paper Links (coming soon) -->
+                <span class="link-block">
+                  <a href="#CodeLinkComingSoon" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (Coming Soon)</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="#PaperLinkComingSoon" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>Paper (Coming Soon)</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-light">
+    <div class="container is-max-desktop">
+      <!-- Abstract -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3" id="abstract">Abstract</h2>
+          <div class="content has-text-justified ">
+            <p>
+              Robotic Assisted Feeding (RAF) has emerged as a transformative field in the realm of assistive robotics, 
+              addressing the fundamental need for individuals with mobility impairments
+              to regain autonomy in feeding themselves. Recent work has focused on acquiring solid food items. 
+              But manipulation of semi-solid and deformable food items has not been well-studied due to inadequate 
+              modeling and remains a significant challenge. 
+              In this study, we introduce RoboSpoon, an innovative learning-from-demonstration (LfD) system designed 
+              to enhance the manipulation strategies for different categories of semi-solid and deformable foods. 
+              This system aims to fill the existing research gap by focusing on detailed manipulation strategies for 
+              foods such as yogurt, jelly, cereals, and tofu. We initiated the first steps towards addressing this gap 
+              by utilizing a spoon as a tool to manipulate these food types. The system leverages an LfD approach to 
+              adeptly scoop semi-solid foods, applying different strategies to prevent spillage and breakage. 
+              Our initial trials have exhibited promising results, with the system attaining an approximate 100% 
+              success rate in the scooping of semi-solid foods without spillage. Initially, the handling of deformable 
+              foods presented a challenge, often resulting in breakage or failure to scoop effectively. We successfully 
+              addressed this issue by implementing a wall-guided scooping strategy, which has proven adept at securing 
+              the food without causing breakage, 
+              enhancing the efficacy and scope of the RoboSpoon system.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-multiline">
+          <!-- Direct_scooping method -->
+          <section>
+              <h2 class="title is-4">Direct Scooping Method</h2>
+              <div class="columns">
+                  <!-- Row 1 -->
+                  <!-- Video 1 -->
+                  <div class="column is-one-third">
+                      <video id="video1" autoplay muted loop playsinline height="100%">
+                          <source src="./videos/cereals_on_cereals.mp4" type="video/mp4">
+                      </video>
+                      <p class="subtitle has-text-centered">Cereals</p>
+                  </div>
+      
+                  <!-- Video 2 -->
+                  <div class="column is-one-third">
+                      <video id="video2" autoplay muted loop playsinline height="100%">
+                          <source src="./videos/cereals_on_jelly.mp4" type="video/mp4">
+                      </video>
+                      <p class="subtitle has-text-centered">Jello</p>
+                  </div>
+      
+                  <!-- Video 7 -->
+                  <div class="column is-one-third">
+                      <video id="video3" autoplay muted loop playsinline height="100%">
+                          <source src="./videos/water_on_water.mp4" type="video/mp4">
+                      </video>
+                      <p class="subtitle has-text-centered">Water</p>
+                  </div>
+              </div>
+      
+              <div class="columns">
+                  <!-- Row 2 -->
+                  <!-- Video 9 -->
+                  <div class="column is-one-half">
+                      <video id="video4" autoplay muted loop playsinline height="100%">
+                          <source src="./videos/yogurt.mp4" type="video/mp4">
+                      </video>
+                      <p class="subtitle has-text-centered">Yogurt</p>
+                  </div>
+      
+                  <!-- Video 6 -->
+                  <div class="column is-one-half">
+                      <video id="video5" autoplay muted loop playsinline height="100%">
+                          <source src="./videos/tofu_fail.mp4" type="video/mp4">
+                      </video>
+                      <p class="subtitle has-text-centered">Tofu</p>
+                  </div>
+              </div>
+          </section>
+      
+          <!-- Wall_guided scooping Strategy -->
+          <section>
+              <h2 class="title is-4">Wall Guided Scooping Strategy</h2>
+              <div class="columns">
+                  <!-- Row 1 -->
+                  <!-- Video 5 -->
+                  <div class="column is-one-third">
+                      <video id="video2" autoplay muted loop playsinline height="100%">
+                          <source src="./videos/tofu_Success.mp4" type="video/mp4">
+                      </video>
+                      <p class="subtitle has-text-centered">Jello</p>
+                  </div>
+      
+                  <!-- Video 3 -->
+                  <div class="column is-one-third">
+                      <video id="video7" autoplay muted loop playsinline height="100%">
+                          <source src="./videos/cereals_tofu.mp4" type="video/mp4">
+                      </video>
+                      <p class="subtitle has-text-centered">Cereals</p>
+                  </div>
+      
+                  <!-- Video 8 -->
+                  <div class="column is-one-third">
+                      <video id="video8" autoplay muted loop playsinline height="100%">
+                          <source src="./videos/water_tofu.mp4" type="video/mp4">
+                      </video>
+                      <p class="subtitle has-text-centered">Water</p>
+                  </div>
+              </div>
+      
+              <div class="columns">
+                  <!-- Row 2 -->
+                  <!-- Video 4 -->
+                  <div class="column is-one-half">
+                      <video id="video9" autoplay muted loop playsinline height="100%">
+                          <source src="./videos/jelly_tofu.mp4" type="video/mp4">
+                      </video>
+                      <p class="subtitle has-text-centered">Jello</p>
+                  </div>
+      
+                  <!-- Video 10 -->
+                  <div class="column is-one-half">
+                      <video id="video10" autoplay muted loop playsinline height="100%">
+                          <source src="./videos/yogurt_tofu.mp4" type="video/mp4">
+                      </video>
+                      <p class="subtitle has-text-centered">Yogurt</p>
+                  </div>
+                  <div class="column is-one-third">
+                    <video id="video2" autoplay muted loop playsinline height="100%">
+                        <source src="./videos/tofu_Success.mp4" type="video/mp4">
+                    </video>
+                    <p class="subtitle has-text-centered">Jello</p>
+                </div>
+              </div>
+          </section>
+      </div>
+
+      
+  </section>
+
+</body>
+
+</html>
+

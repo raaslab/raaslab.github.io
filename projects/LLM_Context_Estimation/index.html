@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Leveraging Language for Context-Aware">
+  <meta name="keywords" content="AI-based Learning, Reinforcement Learning, LLM, Context-Awareness">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LANCAR: Leveraging Language for Context-Aware Robot Locomotion in Unstructured Environments</title>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://unpkg.com/htmlincludejs"></script>
+
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="http://raaslab.org/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Table of Contents
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="#abstract">
+            Abstract
+          </a>
+          <a class="navbar-item" href="#video">
+            Video
+          </a>
+          <a class="navbar-item" href="#method">
+            Method
+          </a>
+          <a class="navbar-item" href="#simulation">
+            Simulation
+          </a>
+          <a class="navbar-item" href="#results">
+            Results
+          </a>
+          <a class="navbar-item" href="#relatedWorks">
+            Related Works
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</nav>
+
+
+
+<!-- https://github.com/raaslab/Pred-NBV -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">LANCAR: Leveraging Language for Context-Aware Robot Locomotion in Unstructured Environments</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://hsd1121.github.io/">Chak Lam Shek</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="http://vishnuduttsharma.github.io/">Xiyang Wu</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="http://tokekar.com/">Dinesh Manocha</a>,</span>
+            <span class="author-block">
+              <a href="http://tokekar.com/">Pratap Tokekar</a>,</span>
+            <span class="author-block">
+              <a href="http://tokekar.com/">Amrit Singh Bedi</a>
+            </span>
+          </div>
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Maryland, College Park</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal contribution (listed alphabatically)</span>
+          </div>
+        
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block">Anonymous Submission</span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              
+              <!-- Arxiv Link -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              
+              <!-- Code Link. -->
+              <!--
+              <span class="link-block">
+                <a href="https://github.com/raaslab/Pred-NBV"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://obj.umiacs.umd.edu/publicdata/PoinTr_C_final.pth"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Model</span>
+                  </a>
+              </span>
+            </div>
+          </div> -->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/task.png"
+           class="interpolation-image"
+           alt="Interpolation end reference image."/>
+
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><a id=abstract>Abstract</a></h2>
+        <div class="content has-text-justified ">
+          <p>
+          Robotic locomotion is a challenging task, especially in unstructured terrains.
+          In practice, the optimal locomotion policy can be context-dependent by using the contextual information of encountered terrains in decision-making. Humans can interpret the environmental context for robots, but the ambiguity of human language makes it challenging to use in robot locomotion directly. In this paper, we propose a novel approach that introduces a context translator that works with reinforcement learning (RL) agents for context-aware locomotion. Our formulation allows a robot to interpret the contextual information from environments generated by human observers or Vision-Language Models (VLM) with Large Language Models (LLM) and use this information to generate contextual embeddings. We incorporate the contextual embeddings with the robot's internal environmental observations as the input to the RL agent's decision neural network.
+          We evaluate with contextual information in varying ambiguity levels and compare its performance using several alternative approaches.
+          Our experimental results demonstrate that our approach exhibits good generalizability and adaptability across diverse terrains, by achieving at least <b>10%</b> of performance improvement in episodic reward over baselines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </br>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><a id="video">Video</a></h2>
+        <div class="publication-video">
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./videos/ICRA 2024.mp4"
+                type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="hero is-light" >
+  <div class="hero-body">
+    <div class="container has-text-justified">
+     <h2 class="title is-3 has-text-centered"></br><a id="method">Method</a></h2>
+     <div>
+          <img src="./static/images/frame.png"
+               alt="Interpolation end reference image."
+               style="padding: 60px;width:100%;height:100%;margin: auto;padding-left: 80px;"/>
+
+
+     </div>
+     
+     <p> Context-Aware Reinforcement Learning Robot Locomotion. Our framework introduces a context translator aside from the
+     standard RL framework. For the environment with diverse terrains,
+     the agent gets the explicitly observable state as the observation, and
+     the human observer (or VLM) perceives the context information
+     as the implicitly observable state. The human observer (or VLM)
+     interprets the contextual information to the LLM translator. The
+     LLM translator extracts the environmental properties from the con-
+     textual information and generates the contextual embedding, which
+     is concatenated with the observations as the input for RL agents.
+     RL agents produce the action using their control policies given the
+     context-aware inputs and execute the action in the environment. </p>
+       </br>
+      
+  </div>
+</section>
+
+
+<section class="hero  is-small">
+  <div class="container is-max-desktop">
+    <!-- Qual Results -->
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="simulation">Simulation</a></h2>
+         <p> </p>
+       </br>
+       <div class="column is-full-width">
+           <h3> Case 1: Low Friction </h3>
+       </div>
+          <div class="row">
+            <div class="column">
+              <p align='center'><b>Baseline</b></p>
+              <div class="publication-video">
+                <video id="teaser" autoplay muted loop playsinline height="100%">
+              <source src="./videos/Case1_Basic.mp4"
+                      type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="column">
+              <p align='center'><b>Indexing</b></p>
+              <div class="publication-video">
+                <video id="teaser" autoplay muted loop playsinline height="100%">
+              <source src="./videos/Case1_indexing.mp4"
+                      type="video/mp4">
+                </video>
+              </div>
+
+            </div>
+            <div class="column">
+              <p align='center'><b>LANCAR</b></p>
+              <div class="publication-video">
+                <video id="teaser" autoplay muted loop playsinline height="100%">
+              <source src="./videos/Case1_LANCAR.mp4"
+                      type="video/mp4">
+                </video>
+              </div>
+
+            </div>
+          </div>
+        </br>
+        <div class="column is-full-width">
+            <h3> Case 2: Elastic Ground </h3>
+        </div>
+           <div class="row">
+             <div class="column">
+               <p align='center'><b>Baseline</b></p>
+               <div class="publication-video">
+                 <video id="teaser" autoplay muted loop playsinline height="100%">
+               <source src="./videos/Case2_Basic.mp4"
+                       type="video/mp4">
+                 </video>
+               </div>
+             </div>
+             <div class="column">
+               <p align='center'><b>Indexing</b></p>
+               <div class="publication-video">
+                 <video id="teaser" autoplay muted loop playsinline height="100%">
+               <source src="./videos/Case2_Indexing.mp4"
+                       type="video/mp4">
+                 </video>
+               </div>
+
+             </div>
+             <div class="column">
+               <p align='center'><b>LANCAR</b></p>
+               <div class="publication-video">
+                 <video id="teaser" autoplay muted loop playsinline height="100%">
+               <source src="./videos/Case2_LANCAR.mp4"
+                       type="video/mp4">
+                 </video>
+               </div>
+
+             </div>
+           </div>
+         </br>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container has-text-justified">
+      </br>
+     <h2 class="title is-3 has-text-centered"><a id="results">Results</a></h2>
+     <p>Comparison of LANCAR against the baseline.</p>
+      <table class="is-max-desktop" align="center" CELLPADDING="10" CELLSPACING="10">
+        <thead class="is-8">
+          <tr style="text-align: right">
+            <th></th>
+            <th></th>
+            <!-- <th></th> -->
+            <th>Total Rewards in 10^3 &nbsp;</th>
+            <th>&nbsp;(5000 steps)</th>
+            <th></th>
+          </tr>
+          <tr style="border-bottom: 1px solid black">
+            <th> Case </th>
+            <!-- <th>Demo</th> -->
+            <th>Context ID</th>
+            <th>No-Contex Method</th>
+            <th>Indexing Method</th>
+            <th>LANCAR</th>
+          </tr>
+        </thead>
+        <tbody class="is-8" style="border-bottom: 1px solid black">
+          <tr>
+            <th></th>
+            <td>A</td>
+            <!-- <td><img width="25%" src="./static/images/models/747.png"></td> -->
+            <td>25.661 ± 0.475</td>
+            <td>28.083 ± 1.056</td>
+            <td>31.886 ± 0.433</td>
+
+          </tr>
+          <tr>
+            <th>Low-Level</th>
+            <td>B</td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td>10.612 ± 1.720</td>
+            <td>10.551 ± 1.700</td>
+            <td>34.919 ± 0.340</td>
+
+          </tr>
+          <tr>
+            <th></th>
+            <td>C</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C17.png"></td> -->
+            <td>29.853 ± 0.443</td>
+            <td>34.210 ± 0.411</td>
+            <td>34.915 ± 0.352</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th></th>
+            <td>D</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Atlas.png"></td> -->
+            <td>29.592 ± 0.367 </td>
+            <td>33.737 ± 0.563</td>
+            <td>33.725 ± 0.414</td>
+          </tr>
+          <tr>
+            <th> High-Level</th>
+            <td>E</td>
+            <!-- <td><img width="5%" src="./static/images/models/Maverick.png"></td> -->
+            <td>25.726 ± 1.732</td>
+            <td>8.718 ± 1.988</td>
+            <td>30.332 ± 2.130</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>F</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/SaturnV.png"></td> -->
+            <td>29.821 ± 0.434</td>
+            <td>34.294 ± 0.397</td>
+            <td>34.917 ± 0.272</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th>VLM</th>
+            <td>G</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/BigBen.png"></td> -->
+            <td>29.913 ± 0.568</td>
+            <td>31.942 ± 0.828</td>
+            <td>33.112 ± 0.583</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>H</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/ChurchTower.png"></td> -->
+            <td>29.788 ± 0.391</td>
+            <td>34.142 ± 0.368</td>
+            <td>34.142 ± 0.441</td>
+          </tr>
+        </tbody>
+      </table>
+
+      
+      
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero" is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br>Qualitative Results</h2>
+         <p> We compare <a src="https://arxiv.org/abs/2108.08839">PoinTr</a>, a 3D shape completion, against PoinTr-C, a improved version of PoinTr which we train with curriculum learning to make robust against perturbations in the canonical point cloud representations. The results below show shape completion results on data from ShapeNet dataset, when these pertubations in injected in the point clouds.</p>
+       </br>
+          <div class="row">
+            <div class="column">
+              <p align='center'><b>Input</b></p>
+              <img width="97%" src="./static/images/models/747.png">
+              <img width="50%" src="./static/images/models/Atlas.png">
+              <img width="97%" src="./static/images/models/BigBen.png">
+              <img width="97%" src="./static/images/models/Diesel.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>Ground Truth</b></p>
+              <img width="97%" src="./static/images/models/A340.png">
+              <img width="50%" src="./static/images/models/Maverick.png">
+              <img width="97%" src="./static/images/models/Church.png">
+              <img width="97%" src="./static/images/models/Mountain.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>PoinTr</b></p>
+              <img width="97%" src="./static/images/models/C17.png">
+              <img width="50%" src="./static/images/models/SaturnV.png">
+              <img width="97%" src="./static/images/models/Clock.png">
+              <img width="97%" src="./static/images/models/Cruise.png">
+              <img width="97%" src="./static/images/models/Silo.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>PoinTr-C (Ours)</b></p>
+              <img width="97%" src="./static/images/models/C130.png">
+              <img width="50%" src="./static/images/models/Sparrow.png">
+              <img width="97%" src="./static/images/models/Pylon.png">
+              <img width="97%" src="./static/images/models/Patrol.png">
+            </div>
+            <div class="column">
+              <p align='center'><b>PoinTr-C (Ours)</b></p>
+              <img width="97%" src="./static/images/models/Fokker100.png">
+              <img width="50%" src="./static/images/models/v2.png">
+              <img width="97%" src="./static/images/models/Pylon.png">
+              <img width="97%" src="./static/images/models/Yacht.png">
+            </div>
+          </div>
+        </br>
+    </div>
+  </div>
+</div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"><a id="relatedWorks">Related Works</a></h2>
+
+        <div class="content has-text-justified">
+          <p>
+            <a href="https://arxiv.org/abs/2109.01134">Learning to Prompt for Vision-Language Models</a>. Kaiyang Zhou, Jingkang Yang, Chen Change Loy, Ziwei Liu. IJCV 2022.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/1711.07280">Vision-and-Language Navigation: Interpreting visually-grounded navigation instructions in real environments</a>. Peter Anderson, Qi Wu, Damien Teney, Jake Bruce, Mark Johnson, Niko Sünderhauf, Ian Reid, Stephen Gould, Anton van den Hengel. CVPR 2018.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2307.15818">RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control
+                </a>. Anthony Brohan, Noah Brown, Justice Carbajal, Yevgen Chebotar, Xi Chen, Krzysztof Choromanski, Tianli Ding, Danny Driess, Avinava Dubey, Chelsea Finn, Pete Florence, Chuyuan Fu, Montse Gonzalez Arenas, Keerthana Gopalakrishnan, Kehang Han, Karol Hausman, Alexander Herzog, Jasmine Hsu, Brian Ichter, Alex Irpan, Nikhil Joshi, Ryan Julian, Dmitry Kalashnikov, Yuheng Kuang, Isabel Leal, Lisa Lee, Tsang-Wei Edward Lee, Sergey Levine, Yao Lu, Henryk Michalewski, Igor Mordatch, Karl Pertsch, Kanishka Rao, Krista Reymann, Michael Ryoo, Grecia Salazar, Pannag Sanketi, Pierre Sermanet, Jaspiar Singh, Anikait Singh, Radu Soricut, Huong Tran, Vincent Vanhoucke, Quan Vuong, Ayzaan Wahid, Stefan Welker, Paul Wohlhart, Jialin Wu, Fei Xia, Ted Xiao, Peng Xu, Sichun Xu, Tianhe Yu, Brianna Zitkovich. 2023
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

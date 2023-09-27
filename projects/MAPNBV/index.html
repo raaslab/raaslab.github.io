@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://raaslab.org/projects/MAPNBV/ -->
+<html class="fontawesome-i2svg-active fontawesome-i2svg-complete"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="description" content="Efficient Bridge Inspection">
+  <meta name="keywords" content="GTSP, real-world planning, inspection">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MAP-NBV: Multi-agent Prediction-guided Next-Best-View Planning for Active 3D Object Reconstruction</title>
+
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://unpkg.com/htmlincludejs"></script>
+
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="http://raaslab.org/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Table of Contents
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#abstract">
+            Abstract
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#video">
+            UAV's in C17 Simulation Environment
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#pcGeneration">
+            Observed Point Cloud Generation
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#pointrC">
+            PoinTr-C Prediction
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#qualResults">
+            Flight Path
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#baselinePredNBV">
+            Comparison with Pred-NBV
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#baselineMA">
+            Comparison with Multi-agent Baseline
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#relatedWorks">
+            Related Works
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</nav>
+
+
+
+<!-- https://github.com/raaslab/Pred-NBV -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MAP-NBV: Multi-agent Prediction-guided Next-Best-View Planning for Active 3D Object Reconstruction</h1>
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="http://raaslab.org/index.html#people">Harnaik Dhami</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="http://vishnuduttsharma.github.io/">Vishnu D. Sharma</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="http://tokekar.com/">Pratap Tokekar</a>
+            </span>
+          </div> -->
+
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Maryland, College Park</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal contribution (listed alphabatically)</span>
+          </div> -->
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://hsd1121.github.io/">Harnaik Dhami</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="http://vishnuduttsharma.github.io/">Vishnu D. Sharma</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="http://raaslab.org/">Pratap Tokekar</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Maryland, College Park</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal contribution (listed alphabatically)</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2307.04004.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2307.04004"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/raaslab/MAP-NBV" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+            </div>
+          </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/mapnbv.png" class="interpolation-image" alt="Interpolation end reference image.">
+
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><a id="abstract">Abstract</a></h2>
+        <div class="content has-text-justified ">
+          <p>
+          We propose <i>MAP-NBV</i>, a prediction-guided active algorithm for 3D reconstruction with multi-agent systems. Prediction-based approaches have shown great improvement in active perception tasks by learning the cues about structures in the environment from data. But these methods primarily focus on single-agent systems. We design a next-best-view approach that utilizes geometric measures over the predictions and jointly optimizes the information gain and control effort for efficient collaborative 3D reconstruction of the object. Our method achieves 22.75% improvement over the prediction-based single-agent approach and 15.63% improvement over the non-predictive multi-agent approach.
+          </p>
+        </div>
+      </div>
+    </div>
+  <br>
+    <!--/ Abstract. -->
+
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><a id="video">UAV's in C17 Simulation Environment</a></h2>
+        <div class="publication-video">
+          <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
+        <source src="./videos/airsim_c17.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Our method predicts the point cloud based on partial observations and helps the robot find an efficient path to observed the object.
+      </h2>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+
+<section class="hero  is-small">
+  <div class="container is-max-desktop">
+    <!-- Qual Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="pcGeneration">Observed Point Cloud Generation</a></h2>
+          <img src="./static/images/MAP-NBV-Information.png" class="interpolation-image" alt="Interpolation end reference image.">
+       </br>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="pointrC">PoinTr-C Prediction</a></h2>
+         <p> Shape completion prediction point cloud(right) on input pointcloud (left) using PoinTr-C.</p>
+       </br>
+          <div class="row">
+            <div class="column">
+              <img width="97%" src="./static/images/ObservedC17.png">
+            </div>
+            <div class="column">
+              <img width="97%" src="./static/images/PredictedC17.png">
+            </div>
+          </div>
+        </br>
+    </div>
+  </div>
+</section>
+
+<section class="hero  is-small">
+  <div class="container is-max-desktop">
+    <!-- Qual Results -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="qualResults">Flight Path</a></h2>
+         <p> UAV flight paths during C17 simulation. The white line represents the flight path taken by UAV 1. The green line represents the flight path taken by UAV 2.</p>
+       </br>
+          <div class="row">
+            <div class="column">
+              <img width="97%" src="./static/images/MapNBV_FlightPath.png">
+            </div>
+          </div>
+        </br>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container has-text-justified">
+      <br>
+     <h2 class="title is-3 has-text-centered"><a id="baselinePredNBV">Comparison with Pred-NBV</a></h2>
+     <p>Comparison of MAP-NBV against Pred-NBV, the single-agent prediction-based NBV planner. The image of the object can be seen by clicking on the model name.</p>
+      <table style="width:80%" class="is-max-desktop" align="center" cellpadding="10" cellspacing="10">
+        <thead class="is-8">
+          <tr style="text-align: left">
+            <th></th>
+            
+            <th></th>
+            <th>Points Seen &nbsp;</th>
+            <th>&nbsp; Points Seen</th>
+            <th></th>
+          </tr>
+          <tr style="border-bottom: 1px solid black">
+            <th>Class</th>
+            <th>Model</th>
+            <!-- <th>Demo</th> -->
+            <th>MAP-NBV</th>
+            <th>Pred-NBV</th>
+            <th>Relative Improvement</th>
+          </tr>
+        </thead>
+        <tbody class="is-8" style="border-bottom: 1px solid black">
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/747.png">747</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/747.png"></td> -->
+            <td>11145</td>
+            <td>8570</td>
+            <td>26.12%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/A340.png">A340</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td>6902</td>
+            <td>5367</td>
+            <td>25.02%</td>
+          </tr>
+          <tr>
+            <th>Airplane</th>
+            <td><a href="./static/images/models/C17.png">C-17</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C17.png"></td> -->
+            <td>10207</td>
+            <td>7258</td>
+            <td>33.77%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/C130.png">C-130</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>5201</td>
+            <td>2559</td>
+            <td>68.09%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Fokker100.png">Fokker 100 &nbsp;</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Fokker100.png"></td> -->
+            <td>9941</td>
+            <td>6843</td>
+            <td>36.92%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/Atlas.png">Atlas</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Atlas.png"></td> -->
+            <td>1644</td>
+            <td>1468</td>
+            <td>11.31%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Maverick.png">Maverick</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Maverick.png"></td> -->
+            <td>2535</td>
+            <td>2257</td>
+            <td>11.30%</td>
+          </tr>
+          <tr>
+            <th>Rocket</th>
+            <td><a href="./static/images/models/SaturnV.png">Saturn V</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/SaturnV.png"></td> -->
+            <td>943</td>
+            <td>941</td>
+            <td>0.21%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Sparrow.png">Sparrow</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Sparrow.png"></td> -->
+            <td>1294</td>
+            <td>1098</td>
+            <td>16.39%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/v2.png">V2</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/v2.png"></td> -->
+            <td>1093</td>
+            <td>949</td>
+            <td>14.10%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/BigBen.png">Big Ben</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/BigBen.png"></td> -->
+            <td>2612</td>
+            <td>1980</td>
+            <td>27.53%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/ChurchTower.png">Church</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/ChurchTower.png"></td> -->
+            <td>6281</td>
+            <td>4589</td>
+            <td>31.13%</td>
+          </tr>
+          <tr>
+            <th>Tower</th>
+            <td><a href="./static/images/models/ClockTower.png">Clock</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/ClockTower.png"></td> -->
+            <td>2531</td>
+            <td>1971</td>
+            <td>24.88%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Pylon.png">Pylon</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Pylon.png"></td> -->
+            <td>2772</td>
+            <td>2600</td>
+            <td>6.40%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Silo.png">Silo</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Silo.png"></td> -->
+            <td>4188</td>
+            <td>3168</td>
+            <td>27.73%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/Diesel.png">Diesel</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Diesel.png"></td> -->
+            <td>3228</td>
+            <td>3197</td>
+            <td>0.96%</td>
+          </tr>
+          <tr>
+            <th>Train</th>
+            <td><a href="./static/images/models/MountainTrain.png">Mountain</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/MountainTrain.png"></td> -->
+            <td>4243</td>
+            <td>4174</td>
+            <td>1.64%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/Cruise.png">Cruise</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Cruise.png"></td> -->
+            <td>3359</td>
+            <td>1686</td>
+            <td>66.32%</td>
+          </tr>
+          <tr>
+            <th>Watercraft &nbsp; &nbsp;</th>
+            <td><a href="./static/images/models/Patrol.png">Patrol</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Patrol.png"></td> -->
+            <td>3684</td>
+            <td>3677</td>
+            <td>0.19%</td>
+          </tr>
+          <tr style="border-bottom 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/Yacht.png">Yacht</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Yacht.png"></td> -->
+            <td>10114</td>
+            <td>7892</td>
+            <td>24.68%</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container has-text-justified">
+      <br>
+     <h2 class="title is-3 has-text-centered"><a id="baselineMA">Comparison with Multi-agent Baseline</a></h2>
+     <p>Comparison of MAP-NBV against the multi-agent baseline NBV algorithm. The image of the object can be seen by clicking on the model name.</p>
+      <table style="width:80%" class="is-max-desktop" align="center" cellpadding="10" cellspacing="10">
+        <thead class="is-8">
+          <tr style="text-align: left">
+            <th></th>
+            
+            <th></th>
+            <th>Points Seen &nbsp;</th>
+            <th>&nbsp; Points Seen</th>
+            <th></th>
+          </tr>
+          <tr style="border-bottom: 1px solid black">
+            <th>Class</th>
+            <th>Model</th>
+            <!-- <th>Demo</th> -->
+            <th>MAP-NBV</th>
+            <th>Pred-NBV</th>
+            <th>Relative Improvement</th>
+          </tr>
+        </thead>
+        <tbody class="is-8" style="border-bottom: 1px solid black">
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/747.png">747</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/747.png"></td> -->
+            <td>11628</td>
+            <td>10214</td>
+            <td>12.95%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/A340.png">A340</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
+            <td>9202</td>
+            <td>8156</td>
+            <td>12.05%</td>
+          </tr>
+          <tr>
+            <th>Airplane</th>
+            <td><a href="./static/images/models/C17.png">C-17</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C17.png"></td> -->
+            <td>12599</td>
+            <td>10150</td>
+            <td>21.53%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/C130.png">C-130</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
+            <td>6311</td>
+            <td>5961</td>
+            <td>5.70%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Fokker100.png">Fokker 100 &nbsp;</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Fokker100.png"></td> -->
+            <td>15613</td>
+            <td>13158</td>
+            <td>17.07%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/Atlas.png">Atlas</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Atlas.png"></td> -->
+            <td>1879</td>
+            <td>1747</td>
+            <td>7.28%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Maverick.png">Maverick</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Maverick.png"></td> -->
+            <td>3357</td>
+            <td>2693</td>
+            <td>21.95%</td>
+          </tr>
+          <tr>
+            <th>Rocket</th>
+            <td><a href="./static/images/models/SaturnV.png">Saturn V</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/SaturnV.png"></td> -->
+            <td>985</td>
+            <td>877</td>
+            <td>11.60%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Sparrow.png">Sparrow</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Sparrow.png"></td> -->
+            <td>1797</td>
+            <td>1664</td>
+            <td>7.69%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/v2.png">V2</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/v2.png"></td> -->
+            <td>1255</td>
+            <td>919</td>
+            <td>30.91%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/BigBen.png">Big Ben</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/BigBen.png"></td> -->
+            <td>3741</td>
+            <td>3493</td>
+            <td>6.86%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/ChurchTower.png">Church</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/ChurchTower.png"></td> -->
+            <td>8004</td>
+            <td>6890</td>
+            <td>14.96%</td>
+          </tr>
+          <tr>
+            <th>Tower</th>
+            <td><a href="./static/images/models/ClockTower.png">Clock</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/ClockTower.png"></td> -->
+            <td>3139</td>
+            <td>2382</td>
+            <td>27.42%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Pylon.png">Pylon</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Pylon.png"></td> -->
+            <td>3075</td>
+            <td>2870</td>
+            <td>6.90%</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><a href="./static/images/models/Silo.png">Silo</a></td>
+            <!-- <td><img width="5%" src="./static/images/models/Silo.png"></td> -->
+            <td>5933</td>
+            <td>4296</td>
+            <td>32.01%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/Diesel.png">Diesel</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Diesel.png"></td> -->
+            <td>3427</td>
+            <td>3233</td>
+            <td>5.83%</td>
+          </tr>
+          <tr>
+            <th>Train</th>
+            <td><a href="./static/images/models/MountainTrain.png">Mountain</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/MountainTrain.png"></td> -->
+            <td>4711</td>
+            <td>4215</td>
+            <td>11.11%</td>
+          </tr>
+          <tr style="border-top: 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/Cruise.png">Cruise</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Cruise.png"></td> -->
+            <td>4746</td>
+            <td>3118</td>
+            <td>41.40%</td>
+          </tr>
+          <tr>
+            <th>Watercraft &nbsp; &nbsp;</th>
+            <td><a href="./static/images/models/Patrol.png">Patrol</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Patrol.png"></td> -->
+            <td>3989</td>
+            <td>3683</td>
+            <td>7.98%</td>
+          </tr>
+          <tr style="border-bottom 1px solid black">
+            <th></th>
+            <td><a href="./static/images/models/Yacht.png">Yacht</a></td>
+            <!-- <td><img width="25%" src="./static/images/models/Yacht.png"></td> -->
+            <td>11351</td>
+            <td>10341</td>
+            <td>9.31%</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"><a id="relatedWorks">Related Works</a></h2>
+
+        <div class="content has-text-justified">
+          <p>
+            <a href="https://arxiv.org/abs/2304.11465">Pred-NBV: Prediction-guided Next-Best-View for 3D Object Reconstruction</a>. Harnaik Dhami, Vishnu D. Sharma, Pratap Tokekar. IROS 2023.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2108.08839">PoinTr: Diverse Point Cloud Completion with Geometry-Aware Transformers</a>. Xumin Yu*, Yongming Rao*, Ziyi Wang, Zuyan Liu, Jiwen Lu, Jie Zhou. ICCV 2021.
+          </p>
+
+          <p>
+            <a href="https://arxiv.org/abs/1406.5670">Global registration of mid-range 3D observations and short range next best views</a>. Jacopo Aleotti; Dario Lodi Rizzini; Riccardo Monica; Stefano Caselli. IROS 2014.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+          <p></p>
+        </div>
+      </div>
+    
+  
+</footer>
+
+
+
+</body></html>
