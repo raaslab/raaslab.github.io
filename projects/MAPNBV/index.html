@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0036)http://raaslab.org/projects/MAPNBV/ -->
 <html class="fontawesome-i2svg-active fontawesome-i2svg-complete"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+
   <meta name="description" content="Efficient Bridge Inspection">
   <meta name="keywords" content="GTSP, real-world planning, inspection">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,11 +80,17 @@
           <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#qualResults">
             Flight Path
           </a>
-          <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#baselinePredNBV">
+          <!-- <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#baselinePredNBV">
             Comparison with Pred-NBV
-          </a>
+          </a> -->
           <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#baselineMA">
             Comparison with Multi-agent Baseline
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#coordinationComparison">
+            Effect of Coordination
+          </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#variants">
+            Variants of MAP-NBV
           </a>
           <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#relatedWorks">
             Related Works
@@ -178,13 +184,13 @@
         </div>
       </div>
     </div>
-  
+
 </section>
 
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="./static/images/mapnbv.png" class="interpolation-image" alt="Interpolation end reference image.">
+      <img src="./static/images/map_nbv_oveview_v4.png" class="interpolation-image" alt="Interpolation end reference image.">
 
 
     </div>
@@ -199,7 +205,7 @@
         <h2 class="title is-3"><a id="abstract">Abstract</a></h2>
         <div class="content has-text-justified ">
           <p>
-          We propose <i>MAP-NBV</i>, a prediction-guided active algorithm for 3D reconstruction with multi-agent systems. Prediction-based approaches have shown great improvement in active perception tasks by learning the cues about structures in the environment from data. But these methods primarily focus on single-agent systems. We design a next-best-view approach that utilizes geometric measures over the predictions and jointly optimizes the information gain and control effort for efficient collaborative 3D reconstruction of the object. Our method achieves 22.75% improvement over the prediction-based single-agent approach and 15.63% improvement over the non-predictive multi-agent approach.
+          Next-Best View (NBV) planning is a long-standing problem of determining where to obtain the next best view of an object from, by a robot that is viewing the object. There are a number of methods for choosing NBV based on the observed part of the object. In this paper, we investigate how predicting the unobserved part helps with the efficiency of reconstructing the object. We present, Multi-Agent Prediction-Guided NBV <i>(MAP-NBV)</i>, a decentralized coordination algorithm for active 3D reconstruction with multi-agent systems. Prediction-based approaches have shown great improvement in active perception tasks by learning the cues about structures in the environment from data. But these methods primarily focus on single-agent systems. We design a next-best-view approach that utilizes geometric measures over the predictions and jointly optimizes the information gain and control effort for efficient collaborative 3D reconstruction of the object. Our method achieves <b>19%</b> improvement over the non-predictive multi-agent approach.
           </p>
         </div>
       </div>
@@ -207,11 +213,12 @@
   <br>
     <!--/ Abstract. -->
 
+<hr size=2>
 
     <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3"><a id="video">UAV's in C17 Simulation Environment</a></h2>
+        <h2 class="title is-3"><a id="video">UAVs in C17 Simulation Environment</a></h2>
         <div class="publication-video">
           <video id="teaser" autoplay="" muted="" loop="" playsinline="" height="100%">
         <source src="./videos/airsim_c17.mp4" type="video/mp4">
@@ -226,8 +233,7 @@
   </div>
 </section>
 
-
-
+<hr size=2>
 <section class="hero  is-small">
   <div class="container is-max-desktop">
     <!-- Qual Results -->
@@ -241,6 +247,7 @@
 </div>
 </section>
 
+<hr size=2>
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -261,6 +268,7 @@
   </div>
 </section>
 
+<hr size=2>
 <section class="hero  is-small">
   <div class="container is-max-desktop">
     <!-- Qual Results -->
@@ -280,6 +288,7 @@
 </div>
 </section>
 
+<!-- <hr size=2>
 <section class="hero is-light">
   <div class="hero-body">
     <div class="container has-text-justified">
@@ -290,7 +299,7 @@
         <thead class="is-8">
           <tr style="text-align: left">
             <th></th>
-            
+
             <th></th>
             <th>Points Seen &nbsp;</th>
             <th>&nbsp; Points Seen</th>
@@ -299,7 +308,6 @@
           <tr style="border-bottom: 1px solid black">
             <th>Class</th>
             <th>Model</th>
-            <!-- <th>Demo</th> -->
             <th>MAP-NBV</th>
             <th>Pred-NBV</th>
             <th>Relative Improvement</th>
@@ -309,161 +317,161 @@
           <tr>
             <th></th>
             <td><a href="./static/images/models/747.png">747</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/747.png"></td> -->
+
             <td>11145</td>
-            <td>8570</td>
+            <td>&#x2007;8570</td>
             <td>26.12%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/A340.png">A340</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
-            <td>6902</td>
-            <td>5367</td>
+
+            <td>&#x2007;6902</td>
+            <td>&#x2007;5367</td>
             <td>25.02%</td>
           </tr>
           <tr>
             <th>Airplane</th>
             <td><a href="./static/images/models/C17.png">C-17</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/C17.png"></td> -->
+
             <td>10207</td>
-            <td>7258</td>
+            <td>&#x2007;7258</td>
             <td>33.77%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/C130.png">C-130</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
-            <td>5201</td>
-            <td>2559</td>
+
+            <td>&#x2007;5201</td>
+            <td>&#x2007;2559</td>
             <td>68.09%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/Fokker100.png">Fokker 100 &nbsp;</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/Fokker100.png"></td> -->
-            <td>9941</td>
-            <td>6843</td>
+
+            <td>&#x2007;9941</td>
+            <td>&#x2007;6843</td>
             <td>36.92%</td>
           </tr>
           <tr style="border-top: 1px solid black">
             <th></th>
             <td><a href="./static/images/models/Atlas.png">Atlas</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/Atlas.png"></td> -->
-            <td>1644</td>
-            <td>1468</td>
+
+            <td>&#x2007;1644</td>
+            <td>&#x2007;1468</td>
             <td>11.31%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/Maverick.png">Maverick</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/Maverick.png"></td> -->
-            <td>2535</td>
-            <td>2257</td>
+
+            <td>&#x2007;2535</td>
+            <td>&#x2007;2257</td>
             <td>11.30%</td>
           </tr>
           <tr>
             <th>Rocket</th>
             <td><a href="./static/images/models/SaturnV.png">Saturn V</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/SaturnV.png"></td> -->
-            <td>943</td>
-            <td>941</td>
-            <td>0.21%</td>
+
+            <td>&#x2007;&#x2007;943</td>
+            <td>&#x2007;&#x2007;941</td>
+            <td>&#x2007;0.21%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/Sparrow.png">Sparrow</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/Sparrow.png"></td> -->
-            <td>1294</td>
-            <td>1098</td>
+
+            <td>&#x2007;1294</td>
+            <td>&#x2007;1098</td>
             <td>16.39%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/v2.png">V2</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/v2.png"></td> -->
-            <td>1093</td>
-            <td>949</td>
+
+            <td>&#x2007;1093</td>
+            <td>&#x2007;&#x2007;949</td>
             <td>14.10%</td>
           </tr>
           <tr style="border-top: 1px solid black">
             <th></th>
             <td><a href="./static/images/models/BigBen.png">Big Ben</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/BigBen.png"></td> -->
-            <td>2612</td>
-            <td>1980</td>
+
+            <td>&#x2007;2612</td>
+            <td>&#x2007;1980</td>
             <td>27.53%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/ChurchTower.png">Church</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/ChurchTower.png"></td> -->
-            <td>6281</td>
-            <td>4589</td>
+
+            <td>&#x2007;6281</td>
+            <td>&#x2007;4589</td>
             <td>31.13%</td>
           </tr>
           <tr>
             <th>Tower</th>
             <td><a href="./static/images/models/ClockTower.png">Clock</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/ClockTower.png"></td> -->
-            <td>2531</td>
-            <td>1971</td>
+
+            <td>&#x2007;2531</td>
+            <td>&#x2007;1971</td>
             <td>24.88%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/Pylon.png">Pylon</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/Pylon.png"></td> -->
-            <td>2772</td>
-            <td>2600</td>
-            <td>6.40%</td>
+
+            <td>&#x2007;2772</td>
+            <td>&#x2007;2600</td>
+            <td>&#x2007;6.40%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/Silo.png">Silo</a></td>
-            <!-- <td><img width="5%" src="./static/images/models/Silo.png"></td> -->
-            <td>4188</td>
-            <td>3168</td>
+
+            <td>&#x2007;4188</td>
+            <td>&#x2007;3168</td>
             <td>27.73%</td>
           </tr>
           <tr style="border-top: 1px solid black">
             <th></th>
             <td><a href="./static/images/models/Diesel.png">Diesel</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/Diesel.png"></td> -->
-            <td>3228</td>
-            <td>3197</td>
-            <td>0.96%</td>
+
+            <td>&#x2007;3228</td>
+            <td>&#x2007;3197</td>
+            <td>&#x2007;0.96%</td>
           </tr>
           <tr>
             <th>Train</th>
             <td><a href="./static/images/models/MountainTrain.png">Mountain</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/MountainTrain.png"></td> -->
-            <td>4243</td>
-            <td>4174</td>
-            <td>1.64%</td>
+
+            <td>&#x2007;4243</td>
+            <td>&#x2007;4174</td>
+            <td>&#x2007;1.64%</td>
           </tr>
           <tr style="border-top: 1px solid black">
             <th></th>
             <td><a href="./static/images/models/Cruise.png">Cruise</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/Cruise.png"></td> -->
-            <td>3359</td>
-            <td>1686</td>
+
+            <td>&#x2007;3359</td>
+            <td>&#x2007;1686</td>
             <td>66.32%</td>
           </tr>
           <tr>
             <th>Watercraft &nbsp; &nbsp;</th>
             <td><a href="./static/images/models/Patrol.png">Patrol</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/Patrol.png"></td> -->
-            <td>3684</td>
-            <td>3677</td>
-            <td>0.19%</td>
+
+            <td>&#x2007;3684</td>
+            <td>&#x2007;3677</td>
+            <td>&#x2007;0.19%</td>
           </tr>
           <tr style="border-bottom 1px solid black">
             <th></th>
             <td><a href="./static/images/models/Yacht.png">Yacht</a></td>
-            <!-- <td><img width="25%" src="./static/images/models/Yacht.png"></td> -->
+
             <td>10114</td>
-            <td>7892</td>
+            <td>&#x2007;7892</td>
             <td>24.68%</td>
           </tr>
         </tbody>
@@ -471,8 +479,9 @@
 
     </div>
   </div>
-</section>
+</section> -->
 
+<hr size=2>
 <section class="hero is-light">
   <div class="hero-body">
     <div class="container has-text-justified">
@@ -483,7 +492,7 @@
         <thead class="is-8">
           <tr style="text-align: left">
             <th></th>
-            
+
             <th></th>
             <th>Points Seen &nbsp;</th>
             <th>&nbsp; Points Seen</th>
@@ -503,171 +512,329 @@
             <th></th>
             <td><a href="./static/images/models/747.png">747</a></td>
             <!-- <td><img width="25%" src="./static/images/models/747.png"></td> -->
-            <td>11628</td>
-            <td>10214</td>
-            <td>12.95%</td>
+            <td>16140</td>
+            <td>13305</td>
+            <td>19.26%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/A340.png">A340</a></td>
             <!-- <td><img width="25%" src="./static/images/models/A340.png"></td> -->
-            <td>9202</td>
-            <td>8156</td>
-            <td>12.05%</td>
+            <td>10210</td>
+            <td>&#x2007;8156</td>
+            <td>22.37%</td>
           </tr>
           <tr>
             <th>Airplane</th>
             <td><a href="./static/images/models/C17.png">C-17</a></td>
             <!-- <td><img width="25%" src="./static/images/models/C17.png"></td> -->
-            <td>12599</td>
+            <td>13278</td>
             <td>10150</td>
-            <td>21.53%</td>
+            <td>26.70%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/C130.png">C-130</a></td>
             <!-- <td><img width="25%" src="./static/images/models/C130.png"></td> -->
-            <td>6311</td>
-            <td>5961</td>
-            <td>5.70%</td>
+            <td>&#x2007;6573</td>
+            <td>&#x2007;5961</td>
+            <td>&#x2007;9.77%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/Fokker100.png">Fokker 100 &nbsp;</a></td>
             <!-- <td><img width="25%" src="./static/images/models/Fokker100.png"></td> -->
-            <td>15613</td>
+            <td>14986</td>
             <td>13158</td>
-            <td>17.07%</td>
+            <td>12.99%</td>
           </tr>
           <tr style="border-top: 1px solid black">
             <th></th>
             <td><a href="./static/images/models/Atlas.png">Atlas</a></td>
             <!-- <td><img width="5%" src="./static/images/models/Atlas.png"></td> -->
-            <td>1879</td>
-            <td>1747</td>
-            <td>7.28%</td>
+            <td>&#x2007;2085</td>
+            <td>&#x2007;1747</td>
+            <td>17.64%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/Maverick.png">Maverick</a></td>
             <!-- <td><img width="5%" src="./static/images/models/Maverick.png"></td> -->
-            <td>3357</td>
-            <td>2693</td>
-            <td>21.95%</td>
+            <td>&#x2007;3625</td>
+            <td>&#x2007;2693</td>
+            <td>29.50%</td>
           </tr>
           <tr>
             <th>Rocket</th>
             <td><a href="./static/images/models/SaturnV.png">Saturn V</a></td>
             <!-- <td><img width="5%" src="./static/images/models/SaturnV.png"></td> -->
-            <td>985</td>
-            <td>877</td>
-            <td>11.60%</td>
+            <td>&#x2007;1041</td>
+            <td>&#x2007;&#x2007;877</td>
+            <td>17.10%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/Sparrow.png">Sparrow</a></td>
             <!-- <td><img width="5%" src="./static/images/models/Sparrow.png"></td> -->
-            <td>1797</td>
-            <td>1664</td>
-            <td>7.69%</td>
+            <td>&#x2007;1893</td>
+            <td>&#x2007;1664</td>
+            <td>12.88%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/v2.png">V2</a></td>
             <!-- <td><img width="5%" src="./static/images/models/v2.png"></td> -->
-            <td>1255</td>
-            <td>919</td>
+            <td>&#x2007;1255</td>
+            <td>&#x2007;&#x2007;919</td>
             <td>30.91%</td>
           </tr>
           <tr style="border-top: 1px solid black">
             <th></th>
             <td><a href="./static/images/models/BigBen.png">Big Ben</a></td>
             <!-- <td><img width="5%" src="./static/images/models/BigBen.png"></td> -->
-            <td>3741</td>
-            <td>3493</td>
-            <td>6.86%</td>
+            <td>&#x2007;4294</td>
+            <td>&#x2007;3493</td>
+            <td>20.57%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/ChurchTower.png">Church</a></td>
             <!-- <td><img width="5%" src="./static/images/models/ChurchTower.png"></td> -->
-            <td>8004</td>
-            <td>6890</td>
-            <td>14.96%</td>
+            <td>&#x2007;7884</td>
+            <td>&#x2007;6890</td>
+            <td>13.46%</td>
           </tr>
           <tr>
             <th>Tower</th>
             <td><a href="./static/images/models/ClockTower.png">Clock</a></td>
             <!-- <td><img width="5%" src="./static/images/models/ClockTower.png"></td> -->
-            <td>3139</td>
-            <td>2382</td>
-            <td>27.42%</td>
+            <td>&#x2007;3163</td>
+            <td>&#x2007;2382</td>
+            <td>28.17%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/Pylon.png">Pylon</a></td>
             <!-- <td><img width="5%" src="./static/images/models/Pylon.png"></td> -->
-            <td>3075</td>
-            <td>2870</td>
-            <td>6.90%</td>
+            <td>&#x2007;2986</td>
+            <td>&#x2007;2870</td>
+            <td>&#x2007;3.96%</td>
           </tr>
           <tr>
             <th></th>
             <td><a href="./static/images/models/Silo.png">Silo</a></td>
             <!-- <td><img width="5%" src="./static/images/models/Silo.png"></td> -->
-            <td>5933</td>
-            <td>4296</td>
-            <td>32.01%</td>
+            <td>&#x2007;5810</td>
+            <td>&#x2007;4296</td>
+            <td>29.96%</td>
           </tr>
           <tr style="border-top: 1px solid black">
             <th></th>
             <td><a href="./static/images/models/Diesel.png">Diesel</a></td>
             <!-- <td><img width="25%" src="./static/images/models/Diesel.png"></td> -->
-            <td>3427</td>
-            <td>3233</td>
-            <td>5.83%</td>
+            <td>&#x2007;4013</td>
+            <td>&#x2007;3233</td>
+            <td>21.53%</td>
           </tr>
           <tr>
             <th>Train</th>
             <td><a href="./static/images/models/MountainTrain.png">Mountain</a></td>
             <!-- <td><img width="25%" src="./static/images/models/MountainTrain.png"></td> -->
-            <td>4711</td>
-            <td>4215</td>
-            <td>11.11%</td>
+            <td>&#x2007;5067</td>
+            <td>&#x2007;4215</td>
+            <td>18.36%</td>
           </tr>
           <tr style="border-top: 1px solid black">
             <th></th>
             <td><a href="./static/images/models/Cruise.png">Cruise</a></td>
             <!-- <td><img width="25%" src="./static/images/models/Cruise.png"></td> -->
-            <td>4746</td>
-            <td>3118</td>
-            <td>41.40%</td>
+            <td>&#x2007;5021</td>
+            <td>&#x2007;3685</td>
+            <td>30.69%</td>
           </tr>
           <tr>
             <th>Watercraft &nbsp; &nbsp;</th>
             <td><a href="./static/images/models/Patrol.png">Patrol</a></td>
             <!-- <td><img width="25%" src="./static/images/models/Patrol.png"></td> -->
-            <td>3989</td>
-            <td>3683</td>
-            <td>7.98%</td>
+            <td>&#x2007;4078</td>
+            <td>&#x2007;3683</td>
+            <td>10.18%</td>
           </tr>
           <tr style="border-bottom 1px solid black">
             <th></th>
             <td><a href="./static/images/models/Yacht.png">Yacht</a></td>
             <!-- <td><img width="25%" src="./static/images/models/Yacht.png"></td> -->
-            <td>11351</td>
+            <td>11678</td>
             <td>10341</td>
-            <td>9.31%</td>
+            <td>12.14%</td>
           </tr>
         </tbody>
       </table>
+
+      <br/>
+      <div class="columns is-centered has-text-centered is-light">
+        <div class="column is-full-width">
+          <h5 class="title is-5"></br><a>Fraction of Points Observed over Iterations</a></h5>
+            <p align="left">We look at how much information <i>MAP-NBV</i> (referred to as <i>CO(d)-CP(d)-Greedy</i> below) can observe compared to a centralized, prediction-guided oracle <i>(CO(c)-CP(c)-Optimal)</i> andthe frontier-based baseline.</p>
+            <img width="75%" src="./static/images/plots/airsim_mapnbv_2_robots_v2.png" class="interpolation-image" alt="Interpolation end reference image.">
+         </br>
+      </div>
+    </div>
 
     </div>
   </div>
 </section>
 
+<hr size=2>
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="coordinationComparison">Effect of Coordination</a></h2>
+         <p align="left">We compare three types of prediction-guided algorithms:
+        <ol align="left">
+             <li> <b>CO(c)-CP(c)-Optimal</b>: This is a <i>centralized</i> approach where at each iteration all the robots combine their observations together, perform prediction on this combined point cloud and find the robot-viewpoint assignment that would results in the maximum number of new points (over the predicted point cloud) to be observed. This algorithms represents the most coordination-oriented approach. </li>
+             <li> <b>CO(d)-CP(d)-Greedy</b> or <b>MAP-NBV</b>: Our <i>proposed</i> approach which is decentralized in nature. The robot that form a communication subgraph combine their observations together and their perform a seuqential greedy assignment of the robots to the candidaite viewpoints to maximize the information gain (number of points to be seen). </li>
+             <li> <b>IO-IP</b>: This is a <i>purely non-cooperative</i> approach where the robots do not communicate at all and perform predictions on their own obervations and select the view-point that would result in maximum number of new points being observed. </li>
+         </ol>
+         </p>
+
+         <hr style="height:1px;border-width:0 dotted;" noshade>
+
+         <p>Directional Chamfer Distance (Ground Truth to Observed Point Cloud)</p>
+          <div class="row">
+            <div class="column">
+              <img width="100%" src="./static/images/plots/CDL2-Uni_(Obs)_2_robots.png">
+              <p> 2 Robots </p>
+            </div>
+            <div class="column">
+              <img width="100%" src="./static/images/plots/CDL2-Uni_(Obs)_4_robots.png">
+              <p> 4 Robots </p>
+            </div>
+            <div class="column">
+              <img width="100%" src="./static/images/plots/CDL2-Uni_(Obs)_6_robots.png">
+              <p> 6 Robots </p>
+            </div>
+          </div>
+          <br/>
+
+          <hr style="height:1px;border-width:0 dotted;" noshade>
+          <p>Hausdorff Distance (Ground Truth to Observed Point Cloud)</p>
+           <div class="row">
+             <div class="column">
+               <img width="100%" src="./static/images/plots/Hausdorff_(Obs)_2_robots.png">
+               <p> 2 Robots </p>
+             </div>
+             <div class="column">
+               <img width="100%" src="./static/images/plots/Hausdorff_(Obs)_4_robots.png">
+               <p> 4 Robots </p>
+             </div>
+             <div class="column">
+               <img width="100%" src="./static/images/plots/Hausdorff_(Obs)_6_robots.png">
+               <p> 6 Robots </p>
+             </div>
+           </div>
+           <br/>
+
+           <hr style="height:1px;border-width:0 dotted;" noshade>
+           <p>Directional Chamfer Distance (Ground Truth to Predicted Point Cloud)</p>
+            <div class="row">
+              <div class="column">
+                <img width="100%" src="./static/images/plots/CDL2-Uni_(Pred)_2_robots.png">
+                <p> 2 Robots </p>
+              </div>
+              <div class="column">
+                <img width="100%" src="./static/images/plots/CDL2-Uni_(Pred)_4_robots.png">
+                <p> 4 Robots </p>
+              </div>
+              <div class="column">
+                <img width="100%" src="./static/images/plots/CDL2-Uni_(Pred)_6_robots.png">
+                <p> 6 Robots </p>
+              </div>
+            </div>
+            <br/>
+
+        </br>
+    </div>
+  </div>
+</section>
 
 
+  <hr size=2>
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3"></br><a id="variants">Variants of MAP-NBV</a></h2>
+           <p align="left">We present three variants of <i>MAP-NBV</i>:
+          <ol align="left">
+               <li> <b>CO(c)-CP(c)-Greedy</b>: This is a <i>centralized</i> version of <i>MAP-NBV</i>, where all the robot always collaborate and coordinate. Thus they all combine their observation before making predictions and perform seuqential greedy robot-viewpoint assignmet at each iteration. This algorithms is not as good as <i>CO(c)-CP(c)-Optimal</i> as it uses greedy assignment, but is faster than the latter.</li>
+               <li> <b>CO(d)-CP(d)-Greedy</b> or <b>MAP-NBV</b>: Our <i>proposed</i> approach which is decentralized in nature. The robot that form a communication subgraph combine their observations together and their perform a seuqential greedy assignment of the robots to the candidaite viewpoints to maximize the information gain (number of points to be seen). </li>
+               <li> <b>CO(1)-CP(d)-Greedy</b>: This is a <i>bandwidth-friendly</i> verison of MAP-NBV where the robots share their observation with 1-hop neighbors only (MAP-NBV allows sharing over multiple hops. For robot-viewpoint assigment, robot in a subgraph take precedence in assignment according to their. Thus lowest ID robot moves first to greedily select a viewpoint and shares the select location with others. The second lowest ID robot moves next. It removes the points taht would be seen by other robots moving before it and then makes a viewpoint selection. This process is repeated for the rest of the robots on the graph. <i>This is a work in progress and will be studied in more detail in our future work.</i></li>
+           </ol>
+           </p>
+
+            <hr style="height:1px;border-width:0 dotted;" noshade>
+
+            <p>Directional Chamfer Distance (Ground Truth to Observed Point Cloud)</p>
+            <div class="row">
+              <div class="column">
+                <img width="100%" src="./static/images/plots/CDL2-Uni_(Obs)_2_robots_Variants.png">
+                <p> 2 Robots </p>
+              </div>
+              <div class="column">
+                <img width="100%" src="./static/images/plots/CDL2-Uni_(Obs)_4_robots_Variants.png">
+                <p> 4 Robots </p>
+              </div>
+              <div class="column">
+                <img width="100%" src="./static/images/plots/CDL2-Uni_(Obs)_6_robots_Variants.png">
+                <p> 6 Robots </p>
+              </div>
+            </div>
+            <br/>
+
+            <hr style="height:1px;border-width:0 dotted;" noshade>
+            <p>Hausdorff Distance (Ground Truth to Observed Point Cloud)</p>
+             <div class="row">
+               <div class="column">
+                 <img width="100%" src="./static/images/plots/Hausdorff_(Obs)_2_robots_Variants.png">
+                 <p> 2 Robots </p>
+               </div>
+               <div class="column">
+                 <img width="100%" src="./static/images/plots/Hausdorff_(Obs)_4_robots_Variants.png">
+                 <p> 4 Robots </p>
+               </div>
+               <div class="column">
+                 <img width="100%" src="./static/images/plots/Hausdorff_(Obs)_6_robots_Variants.png">
+                 <p> 6 Robots </p>
+               </div>
+             </div>
+             <br/>
+
+             <hr style="height:1px;border-width:0 dotted;" noshade>
+             <p>Directional Chamfer Distance (Ground Truth to Predicted Point Cloud)</p>
+              <div class="row">
+                <div class="column">
+                  <img width="100%" src="./static/images/plots/CDL2-Uni_(Pred)_2_robots_Variants.png">
+                  <p> 2 Robots </p>
+                </div>
+                <div class="column">
+                  <img width="100%" src="./static/images/plots/CDL2-Uni_(Pred)_4_robots_Variants.png">
+                  <p> 4 Robots </p>
+                </div>
+                <div class="column">
+                  <img width="100%" src="./static/images/plots/CDL2-Uni_(Pred)_6_robots_Variants.png">
+                  <p> 6 Robots </p>
+                </div>
+              </div>
+
+
+        </br>
+    </div>
+  </div>
+</section>
+
+<hr size=2>
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Concurrent Work. -->
@@ -714,8 +881,8 @@
           <p></p>
         </div>
       </div>
-    
-  
+
+
 </footer>
 
 
