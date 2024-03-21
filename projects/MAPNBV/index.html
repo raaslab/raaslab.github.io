@@ -92,6 +92,9 @@
           <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#variants">
             Variants of MAP-NBV
           </a>
+          <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#realWorld">
+            Qualitative Real-World Experiment
+          </a>
           <a class="navbar-item" href="http://raaslab.org/projects/MAPNBV/#relatedWorks">
             Related Works
           </a>
@@ -834,6 +837,101 @@
   </div>
 </section>
 
+
+<hr size=2>
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="coordinationComparison">Effect of Coordination</a></h2>
+         <p align="left">We compare three types of prediction-guided algorithms:
+        <ol align="left">
+             <li> <b>CO(c)-CP(c)-Optimal</b>: This is a <i>centralized</i> approach where at each iteration all the robots combine their observations together, perform prediction on this combined point cloud and find the robot-viewpoint assignment that would results in the maximum number of new points (over the predicted point cloud) to be observed. This algorithms represents the most coordination-oriented approach. </li>
+             <li> <b>CO(d)-CP(d)-Greedy</b> or <b>MAP-NBV</b>: Our <i>proposed</i> approach which is decentralized in nature. The robot that form a communication subgraph combine their observations together and their perform a seuqential greedy assignment of the robots to the candidaite viewpoints to maximize the information gain (number of points to be seen). </li>
+             <li> <b>IO-IP</b>: This is a <i>purely non-cooperative</i> approach where the robots do not communicate at all and perform predictions on their own obervations and select the view-point that would result in maximum number of new points being observed. </li>
+         </ol>
+         </p>
+
+          <hr style="height:1px;border-width:0 dotted;" noshade>
+          <p>Hausdorff Distance (Ground Truth to Observed Point Cloud)</p>
+           <div class="row">
+             <div class="column">
+               <img width="100%" src="./static/images/plots/Hausdorff_(Obs)_2_robots.png">
+               <p> 2 Robots </p>
+             </div>
+             <div class="column">
+               <img width="100%" src="./static/images/plots/Hausdorff_(Obs)_4_robots.png">
+               <p> 4 Robots </p>
+             </div>
+             <div class="column">
+               <img width="100%" src="./static/images/plots/Hausdorff_(Obs)_6_robots.png">
+               <p> 6 Robots </p>
+             </div>
+           </div>
+           <br/>
+
+           <hr style="height:1px;border-width:0 dotted;" noshade>
+           <p>Directional Chamfer Distance (Ground Truth to Predicted Point Cloud)</p>
+            <div class="row">
+              <div class="column">
+                <img width="100%" src="./static/images/plots/CDL2-Uni_(Pred)_2_robots.png">
+                <p> 2 Robots </p>
+              </div>
+              <div class="column">
+                <img width="100%" src="./static/images/plots/CDL2-Uni_(Pred)_4_robots.png">
+                <p> 4 Robots </p>
+              </div>
+              <div class="column">
+                <img width="100%" src="./static/images/plots/CDL2-Uni_(Pred)_6_robots.png">
+                <p> 6 Robots </p>
+              </div>
+            </div>
+            <br/>
+
+        </br>
+    </div>
+  </div>
+</section>
+
+<hr size=2>
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"></br><a id="realWorld">Qualitative Real-World Experiment</a></h2>
+         <p align="left">We also conducted a real-world experiment to evaluate
+                    the feasibility of implementing MAP-NBV on hardware. A
+                    single iteration of the MAP-NBV pipeline for 2 robots was
+                    run using a ZED camera. Due to the lower quality of the ZED camera, an iPhone 12 Pro Max with built-in LiDAR was used to
+                    capture data to create a high-resolution reconstruction.
+         </p>
+
+     <div class="row">
+       <div class="column">
+         <img width="75%" src="./static/images/zed_rav4.png">
+         <p> RGB Image of the Car </p>
+       </div>
+       <div class="column">
+         <img width="100%" src="./static/images/zed_poses2.png">
+         <p> <span style="color:blue;">Observations</span>, <span style="color:red;">Predictions</span>, and MAP-NBV poses</p>
+       </div>
+       <div class="">
+         <video  width="50%"  autoplay="" muted="" loop="" playsinline="" >
+             <source src="./videos/zed_rav4_3_angles_output.mp4" type="video/mp4">
+       </video>
+       <p> <span style="color:blue;">Initial</span>, <span style="color:red;">Drone 1</span>, and <span style="color:green;">Drone 2</span> points after MAP-NBV iteration</p>
+       </div>
+       <div class="column">
+         <img width="40%" src="./static/images/rav4_reconstruction.jpg">
+         <p> Reconstruction </p>
+       </div>
+     </div>
+     <br/>
+ </div>
+</div>
+</div>
+</section>
+
 <hr size=2>
 <section class="section">
   <div class="container is-max-desktop">
@@ -859,6 +957,8 @@
 
   </div>
 </section>
+
+
 
 
 
