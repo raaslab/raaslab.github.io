@@ -48,22 +48,22 @@ CONTENT: [
         "name": "Mid-level Policy",
         "html": `
         <div class="container">
-            <h3 class="text-center mb-4">Approach Refinement</h3>
-            <p>Our Mid-level Policy fine-tunes initial strategies, ensuring precise actions for various food textures and configurations.</p>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>TargetNet: Wide Primitive</h4>
-                    <p>Identifies targets and aligns strategies for wide primitives, enhancing adaptability and precision.</p>
-                    <img src="img/TargetNet.png" class="img-fluid mb-3" alt="TargetNet Operation">
+            <h3 class="text-center mb-4">Fine-Tuning Actions</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-5 mb-4">
+                    <img src="img/TargetNet.png" class="img-fluid" alt="TargetNet for Wide Primitives">
+                    <h4 class="mt-2 text-center">TargetNet: Wide Primitives</h4>
+                    <p class="text-center">Determines target piece and aligns for precision.</p>
                 </div>
-                <div class="col-md-6">
-                    <h4>DepthNet: Deep Primitive</h4>
-                    <p>Assesses food depth to fine-tune scooping actions, optimizing for scoop size and minimizing spillage.</p>
-                    <img src="img/DepthNet.png" class="img-fluid mb-3" alt="DepthNet Functionality">
+                <div class="col-md-5 mb-4">
+                    <img src="img/DepthNet.png" class="img-fluid" alt="DepthNet for Deep Primitives">
+                    <h4 class="mt-2 text-center">DepthNet: Deep Primitives</h4>
+                    <p class="text-center">Assesses food depth to adjust scooping trajectory.</p>
                 </div>
             </div>
         </div>`
     },
+
 
     {
         "name": "Low-level Policy",
