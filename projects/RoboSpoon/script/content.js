@@ -38,7 +38,7 @@ CONTENT: [
                 </ul>
             </div>
             <div class="col-md-6">
-                <img src="path/to/high-level-policy-image.jpg" class="img-fluid" alt="High-level Policy Visualization">
+                <img src="img/scoopNet.png" class="img-fluid" alt="High-level Policy Visualization">
             </div>
         </div>
 
@@ -56,7 +56,7 @@ CONTENT: [
                 </ul>
             </div>
             <div class="col-md-6">
-                <img src="path/to/mid-level-policy-image.jpg" class="img-fluid" alt="Mid-level Policy Action">
+                <img src="img/TargetNet.png" class="img-fluid" alt="Mid-level Policy Action">
             </div>
         </div>
 
@@ -74,7 +74,7 @@ CONTENT: [
                 </ul>
             </div>
             <div class="col-md-6">
-                <img src="path/to/mid-level-policy-image.jpg" class="img-fluid" alt="Mid-level Policy Action">
+                <img src="img/DepthNet.png" class="img-fluid" alt="Mid-level Policy Action">
             </div>
         </div>
 
