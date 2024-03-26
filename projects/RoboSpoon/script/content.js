@@ -13,7 +13,7 @@ const DATA = {
             "url": "#",
         },
         AUTHOR_NAME: "Amisha Bhaskar",
-        VIDEO_SRC: "video/dummy_video.mp4",
+        VIDEO_SRC: "video/IROS_2024_LAVAgithub.mp4",
     },
     ABSTRACT: {
         TEXT: [
