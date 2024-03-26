@@ -27,29 +27,57 @@ const DATA = {
     },
 CONTENT: [
     {
-        "name": "Section 1",
+        "name": "High-level Policy",
         "html": `
         <div class="row">
             <div class="col-md-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra finibus quam, nec ornare mi posuere id. Nullam vitae efficitur neque. Maecenas rutrum nunc sit amet rhoncus iaculis. Pellentesque rutrum at nisl vitae dapibus. Maecenas auctor faucibus cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum a leo porttitor, mollis diam id, porta odio. Donec convallis porttitor lectus sed fringilla. Nulla facilisi. Curabitur tincidunt turpis sit amet leo lobortis lacinia.
+                <h3>Seeing the Big Picture</h3>
+                <ul>
+                    <li><strong>Decision-Making:</strong> Identifies food type and texture—choosing between gentle scooping for tofu or a direct approach for semi-solid foods.</li>
+                    <li><strong>Strategy:</strong> Sets the stage for action, ensuring adaptability and precision from the outset.</li>
+                </ul>
             </div>
             <div class="col-md-6">
-                <img src="path/to/your/image.jpg" class="img-fluid" alt="Descriptive alt text">
+                <img src="path/to/high-level-policy-image.jpg" class="img-fluid" alt="High-level Policy Visualization">
             </div>
         </div>
+
         `
     },
     {
-        "name": "Section 2",
+        "name": "Mid-level Policy",
         "html": `
         <div class="row">
             <div class="col-md-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra finibus quam, nec ornare mi posuere id. Nullam vitae efficitur neque. Maecenas rutrum nunc sit amet rhoncus iaculis. Pellentesque rutrum at nisl vitae dapibus. Maecenas auctor faucibus cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum a leo porttitor, mollis diam id, porta odio. Donec convallis porttitor lectus sed fringilla. Nulla facilisi. Curabitur tincidunt turpis sit amet leo lobortis lacinia.
+                <h3>Refining the Approach</h3>
+                <ul>
+                    <li><strong>Analysis:</strong> Delves into visual details, determining food item positions and optimal scooping strategies.</li>
+                    <li><strong>Decision Refinement:</strong> Chooses between aligning for easier scoop or utilizing wall for guidance.</li>
+                </ul>
             </div>
             <div class="col-md-6">
-                <img src="path/to/another/image.jpg" class="img-fluid" alt="Descriptive alt text">
+                <img src="path/to/mid-level-policy-image.jpg" class="img-fluid" alt="Mid-level Policy Action">
             </div>
         </div>
+
+        `
+    },
+    {
+        "name": "Low-level Policy",
+        "html": `
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Refining the Approach</h3>
+                <ul>
+                    <li><strong>Analysis:</strong> Delves into visual details, determining food item positions and optimal scooping strategies.</li>
+                    <li><strong>Decision Refinement:</strong> Chooses between aligning for easier scoop or utilizing wall for guidance.</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <img src="path/to/mid-level-policy-image.jpg" class="img-fluid" alt="Mid-level Policy Action">
+            </div>
+        </div>
+
         `
     },
 ],
