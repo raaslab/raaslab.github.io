@@ -25,16 +25,35 @@ const DATA = {
             "legend": "System Architecture of LAVA which employs a high-level policy (blue) <span class='mathjax'>\\(\\pi_H\\)</span> to select amongst discrete high-level primitives <span class='mathjax'>\\(P_{H}^{k}\\)</span>, such as wide primitive and Deep primitive, which then further gets refined by mid-level policy (green) <span class='mathjax'>\\(\\pi_M\\)</span> to select amongst mid-level primitives <span class='mathjax'>\\(P_{M}^{k}\\)</span>, low-level vision parametrized policy <span class='mathjax'>\\(\\pi_L\\)</span> (brown) executes trajectory learned from Behavioral cloning for long-horizon dextrous food acquisition."
         }
     },
-    CONTENT: [ // If you want to add other sections, add them with their title (used for navigation) and the html code of the section
-        {
-            "name": "Section 1",
-            "html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra finibus quam, nec ornare mi posuere id. Nullam vitae efficitur neque. Maecenas rutrum nunc sit amet rhoncus iaculis. Pellentesque rutrum at nisl vitae dapibus. Maecenas auctor faucibus cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum a leo porttitor, mollis diam id, porta odio. Donec convallis porttitor lectus sed fringilla. Nulla facilisi. Curabitur tincidunt turpis sit amet leo lobortis lacinia.",
-        },
-        {
-            "name": "Section 2",
-            "html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra finibus quam, nec ornare mi posuere id. Nullam vitae efficitur neque. Maecenas rutrum nunc sit amet rhoncus iaculis. Pellentesque rutrum at nisl vitae dapibus. Maecenas auctor faucibus cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum a leo porttitor, mollis diam id, porta odio. Donec convallis porttitor lectus sed fringilla. Nulla facilisi. Curabitur tincidunt turpis sit amet leo lobortis lacinia.",
-        },
-    ],
+CONTENT: [
+    {
+        "name": "Section 1",
+        "html": `
+        <div class="row">
+            <div class="col-md-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra finibus quam, nec ornare mi posuere id. Nullam vitae efficitur neque. Maecenas rutrum nunc sit amet rhoncus iaculis. Pellentesque rutrum at nisl vitae dapibus. Maecenas auctor faucibus cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum a leo porttitor, mollis diam id, porta odio. Donec convallis porttitor lectus sed fringilla. Nulla facilisi. Curabitur tincidunt turpis sit amet leo lobortis lacinia.
+            </div>
+            <div class="col-md-6">
+                <img src="path/to/your/image.jpg" class="img-fluid" alt="Descriptive alt text">
+            </div>
+        </div>
+        `
+    },
+    {
+        "name": "Section 2",
+        "html": `
+        <div class="row">
+            <div class="col-md-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra finibus quam, nec ornare mi posuere id. Nullam vitae efficitur neque. Maecenas rutrum nunc sit amet rhoncus iaculis. Pellentesque rutrum at nisl vitae dapibus. Maecenas auctor faucibus cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum a leo porttitor, mollis diam id, porta odio. Donec convallis porttitor lectus sed fringilla. Nulla facilisi. Curabitur tincidunt turpis sit amet leo lobortis lacinia.
+            </div>
+            <div class="col-md-6">
+                <img src="path/to/another/image.jpg" class="img-fluid" alt="Descriptive alt text">
+            </div>
+        </div>
+        `
+    },
+],
+
     CONTRIBUTORS: [
         {
             "name": "Amisha Bhaskar",
