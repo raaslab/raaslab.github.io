@@ -90,7 +90,7 @@ CONTENT: [
         },
         {
             "name": "Rui Liu",
-            "img": "RL.png",
+            "img": "img/RL.png",
             "url": "https://scholar.google.com/citations?hl=en&user=pMeiokwAAAAJ"
         },
         {
