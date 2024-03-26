@@ -371,7 +371,7 @@ function displayFooter() {
                 ${htmlLogos.join("")}
                 <div class="col-md-${nbColsPerDiv} text-center align-middle">
                     <h5>&copy; ${DATA.FOOTER.COPYRIGHT}</h5>
-                    Website Design: ${link("https://github.com/rjgpinel/dark-academic-website", "dark-academic-website")}
+                    Lab: ${link("https://raaslab.org/", "RAAS lab")}
                 </div>
                 ${pad}
             </div>
