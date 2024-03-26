@@ -38,7 +38,7 @@ const DATA = {
     CONTRIBUTORS: [
         {
             "name": "Amisha Bhaskar",
-            "img": "img/contributor_dummy.png",
+            "img": "img/AB.png",
             "url": "https://scholar.google.com/citations?user=KRpb6Y0AAAAJ&hl=en&oi=sra"
         },
         {
@@ -48,17 +48,17 @@ const DATA = {
         },
         {
             "name": "Vishnu Dutt Sharma",
-            "img": "img/contributor_dummy.png",
+            "img": "img/VD.png",
             "url": "https://vishnuduttsharma.github.io/"
         },
         {
             "name": "Guangyao Shi",
-            "img": "img/contributor_dummy.png",
+            "img": "img/GS.png",
             "url": "https://scholar.google.com/citations?hl=en&user=Y4iDZHsAAAAJ"
         },
         {
             "name": "Pratap Tokekar",
-            "img": "img/contributor_dummy.png",
+            "img": "img/PT.png",
             "url": "https://www.cs.umd.edu/people/tokekar"
         },
     ],
