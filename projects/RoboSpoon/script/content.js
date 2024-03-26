@@ -69,7 +69,7 @@ const DATA = {
             "links": [
                 {
                     "name": "arXiv",
-                    "url": "#",
+                    "url": "https://arxiv.org/abs/2403.12876",
                     "icon": "img/paper_copy.svg"
                 },
             ],
