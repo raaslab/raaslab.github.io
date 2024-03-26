@@ -1,91 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAVA: Long-horizon Visual Action based Food Acquisition</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #0779e4 3px solid;
-        }
-        header h1 {
-            text-align: center;
-            margin: 0;
-            padding-bottom: 10px;
-        }
-        .content {
-            padding: 20px;
-            background: #fff;
-        }
-        .content h2, .content p {
-            text-align: justify;
-        }
-        .video {
-            text-align: center;
-            margin: 20px 0;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" />
+  <title></title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <h1>LAVA: Long-horizon Visual Action based Food Acquisition</h1>
-        </div>
-    </header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="index.html" id="nav-project-title"></a>
 
-    <div class="container">
-        <div class="content">
-            <h2>Abstract</h2>
-            <p>
-                Robotic Assisted Feeding (RAF) addresses the
-fundamental need for individuals with mobility impairments to
-regain autonomy in feeding themselves. The goal of RAF is to
-use a robot arm to acquire and transfer food to individuals from
-the table. Existing RAF methods primarily focus on solid foods,
-leaving a gap in manipulation strategies for semi-solid and
-deformable foods. This study introduces Long-horizon Visual
-Action (LAVA) based food acquisition of liquid, semisolid,
-and deformable foods. Long-horizon refers to the goal of
-“clearing the bowl” by sequentially acquiring the food from
-the bowl. LAVA employs a hierarchical policy for long-horizon
-food acquisition tasks. The framework uses high-level policy
-to determine primitives by leveraging ScoopNet. At the mid-
-level, LAVA finds parameters for primitives using vision. To
-carry out sequential plans in the real world, LAVA delegates
-action execution which is driven by Low-level policy that uses
-parameters received from mid-level policy and behavior cloning
-ensuring precise trajectory execution.
-We validate our approach on complex real-world acquisition
-trials involving granular, liquid, semisolid, and deformable food
-types along with fruit chunks and soup acquisition. Across 46
-bowls, LAVA acquires much more efficiently than baselines with
-a success rate of 89 ± 4%, and generalizes across realistic plate
-variations such as different positions, varieties, and amount of
-food in the bowl. 
-            </p>
-
-            <div class="video">
-                <h2>Video Demonstrations</h2>
-                <!-- Example video embed from YouTube -->
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <!-- You can add more videos here -->
-            </div>
-        </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <ul class="navbar-nav ml-auto" id="navigation"></ul>
     </div>
+  </nav>
+
+  <main role="main">
+
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <h1 class="display-5 text-center" id="head-title"><br></h1>
+            <h5 class="display-5 text-center" id="head-subtitle"><a href="#"></a><br></h5>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-md">
+            <div class="embed-responsive embed-responsive-16by9" id="video"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container section" id="abstract">
+      <div class="row" id="abstract-text"></div>
+      <div class="row" id="overview"></div>
+    </div>
+
+    <div id="content"></div>
+
+    <div class="container section" id="contributors">
+      <div class="row">
+        <div class="col-sm">
+          <h2 class="text-center">Project Contributors</h2>
+          <hr>
+        </div>
+      </div>
+      <br>
+      <br>
+
+    </div>
+    <div class="container section" id="links">
+      <div class="row">
+        <div class="col-sm">
+          <h2 class="text-center">Links</h2>
+          <hr>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row" id="links-area"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <h2 class="text-center">Citation</h2>
+            <hr>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm">
+            <p>To cite our work, please use:</p>
+            <pre class="citation"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer"></div>
+  </main>
 </body>
+
+<script src="script/scroll.js"></script>
+<script src="script/content.js"></script>
+
 </html>
