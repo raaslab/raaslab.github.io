@@ -173,7 +173,7 @@ CONTENT: [
                 "url": "https://www.umiacs.umd.edu/"
             },
         ],
-        COPYRIGHT: `Copyright Owner 2022`
+        COPYRIGHT: `RAAS lab 2024`
     },
 }
 // ===== END CUSTOM DATA =====
