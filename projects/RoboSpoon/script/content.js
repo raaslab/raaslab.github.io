@@ -7,19 +7,20 @@ const DATA = {
     },
     HEAD: {
         FAVICON_SRC: "img/logo_dummy.png",
-        PROJECT_TITLE: "Project Title",
+        PROJECT_TITLE: "LAVA: Long-horizon Visual Action based Food Acquisition",
         PROJECT_SUBTITLE: {
-            "name": "XXX Conference,  20XX",
+            "name": "IROS Conference,  2024",
             "url": "#",
         },
-        AUTHOR_NAME: "Ricardo Garcia",
+        AUTHOR_NAME: "Amisha Bhaskar",
         VIDEO_SRC: "video/dummy_video.mp4",
     },
     ABSTRACT: {
         TEXT: [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra finibus quam, nec ornare mi posuere id. Nullam vitae efficitur neque. Maecenas rutrum nunc sit amet rhoncus iaculis. Pellentesque rutrum at nisl vitae dapibus. Maecenas auctor faucibus cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum a leo porttitor, mollis diam id, porta odio. Donec convallis porttitor lectus sed fringilla. Nulla facilisi. Curabitur tincidunt turpis sit amet leo lobortis lacinia.",
-            "Nullam rutrum leo quis purus cursus fermentum. Vivamus nec iaculis mi. Suspendisse pharetra eleifend turpis ut dictum. Vivamus nisi tellus, volutpat nec quam sit amet, ornare facilisis est. Fusce semper ultrices aliquet. Morbi sagittis eros ac dui rhoncus, sit amet semper purus varius. Duis finibus turpis orci, eu auctor nunc maximus nec. Curabitur aliquet tincidunt mauris faucibus iaculis. Donec sem orci, placerat quis tempor id, fringilla eu dolor. Etiam ultrices maximus lacus, et suscipit erat suscipit a. Proin est erat, maximus venenatis vestibulum vel, sagittis ac nisl. Proin fermentum ullamcorper tortor, eu rutrum libero mattis eu.",
-            "Pellentesque gravida augue augue, ac posuere lacus accumsan in. Suspendisse vel magna accumsan, porta lorem sed, eleifend massa. Proin auctor euismod ornare. Fusce convallis volutpat magna non laoreet. Quisque nibh nunc, tempus ac lacinia vel, condimentum sed est. Maecenas ultrices nunc eget est interdum semper. Nulla eu varius mi, non euismod enim. Mauris mollis urna ut diam fringilla rhoncus. Nam efficitur sem vel ultrices tempor. Vestibulum hendrerit, nulla vitae tempus ultricies, magna nulla pulvinar dui, eget accumsan ipsum arcu et lacus. Integer vel fringilla tellus. Donec pellentesque blandit elit a luctus."
+            "Robotic Assisted Feeding (RAF) addresses the fundamental need for individuals with mobility impairments to regain autonomy in feeding themselves. The goal of RAF is to use a robot arm to acquire and transfer food to individuals from the table. Existing RAF methods primarily focus on solid foods, leaving a gap in manipulation strategies for semi-solid and deformable foods. This study introduces Long-horizon Visual Action (LAVA) based food acquisition of liquid, semisolid, and deformable foods.",
+            "Long-horizon refers to the goal of “clearing the bowl” by sequentially acquiring the food from the bowl. LAVA employs a hierarchical policy for long-horizon food acquisition tasks. The framework uses high-level policy to determine primitives by leveraging ScoopNet. At the mid- level, LAVA finds parameters for primitives using vision.",
+            "To carry out sequential plans in the real world, LAVA delegates action execution which is driven by Low-level policy that uses parameters received from mid-level policy and behavior cloning ensuring precise trajectory execution. We validate our approach on complex real-world acquisition trials involving granular, liquid, semisolid, and deformable food types along with fruit chunks and soup acquisition.",
+            "Across 46 bowls, LAVA acquires much more efficiently than baselines with a success rate of 89 ± 4%, and generalizes across realistic plate variations such as different positions, varieties, and amount of food in the bowl."
         ],
         OVERVIEW: {
             "src": "img/overview_dummy.png",
