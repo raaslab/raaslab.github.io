@@ -10,7 +10,7 @@ const DATA = {
         PROJECT_TITLE: "LAVA: Long-horizon Visual Action based Food Acquisition",
         PROJECT_SUBTITLE: {
             "name": "IROS Conference,  2024",
-            "url": "#",
+            "url": "https://iros2024-abudhabi.org",
         },
         AUTHOR_NAME: "Amisha Bhaskar",
         VIDEO_SRC: "video/IROS_2024_LAVAgithub.mp4",
@@ -70,6 +70,17 @@ const DATA = {
             "links": [
                 {
                     "name": "arXiv",
+                    "url": "#",
+                    "icon": "img/paper_copy.svg"
+                },
+            ],
+        },
+        {
+            "title": "Dataset",
+            "icon": "img/dataset.svg",
+            "links": [
+                {
+                    "name": "Dataset",
                     "url": "#",
                     "icon": "img/paper_copy.svg"
                 },
