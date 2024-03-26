@@ -22,7 +22,7 @@ const DATA = {
             "Across 46 bowls, LAVA acquires much more efficiently than baselines with a success rate of 89 ± 4%, and generalizes across realistic plate variations such as different positions, varieties, and amount of food in the bowl."
         ],
         OVERVIEW: {
-            "src": "img/Presentation_IROS.pdf",
+            "src": "img/IROS_2024_LAVA.png",
             "legend": "System Architecture of our method.",
         }
     },
