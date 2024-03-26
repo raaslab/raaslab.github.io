@@ -163,17 +163,17 @@ CONTENT: [
     FOOTER: {
         LOGOS: [
             {
-                "name": "University 1",
-                "src": "img/logo_dummy.png",
-                "url": "#"
+                "name": "University of Maryland",
+                "src": "umd.png",
+                "url": "https://umd.edu/"
             },
             {
-                "name": "University 2",
-                "src": "img/logo_dummy.png",
-                "url": "#"
+                "name": "University of Maryland Institute for Advanced Computer Studies",
+                "src": "umiacs.png",
+                "url": "https://www.umiacs.umd.edu/"
             },
         ],
-        COPYRIGHT: `Copyright Owner 20XX`
+        COPYRIGHT: `Copyright Owner 2022`
     },
 }
 // ===== END CUSTOM DATA =====
