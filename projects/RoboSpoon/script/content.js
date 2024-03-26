@@ -49,16 +49,23 @@ CONTENT: [
         "html": `
         <div class="row">
             <div class="col-md-6">
-                <h3>Refining the Approach</h3>
+                <h3>TargetNet for Wide Primitive</h3>
                 <ul>
-                    <li><strong>Analysis:</strong> Delves into visual details, determining food item positions and optimal scooping strategies.</li>
-                    <li><strong>Decision Refinement:</strong> Chooses between aligning for easier scoop or utilizing wall for guidance.</li>
+                    <li><strong>Target Identification:</strong> Pinpoints the target food item, crucial for wide primitive execution.</li>
+                    <li><strong>Strategic Alignment:</strong> Determines whether to align food towards the center for easier scooping or to leverage the bowl's wall.</li>
                 </ul>
+                <img src="img/TargetNet.png" class="img-fluid" alt="TargetNet Visualization">
             </div>
             <div class="col-md-6">
-                <img src="img/TargetNet.png" class="img-fluid" alt="Mid-level Policy Action">
+                <h3>DepthNet for Deep Primitive</h3>
+                <ul>
+                    <li><strong>Depth Assessment:</strong> Evaluates the depth of food in the bowl, guiding the deep scooping strategy.</li>
+                    <li><strong>Trajectory Optimization:</strong> Adapts the scooping trajectory based on food depth for optimal scoop size and minimal spillage.</li>
+                </ul>
+                <img src="img/DepthNet.png" class="img-fluid" alt="DepthNet Action">
             </div>
         </div>
+
 
         `
     },
