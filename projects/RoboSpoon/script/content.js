@@ -103,12 +103,12 @@ const DATA = {
         },
     ],
     CITATION: ` \
-        @article{articlename,
-            author    = {Author1 and Author2 and Author3 and Author4 and Author5},
-            title     = {Paper Title},
-            journal   = {arXiv preprint arXiv:TBD},
-            year      = {20XX}
-        }
+                @article{bhaskar2024lava,
+                  title={LAVA: Long-horizon Visual Action based Food Acquisition},
+                  author={Bhaskar, Amisha and Liu, Rui and Sharma, Vishnu D and Shi, Guangyao and Tokekar, Pratap},
+                  journal={arXiv preprint arXiv:2403.12876},
+                  year={2024}
+                }
     `,
     FOOTER: {
         LOGOS: [
