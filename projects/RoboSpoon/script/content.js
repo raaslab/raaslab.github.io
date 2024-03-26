@@ -67,10 +67,10 @@ CONTENT: [
         "html": `
         <div class="row">
             <div class="col-md-6">
-                <h3>Refining the Approach</h3>
+                <h3>Turning Plans into Action</h3>
                 <ul>
-                    <li><strong>Analysis:</strong> Delves into visual details, determining food item positions and optimal scooping strategies.</li>
-                    <li><strong>Decision Refinement:</strong> Chooses between aligning for easier scoop or utilizing wall for guidance.</li>
+                    <li><strong>Execution:</strong> Implements the refined strategy, directing the robot arm to scoop with targeted precision.</li>
+                    <li><strong>Adaptation:</strong> Learns from demonstrations, adjusting movements in real-time for efficient and careful food acquisition.</li>
                 </ul>
             </div>
             <div class="col-md-6">
