@@ -17,13 +17,12 @@ const DATA = {
     },
     ABSTRACT: {
         TEXT: [
-            "Robotic Assisted Feeding (RAF) addresses the fundamental need for individuals with mobility impairments to regain autonomy in feeding themselves. The goal of RAF is to use a robot arm to acquire and transfer food to individuals from the table. Existing RAF methods primarily focus on solid foods, leaving a gap in manipulation strategies for semi-solid and deformable foods. This study introduces Long-horizon Visual Action (LAVA) based food acquisition of liquid, semisolid, and deformable foods. Long-horizon refers to the goal of “clearing the bowl” by sequentially acquiring the food from the bowl. LAVA employs a hierarchical policy for long-horizon food acquisition tasks. The framework uses high-level policy to determine primitives by leveraging ScoopNet. At the mid- level, LAVA finds parameters for primitives using vision.",
-            "To carry out sequential plans in the real world, LAVA delegates action execution which is driven by Low-level policy that uses parameters received from mid-level policy and behavior cloning ensuring precise trajectory execution. We validate our approach on complex real-world acquisition trials involving granular, liquid, semisolid, and deformable food types along with fruit chunks and soup acquisition.",
+            "Robotic Assisted Feeding (RAF) addresses the fundamental need for individuals with mobility impairments to regain autonomy in feeding themselves. The goal of RAF is to use a robot arm to acquire and transfer food to individuals from the table. Existing RAF methods primarily focus on solid foods, leaving a gap in manipulation strategies for semi-solid and deformable foods. This study introduces Long-horizon Visual Action (LAVA) based food acquisition of liquid, semisolid, and deformable foods. Long-horizon refers to the goal of “clearing the bowl” by sequentially acquiring the food from the bowl. LAVA employs a hierarchical policy for long-horizon food acquisition tasks. The framework uses high-level policy to determine primitives by leveraging ScoopNet. At the mid-level, LAVA finds parameters for primitives using vision. To carry out sequential plans in the real world, LAVA delegates action execution driven by Low-level policy that uses parameters received from mid-level policy and behavior cloning ensuring precise trajectory execution. We validate our approach on complex real-world acquisition trials involving granular, liquid, semisolid, and deformable food types along with fruit chunks and soup acquisition.",
             "Across 46 bowls, LAVA acquires much more efficiently than baselines with a success rate of 89 ± 4%, and generalizes across realistic plate variations such as different positions, varieties, and amount of food in the bowl."
         ],
         OVERVIEW: {
             "src": "img/IROS_2024_LAVA.png",
-            "legend": "System Architecture of our method.",
+            "legend": "System Architecture of LAVA which employs a high-level policy (blue) <span class='mathjax'>\\(\\pi_H\\)</span> to select amongst discrete high-level primitives <span class='mathjax'>\\(P_{H}^{k}\\)</span>, such as wide primitive and Deep primitive, which then further gets refined by mid-level policy (green) <span class='mathjax'>\\(\\pi_M\\)</span> to select amongst mid-level primitives <span class='mathjax'>\\(P_{M}^{k}\\)</span>, low-level vision parametrized policy <span class='mathjax'>\\(\\pi_L\\)</span> (brown) executes trajectory learned from Behavioral cloning for long-horizon dextrous food acquisition."
         }
     },
     CONTENT: [ // If you want to add other sections, add them with their title (used for navigation) and the html code of the section
@@ -212,7 +211,13 @@ function displayOverview() {
             <div id="overview-legend">${DATA.ABSTRACT.OVERVIEW.legend}</div>
         </div>
     `;
+
+    // Trigger MathJax to process the newly added LaTeX content
+    if (window.MathJax) {
+        window.MathJax.typesetPromise();
+    }
 }
+
 
 /* Content sections */
 function displayContentSections() {
