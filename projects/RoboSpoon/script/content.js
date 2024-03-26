@@ -164,12 +164,12 @@ CONTENT: [
         LOGOS: [
             {
                 "name": "University of Maryland",
-                "src": "umd.png",
+                "src": "img/umd.png",
                 "url": "https://umd.edu/"
             },
             {
                 "name": "University of Maryland Institute for Advanced Computer Studies",
-                "src": "umiacs.png",
+                "src": "img/umiacs.png",
                 "url": "https://www.umiacs.umd.edu/"
             },
         ],
