@@ -76,17 +76,6 @@ const DATA = {
             ],
         },
         {
-            "title": "Dataset",
-            "icon": "img/dataset.svg",
-            "links": [
-                {
-                    "name": "Dataset",
-                    "url": "#",
-                    "icon": "img/paper_copy.svg"
-                },
-            ],
-        },
-        {
             "title": "Code",
             "icon": "img/code.svg",
             "links": [
