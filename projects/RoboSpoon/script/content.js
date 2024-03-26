@@ -43,7 +43,7 @@ const DATA = {
         },
         {
             "name": "Rui Liu",
-            "img": "img/contributor_dummy.png",
+            "img": "RL.png",
             "url": "https://scholar.google.com/citations?hl=en&user=pMeiokwAAAAJ"
         },
         {
