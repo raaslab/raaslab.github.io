@@ -47,31 +47,24 @@ CONTENT: [
     {
         "name": "Mid-level Policy",
         "html": `
-        <div class="row">
-            <div class="col-12">
-                <h2>Approach Refinement: Mid-level Policy</h2>
-                <p>This layer refines the initial strategy, tailoring actions to specific food situations with precision.</p>
+        <div class="container">
+            <h3 class="text-center mb-4">Approach Refinement</h3>
+            <p>Our Mid-level Policy fine-tunes initial strategies, ensuring precise actions for various food textures and configurations.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>TargetNet: Wide Primitive</h4>
+                    <p>Identifies targets and aligns strategies for wide primitives, enhancing adaptability and precision.</p>
+                    <img src="img/TargetNet.png" class="img-fluid mb-3" alt="TargetNet Operation">
+                </div>
+                <div class="col-md-6">
+                    <h4>DepthNet: Deep Primitive</h4>
+                    <p>Assesses food depth to fine-tune scooping actions, optimizing for scoop size and minimizing spillage.</p>
+                    <img src="img/DepthNet.png" class="img-fluid mb-3" alt="DepthNet Functionality">
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <h3>TargetNet for Wide Primitive</h3>
-                <ul>
-                    <li><strong>Target Identification:</strong> Pinpoints the exact piece to acquire, crucial for executing wide primitive strategies.</li>
-                    <li><strong>Strategic Alignment:</strong> Decides the best approach between aligning food towards the center for easier access or leveraging the bowl's wall for support.</li>
-                </ul>
-                <img src="img/TargetNet.png" class="img-fluid" alt="Visualizing TargetNet's Role">
-            </div>
-            <div class="col-md-6">
-                <h3>DepthNet for Deep Primitive</h3>
-                <ul>
-                    <li><strong>Depth Assessment:</strong> Measures the depth of food, guiding the scoop for deep primitives.</li>
-                    <li><strong>Trajectory Adjustment:</strong> Fine-tunes the scooping trajectory based on the assessed depth, optimizing scoop size and minimizing spillage.</li>
-                </ul>
-                <img src="img/DepthNet.png" class="img-fluid" alt="DepthNet in Action">
-            </div>
-        </div>  `
+        </div>`
     },
+
     {
         "name": "Low-level Policy",
         "html": `
