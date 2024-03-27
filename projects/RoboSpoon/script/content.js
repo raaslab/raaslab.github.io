@@ -9,7 +9,7 @@ const DATA = {
         FAVICON_SRC: "img/logo_dummy.png",
         PROJECT_TITLE: "LAVA: Long-horizon Visual Action based Food Acquisition",
         PROJECT_SUBTITLE: {
-            "name": "IROS Conference,  2024",
+            "name": "International Conference on Intelligent Robots and Systems (IROS),  2024",
             "url": "https://iros2024-abudhabi.org",
         },
         AUTHOR_NAME: "Amisha Bhaskar",
