@@ -175,11 +175,11 @@ const DATA = {
         </div>
         <div class="row">
             <div class="col-md-6 mb-4">
-                <img src="img/soup.gif" class="img-fluid" alt="Zero-Shot Generalization with Tofu">
+                <img src="img/souptofu.gif" class="img-fluid" alt="Zero-Shot Generalization with Tofu">
                 <p class="text-center">Tofu in Soup: Adapting to floating pieces in fluid dynamics.</p>
             </div>
             <div class="col-md-6 mb-4">
-                <img src="img/fruit_chunks.gif" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
+                <img src="img/fruit.gif" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
                 <p class="text-center">Fruit Chunks: Handling variable shapes and avoiding spillage.</p>
             </div>
         </div>
