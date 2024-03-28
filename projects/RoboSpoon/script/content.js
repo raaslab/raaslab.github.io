@@ -396,18 +396,23 @@ function displayFooter() {
 }
 
 function displayTopLinks() {
-    const topLinksContainer = document.getElementById("top-links-container"); // Ensure you have this container in your HTML
-    const linksHtml = DATA.HEAD.TOP_LINKS.map(link => `
-        <div class="top-link-item">
-            <a href="${link.url}" target="_blank">
-                <img src="${link.icon}" alt="${link.title}" width="30px" height="30px">
-                <span>${link.title}</span>
-            </a>
-        </div>
-    `).join("");
+    let linksHtml = '<div class="container"><div class="row justify-content-center">';
+    
+    DATA.HEAD.TOP_LINKS.forEach(link => {
+        linksHtml += `
+            <div class="col-auto">
+                <a href="${link.url}" target="_blank">
+                    <img src="${link.icon}" alt="${link.title}" style="width: 24px; height: 24px;">
+                    <span>${link.title}</span>
+                </a>
+            </div>
+        `;
+    });
 
-    topLinksContainer.innerHTML = `<div class="top-links">${linksHtml}</div>`;
+    linksHtml += '</div></div>';
+    document.getElementById("top-links-container").innerHTML = linksHtml;
 }
+
 
 
 /* Main */
