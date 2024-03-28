@@ -118,7 +118,7 @@ const DATA = {
                     <img src="img/spillage.png" class="img-fluid" alt="Spillage Reduction Graph">
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center mb-3">
             <div class="col-md-6">
                     <img src="img/common_legend-1.png" class="img-fluid" alt="Graph Legend">
                 </div>
@@ -136,6 +136,29 @@ const DATA = {
                 </div>
                 <div class="col-md-4">
                     <img src="img/success_rate.png" class="img-fluid" alt="Success Rate Graph">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <img src="img/comparision_3_tofu.png" class="img-fluid" alt="Tofu 3 Graph">
+                    <p class="text-center">3 Tofu Configurations.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/comparision_4_tofu.png" class="img-fluid" alt="Tofu 4 Graph">
+                    <p class="text-center">4 Tofu Configurations.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/comparision_5_tofu.png" class="img-fluid" alt="Tofu 5 Graph">
+                    <p class="text-center">5 Tofu Configurations. </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <p>LAVA's innovative approach demonstrates remarkable efficiency and adaptability in robotic-assisted feeding:</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="img/comparision_cereals.png" class="img-fluid" alt="Cereal Acquisition">
+                    <p class="text-center">Cereal Acquisition</p>
                 </div>
             </div>
         </div>
