@@ -120,7 +120,7 @@ const DATA = {
             </div>
             <div class="row">
             <div class="col-md-6">
-                    <img src="img/commom_legend-1.png" class="img-fluid" alt="Graph Legend">
+                    <img src="img/common_legend-1.png" class="img-fluid" alt="Graph Legend">
                 </div>
             </div>
             <div class="row">
