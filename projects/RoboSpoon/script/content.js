@@ -8,11 +8,17 @@ const DATA = {
     HEAD: {
         FAVICON_SRC: "img/logo_dummy.png",
         PROJECT_TITLE: "LAVA: Long-horizon Visual Action based Food Acquisition",
-         PROJECT_SUBTITLE: {
+        PROJECT_SUBTITLE: {
                     "name": "International Conference on Intelligent Robots and Systems (IROS),  2024",
                     "url": "https://iros2024-abudhabi.org",
                 },
         AUTHOR_NAME: "Amisha Bhaskar",
+        TOP_LINKS: [
+        { "title": "Paper", "url": "https://arxiv.org/abs/2403.12876", "icon": "img/paper_icon.svg" },
+        { "title": "Video", "url": "your_video_link_here", "icon": "img/video_icon.svg" },
+        { "title": "Dataset", "url": "https://drive.google.com/drive/folders/1UydyI89VvBrUHPD4DNie2l5ABjhRFAIG?usp=sharing", "icon": "img/dataset_icon.svg" },
+        { "title": "Code", "url": "your_code_repository_link_here", "icon": "img/code_icon.svg" },
+    ],
         VIDEO_SRC: "video/IROS_2024_LAVAgithub.mp4",
     },
     ABSTRACT: {
@@ -389,6 +395,21 @@ function displayFooter() {
     `;
 }
 
+function displayTopLinks() {
+    const topLinksContainer = document.getElementById("top-links-container"); // Ensure you have this container in your HTML
+    const linksHtml = DATA.HEAD.TOP_LINKS.map(link => `
+        <div class="top-link-item">
+            <a href="${link.url}" target="_blank">
+                <img src="${link.icon}" alt="${link.title}" width="30px" height="30px">
+                <span>${link.title}</span>
+            </a>
+        </div>
+    `).join("");
+
+    topLinksContainer.innerHTML = `<div class="top-links">${linksHtml}</div>`;
+}
+
+
 /* Main */
 function displayPage() {
     displayTitle();
@@ -401,6 +422,7 @@ function displayPage() {
     displayLinks();
     displayCitation();
     displayFooter();
+    displayTopLinks();
 }
 
 displayPage();
