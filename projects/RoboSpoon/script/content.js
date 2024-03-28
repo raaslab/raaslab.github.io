@@ -104,6 +104,31 @@ const DATA = {
             </div>
             `
         },
+        {
+            "name": "Quantitative Results",
+            "html": `
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <img src="img/time.png" class="img-fluid" alt="Graph 1">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/breakage-1.png" class="img-fluid" alt="Graph 2">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/spillage.png" class="img-fluid" alt="Graph 3">
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <p>Insights about the results, highlighting the key findings, statistical significance, and implications for LAVA's performance in various scenarios. Mention how LAVA outperforms baselines and its generalization capabilities.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="img/success_rate.png" class="img-fluid" alt="Graph 4">
+                </div>
+            </div>
+            `
+        },
+
     ],
 
 
