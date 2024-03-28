@@ -25,71 +25,81 @@ const DATA = {
             "legend": "System Architecture of LAVA which employs a high-level policy (blue) <span class='mathjax'>\\(\\pi_H\\)</span> to select amongst discrete high-level primitives <span class='mathjax'>\\(P_{H}^{k}\\)</span>, such as wide primitive and Deep primitive, which then further gets refined by mid-level policy (green) <span class='mathjax'>\\(\\pi_M\\)</span> to select amongst mid-level primitives <span class='mathjax'>\\(P_{M}^{k}\\)</span>, low-level vision parametrized policy <span class='mathjax'>\\(\\pi_L\\)</span> (brown) executes trajectory learned from Behavioral cloning for long-horizon dextrous food acquisition."
         }
     },
-CONTENT: [
-    {
-        "name": "High-level Policy",
-        "html": `
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Seeing the Big Picture</h3>
-                <ul>
-                    <li><strong>Decision-Making:</strong> Identifies food type and texture—choosing between gentle scooping for tofu or a direct approach for semi-solid foods.</li>
-                    <li><strong>Strategy:</strong> Sets the stage for action, ensuring adaptability and precision from the outset.</li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <img src="img/scoopNet.png" class="img-fluid" alt="High-level Policy Visualization">
-            </div>
-        </div>
-
-        `
-    },
-    {
-        "name": "Mid-level Policy",
-        "html": `
-        <div class="container">
-            <h3 class="text-center mb-4">Approach Refinement</h3>
-            <div class="row justify-content-center">
-                <div class="col-md-5 mb-4">
-                    <img src="img/TargetNet.png" class="img-fluid" alt="TargetNet for Wide Primitives">
-                    <h4 class="mt-2 text-center">TargetNet: Wide Primitives</h4>
-                   <ul>
-                    <li><strong>Target Identification:</strong> Pinpoints the exact piece to acquire, crucial for executing wide primitive strategies.</li>
-                    <li><strong>Strategic Alignment:</strong> Decides the best approach between aligning food towards the center for easier access or leveraging the bowl's wall for support.</li>
-                </ul>
+    CONTENT: [
+        {
+            "name": "High-level Policy",
+            "html": `
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Seeing the Big Picture</h3>
+                    <ul>
+                        <li><strong>Decision-Making:</strong> Identifies food type and texture—choosing between gentle scooping for tofu or a direct approach for semi-solid foods.</li>
+                        <li><strong>Strategy:</strong> Sets the stage for action, ensuring adaptability and precision from the outset.</li>
+                    </ul>
                 </div>
-                <div class="col-md-5 mb-4">
-                    <img src="img/DepthNet.png" class="img-fluid" alt="DepthNet for Deep Primitives">
-                    <h4 class="mt-2 text-center">DepthNet: Deep Primitives</h4>
-                     <ul>
-                    <li><strong>Depth Assessment:</strong> Measures the depth of food, guiding the scoop for deep primitives.</li>
-                    <li><strong>Trajectory Adjustment:</strong> Fine-tunes the scooping trajectory based on the assessed depth, optimizing scoop size and minimizing spillage.</li>
-                </ul>
+                <div class="col-md-6">
+                    <video class="img-fluid" controls>
+                        <source src="video/scoopNet.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
-        </div>`
-    },
-
-
-    {
-        "name": "Low-level Policy",
-        "html": `
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Turning Plans into Action</h3>
-                <ul>
-                    <li><strong>Execution:</strong> Implements the refined strategy, directing the robot arm to scoop with targeted precision.</li>
-                    <li><strong>Adaptation:</strong> Learns from demonstrations, adjusting movements in real-time for efficient and careful food acquisition.</li>
-                </ul>
+            `
+        },
+        {
+            "name": "Mid-level Policy",
+            "html": `
+            <div class="container">
+                <h3 class="text-center mb-4">Approach Refinement</h3>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 mb-4">
+                        <video class="img-fluid" controls>
+                            <source src="video/TargetNet.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <h4 class="mt-2 text-center">TargetNet: Wide Primitives</h4>
+                        <ul>
+                            <li><strong>Target Identification:</strong> Pinpoints the exact piece to acquire, crucial for executing wide primitive strategies.</li>
+                            <li><strong>Strategic Alignment:</strong> Decides the best approach between aligning food towards the center for easier access or leveraging the bowl's wall for support.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5 mb-4">
+                        <video class="img-fluid" controls>
+                            <source src="video/DepthNet.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <h4 class="mt-2 text-center">DepthNet: Deep Primitives</h4>
+                        <ul>
+                            <li><strong>Depth Assessment:</strong> Measures the depth of food, guiding the scoop for deep primitives.</li>
+                            <li><strong>Trajectory Adjustment:</strong> Fine-tunes the scooping trajectory based on the assessed depth, optimizing scoop size and minimizing spillage.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-                <img src="img/DepthNet.png" class="img-fluid" alt="Mid-level Policy Action">
+            `
+        },
+        {
+            "name": "Low-level Policy",
+            "html": `
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Turning Plans into Action</h3>
+                    <ul>
+                        <li><strong>Execution:</strong> Implements the refined strategy, directing the robot arm to scoop with targeted precision.</li>
+                        <li><strong>Adaptation:</strong> Learns from demonstrations, adjusting movements in real-time for efficient and careful food acquisition.</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <video class="img-fluid" controls>
+                        <source src="video/behaviorCloning.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
-        </div>
+            `
+        },
+    ],
 
-        `
-    },
-],
 
     CONTRIBUTORS: [
         {
