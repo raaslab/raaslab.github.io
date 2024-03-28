@@ -174,19 +174,16 @@ const DATA = {
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-6 mb-4">
-                <div class="text-center">
-                    <img src="img/souptofu.gif" class="img-fluid" alt="Zero-Shot Generalization with Tofu">
-                    <p class="text-center">Tofu in Soup: Adapting to floating pieces in fluid dynamics.</p>
-                </div>
-            </div>    
-            <div class="col-md-6 mb-4">
-                <div class="text-center">
-                    <img src="img/fruit.gif" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
-                    <p class="text-center">Fruit Chunks: Handling variable shapes and avoiding spillage.</p>
-                </div>
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                <img src="img/souptofu.gif" class="img-fluid" alt="Zero-Shot Generalization with Tofu">
+                <p class="text-center" style="width: 80%;">Tofu in Soup: Adapting to floating pieces in fluid dynamics.</p>
+            </div>   
+        <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                <img src="img/fruit.gif" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
+                <p class="text-center" style="width: 80%;">Fruit Chunks: Handling variable shapes and avoiding spillage.</p>
             </div>
         </div>
+
         `
     }
 
