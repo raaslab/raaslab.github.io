@@ -39,7 +39,7 @@ const DATA = {
                 </div>
                 <div class="col-md-6">
                     <video class="img-fluid" controls>
-                        <source src="video/scoopNet.mp4" type="video/mp4">
+                        <source src="video/ScoopNet.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -54,7 +54,7 @@ const DATA = {
                 <div class="row justify-content-center">
                     <div class="col-md-5 mb-4">
                         <video class="img-fluid" controls>
-                            <source src="video/TargetNet.mp4" type="video/mp4">
+                            <source src="video/TragetNet.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <h4 class="mt-2 text-center">TargetNet: Wide Primitives</h4>
