@@ -95,35 +95,9 @@ a:hover {
   font-size: 0.85em;
   margin-top: 20px;
 }
-#top-links-container {
-    padding-top: 60px; /* Adjust based on navbar height */
-    padding-bottom: 20px; /* Spacing before the main content */
-    background-color: #f8f9fa; /* Matching the light background, adjust as needed */
-    border-bottom: 1px solid #e9ecef; /* Light separator, similar to bootstrap defaults */
+.top-links a {
+  margin: 0 5px; /* Adjust spacing between links */
 }
 
-#top-links-container .row {
-    justify-content: center; /* Center the links horizontally */
-}
+/* Additional styling for .btn-outline-light and .btn-sm if needed */
 
-#top-links-container .col-auto {
-    margin: 0 15px; /* Spacing between links */
-}
-
-#top-links-container a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #007bff; /* Bootstrap primary color for links, adjust as needed */
-    font-weight: bold;
-}
-
-#top-links-container a:hover {
-    text-decoration: underline; /* Underline on hover for better visibility */
-}
-
-#top-links-container img {
-    width: 20px; /* Icon size, adjust as needed */
-    height: 20px; /* Maintain aspect ratio */
-    margin-right: 8px; /* Space between icon and text */
-}
