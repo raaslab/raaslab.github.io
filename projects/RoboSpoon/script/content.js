@@ -97,7 +97,7 @@ const DATA = {
                 </div>
                 <div class="col-md-6">
                     <video class="img-fluid" controls>
-                        <source src="video/behaviorCloning.mp4" type="video/mp4">
+                        <source src="video/behaviorcloning.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
