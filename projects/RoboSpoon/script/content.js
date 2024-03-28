@@ -10,7 +10,7 @@ const DATA = {
         PROJECT_TITLE: "LAVA: Long-horizon Visual Action based Food Acquisition",
         PROJECT_SUBTITLE: {
                     "name": "Amisha Bhaskar, Rui Liu, Vishnu D. Sharma, Guangyao Shi, Pratap Tokekar",
-                    "url": "#",
+                    "url": "https://youtu.be/fK6TFrmz8mM",
                 },
         AUTHOR_NAME: "Amisha Bhaskar",
         TOP_LINKS: [
