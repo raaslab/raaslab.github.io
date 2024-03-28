@@ -118,7 +118,7 @@ const DATA = {
                     <img src="img/spillage.png" class="img-fluid" alt="Spillage Reduction Graph">
                 </div>
             </div>
-            <div class="row justify-content-center mb-4">
+            <div class="row">
             <div class="col-md-6">
                     <img src="img/commom_legend-1.png" class="img-fluid" alt="Graph Legend">
                 </div>
