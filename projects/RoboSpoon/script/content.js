@@ -396,22 +396,15 @@ function displayFooter() {
 }
 
 function displayTopLinks() {
-    let linksHtml = '<div class="container"><div class="row justify-content-center">';
-    
-    DATA.HEAD.TOP_LINKS.forEach(link => {
-        linksHtml += `
-            <div class="col-auto">
-                <a href="${link.url}" target="_blank">
-                    <img src="${link.icon}" alt="${link.title}" style="width: 24px; height: 24px;">
-                    <span>${link.title}</span>
-                </a>
-            </div>
-        `;
-    });
-
-    linksHtml += '</div></div>';
-    document.getElementById("top-links-container").innerHTML = linksHtml;
+    const container = document.getElementById("top-links-container");
+    if (container) {
+        let linksHTML = DATA.HEAD.TOP_LINKS.map(link => 
+            `<a href="${link.url}" class="btn btn-outline-light btn-sm m-1">${link.title}</a>`
+        ).join("");
+        container.innerHTML = linksHTML;
+    }
 }
+
 
 
 
