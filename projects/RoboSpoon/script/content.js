@@ -109,26 +109,33 @@ const DATA = {
             "html": `
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <img src="img/time.png" class="img-fluid" alt="Graph 1">
+                    <img src="img/time.png" class="img-fluid" alt="Time Efficiency Graph">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <img src="img/breakage-1.png" class="img-fluid" alt="Graph 2">
+                    <img src="img/breakage-1.png" class="img-fluid" alt="Breakage Reduction Graph">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <img src="img/spillage.png" class="img-fluid" alt="Graph 3">
+                    <img src="img/spillage.png" class="img-fluid" alt="Spillage Reduction Graph">
                 </div>
             </div>
-            <div class="row align-items-center">
+            <div class="row">
                 <div class="col-md-8">
-                    <p>Insights about the results, highlighting the key findings, statistical significance, and implications for LAVA's performance in various scenarios. Mention how LAVA outperforms baselines and its generalization capabilities.</p>
+                    <p>LAVA's innovative approach demonstrates remarkable efficiency and adaptability in robotic-assisted feeding:</p>
+                    <ul>
+                        <li><strong>Time Efficiency:</strong> Surpasses baselines, highlighting swift adaptation to food types and depths.</li>
+                        <li><strong>Minimized Breakage and Spillage:</strong> Precise handling significantly reduces food waste.</li>
+                        <li><strong>Exceptional Success Rate:</strong> Achieves superior scooping accuracy across a wide range of foods.</li>
+                        <li><strong>Robust Generalization:</strong> Excellently manages new, unseen food configurations, proving its adaptability.</li>
+                    </ul>
+                    <p>These results affirm LAVA's potential to redefine the standards in RAF technology.</p>
                 </div>
                 <div class="col-md-4">
-                    <img src="img/success_rate.png" class="img-fluid" alt="Graph 4">
+                    <img src="img/success_rate.png" class="img-fluid" alt="Success Rate Graph">
                 </div>
             </div>
+        </div>
             `
         },
-
     ],
 
 
