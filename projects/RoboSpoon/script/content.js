@@ -175,7 +175,7 @@ const DATA = {
         </div>
         <div class="row">
             <div class="col-md-6 mb-4">
-                <img src="img/tofu.gif" class="img-fluid" alt="Zero-Shot Generalization with Tofu">
+                <img src="img/soup.gif" class="img-fluid" alt="Zero-Shot Generalization with Tofu">
                 <p class="text-center">Tofu in Soup: Adapting to floating pieces in fluid dynamics.</p>
             </div>
             <div class="col-md-6 mb-4">
