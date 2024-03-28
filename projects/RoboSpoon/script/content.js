@@ -154,7 +154,7 @@ const DATA = {
             </div>
             <div class="row">
                 <div class="col-md-8">
-                    <p>LAVA's innovative approach demonstrates remarkable efficiency and adaptability in robotic-assisted feeding:</p>
+                    <p>LAVA excels in clearing bowls with diverse food configurations, thanks to its advanced hierarchical policy. Outperforming baseline models, LAVA achieves unmatched efficiency and precision. It adeptly navigates complex tofu arrangements and cereal acquisitions, showcasing its robustness across food types. LAVA redefines efficiency in Robotic Assisted Feeding with its advanced, adaptive technology.</p>
                 </div>
                 <div class="col-md-4">
                     <img src="img/comparision_cereals.png" class="img-fluid" alt="Cereal Acquisition">
