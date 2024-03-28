@@ -173,14 +173,18 @@ const DATA = {
                 <p>LAVA's design allows it to handle unseen food scenarios, demonstrating robust generalizability adeptly. This capability is pivotal for real-world applications, where unpredictability in food types and configurations is common. LAVA's ability to adapt and perform effectively without prior specific training on new food types or arrangements highlights its potential for widespread RAF technology adoption.</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-6 mb-4">
-                <img src="img/souptofu.gif" class="img-fluid" alt="Zero-Shot Generalization with Tofu">
-                <p class="text-center">Tofu in Soup: Adapting to floating pieces in fluid dynamics.</p>
-            </div>
+                <div class="text-center">
+                    <img src="img/souptofu.gif" class="img-fluid" alt="Zero-Shot Generalization with Tofu">
+                    <p class="text-center">Tofu in Soup: Adapting to floating pieces in fluid dynamics.</p>
+                </div>
+            </div>    
             <div class="col-md-6 mb-4">
-                <img src="img/fruit.gif" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
-                <p class="text-center">Fruit Chunks: Handling variable shapes and avoiding spillage.</p>
+                <div class="text-center">
+                    <img src="img/fruit.gif" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
+                    <p class="text-center">Fruit Chunks: Handling variable shapes and avoiding spillage.</p>
+                </div>
             </div>
         </div>
         `
