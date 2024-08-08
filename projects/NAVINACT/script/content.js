@@ -7,7 +7,7 @@ const DATA = {
     },
     HEAD: {
         FAVICON_SRC: "img/logo_dummy.png",
-        PROJECT_TITLE: "NAVINACT: Combining Navigation and Imitation Learning for Bootstrapping Reinforcement Learning",
+        PROJECT_TITLE: "NAVINACT",
         PROJECT_SUBTITLE: {
                     "name": "Amisha Bhaskar, Zahiruddin Mahammad, Sachin R Jadhav, and Pratap Tokekar",
                     "url": "https://raaslab.org/index.html#people",
@@ -26,13 +26,13 @@ const DATA = {
             "Reinforcement Learning (RL) has shown remarkable progress in simulation environments, yet its application to real-world robotic tasks remains limited due to challenges in exploration and generalization. To address these issues, we introduce NAVINACT, a framework that chooses when the robot should use classical motion planning based navigation and when it should learn a policy. To further improve the efficiency in exploration, we use imitation data to bootstrap the exploration. NAVINACT dynamically switches between two modes of operation: navigating to a waypoint using classical techniques when away from the objects and reinforcement learning for fine-grained manipulation control when about to interact with objects. NAVINACT consists of a multi-head architecture composed of ModeNet for mode classification, NavNet for waypoint prediction, and InteractNet for precise manipulation. By combining the strengths of RL and Imitation Learning (IL), NAVINACT improves sample efficiency and mitigates distribution shift, ensuring robust task execution. We evaluate our approach across multiple challenging simulation environments and real-world tasks, demonstrating superior performance in terms of adaptability, efficiency, and generalization compared to existing methods.In both simulated and real-world settings, NAVINACT demonstrates robust performance. In simulations, NAVINACT surpasses baseline methods by 10-15% in training success rates at 30k samples and by 30-40% during evaluation phases. In real-world scenarios, it demonstrates a 30-40% higher success rate on simpler tasks compared to baselines and uniquely succeeds in complex, two-stage manipulation tasks.",
         ],
         OVERVIEW: {
-            "src": "img/IROS_2024_LAVA.png",
+            "src": "img/architecture.png",
             "legend": "System Architecture of LAVA which employs a high-level policy (blue) <span class='mathjax'>\\(\\pi_H\\)</span> to select amongst discrete high-level primitives <span class='mathjax'>\\(P_{H}^{k}\\)</span>, such as wide primitive and Deep primitive, which then further gets refined by mid-level policy (green) <span class='mathjax'>\\(\\pi_M\\)</span> to select amongst mid-level primitives <span class='mathjax'>\\(P_{M}^{k}\\)</span>, low-level vision parametrized policy <span class='mathjax'>\\(\\pi_L\\)</span> (brown) executes trajectory learned from Behavioral cloning for long-horizon dextrous food acquisition."
         }
     },
     CONTENT: [
         {
-            "name": "High-level Policy",
+            "name": "ModeNet",
             "html": `
             <div class="row">
                 <div class="col-md-6">
@@ -43,25 +43,21 @@ const DATA = {
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <video class="img-fluid" controls>
-                        <source src="video/ScooopNet.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <img src="img/mode_network.png" class="img-fluid" alt="ModeNetwork Image">
                 </div>
             </div>
             `
         },
         {
-            "name": "Mid-level Policy",
+            "name": "NavNet",
             "html": `
             <div class="container">
                 <h3 class="text-center mb-4">Approach Refinement</h3>
                 <div class="row justify-content-center">
                     <div class="col-md-5 mb-4">
-                        <video class="img-fluid" controls>
-                            <source src="video/TragetNet.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+
+                        <img src="img/nav_network.png" class="img-fluid" alt="NavNetwork Image">
+
                         <h4 class="mt-2 text-center">TargetNet: Wide Primitives</h4>
                         <ul>
                             <li><strong>Target Identification:</strong> Pinpoints the exact piece to acquire, crucial for executing wide primitive strategies.</li>
@@ -84,7 +80,7 @@ const DATA = {
             `
         },
         {
-            "name": "Low-level Policy",
+            "name": "InteractNet",
             "html": `
             <div class="row">
                 <div class="col-md-6">
@@ -104,17 +100,17 @@ const DATA = {
             `
         },
         {
-            "name": "Quantitative Results",
+            "name": "Simulation Results",
             "html": `
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <img src="img/time.png" class="img-fluid" alt="Time Efficiency Graph">
+                    <img src="img/assembly_env_render.png" class="img-fluid" alt="Assembly Environment">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <img src="img/breakage-1.png" class="img-fluid" alt="Breakage Reduction Graph">
+                    <img src="img/boxclose_env_render.png" class="img-fluid" alt="BoxClose Environment">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <img src="img/spillage.png" class="img-fluid" alt="Spillage Reduction Graph">
+                    <img src="img/coffeepush_env_render.png" class="img-fluid" alt="CoffeePush Environment">
                 </div>
             </div>
             <div class="row justify-content-center mb-3">
@@ -164,7 +160,8 @@ const DATA = {
             `
         },
         {
-        "name": "Zero-Shot Generalization",
+        // "name": "Zero-Shot Generalization",
+        "name": "Real-World Results",
         "html": `
         <div class="row">
             <div class="col-12 mb-4">
