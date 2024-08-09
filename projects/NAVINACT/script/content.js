@@ -41,6 +41,8 @@ const DATA = {
                         <li><strong>Decision-Making:</strong> Identifies when to switch between navigation and interaction modes based on input observations.</li>
                         <li><strong>Adaptability:</strong> Enables the system to dynamically adapt its strategy, ensuring efficient task execution.</li>
                     </ul>
+                    <img src="img/modes.png" class="img-fluid" alt="ModeNet Image">
+
                 </div>
                 <div class="col-md-6">
                     <img src="img/mode_network.png" class="img-fluid" alt="ModeNet Image">
@@ -51,18 +53,20 @@ const DATA = {
         {
             "name": "NavNet",
             "html": `
-            <div class="container">
-                <h3 class="text-center mb-4">NavNet: Strategic Waypoint Planning</h3>
-                <div class="row justify-content-center">
-                    <div class="col-md-5 mb-4">
+            <div class="row">
+                    <div class="col-md-6">
                         <img src="img/nav_network.png" class="img-fluid" alt="NavNet Image">
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="text-center mb-4">NavNet: Strategic Waypoint Planning</h3>
                         <h4 class="mt-2 text-center">Waypoint Prediction</h4>
                         <ul>
                             <li><strong>Target Identification:</strong> Predicts strategic waypoints that guide the robot towards its goal.</li>
                             <li><strong>Trajectory Optimization:</strong> Ensures efficient and effective navigation to the target, reducing the learning burden on RL.</li>
                         </ul>
+                        <img src="img/navnet_demo.png" class="img-fluid" alt="NavNet Image">
+
                     </div>
-                </div>
             </div>
             `
         },
@@ -185,8 +189,8 @@ const DATA = {
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
-                <img src="img/souptofu.gif" class="img-fluid" alt="Zero-Shot Generalization with Tofu">
-                <p class="text-center" style="width: 80%;">Tofu in Soup: Adapting to floating pieces in fluid dynamics.</p>
+                <img src="img/Datacollection_2s.gif" class="img-fluid" alt="Zero-Shot Generalization with Tofu">
+                <p class="text-center" style="width: 80%;">Data Collection using Teleoperation</p>
             </div>   
         <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                 <img src="img/fruit.gif" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
