@@ -14,7 +14,7 @@ const DATA = {
                 },
         AUTHOR_NAME: "Amisha Bhaskar",
         TOP_LINKS: [
-        { "title": "Paper", "url": "https://arxiv.org/abs/2403.12876", "icon": "img/paper_copy.svg.svg" },
+        { "title": "Paper", "url": "https://arxiv.org/pdf/2408.04054", "icon": "img/paper_copy.svg.svg" },
         { "title": "Video", "url": "https://youtu.be/fK6TFrmz8mM", "icon": "img/video.png" },
         { "title": "Dataset", "url": "https://drive.google.com/drive/folders/1UydyI89VvBrUHPD4DNie2l5ABjhRFAIG?usp=sharing", "icon": "img/gd.svg" },
         { "title": "Code", "url": "your_code_repository_link_here", "icon": "img/GitHub-Mark-Light-32px.png.svg" },
@@ -112,10 +112,37 @@ const DATA = {
                 <div class="col-md-4 mb-3">
                     <img src="img/coffeepush_env_render.png" class="img-fluid" alt="CoffeePush Environment">
                 </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/assembly_train_rand.png" class="img-fluid" alt="Assembly Environment">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/boxclose_train_rand.png" class="img-fluid" alt="BoxClose Environment">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/coffeepush_train_rand.png" class="img-fluid" alt="CoffeePush Environment">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/assembly_eval.png" class="img-fluid" alt="Assembly Environment">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/boxclose_eval.png" class="img-fluid" alt="BoxClose Environment">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/coffeepush_eval.png" class="img-fluid" alt="CoffeePush Environment">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/assembly_eval_rand.png" class="img-fluid" alt="Assembly Environment">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/boxclose_eval_rand.png" class="img-fluid" alt="BoxClose Environment">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/coffeepush_eval_rand.png" class="img-fluid" alt="CoffeePush Environment">
+                </div>
             </div>
             <div class="row justify-content-center mb-3">
             <div class="col-md-6">
-                    <img src="img/common_legend-1.png" class="img-fluid" alt="Graph Legend">
+                    <img src="img/mw_legend.png" class="img-fluid" alt="Graph Legend">
                 </div>
             </div>
             <div class="row">
@@ -220,7 +247,7 @@ const DATA = {
             "links": [
                 {
                     "name": "arXiv",
-                    "url": "https://arxiv.org/abs/2403.12876",
+                    "url": "https://arxiv.org/pdf/2408.04054",
                     "icon": "img/paper_copy.svg"
                 },
             ],
