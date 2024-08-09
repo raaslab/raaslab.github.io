@@ -14,7 +14,7 @@ const DATA = {
                 },
         AUTHOR_NAME: "Amisha Bhaskar",
         TOP_LINKS: [
-        { "title": "Paper", "url": "https://arxiv.org/pdf/2408.04054", "icon": "img/paper_copy.svg.svg" },
+        { "title": "Paper", "url": "http://arxiv.org/abs/2408.04054", "icon": "img/paper_copy.svg.svg" },
         { "title": "Video", "url": "https://youtu.be/fK6TFrmz8mM", "icon": "img/video.png" },
         { "title": "Dataset", "url": "https://drive.google.com/drive/folders/1UydyI89VvBrUHPD4DNie2l5ABjhRFAIG?usp=sharing", "icon": "img/gd.svg" },
         { "title": "Code", "url": "your_code_repository_link_here", "icon": "img/GitHub-Mark-Light-32px.png.svg" },
@@ -27,23 +27,23 @@ const DATA = {
         ],
         OVERVIEW: {
             "src": "img/architecture.png",
-            "legend": "System Architecture of LAVA which employs a high-level policy (blue) <span class='mathjax'>\\(\\pi_H\\)</span> to select amongst discrete high-level primitives <span class='mathjax'>\\(P_{H}^{k}\\)</span>, such as wide primitive and Deep primitive, which then further gets refined by mid-level policy (green) <span class='mathjax'>\\(\\pi_M\\)</span> to select amongst mid-level primitives <span class='mathjax'>\\(P_{M}^{k}\\)</span>, low-level vision parametrized policy <span class='mathjax'>\\(\\pi_L\\)</span> (brown) executes trajectory learned from Behavioral cloning for long-horizon dextrous food acquisition."
+            "legend": "Multi-headed architecture of NAVINACT: During training, NAVINACT learns to predict waypoints, low-level actions, and the operational mode at each time step. One network (InteractNet) predicts the low-level action \\( a_t \\) and the other network (ModeNet) predicts mode \\( m_t \\). A separate network (NavNet) predicts the high-level waypoint \\( w_t \\). At test time, the system samples \\( m_t \\) and either navigates to a waypoint (when \\( m_t = 0 \\)) using the predicted waypoint or follows a dense action (when \\( m_t = 1 \\)). The architecture allows for dynamic switching between navigation and interaction modes, facilitating seamless transitions and robust performance in complex tasks. An example of how navigation and interaction modes are integrated during execution is shown on the right."
         }
     },
-    CONTENT: [
+    CONTENT: [        
         {
             "name": "ModeNet",
             "html": `
             <div class="row">
                 <div class="col-md-6">
-                    <h3>Seeing the Big Picture</h3>
+                    <h3>ModeNet: Dynamic Mode Classification</h3>
                     <ul>
-                        <li><strong>Decision-Making:</strong> Identifies food type and texture—choosing between gentle scooping for tofu or a direct approach for semi-solid foods.</li>
-                        <li><strong>Strategy:</strong> Sets the stage for action, ensuring adaptability and precision from the outset.</li>
+                        <li><strong>Decision-Making:</strong> Identifies when to switch between navigation and interaction modes based on input observations.</li>
+                        <li><strong>Adaptability:</strong> Enables the system to dynamically adapt its strategy, ensuring efficient task execution.</li>
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <img src="img/mode_network.png" class="img-fluid" alt="ModeNetwork Image">
+                    <img src="img/mode_network.png" class="img-fluid" alt="ModeNet Image">
                 </div>
             </div>
             `
@@ -52,27 +52,14 @@ const DATA = {
             "name": "NavNet",
             "html": `
             <div class="container">
-                <h3 class="text-center mb-4">Approach Refinement</h3>
+                <h3 class="text-center mb-4">NavNet: Strategic Waypoint Planning</h3>
                 <div class="row justify-content-center">
                     <div class="col-md-5 mb-4">
-
-                        <img src="img/nav_network.png" class="img-fluid" alt="NavNetwork Image">
-
-                        <h4 class="mt-2 text-center">TargetNet: Wide Primitives</h4>
+                        <img src="img/nav_network.png" class="img-fluid" alt="NavNet Image">
+                        <h4 class="mt-2 text-center">Waypoint Prediction</h4>
                         <ul>
-                            <li><strong>Target Identification:</strong> Pinpoints the exact piece to acquire, crucial for executing wide primitive strategies.</li>
-                            <li><strong>Strategic Alignment:</strong> Decides the best approach between aligning food towards the center for easier access or leveraging the bowl's wall for support.</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-5 mb-4">
-                        <video class="img-fluid" controls>
-                            <source src="video/DepthNet.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <h4 class="mt-2 text-center">DepthNet: Deep Primitives</h4>
-                        <ul>
-                            <li><strong>Depth Assessment:</strong> Measures the depth of food, guiding the scoop for deep primitives.</li>
-                            <li><strong>Trajectory Adjustment:</strong> Fine-tunes the scooping trajectory based on the assessed depth, optimizing scoop size and minimizing spillage.</li>
+                            <li><strong>Target Identification:</strong> Predicts strategic waypoints that guide the robot towards its goal.</li>
+                            <li><strong>Trajectory Optimization:</strong> Ensures efficient and effective navigation to the target, reducing the learning burden on RL.</li>
                         </ul>
                     </div>
                 </div>
@@ -84,15 +71,15 @@ const DATA = {
             "html": `
             <div class="row">
                 <div class="col-md-6">
-                    <h3>Turning Plans into Action</h3>
+                    <h3>InteractNet: Precise Manipulation</h3>
                     <ul>
-                        <li><strong>Execution:</strong> Implements the refined strategy, directing the robot arm to scoop with targeted precision.</li>
-                        <li><strong>Adaptation:</strong> Learns from demonstrations, adjusting movements in real-time for efficient and careful food acquisition.</li>
+                        <li><strong>Execution:</strong> Executes fine-grained manipulation tasks with precision, guided by learned RL policies.</li>
+                        <li><strong>Adaptation:</strong> Learns from demonstrations and adjusts movements in real-time for efficient task completion.</li>
                     </ul>
                 </div>
                 <div class="col-md-6">
                     <video class="img-fluid" controls>
-                        <source src="video/behaviorcloning.mp4" type="video/mp4">
+                        <source src="video/interactnet_demo.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
