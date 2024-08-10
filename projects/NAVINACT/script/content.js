@@ -136,44 +136,7 @@ const DATA = {
                     <img src="img/mw_legend.png" class="img-fluid" alt="Graph Legend">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-8">
-                    <p>LAVA's innovative approach demonstrates remarkable efficiency and adaptability in robotic-assisted feeding:</p>
-                    <ul>
-                        <li><strong>Time Efficiency:</strong> Surpasses baselines, highlighting swift adaptation to food types and depths.</li>
-                        <li><strong>Minimized Breakage and Spillage:</strong> Precise handling significantly reduces food waste.</li>
-                        <li><strong>Exceptional Success Rate:</strong> Achieves superior scooping accuracy across a wide range of foods.</li>
-                        <li><strong>Robust Generalization:</strong> Excellently manages new, unseen food configurations, proving its adaptability.</li>
-                    </ul>
-                    <p>These results affirm LAVA's potential to redefine the standards in RAF technology.</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="img/success_rate.png" class="img-fluid" alt="Success Rate Graph">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <img src="img/comparision_3_tofu.png" class="img-fluid" alt="Tofu 3 Graph">
-                    <p class="text-center">3 Tofu Configurations.</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <img src="img/comparision_4_tofu.png" class="img-fluid" alt="Tofu 4 Graph">
-                    <p class="text-center">4 Tofu Configurations.</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <img src="img/comparision_5_tofu.png" class="img-fluid" alt="Tofu 5 Graph">
-                    <p class="text-center">5 Tofu Configurations. </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8">
-                    <p>LAVA excels in clearing bowls with diverse food configurations, thanks to its advanced hierarchical policy. Outperforming baseline models, LAVA achieves unmatched efficiency and precision. It adeptly navigates complex tofu arrangements and cereal acquisitions, showcasing its robustness across food types. LAVA redefines efficiency in Robotic Assisted Feeding with its advanced, adaptive technology.</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="img/comparision_cereals.png" class="img-fluid" alt="Cereal Acquisition">
-                    <p class="text-center">Cereal Acquisition</p>
-                </div>
-            </div>
+   
         </div>
             `
         },
@@ -183,19 +146,25 @@ const DATA = {
         "html": `
         <div class="row">
             <div class="col-12 mb-4">
-                <h3>Zero-Shot Generalization</h3>
-                <p>LAVA's design allows it to handle unseen food scenarios, demonstrating robust generalizability adeptly. This capability is pivotal for real-world applications, where unpredictability in food types and configurations is common. LAVA's ability to adapt and perform effectively without prior specific training on new food types or arrangements highlights its potential for widespread RAF technology adoption.</p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
-                <img src="img/Datacollection_2s.gif" class="img-fluid" alt="Zero-Shot Generalization with Tofu">
-                <p class="text-center" style="width: 80%;">Data Collection using Teleoperation</p>
-            </div>   
-        <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
-                <img src="img/fruit.gif" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
-                <p class="text-center" style="width: 80%;">Fruit Chunks: Handling variable shapes and avoiding spillage.</p>
-            </div>
+                <img src="img/lift_demo.gif" class="img-fluid" alt="Lift data collect">
+                <p class="text-center" style="width: 80%;">Data Collection using Teleoperation: Lift [No Randomization]</p>
+            </div>  
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                    <img src="img/lift_no_rand_smooth.png" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
+                    <p class="text-center" style="width: 80%;"></p>
+                </div> 
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                    <img src="img/datacollect_2s.gif" class="img-fluid" alt="Pick Place data collect">
+                    <p class="text-center" style="width: 80%;">Data Collection using Teleoperation: Pick and Place</p>
+                </div>
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                    <img src="img/2s_smooth.png" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
+                    <p class="text-center" style="width: 80%;"></p>
+                </div> 
         </div>
 
         `
@@ -211,20 +180,22 @@ const DATA = {
             "url": "https://scholar.google.com/citations?user=KRpb6Y0AAAAJ&hl=en&oi=sra"
         },
         {
-            "name": "Rui Liu",
-            "img": "img/RL.png",
-            "url": "https://scholar.google.com/citations?hl=en&user=pMeiokwAAAAJ"
+            "name": "Zahiruddin Mahammad",
+            "img": "img/dummy_profile.png",
+            // "url": "https://scholar.google.com/citations?hl=en&user=pMeiokwAAAAJ"
+            "url": ""
         },
         {
-            "name": "Vishnu Dutt Sharma",
-            "img": "img/VD.png",
-            "url": "https://vishnuduttsharma.github.io/"
+            "name": "Sachin R Jadhav",
+            "img": "img/dummy_profile.png",
+            // "url": "https://vishnuduttsharma.github.io/"
+            "url": ""
         },
-        {
-            "name": "Guangyao Shi",
-            "img": "img/GS.png",
-            "url": "https://scholar.google.com/citations?hl=en&user=Y4iDZHsAAAAJ"
-        },
+        // {
+        //     "name": "Guangyao Shi",
+        //     "img": "img/GS.png",
+        //     "url": "https://scholar.google.com/citations?hl=en&user=Y4iDZHsAAAAJ"
+        // },
         {
             "name": "Pratap Tokekar",
             "img": "img/PT.png",
