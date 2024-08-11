@@ -65,7 +65,6 @@ const DATA = {
                             <li><strong>Trajectory Optimization:</strong> Ensures efficient and effective navigation to the target, reducing the learning burden on RL.</li>
                         </ul>
                         <img src="img/navnet_demo.png" class="img-fluid" alt="NavNet Image">
-
                     </div>
             </div>
             `
@@ -142,13 +141,29 @@ const DATA = {
         },
         {
         // "name": "Zero-Shot Generalization",
-        "name": "Real-World Results",
+        "name": "Real-World Experiments",
         "html": `
         <div class="row">
             <div class="col-12 mb-4">
             </div>
         </div>
         <div class="row justify-content-center">
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                    <video class="img-fluid" controls>
+                        <source src="video/lift_training_4x.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="text-center" style="width: 80%; font-size: 1.5rem;">Training Video (4x) :  Lift</p>
+                </div> 
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                    <h5>NAVINACT: Lift Env Training</h5>
+                    <p class="text-center" style="width: 80%;">
+                    This setup uses only wrist-camera for BC policy training and prediction.
+                    For predicting waypoint through NavNet, we use both the wrist and environment cameras.
+                    </p>
+                </div> 
+
+
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                 <img src="img/lift_demo.gif" class="img-fluid" alt="Lift data collect">
                 <p class="text-center" style="width: 80%;">Data Collection using Teleoperation: Lift [No Randomization]</p>
@@ -157,6 +172,8 @@ const DATA = {
                     <img src="img/lift_no_rand_smooth.png" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
                     <p class="text-center" style="width: 80%;"></p>
                 </div> 
+
+
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                     <img src="img/datacollect_2s.gif" class="img-fluid" alt="Pick Place data collect">
                     <p class="text-center" style="width: 80%;">Data Collection using Teleoperation: Pick and Place</p>
@@ -165,6 +182,11 @@ const DATA = {
                     <img src="img/2s_smooth.png" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
                     <p class="text-center" style="width: 80%;"></p>
                 </div> 
+            <div class="row justify-content-center mb-3">
+            <div class="col-md-6">
+                    <img src="img/hw_legend.png" class="img-fluid" alt="Graph Legend">
+                </div>
+            </div>
         </div>
 
         `
@@ -182,13 +204,11 @@ const DATA = {
         {
             "name": "Zahiruddin Mahammad",
             "img": "img/dummy_profile.png",
-            // "url": "https://scholar.google.com/citations?hl=en&user=pMeiokwAAAAJ"
             "url": ""
         },
         {
             "name": "Sachin R Jadhav",
             "img": "img/dummy_profile.png",
-            // "url": "https://vishnuduttsharma.github.io/"
             "url": ""
         },
         // {
