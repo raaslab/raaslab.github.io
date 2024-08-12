@@ -160,6 +160,7 @@ const DATA = {
                     <p class="text-center" style="width: 80%;">
                     This setup uses only wrist-camera for BC policy training and prediction.
                     For predicting waypoint through NavNet, we use both the wrist and environment cameras.
+                    <p> Total Training Time: 40 minutes </p>
                     </p>
                 </div> 
 
@@ -173,6 +174,34 @@ const DATA = {
                     <p class="text-center" style="width: 80%;"></p>
                 </div> 
 
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center" style="border-bottom: 2px solid #ddd; padding-bottom: 20px; margin-bottom: 5px;">
+            </div>  
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center" style="border-bottom: 2px solid #ddd; padding-bottom: 20px; margin-bottom: 5px;">
+                <div class="col-md-6">
+                    <img src="img/hw_legend.png" class="img-fluid" alt="Graph Legend">
+                </div>
+            </div>  
+
+
+
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                    <video class="img-fluid" controls>
+                        <source src="video/pick_place_4x.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="text-center" style="width: 80%; font-size: 1.5rem;">Training Video (4x) :  Pick and Place</p>
+                </div> 
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                    <h5>NAVINACT: Pick and Place Env Training</h5>
+                    <p class="text-center" style="width: 80%;">
+                    This setup uses both wrist-camera and environment camera for BC policy training and prediction.
+                    Similarly, both the wrist and environment cameras are used for predicting waypoint through NavNet.
+                    <p> Total Training Time: 3 hours 21 minutes </p>
+                    </p>
+                </div> 
+
+
+
 
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                     <img src="img/datacollect_2s.gif" class="img-fluid" alt="Pick Place data collect">
@@ -182,11 +211,15 @@ const DATA = {
                     <img src="img/2s_smooth.png" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
                     <p class="text-center" style="width: 80%;"></p>
                 </div> 
-            <div class="row justify-content-center mb-3">
-            <div class="col-md-6">
+
+            
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+            </div>  
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                <div class="col-md-6">
                     <img src="img/hw_legend.png" class="img-fluid" alt="Graph Legend">
                 </div>
-            </div>
+            </div>  
         </div>
 
         `
