@@ -296,12 +296,12 @@ const DATA = {
         },
     ],
     CITATION: ` \
-                @article{bhaskar2024lava,
-                  title={LAVA: Long-horizon Visual Action based Food Acquisition},
-                  author={Bhaskar, Amisha and Liu, Rui and Sharma, Vishnu D and Shi, Guangyao and Tokekar, Pratap},
-                  journal={arXiv preprint arXiv:2403.12876},
-                  year={2024}
-                }
+                @article{bhaskar2024navinact,
+              title={NAVINACT: Combining Navigation and Imitation Learning for Bootstrapping Reinforcement Learning},
+              author={Bhaskar, Amisha and Mahammad, Zahiruddin and Jadhav, Sachin R and Tokekar, Pratap},
+              journal={arXiv preprint arXiv:2408.04054},
+              year={2024}
+            }
     `,
     FOOTER: {
         LOGOS: [
