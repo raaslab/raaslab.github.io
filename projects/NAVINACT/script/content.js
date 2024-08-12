@@ -19,7 +19,7 @@ const DATA = {
         { "title": "Dataset", "url": "https://drive.google.com/drive/folders/1UydyI89VvBrUHPD4DNie2l5ABjhRFAIG?usp=sharing", "icon": "img/gd.svg" },
         { "title": "Code", "url": "your_code_repository_link_here", "icon": "img/GitHub-Mark-Light-32px.png.svg" },
     ],
-        VIDEO_SRC: "video/",
+        VIDEO_SRC: "video/navinact_video.mp4",
     },
     ABSTRACT: {
         TEXT: [
@@ -150,7 +150,7 @@ const DATA = {
         <div class="row justify-content-center">
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                     <video class="img-fluid" controls>
-                        <source src="video/.mp4" type="video/mp4">
+                        <source src="video/lift.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="text-center" style="width: 80%; font-size: 1.5rem;">Training Video (4x) :  Lift</p>
@@ -186,7 +186,7 @@ const DATA = {
 
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                     <video class="img-fluid" controls>
-                        <source src="video/.mp4" type="video/mp4">
+                        <source src="video/pickplace.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="text-center" style="width: 80%; font-size: 1.5rem;">Training Video (4x) :  Pick and Place</p>
