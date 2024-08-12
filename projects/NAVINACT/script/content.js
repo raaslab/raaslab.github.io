@@ -297,11 +297,11 @@ const DATA = {
     ],
     CITATION: ` \
                 @article{bhaskar2024navinact,
-              title={NAVINACT: Combining Navigation and Imitation Learning for Bootstrapping Reinforcement Learning},
-              author={Bhaskar, Amisha and Mahammad, Zahiruddin and Jadhav, Sachin R and Tokekar, Pratap},
-              journal={arXiv preprint arXiv:2408.04054},
-              year={2024}
-            }
+                  title={NAVINACT: Combining Navigation and Imitation Learning for Bootstrapping Reinforcement Learning},
+                  author={Bhaskar, Amisha and Mahammad, Zahiruddin and Jadhav, Sachin R and Tokekar, Pratap},
+                  journal={arXiv preprint arXiv:2408.04054},
+                  year={2024}
+                }
     `,
     FOOTER: {
         LOGOS: [
