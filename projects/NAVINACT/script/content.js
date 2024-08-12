@@ -15,11 +15,11 @@ const DATA = {
         AUTHOR_NAME: "Amisha Bhaskar",
         TOP_LINKS: [
         { "title": "Paper", "url": "http://arxiv.org/abs/2408.04054", "icon": "img/paper_copy.svg.svg" },
-        { "title": "Video", "url": "https://youtu.be/fK6TFrmz8mM", "icon": "img/video.png" },
+        { "title": "Video", "url": "video_link", "icon": "img/video.png" },
         { "title": "Dataset", "url": "https://drive.google.com/drive/folders/1UydyI89VvBrUHPD4DNie2l5ABjhRFAIG?usp=sharing", "icon": "img/gd.svg" },
         { "title": "Code", "url": "your_code_repository_link_here", "icon": "img/GitHub-Mark-Light-32px.png.svg" },
     ],
-        VIDEO_SRC: "video/IROS_2024_LAVAgithub.mp4",
+        VIDEO_SRC: "video/",
     },
     ABSTRACT: {
         TEXT: [
@@ -150,7 +150,7 @@ const DATA = {
         <div class="row justify-content-center">
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                     <video class="img-fluid" controls>
-                        <source src="video/lift_training_4x.mp4" type="video/mp4">
+                        <source src="video/.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="text-center" style="width: 80%; font-size: 1.5rem;">Training Video (4x) :  Lift</p>
@@ -186,7 +186,7 @@ const DATA = {
 
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                     <video class="img-fluid" controls>
-                        <source src="video/pick_place_4x.mp4" type="video/mp4">
+                        <source src="video/.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="text-center" style="width: 80%; font-size: 1.5rem;">Training Video (4x) :  Pick and Place</p>
