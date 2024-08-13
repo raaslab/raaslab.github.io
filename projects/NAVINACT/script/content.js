@@ -15,7 +15,7 @@ const DATA = {
         AUTHOR_NAME: "Amisha Bhaskar",
         TOP_LINKS: [
         { "title": "Paper", "url": "http://arxiv.org/abs/2408.04054", "icon": "img/paper_copy.svg.svg" },
-        { "title": "Video", "url": "video_link", "icon": "img/video.png" },
+        { "title": "Video", "url": "video/RL_website.mp4", "icon": "img/video.png" },
         { "title": "Dataset", "url": "https://drive.google.com/drive/folders/1UydyI89VvBrUHPD4DNie2l5ABjhRFAIG?usp=sharing", "icon": "img/gd.svg" },
         { "title": "Code", "url": "your_code_repository_link_here", "icon": "img/GitHub-Mark-Light-32px.png.svg" },
     ],
