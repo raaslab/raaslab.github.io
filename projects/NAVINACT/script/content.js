@@ -198,19 +198,19 @@ const DATA = {
 
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                 <img src="img/lift_1.gif" class="img-fluid" alt="Lift data collect">
-                <p class="text-center" style="width: 80%;"></p>
+                <p class="text-center" style="width: 80%;">Steps: 2k &nbsp;&nbsp;&nbsp; Time: 10mins</p>
             </div>  
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                     <img src="img/lift_2.gif" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
-                    <p class="text-center" style="width: 80%;"></p>
+                <p class="text-center" style="width: 80%;">Steps: 4k &nbsp;&nbsp;&nbsp; Time: 20mins</p>
                 </div> 
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center" style="border-bottom: 2px solid #ddd; padding-bottom: 20px; margin-bottom: 5px;">
                 <img src="img/lift_3.gif" class="img-fluid" alt="Lift data collect">
-                <p class="text-center" style="width: 80%;"></p>
+                <p class="text-center" style="width: 80%;">Steps: 6k &nbsp;&nbsp;&nbsp; Time: 30mins</p>
             </div>  
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center" style="border-bottom: 2px solid #ddd; padding-bottom: 20px; margin-bottom: 5px;">
                     <img src="img/lift_4.gif" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
-                    <p class="text-center" style="width: 80%;"></p>
+                <p class="text-center" style="width: 80%;">Steps: 8k &nbsp;&nbsp;&nbsp; Time: 40mins</p>
                 </div> 
 
 
@@ -256,19 +256,19 @@ const DATA = {
 
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                 <img src="img/pp_1.gif" class="img-fluid" alt="image missing">
-                <p class="text-center" style="width: 80%;"></p>
+                <p class="text-center" style="width: 80%;">Steps: 2k &nbsp;&nbsp;&nbsp; Time: 10mins</p>
             </div>  
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                     <img src="img/pp_2.gif" class="img-fluid" alt="image missing">
-                    <p class="text-center" style="width: 80%;"></p>
+                    <p class="text-center" style="width: 80%;">Steps: 10k &nbsp;&nbsp;&nbsp; Time: 50mins</p>
                 </div> 
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                 <img src="img/pp_3.gif" class="img-fluid" alt="image missing">
-                <p class="text-center" style="width: 80%;"></p>
+                <p class="text-center" style="width: 80%;">Steps: 16k &nbsp;&nbsp;&nbsp; Time: 90mins</p>
             </div>  
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                     <img src="img/pp_4.gif" class="img-fluid" alt="image missing">
-                    <p class="text-center" style="width: 80%;"></p>
+                    <p class="text-center" style="width: 80%;">Steps: 26k &nbsp;&nbsp;&nbsp; Time: 130mins</p>
                 </div> 
 
 
