@@ -167,9 +167,9 @@ const DATA = {
 
             <h5>NAVINACT: Lift Env Training</h5>
             <p>
-                    This setup uses only wrist-camera for BC policy training and prediction.
-                    For predicting waypoint through NavNet, we use both the wrist and environment cameras.
-            Total Training Time: 40 minutes </p>
+                    For this setup we use only wrist-camera for BC policy, whereas for predicting waypoints both wrist and environment cameras are used.</p>
+                    
+            <p>Total Training Time: 40 minutes </p>
 
         </div>
     
@@ -221,11 +221,12 @@ const DATA = {
             <div class="col-12 mb-4">
             </div>
 
+            
+
             <h5>NAVINACT: Pick and Place Env Training</h5>
-            <p>
-                This setup uses both wrist-camera and environment camera for BC policy training and prediction.
-                    Similarly, both the wrist and environment cameras are used for predicting waypoint through NavNet.
-                    Total Training Time: 3 hours 21 minutes </p>
+
+            <p> This setup uses both wrist-camera and environment camera for BC policy and waypoint prediction. This task has 2 stages "pick" and "place" and it involves 3 waypoints as discussed in the paper. </p>
+            <p> Total Training Time: 3 hours </p>
 
         </div>
     
