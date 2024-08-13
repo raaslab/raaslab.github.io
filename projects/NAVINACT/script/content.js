@@ -19,7 +19,7 @@ const DATA = {
         { "title": "Dataset", "url": "https://drive.google.com/drive/folders/1UydyI89VvBrUHPD4DNie2l5ABjhRFAIG?usp=sharing", "icon": "img/gd.svg" },
         { "title": "Code", "url": "your_code_repository_link_here", "icon": "img/GitHub-Mark-Light-32px.png.svg" },
     ],
-        VIDEO_SRC: "video/navinact_video.mp4",
+        VIDEO_SRC: "video/RL_website.mp4",
     },
     ABSTRACT: {
         TEXT: [
