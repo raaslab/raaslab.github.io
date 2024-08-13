@@ -93,15 +93,33 @@ const DATA = {
             "name": "Simulation Results",
             "html": `
             <div class="row">
+
+
                 <div class="col-md-4 mb-3">
                     <img src="img/assembly_env_render.png" class="img-fluid" alt="Assembly Environment">
+                    <h4 class="text-center"> Assembly </h4>
                 </div>
                 <div class="col-md-4 mb-3">
                     <img src="img/boxclose_env_render.png" class="img-fluid" alt="BoxClose Environment">
+                    <h4 class="text-center"> BoxClose </h4>
                 </div>
                 <div class="col-md-4 mb-3">
                     <img src="img/coffeepush_env_render.png" class="img-fluid" alt="CoffeePush Environment">
+                    <h4 class="text-center"> CoffeePush </h4>
                 </div>
+
+
+                <div class="col-md-4 mb-3">
+                    <img src="img/assembly_train.gif" class="img-fluid" alt="Assembly Environment">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/boxclose_train.gif" class="img-fluid" alt="Assembly Environment">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="img/coffeepush_train.gif" class="img-fluid" alt="Assembly Environment">
+                </div>
+
+
                 <div class="col-md-4 mb-3">
                     <img src="img/assembly_train_rand.png" class="img-fluid" alt="Assembly Environment">
                 </div>
@@ -146,23 +164,17 @@ const DATA = {
         <div class="row">
             <div class="col-12 mb-4">
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
-                    <video class="img-fluid" controls>
-                        <source src="video/lift.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <p class="text-center" style="width: 80%; font-size: 1.5rem;">Training Video (4x) :  Lift</p>
-                </div> 
-            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
-                    <h5>NAVINACT: Lift Env Training</h5>
-                    <p class="text-center" style="width: 80%;">
+
+            <h5>NAVINACT: Lift Env Training</h5>
+            <p>
                     This setup uses only wrist-camera for BC policy training and prediction.
                     For predicting waypoint through NavNet, we use both the wrist and environment cameras.
-                    <p> Total Training Time: 40 minutes </p>
-                    </p>
-                </div> 
+            Total Training Time: 40 minutes </p>
+
+        </div>
+    
+        <div class="row justify-content-center">
+
 
 
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
@@ -174,13 +186,35 @@ const DATA = {
                     <p class="text-center" style="width: 80%;"></p>
                 </div> 
 
-            <div class="col-md-6 mb-4 d-flex flex-column align-items-center" style="border-bottom: 2px solid #ddd; padding-bottom: 20px; margin-bottom: 5px;">
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
             </div>  
-            <div class="col-md-6 mb-4 d-flex flex-column align-items-center" style="border-bottom: 2px solid #ddd; padding-bottom: 20px; margin-bottom: 5px;">
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
                 <div class="col-md-6">
                     <img src="img/hw_legend.png" class="img-fluid" alt="Graph Legend">
                 </div>
             </div>  
+
+
+
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                <img src="img/lift_1.gif" class="img-fluid" alt="Lift data collect">
+                <p class="text-center" style="width: 80%;"></p>
+            </div>  
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                    <img src="img/lift_2.gif" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
+                    <p class="text-center" style="width: 80%;"></p>
+                </div> 
+
+
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center" style="border-bottom: 2px solid #ddd; padding-bottom: 20px; margin-bottom: 5px;">
+                <img src="img/lift_3.gif" class="img-fluid" alt="Lift data collect">
+                <p class="text-center" style="width: 80%;"></p>
+            </div>  
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center" style="border-bottom: 2px solid #ddd; padding-bottom: 20px; margin-bottom: 5px;">
+                    <img src="img/lift_4.gif" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
+                    <p class="text-center" style="width: 80%;"></p>
+                </div> 
+
 
 
 
