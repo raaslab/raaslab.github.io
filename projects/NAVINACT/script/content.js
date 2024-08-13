@@ -83,7 +83,7 @@ const DATA = {
                 <div class="col-md-6">
                     
                         <img src="img/Interactnet.png" class="img-fluid" alt="Interact Image">
-                        Your browser does not support the video tag.
+                        
                     </video>
                 </div>
             </div>
