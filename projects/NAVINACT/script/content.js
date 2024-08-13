@@ -81,8 +81,8 @@ const DATA = {
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <video class="img-fluid" controls>
-                        <source src="video/interactnet_demo.mp4" type="video/mp4">
+                    
+                        <img src="img/Interactnet.png" class="img-fluid" alt="Interact Image">
                         Your browser does not support the video tag.
                     </video>
                 </div>
