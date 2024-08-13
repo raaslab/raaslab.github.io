@@ -204,8 +204,6 @@ const DATA = {
                     <img src="img/lift_2.gif" class="img-fluid" alt="Zero-Shot Generalization with Fruit">
                     <p class="text-center" style="width: 80%;"></p>
                 </div> 
-
-
             <div class="col-md-6 mb-4 d-flex flex-column align-items-center" style="border-bottom: 2px solid #ddd; padding-bottom: 20px; margin-bottom: 5px;">
                 <img src="img/lift_3.gif" class="img-fluid" alt="Lift data collect">
                 <p class="text-center" style="width: 80%;"></p>
@@ -216,23 +214,23 @@ const DATA = {
                 </div> 
 
 
+        </div>
 
 
-            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
-                    <video class="img-fluid" controls>
-                        <source src="video/pickplace.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <p class="text-center" style="width: 80%; font-size: 1.5rem;">Training Video (4x) :  Pick and Place</p>
-                </div> 
-            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
-                    <h5>NAVINACT: Pick and Place Env Training</h5>
-                    <p class="text-center" style="width: 80%;">
-                    This setup uses both wrist-camera and environment camera for BC policy training and prediction.
+        <div class="row">
+            <div class="col-12 mb-4">
+            </div>
+
+            <h5>NAVINACT: Pick and Place Env Training</h5>
+            <p>
+                This setup uses both wrist-camera and environment camera for BC policy training and prediction.
                     Similarly, both the wrist and environment cameras are used for predicting waypoint through NavNet.
-                    <p> Total Training Time: 3 hours 21 minutes </p>
-                    </p>
-                </div> 
+                    Total Training Time: 3 hours 21 minutes </p>
+
+        </div>
+    
+        <div class="row justify-content-center">
+
 
 
 
@@ -254,6 +252,27 @@ const DATA = {
                     <img src="img/hw_legend.png" class="img-fluid" alt="Graph Legend">
                 </div>
             </div>  
+
+
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                <img src="img/pp_1.gif" class="img-fluid" alt="image missing">
+                <p class="text-center" style="width: 80%;"></p>
+            </div>  
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                    <img src="img/pp_2.gif" class="img-fluid" alt="image missing">
+                    <p class="text-center" style="width: 80%;"></p>
+                </div> 
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                <img src="img/pp_3.gif" class="img-fluid" alt="image missing">
+                <p class="text-center" style="width: 80%;"></p>
+            </div>  
+            <div class="col-md-6 mb-4 d-flex flex-column align-items-center">
+                    <img src="img/pp_4.gif" class="img-fluid" alt="image missing">
+                    <p class="text-center" style="width: 80%;"></p>
+                </div> 
+
+
+
         </div>
 
         `
@@ -307,7 +326,7 @@ const DATA = {
             "links": [
                 {
                     "name": "Dataset",
-                    "url": "https://drive.google.com/drive/folders/1UydyI89VvBrUHPD4DNie2l5ABjhRFAIG?usp=sharing",
+                    "url": "#",
                     "icon": "img/gd.png"
                 },
             ],
