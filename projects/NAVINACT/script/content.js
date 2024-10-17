@@ -7,7 +7,7 @@ const DATA = {
     },
     HEAD: {
         FAVICON_SRC: "img/logo_dummy.png",
-        PROJECT_TITLE: "NAVINACT",
+        PROJECT_TITLE: "PLANRL",
         PROJECT_SUBTITLE: {
                     "name": "Amisha Bhaskar, Zahiruddin Mahammad, Sachin R Jadhav, and Pratap Tokekar",
                     "url": "https://raaslab.org/index.html#people",
@@ -23,11 +23,11 @@ const DATA = {
     },
     ABSTRACT: {
         TEXT: [
-            "Reinforcement Learning (RL) has shown remarkable progress in simulation environments, yet its application to real-world robotic tasks remains limited due to challenges in exploration and generalization. To address these issues, we introduce NAVINACT, a framework that chooses when the robot should use classical motion planning based navigation and when it should learn a policy. To further improve the efficiency in exploration, we use imitation data to bootstrap the exploration. NAVINACT dynamically switches between two modes of operation: navigating to a waypoint using classical techniques when away from the objects and reinforcement learning for fine-grained manipulation control when about to interact with objects. NAVINACT consists of a multi-head architecture composed of ModeNet for mode classification, NavNet for waypoint prediction, and InteractNet for precise manipulation. By combining the strengths of RL and Imitation Learning (IL), NAVINACT improves sample efficiency and mitigates distribution shift, ensuring robust task execution. We evaluate our approach across multiple challenging simulation environments and real-world tasks, demonstrating superior performance in terms of adaptability, efficiency, and generalization compared to existing methods.In both simulated and real-world settings, NAVINACT demonstrates robust performance. In simulations, NAVINACT surpasses baseline methods by 10-15% in training success rates at 30k samples and by 30-40% during evaluation phases. In real-world scenarios, it demonstrates a 30-40% higher success rate on simpler tasks compared to baselines and uniquely succeeds in complex, two-stage manipulation tasks.",
+            "Reinforcement Learning (RL) has shown remarkable progress in simulation environments, yet its application to real-world robotic tasks remains limited due to challenges in exploration and generalization. To address these issues, we introduce PLANRL, a framework that chooses when the robot should use classical motion planning and when it should learn a policy. To further improve the efficiency in exploration, we use imitation data to bootstrap the exploration. PLANRL dynamically switches between two modes of operation: reaching a waypoint using classical techniques when away from the objects and reinforcement learning for fine-grained manipulation control when about to interact with objects. PLANRL architecture is composed of ModeNet for mode classification, NavNet for waypoint prediction, and InteractNet for precise manipulation. By combining the strengths of RL and Imitation Learning (IL), PLANRL improves sample efficiency and mitigates distribution shift, ensuring robust task execution. We evaluate our approach across multiple challenging simulation environments and real-world tasks, demonstrating superior performance in terms of adaptability, efficiency, and generalization compared to existing methods. In simulations, PLANRL surpasses baseline methods by 10-15% in training success rates at 30k samples and by 30-40% during evaluation phases. In real-world scenarios, it demonstrates a 30-40% higher success rate on simpler tasks compared to baselines and uniquely succeeds in complex, two-stage manipulation tasks",
         ],
         OVERVIEW: {
             "src": "img/architecture.png",
-            "legend": "Multi-headed architecture of NAVINACT: During training, NAVINACT learns to predict waypoints, low-level actions, and the operational mode at each time step. One network (InteractNet) predicts the low-level action \\( a_t \\) and the other network (ModeNet) predicts mode \\( m_t \\). A separate network (NavNet) predicts the high-level waypoint \\( w_t \\). At test time, the system samples \\( m_t \\) and either navigates to a waypoint (when \\( m_t = 0 \\)) using the predicted waypoint or follows a dense action (when \\( m_t = 1 \\)). The architecture allows for dynamic switching between navigation and interaction modes, facilitating seamless transitions and robust performance in complex tasks. An example of how navigation and interaction modes are integrated during execution is shown on the right."
+            "legend": "Architecture of PLANRL: During training, PLANRL learns to predict waypoints, low-level actions, and the operational mode at each time step. One network (InteractNet) predicts the low-level action at and the other network (ModeNet) predicts mode \\(m_t\\). A separate network (NavNet) predicts the high-level waypoint \\(w_t\\). At test time, the system samples \\(m_t\\) and either moves to a waypoint (when \\(m_t\\) = 0) using the predicted waypoint or follows a dense action (when \\(m_t\\) = 1). The architecture allows for dynamic switching between motion-planning and interaction modes, facilitating robust performance in complex tasks. An example of how motion planning and interaction modes are integrated during execution is shown on the right."
         }
     },
     CONTENT: [        
@@ -38,7 +38,7 @@ const DATA = {
                 <div class="col-md-6">
                     <h3>ModeNet: Dynamic Mode Classification</h3>
                     <ul>
-                        <li><strong>Decision-Making:</strong> Identifies when to switch between navigation and interaction modes based on input observations.</li>
+                        <li><strong>Decision-Making:</strong> Identifies when to switch between Motion Planning and interaction modes based on input observations.</li>
                         <li><strong>Adaptability:</strong> Enables the system to dynamically adapt its strategy, ensuring efficient task execution.</li>
                     </ul>
                     <img src="img/modes.png" class="img-fluid" alt="ModeNet Image">
@@ -62,7 +62,7 @@ const DATA = {
                         <h4 class="mt-2 text-center">Waypoint Prediction</h4>
                         <ul>
                             <li><strong>Target Identification:</strong> Predicts strategic waypoints that guide the robot towards its goal.</li>
-                            <li><strong>Trajectory Optimization:</strong> Ensures efficient and effective navigation to the target, reducing the learning burden on RL.</li>
+                            <li><strong>Trajectory Optimization:</strong> Ensures efficient and effective Motion Planning to the target, reducing the learning burden on RL.</li>
                         </ul>
                         <img src="img/navnet_demo.png" class="img-fluid" alt="NavNet Image">
                     </div>
@@ -165,7 +165,7 @@ const DATA = {
             <div class="col-12 mb-4">
             </div>
 
-            <h5>NAVINACT: Lift Env Training</h5>
+            <h5>PLANRL: Lift Env Training</h5>
             <p>
                     For this setup we use only wrist-camera for BC policy, whereas for predicting waypoints both wrist and environment cameras are used.</p>
                     
@@ -223,7 +223,7 @@ const DATA = {
 
             
 
-            <h5>NAVINACT: Pick and Place Env Training</h5>
+            <h5>PLANRL: Pick and Place Env Training</h5>
 
             <p> This setup uses both wrist-camera and environment camera for BC policy and waypoint prediction. This task has 2 stages "pick" and "place" and it involves 3 waypoints as discussed in the paper. </p>
             <p> Total Training Time: 3 hours </p>
@@ -350,8 +350,8 @@ const DATA = {
         },
     ],
     CITATION: ` \
-                @article{bhaskar2024navinact,
-                  title={NAVINACT: Combining Navigation and Imitation Learning for Bootstrapping Reinforcement Learning},
+                @article{bhaskar2024PLANRL,
+                  title={PLANRL: A Motion Planning and Imitation Learning Framework to Bootstrap Reinforcement LearningA Motion Planning and Imitation Learning Framework to Bootstrap Reinforcement Learning},
                   author={Bhaskar, Amisha and Mahammad, Zahiruddin and Jadhav, Sachin R and Tokekar, Pratap},
                   journal={arXiv preprint arXiv:2408.04054},
                   year={2024}
