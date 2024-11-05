@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RLHF in Robotics - Abstract</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+<body>
+
+<section class="section">
+  <div class="container has-text-centered">
+    <h1 class="title">RLHF in Robotics: Abstract & Demonstration</h1>
+    <!-- Video Section -->
+    <div class="box">
+      <h2 class="subtitle">Presentation</h2>
+      <video controls autoplay loop>
+        <source src="path/to/your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    
+    <!-- Abstract Section -->
+    <div class="box">
+      <h2 class="subtitle">Abstract</h2>
+      <p class="content has-text-justified">
+        The effectiveness of reinforcement learning (RL) agents in continuous control robotics tasks is mainly dependent on the design of the underlying reward function, which is highly prone to reward hacking. A misalignment between the reward function and underlying human preferences (values, social norms) can lead to catastrophic outcomes in the real world especially in the context of robotics for critical decision making. Recent methods aim to mitigate misalignment by learning reward functions from human preferences and subsequently performing policy optimization. However, these methods inadvertently introduce a distribution shift during reward learning due to ignoring the dependence of agent-generated trajectories on the reward learning objective, ultimately resulting in sub-optimal alignment. Hence, in this work, we address this challenge by advocating for the adoption of regularized reward functions that more accurately mirror the intended behaviors of the agent. We propose a novel concept of reward regularization within the robotic RLHF (RL from Human Feedback) framework, which we refer to as agent preferences. Our approach uniquely incorporates not just human feedback in the form of preferences but also considers the preferences of the RL agent itself during the reward function learning process. This dual consideration significantly mitigates the issue of distribution shift in RLHF with a computationally tractable algorithm. We provide a theoretical justification for the proposed algorithm by formulating the robotic RLHF problem as a bilevel optimization problem and developing a computationally tractable version of the same. We demonstrate the efficiency of our algorithm REBEL in several continuous control benchmarks including DeepMind Control Suite (Tassa et al. 2018) and MetaWorld (Yu et al. 2021) and high dimensional visual environments, with an improvement of more than 70% in sample efficiency in comparison to current SOTA baselines.
+      </p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
 
