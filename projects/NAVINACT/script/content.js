@@ -110,13 +110,13 @@ const DATA = {
 
 
                 <div class="col-md-4 mb-3">
-                    <img src="img/assembly_train.gif" class="img-fluid" alt="Assembly Environment">
+                    <img src="img/assembly_train2.gif" class="img-fluid" alt="Assembly Environment">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <img src="img/boxclose_train.gif" class="img-fluid" alt="Assembly Environment">
+                    <img src="img/boxclose_train2.gif" class="img-fluid" alt="Assembly Environment">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <img src="img/coffeepush_train.gif" class="img-fluid" alt="Assembly Environment">
+                    <img src="img/coffeepush_train2.gif" class="img-fluid" alt="Assembly Environment">
                 </div>
 
 
