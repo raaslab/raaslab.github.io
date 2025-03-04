@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Option Discovery Using LLM-guided Semantic Hierarchical Reinforcement Learning">
+  <meta name="keywords" content="LLM, Hierarchical Reinforcement Learning, Option Discovery, Semantic Planning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LDSC: Option Discovery Using LLM-guided Semantic Hierarchical Reinforcement Learning</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h1 class="title is-1">LDSC: Option Discovery Using LLM-guided Semantic Hierarchical Reinforcement Learning</h1>
+      <h2 class="subtitle is-4">Chak Lam Shek<sup>1</sup>, Pratap Tokekar<sup>1</sup></h2>
+      <h3 class="subtitle is-5">1. University of Maryland, College Park</h3>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="abstract">Abstract</h2>
+    <p>We propose LDSC, a framework integrating LLM-driven subgoal selection and option reuse to enhance sample efficiency, generalization, and multi-task adaptability in Hierarchical Reinforcement Learning. LDSC improves exploration efficiency and learning performance, outperforming baselines by 55.9% in average reward across diverse tasks.</p>
+    <div style="text-align: center;">
+      <img src="./static/images/Adv.pdf" alt="LDSC Framework" style="width:50%;">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="method">Method</h2>
+    <p>LDSC operates in three stages: LLM-based subgoal generation from task descriptions, reusable option learning and selection, and an action-level policy. The framework enhances task decomposition and reusability across multiple tasks by leveraging semantic reasoning and hierarchical structures.</p>
+    <img src="./static/images/process.pdf" alt="LDSC Framework" style="width:100%;">
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="llm">LLM Integration</h2>
+    <p>We utilize Large Language Models (LLMs) to generate meaningful subgoals and guide hierarchical reinforcement learning through semantic understanding of tasks. The LLM enhances the agent's ability to decompose complex tasks and reuse learned options efficiently across different environments.</p>
+    <div style="text-align: center;">
+      <img src="./static/images/LLM/HRL prompt.pdf" alt="LLM Integration" style="width: 60%; margin-top: 20px;">
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="results">Results</h2>
+    <p>LDSC outperforms existing methods in complex tasks, improving success rates by 72.7%, reducing task completion time by 53.1%, and achieving higher average rewards across different environments like Maze, Four Rooms, E-Maze, and Tunnel.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="quantitative">Quantitative Results</h2>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-3"><img src="./static/images/Map/Maze.png" alt="Maze Environment"></div>
+      <div class="column is-3"><img src="./static/images/Map/four.png" alt="FourRoom Environment"></div>
+      <div class="column is-3"><img src="./static/images/Map/E.png" alt="E-Maze Environment"></div>
+      <div class="column is-3"><img src="./static/images/tunnel.png" alt="Tunnel Environment"></div>
+    </div>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-3"><img src="./static/images/Error/four.png" alt="Maze Error"></div>
+      <div class="column is-3"><img src="./static/images/Error/four.png" alt="FourRoom Error"></div>
+      <div class="column is-3"><img src="./static/images/Error/E.png" alt="E-Maze Error"></div>
+      <div class="column is-3"><img src="./static/images/Error/tunnel.png" alt="Tunnel Error"></div>
+    </div>
+    <div style="text-align: center;">
+      <img src="./static/images/Error/legend2.png" alt="Legend" style="width:40%; margin-top: 20px;">
+    </div>
+
+    <table class="table is-striped is-fullwidth">
+      <thead>
+        <tr>
+          <th>Map</th>
+          <th colspan="2">DSC</th>
+          <th colspan="2">DDPG</th>
+          <th colspan="2">Option-Critic</th>
+          <th colspan="2">LDSC (Ours)</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>Success Rate ↑</th>
+          <th>Time (s) ↓</th>
+          <th>Success Rate ↑</th>
+          <th>Time (s) ↓</th>
+          <th>Success Rate ↑</th>
+          <th>Time (s) ↓</th>
+          <th>Success Rate ↑</th>
+          <th>Time (s) ↓</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Maze</td>
+          <td>0% ± 0%</td>
+          <td>1063 ± 274</td>
+          <td>0% ± 0%</td>
+          <td>1187 ± 116</td>
+          <td>0% ± 0%</td>
+          <td>1030 ± 147</td>
+          <td><b>100% ± 0%</b></td>
+          <td><b>485 ± 174</b></td>
+        </tr>
+        <tr>
+          <td>FourRoom</td>
+          <td>86% ± 8%</td>
+          <td>1035 ± 479</td>
+          <td>0% ± 0%</td>
+          <td>1331 ± 355</td>
+          <td>0% ± 0%</td>
+          <td>1181 ± 500</td>
+          <td><b>95% ± 2%</b></td>
+          <td><b>678 ± 208</b></td>
+        </tr>
+        <tr>
+          <td>E-Maze</td>
+          <td>0% ± 0%</td>
+          <td>1345 ± 145</td>
+          <td>0% ± 0%</td>
+          <td>1344 ± 83</td>
+          <td>0% ± 0%</td>
+          <td>960 ± 306</td>
+          <td><b>100% ± 0%</b></td>
+          <td><b>86.5 ± 12.5</b></td>
+        </tr>
+        <tr>
+          <td>Tunnel</td>
+          <td>0% ± 0%</td>
+          <td>1368 ± 370</td>
+          <td>0% ± 0%</td>
+          <td>1527 ± 527</td>
+          <td>0% ± 0%</td>
+          <td>1349 ± 349</td>
+          <td><b>81.8% ± 3.6%</b></td>
+          <td><b>906 ± 306</b></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="qualitative">Qualitative Results</h2>
+    <p><b>Qualitative performance</b> of the robot in the Point Maze environment. The upper row shows the initial set for each option, illustrating the state space coverage where the option can be executed. The lower row displays the corresponding policy plots, where orange regions indicate areas where the policy continues execution, while green regions signify termination states. The robot follows a structured sequence: first reaching <code>subgoal 1</code> (top-right), then <code>subgoal 2</code> (bottom-right), and finally <code>the goal</code> (top-left).</p>
+    <div class="columns is-centered is-flex" style="flex-wrap: nowrap; overflow-x: auto;">
+      <div class="column" style="flex: none; overflow: hidden; width: 200px; height: 150px;"><img src="./static/images/Qual/Init/overall_goal_policy1_dsc_maze_14_0_one_class_svm.png" alt="Initial Set 1" style="width: 250px; height: auto;"></div>
+      <div class="column" style="flex: none; overflow: hidden; width: 200px; height: 150px;"><img src="./static/images/Qual/Init/overall_goal_policy3_dsc_maze_51_0_one_class_svm.png" alt="Initial Set 2" style="width: 250px; height: auto;"></div>
+      <div class="column" style="flex: none; overflow: hidden; width: 200px; height: 150px;"><img src="./static/images/Qual/Init/overall_goal_policy5_dsc_maze_95_0_one_class_svm.png" alt="Initial Set 3" style="width: 250px; height: auto;"></div>
+      <div class="column" style="flex: none; overflow: hidden; width: 200px; height: 150px;"><img src="./static/images/Qual/Init/option_6_dsc_maze_158_0_one_class_svm.png" alt="Initial Set 4" style="width: 250px; height: auto;"></div>
+      <div class="column" style="flex: none; overflow: hidden; width: 200px; height: 150px;"><img src="./static/images/Qual/Init/option_7_dsc_maze_99_0_one_class_svm.png" alt="Initial Set 5" style="width: 250px; height: auto;"></div>
+      <div class="column" style="flex: none; overflow: hidden; width: 200px; height: 150px;"><img src="./static/images/Qual/Init/option_8_dsc_maze_113_0_one_class_svm.png" alt="Initial Set 6" style="width: 250px; height: auto;"></div>
+      <div class="column" style="flex: none; overflow: hidden; width: 200px; height: 150px;"><img src="./static/images/Qual/Init/option_9_dsc_maze_122_0_one_class_svm.png" alt="Initial Set 7" style="width: 250px; height: auto;"></div>
+    </div>
+    </div>
+    <div class="columns is-centered is-flex" style="flex-wrap: nowrap; overflow-x: auto;">
+      <div class="column" style="flex: none; overflow: hidden; width: 200px; height: 150px;"><img src="./static/images/Qual/overall_goal_policy1_ddpg_agent1_replay_buffer_analysis.png" alt="Policy Plot 1" style="width: 250px; height: auto; clip-path: inset(20px 0px 0px 0px);"></div>
+      <div class="column" style="flex: none; overflow: hidden; width: 200px; height: 150px;"><img src="./static/images/Qual/overall_goal_policy3_ddpg_agent3_replay_buffer_analysis.png" alt="Policy Plot 2" style="width: 250px; height: auto; clip-path: inset(20px 0px 0px 0px);"></div>
+      <div class="column" style="flex: none; overflow: hidden; width: 200px; height: 150px;"><img src="./static/images/Qual/overall_goal_policy5_ddpg_agent5_replay_buffer_analysis.png" alt="Policy Plot 3" style="width: 250px; height: auto; clip-path: inset(20px 0px 0px 0px);"></div>
+      <div class="column" style="flex: none; overflow: hidden; width: 200px; height: 150px;"><img src="./static/images/Qual/option_6_ddpg_agent6_replay_buffer_analysis.png" alt="Policy Plot 4" style="width: 250px; height: auto; clip-path: inset(20px 0px 0px 0px);"></div>
+      <div class="column" style="flex: none; overflow: hidden; width: 200px; height: 150px;"><img src="./static/images/Qual/option_7_ddpg_agent7_replay_buffer_analysis.png" alt="Policy Plot 5" style="width: 250px; height: auto; clip-path: inset(20px 0px 0px 0px);"></div>
+      <div class="column" style="flex: none; overflow: hidden; width: 200px; height: 150px;"><img src="./static/images/Qual/option_8_ddpg_agent8_replay_buffer_analysis.png" alt="Policy Plot 6" style="width: 250px; height: auto; clip-path: inset(20px 0px 0px 0px);"></div>
+      <div class="column" style="flex: none; overflow: hidden; width: 200px; height: 150px;"><img src="./static/images/Qual/option_9_ddpg_agent9_replay_buffer_analysis.png" alt="Policy Plot 7" style="width: 250px; height: auto; clip-path: inset(20px 0px 0px 0px);"></div>
+    </div>
+    
+    <div style="overflow: hidden; width: 40%; margin: 40px auto;">
+      <img src="./static/images/Qual/legend.png" alt="Legend" style="width: 100%; clip-path: inset(0px 95 0px 85px);">
+    </div>    <h3 class="title is-4">Trajectory Example</h3>
+    <img src="./static/images/Qual/Policy/traj.png" alt="Trajectory Example" style="width:40%; display: block; margin: 0 auto;">
+  </div>
+</section>
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>This website is licensed under CC BY-SA 4.0.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
