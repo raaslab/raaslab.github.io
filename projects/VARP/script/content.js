@@ -36,10 +36,17 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   `;
 
+  // Prompt Template (Now an Image)
+  document.getElementById("prompt-template").innerHTML = `
+    <div class="col-sm text-center">
+      <h2>Prompt Template</h2>
+      <img src="assets/prompt_template.png" class="img-fluid" alt="Prompt Template">
+    </div>
+  `;
+
   // Links
   document.getElementById("links-area").innerHTML = `
     <div class="col-sm text-center">
-      <a href="assets/prompt_template.txt" class="btn btn-outline-primary m-2">Prompt Template</a>
       <a href="https://arxiv.org/abs/2503.13817" class="btn btn-outline-secondary m-2">Paper (arXiv)</a>
       <a href="https://raaslab.org/projects/VARP/" class="btn btn-outline-success m-2">RAAS Lab Project Page</a>
     </div>
