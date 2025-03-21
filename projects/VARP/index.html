@@ -15,10 +15,6 @@
 
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-  <!-- MathJax for Equations -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -31,9 +27,6 @@
     </div>
   </nav>
 
-  <div id="top-links-container"></div>
-
-  <!-- Main Content -->
   <main role="main">
 
     <!-- Hero / Video Section -->
@@ -60,21 +53,13 @@
       <div class="row" id="overview"></div>
     </div>
 
-    <!-- Dynamic Content Area -->
+    <!-- Prompt Template -->
+    <div class="container section" id="prompt-template"></div>
+
+    <!-- Dynamic Content -->
     <div id="content"></div>
 
-    <!-- Contributors -->
-    <div class="container section" id="contributors">
-      <div class="row">
-        <div class="col-sm">
-          <h2 class="text-center">Project Contributors</h2>
-          <hr>
-        </div>
-      </div>
-      <br><br>
-    </div>
-
-    <!-- Links & Citation -->
+    <!-- Links -->
     <div class="container section" id="links">
       <div class="row">
         <div class="col-sm">
@@ -82,34 +67,13 @@
           <hr>
         </div>
       </div>
-      <br><br>
       <div class="row" id="links-area"></div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-sm">
-            <h2 class="text-center">Citation</h2>
-            <hr>
-          </div>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-sm">
-            <p>To cite our work, please use:</p>
-            <pre class="citation"></pre>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <!-- Footer -->
-    <div id="footer"></div>
   </main>
 
   <!-- Scripts -->
-  <script src="script/scroll.js"></script>
   <script src="script/content.js"></script>
 
 </body>
 </html>
-
