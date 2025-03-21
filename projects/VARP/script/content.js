@@ -1,0 +1,67 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // Title
+  document.getElementById("nav-project-title").textContent = "VARP";
+  document.getElementById("head-title").textContent = "VARP";
+  document.getElementById("head-subtitle").innerHTML = "Reinforcement Learning from Vision-Language Model Feedback with Agent Regularized Preferences";
+
+  // Video
+  document.getElementById("video").innerHTML = `
+    <video class="embed-responsive-item" controls>
+      <source src="assets/varp_video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  `;
+
+  // Abstract
+  document.getElementById("abstract-text").innerHTML = `
+    <div class="col-sm">
+      <h2 class="text-center">Abstract</h2>
+      <p>
+        Designing reward functions for robotics often leads to subtle misalignments or reward hacking. 
+        We propose VARP — a method that uses 2D trajectory sketches and agent-aware regularization 
+        to generate more accurate preferences from Vision-Language Models. Our approach leads to 
+        robust and scalable policy learning across manipulation and locomotion tasks.
+      </p>
+    </div>
+  `;
+
+  // Overview (optional)
+  document.getElementById("overview").innerHTML = `
+    <div class="col-sm">
+      <h2 class="text-center">Task Visualizations</h2>
+      <div class="row text-center">
+        <div class="col-sm"><img src="assets/gifs/drawer_open.gif" class="img-fluid"><p>Drawer Open</p></div>
+        <div class="col-sm"><img src="assets/gifs/soccer.gif" class="img-fluid"><p>Soccer</p></div>
+        <div class="col-sm"><img src="assets/gifs/sweep_into.gif" class="img-fluid"><p>Sweep Into</p></div>
+      </div>
+    </div>
+  `;
+
+  // Contributors
+  document.getElementById("contributors").innerHTML += `
+    <p class="text-center">
+      Anukriti Singh*, Amisha Bhaskar*, Peihong Yu, Souradip Chakraborty, Ruthwik Dasyam,<br>
+      Amrit Bedi, Pratap Tokekar<br>
+      * Equal Contribution
+    </p>
+  `;
+
+  // Links
+  document.getElementById("links-area").innerHTML = `
+    <div class="col-sm text-center">
+      <a href="assets/prompt_template.txt" class="btn btn-outline-primary m-2">Prompt Template</a>
+      <a href="https://arxiv.org/abs/2503.13817" class="btn btn-outline-secondary m-2">Paper (arXiv)</a>
+      <a href="https://raaslab.org/projects/VARP/" class="btn btn-outline-success m-2">RaasLab Project Page</a>
+    </div>
+  `;
+
+  // Citation
+  document.querySelector(".citation").textContent = `
+@inproceedings{singh2025varp,
+  title={VARP: Reinforcement Learning from Vision-Language Model Feedback with Agent Regularized Preferences},
+  author={Singh, Anukriti and Bhaskar, Amisha and Yu, Peihong and Chakraborty, Souradip and Dasyam, Ruthwik and Bedi, Amrit and Tokekar, Pratap},
+  booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year={2025}
+}
+  `;
+});
