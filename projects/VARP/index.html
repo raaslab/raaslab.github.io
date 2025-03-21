@@ -9,7 +9,7 @@
   <link rel="icon" href="../favicon.ico">
   <title>VARP | RAAS Lab</title>
 
-  <!-- Bootstrap and Styles -->
+  <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 
@@ -20,60 +20,93 @@
 <body>
 
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="index.html" id="nav-project-title"></a>
-    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-      <ul class="navbar-nav ml-auto" id="navigation"></ul>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html" id="nav-project-title">VARP</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="#abstract">Abstract</a></li>
+          <li class="nav-item"><a class="nav-link" href="#video">Video</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tasks">Tasks</a></li>
+          <li class="nav-item"><a class="nav-link" href="#prompt">Prompt</a></li>
+          <li class="nav-item"><a class="nav-link" href="#links">Links</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <main role="main">
+  <!-- Hero Section -->
+  <header class="jumbotron text-center">
+    <div class="container">
+      <h1 class="display-4">VARP</h1>
+      <h3>Reinforcement Learning from VLM Feedback with Agent Regularized Preferences</h3>
+    </div>
+  </header>
 
-    <!-- Hero / Video Section -->
-    <div class="jumbotron">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm">
-            <h1 class="display-5 text-center" id="head-title"></h1>
-            <h5 class="display-5 text-center" id="head-subtitle"></h5>
-          </div>
-        </div>
-        <br><br>
-        <div class="row">
-          <div class="col-md">
-            <div class="embed-responsive embed-responsive-16by9" id="video"></div>
-          </div>
-        </div>
+  <!-- Abstract Section -->
+  <section id="abstract" class="container text-center section">
+    <h2>Abstract</h2>
+    <p>
+      Designing reward functions for robotics often leads to subtle misalignments or reward hacking. 
+      We propose VARP — a method that uses 2D trajectory sketches and agent-aware regularization 
+      to generate more accurate preferences from Vision-Language Models. Our approach leads to 
+      robust and scalable policy learning across manipulation and locomotion tasks.
+    </p>
+  </section>
+
+  <!-- Video Section -->
+  <section id="video" class="container text-center section">
+    <h2>Presentation Video</h2>
+    <div class="embed-responsive embed-responsive-16by9 mx-auto" style="max-width: 800px;">
+      <video class="embed-responsive-item" controls>
+        <source src="assets/varp_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <!-- Task GIFs Section -->
+  <section id="tasks" class="container text-center section">
+    <h2>Task Visualizations</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <img src="assets/gifs/drawer_open.gif" class="img-fluid rounded shadow" alt="Drawer Open">
+        <p>Drawer Open</p>
+      </div>
+      <div class="col-md-4">
+        <img src="assets/gifs/soccer.gif" class="img-fluid rounded shadow" alt="Soccer">
+        <p>Soccer</p>
+      </div>
+      <div class="col-md-4">
+        <img src="assets/gifs/sweep_into.gif" class="img-fluid rounded shadow" alt="Sweep Into">
+        <p>Sweep Into</p>
       </div>
     </div>
+  </section>
 
-    <!-- Abstract Section -->
-    <div class="container section" id="abstract">
-      <div class="row" id="abstract-text"></div>
-      <div class="row" id="overview"></div>
-    </div>
+  <!-- Prompt Template Section (Now an Image) -->
+  <section id="prompt" class="container text-center section">
+    <h2>Prompt Template</h2>
+    <img src="assets/prompt_template.png" class="img-fluid rounded shadow" style="max-width: 800px;" alt="Prompt Template">
+  </section>
 
-    <!-- Prompt Template -->
-    <div class="container section" id="prompt-template"></div>
+  <!-- Links Section -->
+  <section id="links" class="container text-center section">
+    <h2>Links</h2>
+    <a href="https://arxiv.org/abs/2503.13817" class="btn btn-outline-secondary m-2">Paper (arXiv)</a>
+    <a href="https://raaslab.org/projects/VARP/" class="btn btn-outline-success m-2">RAAS Lab Project Page</a>
+  </section>
 
-    <!-- Dynamic Content -->
-    <div id="content"></div>
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 VARP Project | RAAS Lab</p>
+  </footer>
 
-    <!-- Links -->
-    <div class="container section" id="links">
-      <div class="row">
-        <div class="col-sm">
-          <h2 class="text-center">Links</h2>
-          <hr>
-        </div>
-      </div>
-      <div class="row" id="links-area"></div>
-    </div>
-
-  </main>
-
-  <!-- Scripts -->
-  <script src="script/content.js"></script>
-
+  <!-- Bootstrap Scripts -->
+  <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
