@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Title
   document.getElementById("nav-project-title").textContent = "VARP";
   document.getElementById("head-title").textContent = "VARP";
-  document.getElementById("head-subtitle").innerHTML = "Reinforcement Learning from Vision-Language Model Feedback with Agent Regularized Preferences";
+  document.getElementById("head-subtitle").textContent = "Reinforcement Learning from VLM Feedback with Agent Regularized Preferences";
 
   // Video
   document.getElementById("video").innerHTML = `
@@ -25,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   `;
 
-  // Overview (optional)
+  // Task GIFs
   document.getElementById("overview").innerHTML = `
     <div class="col-sm">
       <h2 class="text-center">Task Visualizations</h2>
@@ -37,31 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   `;
 
-  // Contributors
-  document.getElementById("contributors").innerHTML += `
-    <p class="text-center">
-      Anukriti Singh*, Amisha Bhaskar*, Peihong Yu, Souradip Chakraborty, Ruthwik Dasyam,<br>
-      Amrit Bedi, Pratap Tokekar<br>
-      * Equal Contribution
-    </p>
-  `;
-
   // Links
   document.getElementById("links-area").innerHTML = `
     <div class="col-sm text-center">
       <a href="assets/prompt_template.txt" class="btn btn-outline-primary m-2">Prompt Template</a>
       <a href="https://arxiv.org/abs/2503.13817" class="btn btn-outline-secondary m-2">Paper (arXiv)</a>
-      <a href="https://raaslab.org/projects/VARP/" class="btn btn-outline-success m-2">RaasLab Project Page</a>
+      <a href="https://raaslab.org/projects/VARP/" class="btn btn-outline-success m-2">RAAS Lab Project Page</a>
     </div>
-  `;
-
-  // Citation
-  document.querySelector(".citation").textContent = `
-@inproceedings{singh2025varp,
-  title={VARP: Reinforcement Learning from Vision-Language Model Feedback with Agent Regularized Preferences},
-  author={Singh, Anukriti and Bhaskar, Amisha and Yu, Peihong and Chakraborty, Souradip and Dasyam, Ruthwik and Bedi, Amrit and Tokekar, Pratap},
-  booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
-  year={2025}
-}
   `;
 });
