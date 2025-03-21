@@ -1,1 +1,6 @@
-dummy
+.section {
+  padding: 60px 0;
+}
+.img-fluid {
+  max-height: 200px;
+}
