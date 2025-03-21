@@ -86,7 +86,7 @@
   <section id="prompt" class="container text-center py-5">
     <h2>Prompt Template</h2>
     
-    <div class="prompt-box text-start">
+<!--     <div class="prompt-box text-start">
       <p class="prompt-title">Prompt Template used in RLVLMF</p>
       <p>Analysis Template<br>
       Consider the following two images:<br>
@@ -101,17 +101,19 @@
          [VLM response]</p>
       <p>Is the goal better achieved in Image 1 or Image 2? Reply a single line of 0 if the goal is better achieved in Image 1, or 1 if it is better achieved in Image 2.<br>
          Reply -1 if the text is unsure or there is no difference.</p>
-    </div>
+    </div> -->
 
     <div class="prompt-box text-start">
       <p class="prompt-title">Prompt Template in VARP</p>
-      <p>Describe the two images given to you, which includes {{}} frames with sketch of trajectory for the goal {{}} from the MetaWorld simulation environment.<br>
-      The sketch image on {{}} frame features a simple, 3D-rendered scene. Notably, a trajectory is sketched represented by a thin, yellow color.<br>
+      <p>Analysis Template<br>
+      <p>Describe the two images given to you, which includes final frames with sketch of trajectory for the goal [task description] from the MetaWorld simulation environment.<br>
+      The sketch image on last frame features a simple, 3D-rendered scene. Notably, a trajectory is sketched represented by a thin, yellow color.<br>
       The trajectory's color uses yellow to indicate temporal progress, with brighter yellow signifies the beginning of the trajectory and darker brown color signifies the end, together representing a temporal progression from yellow to dark color.</p>
       <p>1. How is the sketch shown in Image 1?<br>
          2. How is the sketch shown in Image 2?<br>
          3. Is there any difference between Image 1 and Image 2 in terms of achieving the goal?</p>
-      <p>Based on the text below to the questions: The goal is {}.<br>
+      <p class="prompt-title">Labeling Template</p>
+      <p>Based on the text below to the questions: The goal is [task description].<br>
       The most efficient robot arm movement would involve pulling the handle straight back along the linear path of the drawer's opening direction with a steady and controlled force.</p>
       <p>1. How well is the goal achieved in Image 1 and how is the sketch trajectory?<br>
          2. How well is the goal achieved in Image 2 and how is the sketch trajectory?<br>
