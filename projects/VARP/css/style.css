@@ -1,6 +1,103 @@
-.section {
-  padding: 60px 0;
+/* Fixes Navbar & Padding */
+body {
+  padding-top: 3.5rem;
+  font-family: Arial, sans-serif;
 }
-.img-fluid {
-  max-height: 200px;
+
+/* Navbar Styling */
+.nav-item {
+  transition: color 0.1s ease, background-color 0.1s ease;
+}
+
+.nav-item:hover {
+  background-color: #E9ECEF;
+}
+
+.navbar .navbar-collapse .navbar-nav > li > a:hover {
+  color: #343A40;
+}
+
+.navbar .navbar-collapse .navbar-nav > li > a.section-active {
+  background-color: #E9ECEF;
+  color: #343A40;
+  font-weight: bold;
+}
+
+/* Links */
+a {
+  color: #181c21;
+  font-weight: bold;
+  transition: color 0.15s ease, text-decoration 0.15s ease;
+}
+
+a:hover {
+  color: #808080;
+  font-weight: bold;
+}
+
+/* Fix Spacing & Center Content */
+.container {
+  padding-top: 80px;
+  max-width: 1000px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+/* Jumbotron Fix */
+.jumbotron .container {
+  padding: 30px 0;
+  text-align: center;
+}
+
+/* Footer */
+#footer {
+  margin-top: 4em;
+  padding: 4em 0;
+  background-color: #343A40;
+  color: white;
+  text-align: center;
+}
+
+#footer a {
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+#footer a:hover {
+  color: #808080;
+  font-weight: bold;
+}
+
+/* Contributors */
+#contributors .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+#contributors img {
+  margin-bottom: 15px;
+  opacity: 1;
+  transition: opacity 0.15s ease-in-out;
+}
+
+#contributors img:hover {
+  opacity: 0.8;
+}
+
+/* Prompt Image Styling */
+#prompt img {
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Task GIF Styling */
+#tasks img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
 }
