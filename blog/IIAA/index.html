@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inferring Intentions for Active Assistance</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #1a1a1a;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    img, video {
+      max-width: 100%;
+      display: block;
+      margin: 12px 0;
+    }
+    video {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      overflow-x: auto;
+      border-radius: 6px;
+    }
+    blockquote {
+      border-left: 4px solid #ccc;
+      padding-left: 10px;
+      color: #555;
+      margin: 1em 0;
+      font-style: italic;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .date, .tags {
+      color: #888;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Inferring Intentions for Active Assistance</h1>
+  <p class="date">How VLMs Can Turn Robots into Proactive Helpers</p>
+  
+
+  <p>Large language models (LLMs) have taken the world by storm. They are now so common that they’re integrated into personal messaging apps. Some have evolved into vision-language models (VLMs), capable of understanding images and answering questions about them. This revolutionary technology has also made waves in Embodied AI (EAI) research.</p>
+
+  <blockquote>
+    As defined by <a href="https://lamarr-institute.org/blog/embodied-ai-explained/" target="_blank">Julian Eßer</a>, <em>Embodied AI integrates AI into physical systems, such as robots, enabling them to interact meaningfully with their surroundings</em>.
+  </blockquote>
+
+  <p> With VLMs, these physical systems can see the world through a camera, understand it, and interact with humans using natural language.</p>
+
+  <h2>How VLMs Enhance Embodied AI</h2>
+  <ul>
+    <li>They enable <strong>interaction using natural, unstructured language</strong> rather than formal, structured formats like XML or PDDL (the latter is also possible with LLMs)</li>
+    <li>They act as <strong>world models</strong>, encoding vast knowledge about our environment thanks to their extensive training data</li>
+  </ul>
+
+  <p>Given these capabilities, VLMs allow humans to instruct robots naturally (<emph>e.g., "bring me some sugar"</emph>). The VLM/LLM translates these requests into structured commands for the robot. But if VLMs are world models, can they anticipate our needs instead of waiting for instructions?</p>
+
+  <h2>The Experiment: Predicting Human Needs</h2>
+  <p>To explore this, my colleagues and I worked on one of the most exciting projects of my PhD. We asked: Can an AI assistant with a camera understand what I’m doing, predict what I may need next, and instruct a robot to fetch it, all without me explicitely talking to the assistant?</p>
+  
+  <h3>Setting Up the Experiment</h3>
+  <p>We built a house-like environment in our lab using Amazon-bought curtains as walls, zip ties to hold them up, and warnings from facility management to keep them away from fire hoses. These curtains created separate rooms.</p>
+  
+  <p>We mapped the "home", labeling rooms (pantry, dining room, etc.) and setting predefined locations where the robot should go. For perception, we used an overhead camera at the workbench (our "kitchen" area). I favor overhead views for robot tasks because they provide a lot of relevant information (e.g., where a robot can move) without unnecessary detail (e.g., a full 3D map isn't required for path planning). While we used an overhead camera, any sufficiently wide-area camera (e.g., a smart device on the kitchen counter) could serve the same purpose.</p>
+  <img src="https://www.dropbox.com/scl/fi/0ajyy7c2nbszpp3nxt3xv/lab_map.png?rlkey=xv44o6e59p1xtdk4swntxtcxc&st=lmqld5t9&raw=1" alt="Lab Map">
+
+  <p>Our helper was a TurtleBot, responsible for moving objects. Ideally, we’d use a mobile manipulator like Fetch from Hello Robot, but for this experiment, we assumed the robot could pick up objects once it reached them. Since the overhead camera had a limited view, the TurtleBot also had its own camera to locate objects independently.</p>
+  <div align="center">
+  <img src="https://www.dropbox.com/scl/fi/joru9b1bivysyl4o22qlf/turtlebot.jpg?rlkey=b3i8wc3hj2pc3y0xql9k1b8kf&st=i30z0cbe&raw=1" alt="TurtleBot Image" align="center">
+  </div>
+
+  <h3>VLM-to-Robot Instructions</h3>
+  <p>The robot navigation process involves many moving parts (pun intended). We used ROS to drive the robot around and implemented some high-level functions to complete the assigned tasks:</p>
+  <ul>
+    <li><strong>PointNav(&lt;location&gt;):</strong> PointNav refers to the autonomous navigation of the robot from one point (defined in terms of x,y coordinates) to another. Usually, PointNav is done in an unknown/unmapped environment. Here, we had access to the map, which helped in finding the shortest path and collision avoidance, in case someone walks in front of the robot. The <location> argument to the function is mapped to a x-y location, and the robot moves to the corresponding place on the map.</li>
+    <li><strong>ObjectNav(&lt;object name&gt;):</strong> The overhead camera only sees a small part of the house, and we used only one overhead camera, so the robot is on its own to find the target object. Instead of pre-mapping everything, we use open-vocabulary detection for ObjectNav, which means navigating to an object (defined by a natural language label, such as spoon). A big reason to avoid mapping all the objects is because many of these object are not always in the exact same place (do we keep the coffee mug at the same place everytime after using it?). 
+	</p>
+	<p>We employed YOLO-World, which allows the VLM to suggest a target object class (e.g., "spoon"), prompting the robot to rotate and scan for it. Once detected, the robot moves toward it, treating it like a PointNav task.
+	</li>
+    <li><strong>Pick(&lt;object name&gt;):</strong> If the robot had a manipulator, it could pick up and deliver the object, and therefore we kept a Pick(<object name>) function in our schema. Since we didn’t have one at the time (but are working on it), we simulated object retrieval.</li>
+  </ul>
+
+  <h2>Assistance in action</h2>
+  <p>In this example,  the workbench, we took two images (with a three-second gap) and asked the LLM to analyze the scene:</p>
+  <video controls>
+    <source src="https://www.dropbox.com/scl/fi/bk7rvxjss7an6u22ieq4k/coffee.mp4?rlkey=c7k8ugx9gm4wldjsfqtz3adhv&st=i58kc1h7&raw=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  
+  <p>In this example, I had milk, a cup, and coffee around me and was interacting with them. The VLM correctly inferred that I was making coffee and noticed I lacked a spoon for scooping and stirring. It directed the robot to fetch one from the pantry.</p>
+  
+  <p>The VLM would create this plan, which the robot would follow:</p>
+  <ol>
+    <li>PointNav(pantry)</li>
+    <li>ObjectNav(spoon)</li>
+    <li>Pick(spoon)</li>
+    <li>PointNav(kitchen)</li>
+  </ol>
+  <p>Note that the workbench is in the kitchen, therefore the robot comes back to the kitchen. </p>
+
+
+  <p>Here is how it all looked:</p>
+  <h4>PointNav(pantry)</h4>
+  <p>The red arrow on the left is the goal and the green curve is the planned path to it.</p>
+  <video controls>
+    <source src="https://www.dropbox.com/scl/fi/sqlbu7xj77w85nkpi1gst/pointnav.mp4?rlkey=omlb7p7gqy290bp37bb74q9xu&st=9mos15fn&raw=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <h4>ObjectNav(spoon)</h4>
+  <p>The left image shows the raw image feed and the right one shows the detection result.</p>
+  <video controls>
+    <source src="https://www.dropbox.com/scl/fi/zp0djgcl90q9say5o0s9c/objectnav.mp4?rlkey=qfrnaucvzezvdd94xsf4jt008&st=mvjo2m93&raw=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <h4>PointNav(kitchen)</h4>
+  <video controls>
+    <source src="https://www.dropbox.com/scl/fi/4zeclcq3nqlo40oib17nw/pointnav2.mp4?rlkey=94xdjrvxa71i1uv6q3i4qvl5i&st=1q4xj0l9&raw=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <p>Amazing, right?</p>
+
+  <h2>How Good is the VLM in Inferring Intentions?</h2>
+  <p>We wondered what if we present some complex situations to the VLM. Would it be able to understand our actions and needs correctly? 
+
+    Here are some case studies that we tried:</p>
+  <h3>1. Predicting from Movement</h3>
+  <p>If I prepared food in the kitchen and then started moving with it, the VLM inferred I was heading to the dining room for a meal. It instructed the robot to follow me or carry the food.</p>
+  <img src="https://www.dropbox.com/scl/fi/9ale529l72tid0olcyxra/dining.png?rlkey=nf77q9j877ws4fh17mnjqceyn&st=vg0kq1fb&raw=1" alt="Dining Movement">
+
+  <h3>2. Context-Based Object Retrieval</h3>
+  <p>If I was in the kitchen working on a plant with gloves, the VLM deduced I might need a gardening tool—even though none were visible. It sent the robot to fetch one from the garden.</p>
+  <img src="https://www.dropbox.com/scl/fi/0tb4aax2gqjn8d4wjr2je/garden.png?rlkey=xvtwimfgk9ttlqdq433wiq2no&st=ksmvmtmv&raw=1" alt="Gardening Context">
+
+  <h3>3. Uncertain Scenarios</h3>
+  <p>When working with a drone, the VLM couldn’t identify specific details but inferred that tools might be needed. It suggested searching the garage. A future enhancement could involve the robot asking the user which tool is required.</p>
+  <img src="https://www.dropbox.com/scl/fi/8h6y6ayjpj6pl71dxk02t/drone.png?rlkey=q1kpr2u31eruac5jdab7vwny2&st=s49abloi&raw=1" alt="Drone Scenario">
+
+  <h2>The Future of Non-Verbal AI Assistance</h2>
+  <p>One aspect I love about this project is how it demonstrates world models enabling <strong>non-verbal communication</strong>. As these models improve, robots will become even more capable assistants. I’m excited to see where this leads.</p>
+  <p>One last curiosity: VLMs are also good at <strong>OCR (Optical Character Recognition)</strong>. Just for fun, I tested one more scenario—and the results were impressive. </p>
+  <img src="https://www.dropbox.com/scl/fi/1jys66idtdtie7b0matxq/handwriting.png?rlkey=2y1zteoct74b2vksdi2lgubc5&st=yeo82cxp&raw=1" alt="OCR Test">
+
+  <h3>Acknowledgements</h3>
+  <p>This project was done under the guidance of Dr. Pratap Tokekar at UMD College Park. I am grateful to Amisha Bhaskar and Zahir Mahammad for helping with the setup and experiments.</p>
+
+  <p>The post's contents were refined with ChatGPT's help.</p>
+
+</body>
+</html>
