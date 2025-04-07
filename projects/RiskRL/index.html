@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="When to Localize? A Risk-Constrained Reinforcement Learning Approach">
+  <meta name="keywords" content="Reinforcement Learning, Risk-Constrained RL, Active Localization, Robotics">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>When to Localize? A Risk-Constrained Reinforcement Learning Approach</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h1 class="title is-1">When to Localize? A Risk-Constrained Reinforcement Learning Approach</h1>
+      <h2 class="subtitle is-4">Chak Lam Shek*, Kasra Torshizi*, Troi Williams, Pratap Tokekar</h2>
+      <h3 class="subtitle is-5">University of Maryland, College Park</h3>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="abstract">Abstract</h2>
+    <p>We address the problem of determining when a robot should localize during navigation. Excessive localization wastes time and energy, while insufficient localization increases the risk of task failure. This paper proposes a novel Reinforcement Learning framework called <strong>Risk-Constrained RL</strong> that minimizes the number of localization actions while keeping failure probability under a specified threshold. The method integrates a Soft Actor-Critic-based high-level planner with a Particle Filter and chance-constrained optimization. We demonstrate significant performance improvements in success rate and policy robustness in unseen environments.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Motivation</h2>
+    <div style="text-align: center;">
+      <img src="static/images/when-to-localize-idea.jpg" alt="Motivation" style="width:60%; margin: 0 auto;">
+    </div>
+    <p style="margin-top: 10px;">Motivating example. Consider a robot that may want to seldom localize (e.g., due to resource constraints) while traveling along a path. Despite obstacles, it can execute a series of open-loop motions. However, dead reckoning uncertainty grows, increasing failure risk, so the robot must localize eventually. The idea is applicable to general search-and-rescue scenarios like a submersible searching for a black box underwater.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Framework</h2>
+    <div style="text-align: center;">
+      <img src="static/images/Flow_Chart2.png" alt="Framework Flow" style="width:80%; margin: 20px auto;">
+      <img src="static/images/rl_network.png" alt="RL Network" style="width:80%; margin: 20px auto;">
+    </div>
+    <p style="margin-top: 10px;">
+      Our method combines a chance-constrained planner with a particle filter for efficient belief state updates. The RL component is based on a Soft Actor-Critic model adapted to constrained settings using a primal-dual approach. This structure enables agents to act under uncertainty while satisfying failure constraints.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Results</h2>
+    <div style="text-align: center;">
+      <img src="static/images/QE.png" alt="Qualitative Trajectory" style="width:50%; margin-bottom: 30px;">
+
+      <div class="columns is-centered">
+        <div class="column is-6">
+          <img src="static/images/num_localize_bar.png" alt="Localization Count" style="width:70%;">
+        </div>
+        <div class="column is-6">
+          <img src="static/images/success_rate_bar.png" alt="Success Rate" style="width:70%;">
+        </div>
+      </div>
+
+      <div class="columns is-multiline is-centered">
+        <div class="column is-4"><img src="static/images/tran_loc.png" alt="Transition Loc Count" style="width:100%;"></div>
+        <div class="column is-4"><img src="static/images/tran_win.png" alt="Transition Win Rate" style="width:100%;"></div>
+        <div class="column is-4"><img src="static/images/obs_num.png" alt="Observation Loc Count" style="width:100%;"></div>
+        <div class="column is-4"><img src="static/images/obs_win.png" alt="Observation Win Rate" style="width:100%;"></div>
+        <div class="column is-4"><img src="static/images/risk_num.png" alt="Risk Loc Count" style="width:100%;"></div>
+        <div class="column is-4"><img src="static/images/risk_win.png" alt="Risk Win Rate" style="width:100%;"></div>
+      </div>
+
+      <img src="static/images/heatmap.png" alt="Localization Heatmap" style="width:80%; margin-top: 30px;">
+    </div>
+
+    <p style="margin-top: 20px;">
+      LDSC reduces failure probability while keeping localization count low, outperforming baselines in both metrics. It generalizes to unseen environments and balances risk effectively. Transition and observation noise impact success and localization counts as expected, with LDSC remaining robust. Lower risk thresholds reduce success rate, confirming the importance of balancing exploration with safety.
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <pre style="text-align: left; margin-top: 20px;">
+@misc{shek2024localize,
+  title={When to Localize? A Risk-Constrained Reinforcement Learning Approach},
+  author={Shek, Chak Lam and Torshizi, Kasra and Williams, Troi and Tokekar, Pratap},
+  year={2024},
+  eprint={2403.12345},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO}
+}</pre>
+    <p>This website is licensed under CC BY-SA 4.0.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
