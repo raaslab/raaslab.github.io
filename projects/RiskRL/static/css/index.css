@@ -171,3 +171,19 @@ body {
   margin-top: 8px;
   vertical-align: middle;
 }
+
+.gif-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* space between images */
+  text-align: center;
+}
+.gif-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gif {
+  width: 300px; /* or whatever size you want */
+  height: auto;
+}
