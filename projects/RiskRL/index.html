@@ -9,44 +9,64 @@
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
 </head>
 <body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="http://raaslab.org/">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Table of Contents</a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="#abstract">Abstract</a>
+          <a class="navbar-item" href="#motivation">Motivation</a>
+          <a class="navbar-item" href="#framework">Framework</a>
+          <a class="navbar-item" href="#results">Results</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
 
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <h1 class="title is-1">When to Localize? A Risk-Constrained Reinforcement Learning Approach</h1>
-      <h2 class="subtitle is-4">Chak Lam Shek*, Kasra Torshizi*, Troi Williams, Pratap Tokekar</h2>
+      <h2 class="subtitle is-4">
+        <a href="mailto:cshek1@umd.edu">Chak Lam Shek*</a>,
+        <a href="https://ktorsh.github.io/">Kasra Torshizi*</a>,
+        <a href="https://troiwill.github.io/">Troi Williams</a>,
+        <a href="http://tokekar.com">Pratap Tokekar</a>
+      </h2>
       <h3 class="subtitle is-5">University of Maryland, College Park</h3>
+      <div style="text-align: center; margin-top: 1rem;">
+        <a href="https://arxiv.org/abs/2411.02788" class="external-link button is-normal is-rounded is-dark">
+          <span class="icon"><i class="ai ai-arxiv"></i></span>
+          <span>arXiv</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="gif-row">
-  <div class="gif-col">
-    <img src="static/images/m2l.gif" class="gif" alt="M2L">
-    <p>M2L</p>
-  </div>
-  <div class="gif-col">
-    <img src="static/images/base.gif" class="gif" alt="BaseRL">
-    <p>BaseRL</p>
-  </div>
-  <div class="gif-col">
-    <img src="static/images/risk.gif" class="gif" alt="RiskRL">
-    <p>RiskRL</p>
-  </div>
-</div>
-
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3" id="abstract">Abstract</h2>
-    <p>We address the problem of determining when a robot should localize during navigation. Excessive localization wastes time and energy, while insufficient localization increases the risk of task failure. This paper proposes a novel Reinforcement Learning framework called <strong>Risk-Constrained RL</strong> that minimizes the number of localization actions while keeping failure probability under a specified threshold. The method integrates a Soft Actor-Critic-based high-level planner with a Particle Filter and chance-constrained optimization. We demonstrate significant performance improvements in success rate and policy robustness in unseen environments.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3">Motivation</h2>
+    <h2 class="title is-3" id="motivation">Motivation</h2>
     <div style="text-align: center;">
       <img src="static/images/when-to-localize-idea.jpg" alt="Motivation" style="width:60%; margin: 0 auto;">
     </div>
@@ -56,47 +76,83 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Framework</h2>
+    <h2 class="title is-3" id="framework">Framework</h2>
     <div style="text-align: center;">
-      <img src="static/images/Flow_Chart2.png" alt="Framework Flow" style="width:80%; margin: 20px auto;">
+      <img src="static/images/Flow_Chart2.png" alt="Flowchart" style="width:80%; margin: 20px auto;">
+    </div>
+    <p>
+      We now present our algorithmic framework for solving the active localization problem. Our framework has three main components: a high-level planner, a low-level planner, and a particle filter (PF). The high-level planner (discussed in more detail below) decides when the robot should move or localize. The low-level planner executes the selected motion command or triggers localization and replanning as needed. The PF maintains the agent's belief using actions and noisy pose observations, and provides an observation vector to the high-level planner.
+    </p>
+    <br>
+
+    <p>
+      <strong>Chance-Constrained Planning.</strong> The original optimization objective does not align with standard RL. We reformulate it to maximize:
+      <br>
+      <code>V(θ) = E[ Σ γ^t r(s_t, a_t) | π_θ ]</code>,<br>
+      while ensuring:<br>
+      <code>U_θ = Σ γ^t (1 - Pr(failure)) ≥ c</code>.<br>
+      The new reward function becomes:<br>
+      <code>r̂(s_t, a_t) = r(s_t, a_t) + λ(I(s_t ∉ failure) - c(1 - γ))</code>.<br>
+      This formulation allows us to optimize with standard SAC using a primal-dual method.
+    </p>
+    <div style="text-align: center;">
       <img src="static/images/rl_network.png" alt="RL Network" style="width:80%; margin: 20px auto;">
     </div>
-    <p style="margin-top: 10px;">
-      Our method combines a chance-constrained planner with a particle filter for efficient belief state updates. The RL component is based on a Soft Actor-Critic model adapted to constrained settings using a primal-dual approach. This structure enables agents to act under uncertainty while satisfying failure constraints.
+    
+
+    <p>
+      <strong>Partial Observability.</strong> We adopt a Soft Actor-Critic model equipped with an LSTM to handle noisy or incomplete observations. The LSTM enables the agent to learn temporal dependencies from the history, leading to more stable and generalized decision-making in uncertain environments.
     </p>
   </div>
 </section>
-
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Results</h2>
+    <h2 class="title is-3" id="results">Results</h2>
+
+    <p style="margin-top: 20px;">
+      We evaluate our method across different environments and noise conditions. The qualitative trajectory figure illustrates adaptive localization in risk-prone regions. The bar charts compare localization counts and success rates, where our algorithm outperforms baselines while maintaining constraint satisfaction. The transition, observation, and risk experiments show robustness and adaptation, confirmed by the heatmaps showing concentrated localization in critical areas.
+    </p>
+
     <div style="text-align: center;">
-      <img src="static/images/QE.png" alt="Qualitative Trajectory" style="width:50%; margin-bottom: 30px;">
+      <img src="static/images/QE.png" alt="A qualitative example of robot navigation: blue) actual path, red) estimated path and localization positions." style="width:50%; margin-bottom: 30px;">
+      </br>
+      <p style="text-align: left; margin-top: -10px;">
+        The figure shows how the robot adapts its localization in a noisy and uncertain environment with transition noise (80%, 10%, 10%), observation noise (68%, 4%), and a 40% risk threshold. The robot localizes more often in the Start Area and Middle Tunnel, where the risk of failure is higher. It localizes less in safer, open areas and does so again near the goal for accurate positioning. This behavior shows how the robot balances safety and efficiency under challenging conditions.
+      </p></br>
 
       <div class="columns is-centered">
         <div class="column is-6">
-          <img src="static/images/num_localize_bar.png" alt="Localization Count" style="width:70%;">
+          <img src="static/images/num_localize_bar.png" alt="This figure shows the number of localizations across environments." style="width:70%;">
         </div>
         <div class="column is-6">
-          <img src="static/images/success_rate_bar.png" alt="Success Rate" style="width:70%;">
+          <img src="static/images/success_rate_bar.png" alt="This figure shows the success rates across environments." style="width:70%;">
         </div>
       </div>
 
+      <p style="text-align: left;">
+        We compared all algorithms based on localization counts and success rates. RiskRL achieved strong generalization, significantly outperforming other planners in the more challenging chesapeake and st_thomas environments, with nearly double the success rates while keeping localization counts low. BASE used fewer localizations but still achieved competitive success rates. While CC-POMCP performed reasonably, it was much slower—taking 20 seconds per action compared to just 20 milliseconds for RiskRL and BASE.
+      </p> </br>
+
       <div class="columns is-multiline is-centered">
-        <div class="column is-4"><img src="static/images/tran_loc.png" alt="Transition Loc Count" style="width:100%;"></div>
-        <div class="column is-4"><img src="static/images/tran_win.png" alt="Transition Win Rate" style="width:100%;"></div>
-        <div class="column is-4"><img src="static/images/obs_num.png" alt="Observation Loc Count" style="width:100%;"></div>
-        <div class="column is-4"><img src="static/images/obs_win.png" alt="Observation Win Rate" style="width:100%;"></div>
-        <div class="column is-4"><img src="static/images/risk_num.png" alt="Risk Loc Count" style="width:100%;"></div>
-        <div class="column is-4"><img src="static/images/risk_win.png" alt="Risk Win Rate" style="width:100%;"></div>
+        <div class="column is-4"><img src="static/images/tran_loc.png" alt="Localization counts at different transition noise levels." style="width:100%;"></div>
+        <div class="column is-4"><img src="static/images/tran_win.png" alt="Success rates at different transition noise levels." style="width:100%;"></div>
+        <div class="column is-4"><img src="static/images/obs_num.png" alt="Localization counts under different observation noises." style="width:100%;"></div>
+        <div class="column is-4"><img src="static/images/obs_win.png" alt="Success rates under different observation noises." style="width:100%;"></div>
+        <div class="column is-4"><img src="static/images/risk_num.png" alt="Localization counts under different risk thresholds." style="width:100%;"></div>
+        <div class="column is-4"><img src="static/images/risk_win.png" alt="Success rates under different risk thresholds." style="width:100%;"></div>
       </div>
 
-      <img src="static/images/heatmap.png" alt="Localization Heatmap" style="width:80%; margin-top: 30px;">
+      <p style="text-align: left; margin-top: 20px;">
+        We further analyze the robustness of RiskRL across noise levels and risk constraints. The top two rows show that localization frequency increases with higher transition noise, yet the success rate remains stable—demonstrating RiskRL's adaptability. Observation noise has little impact on either metric, indicating resilience to sensing uncertainty. Finally, varying the risk constraint reveals a trade-off: tighter constraints yield more localizations and fewer failures, while lenient ones allow for fewer localizations at the cost of success rate.
+      </p>
+
+      <img src="static/images/heatmap.png" alt="Probability heatmap of localization across environments." style="width:80%; margin-top: 30px;">
+
+      <p style="text-align: left; margin-top: 10px;">
+        This figure shows the probability of localizing based on the agent’s estimated location. The yellow block denotes the start position, and the green block denotes the goal position. Note for the chesapeake and st thomas environments, we only show a smaller segment of the environment. We ran each algorithm on each environment with a predefined path 250 times.
+      </p>
     </div>
 
-    <p style="margin-top: 20px;">
-      LDSC reduces failure probability while keeping localization count low, outperforming baselines in both metrics. It generalizes to unseen environments and balances risk effectively. Transition and observation noise impact success and localization counts as expected, with LDSC remaining robust. Lower risk thresholds reduce success rate, confirming the importance of balancing exploration with safety.
-    </p>
   </div>
 </section>
 
@@ -112,7 +168,7 @@
   archivePrefix={arXiv},
   primaryClass={cs.RO}
 }</pre>
-    <p>This website is licensed under CC BY-SA 4.0.</p>
+      <p>This website is licensed under CC BY-SA 4.0.</p>
     </div>
   </div>
 </footer>
