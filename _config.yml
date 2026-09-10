@@ -9,6 +9,8 @@ exclude:
   - Gemfile.lock
   - "*.sh"
   - vendor/
+  - blog/
+  - projects/
 
 # Keep these sub-sites as-is (not processed by Jekyll root)
 keep_files:
@@ -29,8 +31,8 @@ scholar:
   style: apa
   locale: en
 
-  sort_by: year, month
-  order: descending
+  sort_by: year, booktitle
+  order: descending, ascending
 
   group_by: year
   group_order: descending
