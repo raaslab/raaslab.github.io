@@ -108,6 +108,13 @@ ol.bibliography {
   list-style: none;
 }
 
+.member-photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: top center;
+}
+
 .pub-entry {
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #f0f0f0;
