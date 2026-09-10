@@ -1,0 +1,50 @@
+title: RAAS Lab at UMD
+description: Robotics Algorithms & Autonomous Systems Lab, University of Maryland
+baseurl: ""
+url: "https://raaslab.org"
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - "*.sh"
+  - vendor/
+
+# Keep these sub-sites as-is (not processed by Jekyll root)
+keep_files:
+  - blog
+  - projects
+  - pubs
+  - vids
+  - icra2023-hmrs
+  - iros2023-raa
+  - rss2022
+
+# Markdown processor
+markdown: kramdown
+highlighter: rouge
+
+# jekyll-scholar settings
+scholar:
+  style: apa
+  locale: en
+
+  sort_by: year, month
+  order: descending
+
+  group_by: year
+  group_order: descending
+
+  source: ./pubs
+  bibliography: tokekar.bib
+
+  bibliography_template: bibtemplate
+
+  # Link to PDFs in pubs/ folder
+  bibtex_skip_fields:
+    - abstract
+    - file
+    - keywords
+
+plugins:
+  - jekyll-scholar

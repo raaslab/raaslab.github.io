@@ -1,0 +1,21 @@
+---
+---
+<li class="pub-entry mb-3">
+  <a href="pubs/{{ entry.key }}.pdf" class="pub-title"><strong>{{ entry.title }}</strong></a>
+  &thinsp;<a class="bib-toggle" data-bs-toggle="collapse"
+     href="#bib-{{ entry.key }}" role="button"
+     aria-expanded="false" aria-controls="bib-{{ entry.key }}">[bib]</a>
+  <br>
+  <span class="pub-authors">{{ entry.author }}</span><br>
+  <em class="pub-venue">
+    {%- if entry.journal %}{{ entry.journal }}{% endif -%}
+    {%- if entry.booktitle %}{{ entry.booktitle }}{% endif -%}
+    {%- if entry.howpublished %}{{ entry.howpublished }}{% endif -%}
+  </em>
+  {%- if entry.year %}, {{ entry.year }}.{% endif %}
+  <div class="collapse" id="bib-{{ entry.key }}">
+    <div class="card card-body bib-block mt-1 mb-1">
+      <pre class="mb-0">{{ entry.bibtex }}</pre>
+    </div>
+  </div>
+</li>

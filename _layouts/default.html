@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-24184650-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-24184650-3');
+  </script>
+
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="{{ '/raaslab.css' | relative_url }}">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/52dfdf54de.js" crossorigin="anonymous"></script>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://umd.edu/sites/umd.edu/files/favicon.ico" type="image/vnd.microsoft.icon">
+
+  <title>{% if page.title %}{{ page.title }} | {% endif %}RAAS Lab at UMD</title>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark navbar-custom">
+    <div class="container-fluid px-3">
+      <a class="navbar-brand" href="{{ '/' | relative_url }}">RAAS Lab</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+              aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link{% if page.url == '/' or page.url == '/index.html' %} active{% endif %}"
+               href="{{ '/' | relative_url }}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ '/#research' | relative_url }}">Research</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ '/#people' | relative_url }}">People</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link{% if page.url == '/publications.html' %} active{% endif %}"
+               href="{{ '/publications.html' | relative_url }}">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link{% if page.url == '/contact.html' %} active{% endif %}"
+               href="{{ '/contact.html' | relative_url }}">Contact</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/ptokekar" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/raaslab" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.youtube.com/channel/UCEBd5BIS0A_Q3KwQsW9-wsw" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE CONTENT ===== -->
+  {{ content }}
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer mt-5 py-3">
+    <div class="container text-center">
+      <small class="text-muted">
+        &copy; {{ 'now' | date: "%Y" }} RAAS Lab, University of Maryland &mdash;
+        <a href="https://cs.umd.edu">Department of Computer Science</a>
+      </small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
