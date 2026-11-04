@@ -10,7 +10,9 @@ exclude:
   - "*.sh"
   - vendor/
   - blog/
-  - projects/
+  - projects/Gemfile
+  - projects/Gemfile.lock
+  - projects/_config.yml
 
 # Keep these sub-sites as-is (not processed by Jekyll root)
 keep_files:
