@@ -1,0 +1,191 @@
+/* STeP project page. Bulma supplies the grid and type scale; this file sets the
+   academic-page fonts, the poster's navy/blue/orange, the interactive pipeline
+   figure and the benchmark gallery. */
+
+:root {
+  --ink: #1f2933;
+  --muted: #5c6773;
+  --line: #e1e6ec;
+  --page: #ffffff;
+  --alt: #f5f7fa;
+  --navy: #14213d;
+  --blue: #2b7bd6;
+  --orange: #d9772b;
+  --good: #2c7a4b;
+  --good-soft: #e5f2ea;
+  --bad: #b2412d;
+  --bad-soft: #f8e6e1;
+  --none: #6b7580;
+  --font-title: "Google Sans", "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Noto Sans Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--ink); background: var(--page); }
+.title, .subtitle { font-family: var(--font-title); color: var(--navy); }
+a { color: var(--blue); }
+a:hover { color: var(--navy); }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+.section-alt { background: var(--alt); }
+.section-lede { color: var(--muted); margin: -0.75rem auto 1.5rem; max-width: 60ch; }
+
+/* ------------------------------------------------------------ title block */
+.hero-body { padding-top: 4rem; padding-bottom: 2.5rem; }
+.publication-title { font-weight: 500; line-height: 1.25; text-wrap: balance; }
+.publication-title .brand { color: var(--orange); font-weight: 700; }
+.publication-authors { font-family: var(--font-title); font-size: 1.25rem; margin-top: 1.25rem; color: var(--ink); }
+.author-block { display: inline-block; margin: 0 0.15rem; }
+.publication-affiliation { font-family: var(--font-title); font-size: 1.1rem; color: var(--muted); margin-top: 0.4rem; }
+.publication-affiliation .eq-note { display: inline-block; margin-left: 1rem; font-size: 0.95rem; }
+
+.publication-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-top: 1.5rem; }
+.link-button {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  background: var(--navy); color: #fff; border-radius: 999px;
+  padding: 0.5rem 1.15rem; font-family: var(--font-title); font-size: 1rem;
+}
+.link-button:hover { background: #22345c; color: #fff; }
+.link-button svg { width: 1.05em; height: 1.05em; }
+.link-button.is-disabled { background: #9aa3ad; cursor: default; }
+.link-button small { font-size: 0.8em; opacity: 0.85; }
+
+.abstract { font-size: 1.05rem; line-height: 1.7; }
+
+/* ------------------------------------------------------------ pipeline */
+.pipeline { max-width: 1400px; margin: 0 auto; }
+.pipeline-figure {
+  position: relative; background: #fff; border: 1px solid var(--line); border-radius: 8px;
+  overflow: hidden; box-shadow: 0 1px 3px rgba(20, 33, 61, 0.06);
+}
+.pipeline-figure img { display: block; width: 100%; height: auto; }
+.pipeline-overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pipeline-overlay .dim { fill: var(--navy); opacity: 0; transition: opacity 0.35s ease; pointer-events: none; }
+.pipeline.has-stage .pipeline-overlay .dim { opacity: 0.5; }
+.ring { fill: none; stroke: var(--orange); stroke-width: 5; stroke-dasharray: 18 12; animation: march 1.2s linear infinite; pointer-events: none; }
+.flow { fill: none; stroke: var(--orange); stroke-width: 9; stroke-linecap: round; stroke-dasharray: 1 30; animation: flow 0.8s linear infinite; pointer-events: none; }
+.packet { fill: var(--orange); stroke: #fff; stroke-width: 4; pointer-events: none; }
+.hit { fill: transparent; cursor: pointer; }
+.hit:hover { fill: rgba(43, 123, 214, 0.1); }
+@keyframes march { to { stroke-dashoffset: -30; } }
+@keyframes flow { to { stroke-dashoffset: -31; } }
+
+.pipeline-steps {
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.5rem; margin-top: 1rem;
+}
+.step-btn {
+  display: flex; align-items: center; gap: 0.55rem; text-align: left;
+  background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 0.55rem 0.7rem;
+  font: 500 0.92rem var(--font-title); color: var(--navy); cursor: pointer; line-height: 1.25;
+}
+.step-btn:hover { border-color: var(--blue); }
+.step-btn .n {
+  flex: none; width: 1.6rem; height: 1.6rem; border-radius: 50%; display: grid; place-items: center;
+  background: var(--alt); color: var(--navy); font-size: 0.85rem; font-variant-numeric: tabular-nums;
+}
+.step-btn[aria-selected="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
+.step-btn[aria-selected="true"] .n { background: var(--orange); color: #fff; }
+
+.pipeline-caption {
+  margin-top: 0.75rem; background: #fff; border: 1px solid var(--line); border-radius: 6px;
+  padding: 0.9rem 1.1rem; min-height: 5.2rem;
+}
+.pipeline-caption h3 { font-family: var(--font-title); color: var(--navy); font-size: 1.1rem; margin-bottom: 0.25rem; }
+.pipeline-caption p { color: var(--ink); max-width: 95ch; }
+.pipeline-caption .hint { color: var(--muted); }
+.pipeline-controls { margin-top: 0.6rem; text-align: center; }
+.ctl {
+  font: 500 0.9rem var(--font-title); color: var(--navy); background: #fff; border: 1px solid var(--line);
+  border-radius: 999px; padding: 0.35rem 1.1rem; cursor: pointer;
+}
+.ctl:hover { border-color: var(--blue); }
+
+/* ------------------------------------------------------------ benchmark */
+.bench-intro { max-width: 860px; margin: 0 auto 1.5rem; font-size: 1.02rem; line-height: 1.65; }
+
+.results-wrap { max-width: 640px; margin: 0 auto 2.25rem; }
+.results { width: 100%; font-size: 0.95rem; }
+.results th { font-family: var(--font-title); font-weight: 500; color: var(--muted); border-bottom-width: 1px; }
+.results td, .results th { border-color: var(--line); }
+.results .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.results td.num .frac { color: var(--muted); font-size: 0.85em; margin-left: 0.35rem; }
+.results tr.group td { font-weight: 600; color: var(--navy); }
+.results tr.sub td:first-child { padding-left: 1.75rem; }
+.results tr.overall td { font-weight: 700; border-top: 2px solid var(--line); }
+.results tr.control td { color: var(--muted); }
+.results tr.click { cursor: pointer; }
+.results tr.click:hover td { background: var(--alt); }
+.results-note { color: var(--muted); font-size: 0.88rem; margin-top: 0.4rem; }
+
+.bench-tabs {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem;
+  position: sticky; top: 0; z-index: 5; background: var(--page); padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.bench-tab {
+  font: 500 0.98rem var(--font-title); color: var(--navy); background: #fff;
+  border: 1px solid var(--line); border-radius: 999px; padding: 0.4rem 1rem; cursor: pointer;
+  display: inline-flex; gap: 0.45rem; align-items: baseline;
+}
+.bench-tab:hover { border-color: var(--blue); }
+.bench-tab .count { font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.bench-tab[aria-selected="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
+.bench-tab[aria-selected="true"] .count { color: #c9d3e0; }
+
+.bench-desc { max-width: 860px; margin: 1.25rem auto 0.75rem; text-align: center; color: var(--ink); }
+.bench-filter { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem; margin-bottom: 1.25rem; }
+.chip-btn {
+  font: 0.85rem var(--font-body); color: var(--muted); background: var(--alt);
+  border: 1px solid transparent; border-radius: 4px; padding: 0.2rem 0.65rem; cursor: pointer;
+}
+.chip-btn:hover { color: var(--navy); }
+.chip-btn[aria-pressed="true"] { background: #fff; border-color: var(--blue); color: var(--navy); }
+
+.bench-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.card-run {
+  background: #fff; border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+  display: flex; flex-direction: column; min-width: 0;
+}
+.card-run video { display: block; width: 100%; aspect-ratio: 1280 / 576; background: #11151c; }
+.card-body { padding: 0.8rem 1rem 1rem; display: grid; gap: 0.5rem; }
+.card-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+.kind { font-size: 0.78rem; font-weight: 600; color: var(--blue); letter-spacing: 0.02em; margin-right: auto; }
+.pill { font-size: 0.78rem; font-weight: 600; border-radius: 4px; padding: 0.1rem 0.5rem; white-space: nowrap; }
+.pill.ok { background: var(--good-soft); color: var(--good); }
+.pill.no { background: var(--bad-soft); color: var(--bad); }
+.pill.na { background: var(--alt); color: var(--none); }
+.prompt { font-size: 1rem; line-height: 1.5; color: var(--ink); }
+.prompt::before { content: "\201C"; color: var(--muted); }
+.prompt::after { content: "\201D"; color: var(--muted); }
+.stl { margin: 0; padding: 0.5rem 0.65rem; background: var(--alt); border-radius: 4px; list-style: none; overflow-x: auto; }
+.stl li { font-family: var(--font-mono); font-size: 0.8rem; color: var(--navy); white-space: nowrap; line-height: 1.6; }
+.task-id { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+
+/* ------------------------------------------------------------ bibtex/footer */
+.bibtex { background: #fff; border: 1px solid var(--line); border-radius: 6px; font-family: var(--font-mono); font-size: 0.88rem; color: var(--navy); }
+.footer { background: var(--page); padding: 2rem 1.5rem 3rem; color: var(--muted); font-size: 0.9rem; }
+
+/* ------------------------------------------------------------ small screens */
+@media (max-width: 1023px) {
+  .pipeline-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 899px) {
+  .bench-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+  .section { padding: 2.5rem 1rem; }
+  .hero-body { padding: 2.5rem 1rem 1.5rem; }
+  .publication-title { font-size: 1.75rem !important; }
+  .publication-authors { font-size: 1.05rem; }
+  .pipeline-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bench-tabs { position: static; }
+  .abstract { text-align: left !important; }
+  .results { font-size: 0.85rem; }
+  .results td, .results th { padding: 0.45em 0.4em; }
+  .results td.num .frac { display: block; margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ring, .flow { animation: none; }
+}
